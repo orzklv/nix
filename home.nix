@@ -1,4 +1,4 @@
-{ pkgs, nodePackages, ... }: {
+{ pkgs, ... }: {
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "23.11";
@@ -31,7 +31,6 @@
         pkgs.mdbook
         pkgs.pcre
         pkgs.shfmt
-        nodePackages.vercel
         pkgs.wget
 
         # Environment
