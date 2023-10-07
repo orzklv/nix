@@ -27,6 +27,18 @@ for shell and environments like zsh (arch-linux, macos), powershell (windows). I
 - Key configurations
 - Software configurations
 
+## Install Nix (non-nixos / my way)
+
+You might be tempted to use the command that nixos.org recommends, 
+but will be better off using another path: the Determinate Nix installer. 
+The reasons are detailed on the Zero to Nix website. 
+It offers a cleaner install/uninstall experience, essential when trying something out. 
+To use it, type the following command.
+
+```shell
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
 ## Install (Automatic)
 
 This process can be tough and easy at the same time depending on yourself... If you prefer trusting me and let me do all the dirty stuff, then just run the install script located on the root location of the project like this:
