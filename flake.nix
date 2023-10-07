@@ -17,7 +17,7 @@
   # needs since it will be the one using the flake
   outputs = { nixpkgs, home-manager, ... }: {
     homeConfigurations = {
-      "<username>" = home-manager.lib.homeManagerConfiguration {
+      "sakhib" = home-manager.lib.homeManagerConfiguration {
         # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         modules = [ ./home.nix ];
