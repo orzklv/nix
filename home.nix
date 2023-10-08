@@ -75,7 +75,16 @@
         pkgs.pinentry_mac
 
     ];
+
+    # Tell it to map everything in the `config` directory in this
+    # repository to the `.config` in my home directory
+    file.".config" = { source = ./config; recursive = true; };
   };
+
+  # This is to ensure programs are using ~/.config rather than
+  # /Users/sakhib/Library/whatever
+  xdg.enable = true;
+
   programs.home-manager.enable = true;
   # I use fish, but bash and zsh work just as well here. This will setup
   # the shell to use home-manager properly on startup, neat!
