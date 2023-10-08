@@ -1,0 +1,24 @@
+name: Test CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v22
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+        extra_nix_config: |
+          experimental-features = nix-command flakes
+
+    - name: Build the flake
+      run: nix build .#homeConfigurations.sakhib.activationPackage --show-trace
+
+    - name: Test installation
+      run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib.activationPackage
