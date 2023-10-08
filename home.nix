@@ -75,7 +75,6 @@
 
       # GPG Signing
       pkgs.gnupg
-      # pkgs.pinentry
       pkgs.pinentry_mac
     ];
   };
