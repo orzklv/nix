@@ -15,9 +15,11 @@
 
         # Developer Mode
         pkgs.automake
+        pkgs.autoconf
         pkgs.clang-tools
         pkgs.cmake
         pkgs.cocoapods
+        pkgs.gcc
         pkgs.gh
         pkgs.git-lfs
         pkgs.gitoxide
@@ -59,6 +61,7 @@
         pkgs.jdk
         pkgs.bun
         pkgs.poetry
+        pkgs.python3
         pkgs.rustup
         pkgs.volta
         pkgs.zig
