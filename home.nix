@@ -148,12 +148,9 @@
       # Others (Developer)
       ports = "sudo lsof -PiTCP -sTCP:LISTEN";
       rit = "gitui";
-      gch = "git checkout";
       open = "xdg-open";
       xclip = "xclip -selection c";
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
-      git = "git -c http.sslVerify=false";
-      gc = "git -c http.sslVerify=false clone";
 
       # Updating system
       update = "sudo nixos-rebuild switch --upgrade";
@@ -352,10 +349,19 @@
     userName = "Sokhibjon Orzikulov";
     userEmail = "sakhib@orzklv.uz";
 
+    extraConfig = {
+      http.sslVerify = false;
+    };
+
     # GPG Signing
     signing = {
       signByDefault = true;
       key = "00D27BC687070683FBB9137C3C35D3AF0DA1D6A8";
+    };
+
+    # Aliases
+    aliases = {
+      ch = "checkout";
     };
 
     # Git ignores
