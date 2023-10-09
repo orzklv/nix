@@ -1,6 +1,6 @@
 [misc]
 # Don't ask for confirmations
-#assume_yes = true
+assume_yes = true
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
@@ -50,7 +50,6 @@
 
 [git]
 max_concurrency = 5
-# Additional git repositories to pull
 repos = [
    "~/.dots",
    "~/.keys",
