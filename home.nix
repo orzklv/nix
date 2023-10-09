@@ -22,6 +22,7 @@
       # Developer Mode
       pkgs.automake
       pkgs.autoconf
+      pkgs.cargo-update
       pkgs.clang-tools
       pkgs.cmake
       pkgs.cocoapods
@@ -156,6 +157,7 @@
 
       # Updating system
       update = "sudo nixos-rebuild switch --upgrade";
+      update-home="home-manager switch --flake ~/Developer/orzklv/nix";
 
       # Editing configurations
       config = "sudo hx /etc/nixos/configuration.nix";
@@ -165,9 +167,6 @@
 
     # Extra manually typed configs
     initExtra = ''
-      # Cargo binaries
-      . "$HOME/.cargo/env"
-
       # Global settings
       setopt AUTO_CD
       setopt BEEP
