@@ -7,7 +7,7 @@
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home directory
-    file.".config" = { source = ./config; recursive = true; };
+    file.".config" = { source = ../config; recursive = true; };
 
     # Packages to be installed on my machine
     packages = [
