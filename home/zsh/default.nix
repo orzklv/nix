@@ -63,6 +63,8 @@
       update = "sudo nixos-rebuild switch --upgrade";
       update-home="home-manager switch --flake ~/Developer/orzklv/nix";
 
+      nix-shell = "nix-shell --run zsh"
+
       # Editing configurations
       config = "sudo hx /etc/nixos/configuration.nix";
       hard-config = "sudo hx /etc/nixos/hardware-configuration.nix";
