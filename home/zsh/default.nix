@@ -55,7 +55,7 @@
       # Others (Developer)
       ports = "sudo lsof -PiTCP -sTCP:LISTEN";
       rit = "gitui";
-      # open = "xdg-open";
+
       xclip = "xclip -selection c";
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
 
@@ -180,6 +180,11 @@
       ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
       ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
       ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+
+      # Extra Aliases
+      if [[ "$(uname)" == "Linux" && -f /etc/nixos/configuration.nix ]]; then
+        alias open="xdg-open"
+      fi
     '';
   };
 }
