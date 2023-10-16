@@ -185,6 +185,13 @@
       if [[ "$(uname)" == "Linux" && -f /etc/nixos/configuration.nix ]]; then
         alias open="xdg-open"
       fi
+
+      # Volta
+      export VOLTA_HOME="$HOME/.volta"
+      export PATH="$VOLTA_HOME/bin:$PATH"
+
+      # Extra services
+      # here...
     '';
   };
 }
