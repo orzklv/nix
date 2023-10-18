@@ -17,6 +17,8 @@
 
         file-picker = {
           hidden = false;
+          git-ignore = true;
+          git-global = true;
         };
 
         statusline = {
@@ -50,11 +52,6 @@
         "C-right" = "jump_view_right";
         "C-up" = "jump_view_up";
         "C-down" = "jump_view_down";
-
-        "C-h" = "jump_view_left";
-        "C-j" = "jump_view_down";
-        "C-k" = "jump_view_up";
-        "C-l" = "jump_view_right";
 
         "C-r" = ":reload";
       };
