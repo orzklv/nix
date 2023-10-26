@@ -4,6 +4,7 @@
       ./zsh
       ./git
       ./helix
+      ./topgrade
   ];
 
   # This is required information for home-manager to do its job
