@@ -2,12 +2,14 @@
   programs.topgrade = {
     enable = true;
     settings = {
-      assume_yes = true;
-      disable = [
-        "bun"
-        "node"
-        "pnpm"
-      ];
+      misc = {
+        assume_yes = true;
+        disable = [
+          "bun"
+          "node"
+          "pnpm"
+        ];
+      };
       git = {
         max_concurrent = 5;
         repos = [
