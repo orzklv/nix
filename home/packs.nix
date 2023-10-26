@@ -19,6 +19,7 @@
       pkgs.mdbook
       pkgs.shfmt
       pkgs.wget
+      pkgs.zellij
 
       # Environment
       pkgs.bat
