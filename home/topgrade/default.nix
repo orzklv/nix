@@ -11,7 +11,7 @@
         ];
       };
       git = {
-        max_concurrent = 5;
+        max_concurrency = 5;
         repos = [
           "~./keys"
         ];
