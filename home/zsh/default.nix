@@ -52,6 +52,9 @@
       vi = "hx";
       vim = "hx";
 
+      # Zellij
+      hack = "zellij";
+
       # Others (Developer)
       ports = "sudo lsof -PiTCP -sTCP:LISTEN";
       rit = "gitui";
