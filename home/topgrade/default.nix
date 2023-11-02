@@ -13,7 +13,7 @@
       git = {
         max_concurrency = 5;
         repos = [
-          "~./keys"
+          "~/.keys"
         ];
       };
       commands = {
