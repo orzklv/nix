@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
 
@@ -14,7 +14,6 @@
           select = "underline";
         };
 
-
         file-picker = {
           hidden = false;
           git-ignore = true;
@@ -22,9 +21,9 @@
         };
 
         statusline = {
-          left = [ "mode" "spinner" ];
+          left = ["mode" "spinner"];
 
-          center = [ "file-name" ];
+          center = ["file-name"];
 
           right = [
             "diagnostics"
@@ -43,7 +42,6 @@
             select = "DUNGEON";
           };
         };
-
       };
 
       keys.normal = {

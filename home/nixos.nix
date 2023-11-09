@@ -1,10 +1,18 @@
-{ pkgs, ... }: {
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  outputs,
+  packages,
+  ...
+}: {
   # Modules
   imports = [
-      ./zsh
-      ./git
-      ./helix
-      ./topgrade
+    ./zsh
+    ./git
+    ./helix
+    ./topgrade
   ];
 
   nixpkgs = {
@@ -35,7 +43,6 @@
     };
   };
 
-
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "23.11";
@@ -44,10 +51,13 @@
 
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
-    file.".config" = { source = ../config; recursive = true; };
+    file.".config" = {
+      source = ../config;
+      recursive = true;
+    };
 
     # Packages to be installed on my machine
-    packages = import ./packs.nix { pkgs = pkgs; };
+    packages = import ./packs.nix {pkgs = pkgs;};
   };
 
   # This is to ensure programs are using ~/.config rather than

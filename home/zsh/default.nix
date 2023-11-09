@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./zoxide.nix
     ./starship.nix
@@ -64,7 +63,7 @@
 
       # Updating system
       update = "sudo nixos-rebuild switch --upgrade";
-      update-home="home-manager switch --flake ~/Developer/orzklv/nix";
+      update-home = "home-manager switch --flake ~/Developer/orzklv/nix";
 
       nix-shell = "nix-shell --run zsh";
 
