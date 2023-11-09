@@ -61,6 +61,9 @@
     packages = import ./packs/osx.nix {inherit pkgs;};
   };
 
+  # Setting default shell to zsh
+  shell = pkgs.zsh;
+
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever
   xdg.enable = true;
