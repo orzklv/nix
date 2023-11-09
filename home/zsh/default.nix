@@ -71,7 +71,7 @@
       # Editing configurations
       config = "sudo hx /etc/nixos/configuration.nix";
       hard-config = "sudo hx /etc/nixos/hardware-configuration.nix";
-      home-config = "sudo hx /etc/nixos/home-configuration.nix";
+      home-config = "sudo hx /etc/nixos/home-manager-configuration.nix";
     };
 
     # Extra manually typed configs
