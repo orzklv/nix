@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-  imports = [
-    ./gpg-agent.nix
-  ];
+  # imports = [
+  #   ./gpg-agent.nix
+  # ];
 
   programs.git = {
     enable = true;
