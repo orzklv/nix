@@ -105,7 +105,8 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "sakhib@Sokhibjons-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
+      # For all my OSX machines
+      "sakhib@apple" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
@@ -114,6 +115,14 @@
           ./home/apple.nix
         ];
       };
+
+      # Personal MacBook Pro
+      "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple";
+
+      # Home iMac
+      "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple";
+
+      # For my unstable non NixOS machines
       "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
@@ -123,6 +132,8 @@
           ./home/nixos.nix
         ];
       };
+
+      # For my stable non NixOS machines
       "sakhib@stable" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
