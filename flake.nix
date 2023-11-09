@@ -14,7 +14,7 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,7 +31,7 @@
 
   # In this context, outputs are mostly about getting home-manager what it
   # needs since it will be the one using the flake
-  outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -101,7 +101,7 @@
         "sakhib@Sokhibjons-MacBook-Pro.local" =
           home-manager.lib.homeManagerConfiguration {
             pkgs =
-              nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+              nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [
               # > Our main home-manager configuration file <
