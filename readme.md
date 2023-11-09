@@ -42,7 +42,26 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 
 ## Install Home Manager
 
-TODO: Add home manager installation
+Installation of Home Manager differs depending on what OS you use. For MacOS, it's just a simple command, however, for Linux, it's a bit more complicated.
+
+#### MacOS & Non NixOS
+
+```shell
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+``` 
+
+#### NixOS
+
+```shell
+# Unstable
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+sudo nix-channel --update
+
+# Stable 23.05
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+sudo nix-channel --update
+```
 
 ## Install my configurations
 
