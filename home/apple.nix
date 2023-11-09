@@ -13,6 +13,7 @@
     ./git
     ./helix
     ./topgrade
+    ./git/osx-agent.nix
   ];
 
   nixpkgs = {
