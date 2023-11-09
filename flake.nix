@@ -114,7 +114,16 @@
           ./home/apple.nix
         ];
       };
-      "sakhib@Berserk" = home-manager.lib.homeManagerConfiguration {
+      "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/nixos.nix
+        ];
+      };
+      "sakhib@stable" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
