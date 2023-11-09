@@ -31,8 +31,8 @@
       # Made with Rust
       top = "btop";
       cat = "bat";
-      ls = "exa";
-      sl = "exa";
+      ls = "eza";
+      sl = "eza";
       ps = "procs";
       grep = "rg";
       search = "rg";
