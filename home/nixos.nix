@@ -57,7 +57,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs.nix {pkgs = pkgs;};
+    packages = import ./packs/linux.nix {inherit pkgs;};
   };
 
   # This is to ensure programs are using ~/.config rather than

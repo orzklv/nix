@@ -56,7 +56,6 @@
 
   # GPG Signing
   pkgs.gnupg
-  pkgs.pinentry_mac
 
   # Selfmade programs
   pkgs.devcc
