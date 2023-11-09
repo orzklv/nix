@@ -59,10 +59,10 @@
 
     # Packages to be installed on my machine
     packages = import ./packs/osx.nix {inherit pkgs;};
-  };
 
-  # Setting default shell to zsh
-  defaultUserShell = pkgs.zsh;
+    # Set the default shell to the one you have enabled
+    sessionVariables.SHELL = pkgs.zsh;
+  };
 
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever

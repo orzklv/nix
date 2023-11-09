@@ -58,11 +58,11 @@
 
     # Packages to be installed on my machine
     packages = import ./packs/linux.nix {inherit pkgs;};
+
+    # Set the default shell to the one you have enabled
+    sessionVariables.SHELL = pkgs.zsh;
   };
-
-  # Setting default shell to zsh
-  defaultUserShell = pkgs.zsh;
-
+  
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever
   xdg.enable = true;
