@@ -78,6 +78,13 @@ home-manager switch --flake github:orzklv/nix#sakhib@unstable
 home-manager switch --flake github:orzklv/nix#sakhib@stable
 ```
 
+## Thanks
+
+- [Template](https://github.com/Misterio77/nix-starter-configs)
+- [Example](https://github.com/Misterio77/nix-config)
+- [Home Manager](https://github.com/nix-community/home-manager)
+- [Nix](https://nixos.org/)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](license) file for details.
