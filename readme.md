@@ -26,43 +26,38 @@ for shell and environments like zsh (arch-linux, macos), powershell (windows). I
 - Rust made replacements
 - Key configurations
 - Software configurations
+- Selfmade scripts
 
-## Install Nix (non-nixos / my way)
+## Install Nix
 
-You might be tempted to use the command that nixos.org recommends, 
-but will be better off using another path: the Determinate Nix installer. 
-The reasons are detailed on the Zero to Nix website. 
-It offers a cleaner install/uninstall experience, essential when trying something out. 
-To use it, type the following command.
+Before installing my configuration, we need to perform some dependency installation get nix ready in our machine.
 
 ```shell
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+# MacOS
+sh <(curl -L https://nixos.org/nix/install)
+
+# Linux
+sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
-## Install (Automatic)
+## Install Home Manager
 
-This process can be tough and easy at the same time depending on yourself... If you prefer trusting me and let me do all the dirty stuff, then just run the install script located on the root location of the project like this:
+TODO: Add home manager installation
 
-### Linux (MacOS & Arch Linux)
+## Install my configurations
+
+I do have many configurations written on my nix flake, however, for my macs, it actually detects automatically. However, for Linux machines, it's necessary to show which build to use:
 
 ```shell
-# I'm not evil, check the source code if you don't trust me!
-curl -fsSL https://dots.orzklv.uz/install.sh | sh
+# Apple Macs
+home-manager switch --flake github:orzklv/nix#sakhib@apple
+
+# Non NixOS
+home-manager switch --flake github:orzklv/nix#sakhib@unstable
+
+# NixOS
+home-manager switch --flake github:orzklv/nix#sakhib@stable
 ```
-
-### Windows NT
-
-```shell
-# Run this if it's your first time opening terminal
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-# Install configurations
-irm https://dots.orzklv.uz/install.ps1 | iex
-```
-
-## Install (Manual)
-
-Just copy-paste configs that you would need. You may use symlinks to prepend to the repository and then update the repo to get the latest changes.
 
 ## License
 

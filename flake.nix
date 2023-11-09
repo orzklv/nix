@@ -143,6 +143,9 @@
           ./home/nixos.nix
         ];
       };
+
+      # Kolyma server
+      "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
     };
   };
 }
