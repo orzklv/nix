@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check out the repository
@@ -18,7 +18,7 @@ jobs:
           experimental-features = nix-command flakes
 
     - name: Build the flake
-      run: nix build .#homeConfigurations.sakhib.activationPackage --show-trace
+      run: nix build .#homeConfigurations.sakhib@unstable.activationPackage --show-trace
 
     - name: Test installation
-      run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib.activationPackage
+      run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@unstable.activationPackage
