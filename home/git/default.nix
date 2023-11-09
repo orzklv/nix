@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./gpg-agent.nix
+  ];
+
   programs.git = {
     enable = true;
     lfs.enable = true;
