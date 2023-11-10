@@ -8,7 +8,7 @@
           "bun"
           "node"
           "pnpm"
-          "home-manager"
+          "home_manager"
         ];
       };
       brew = {
