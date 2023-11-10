@@ -8,16 +8,8 @@
           "bun"
           "node"
           "pnpm"
+          "home-manager"
         ];
-      };
-      git = {
-        max_concurrency = 5;
-        repos = [
-          "~/.keys"
-        ];
-      };
-      commands = {
-        "Volta" = "volta install node@lts pnpm prettier rome";
       };
       brew = {
         autoremove = true;
