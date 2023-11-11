@@ -5,9 +5,9 @@
 ,
 }:
 (writeShellApplication {
-  name = "devcc";
+  name = "google";
   runtimeInputs = [ ];
-  text = builtins.readFile ./devcc.sh;
+  text = builtins.readFile ./google.sh;
 })
   // {
   meta = with lib; {

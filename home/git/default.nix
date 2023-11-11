@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # imports = [
   #   ./gpg-agent.nix
   # ];

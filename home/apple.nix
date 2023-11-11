@@ -1,11 +1,10 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  config,
-  outputs,
-  packages,
-  ...
+{ inputs
+, lib
+, pkgs
+, config
+, outputs
+, packages
+, ...
 }: {
   # Modules
   imports = [
@@ -58,7 +57,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs/osx.nix {inherit pkgs;};
+    packages = import ./packs/osx.nix { inherit pkgs; };
 
     # Set the default shell to the one you have enabled
     sessionVariables.SHELL = pkgs.zsh;

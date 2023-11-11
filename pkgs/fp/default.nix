@@ -5,9 +5,9 @@
 ,
 }:
 (writeShellApplication {
-  name = "devcc";
+  name = "ghloc";
   runtimeInputs = [ ];
-  text = builtins.readFile ./devcc.sh;
+  text = builtins.readFile ./ghloc.sh;
 })
   // {
   meta = with lib; {

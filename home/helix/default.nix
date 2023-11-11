@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.helix = {
     enable = true;
 
@@ -21,9 +21,9 @@
         };
 
         statusline = {
-          left = ["mode" "spinner"];
+          left = [ "mode" "spinner" ];
 
-          center = ["file-name"];
+          center = [ "file-name" ];
 
           right = [
             "diagnostics"
