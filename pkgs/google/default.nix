@@ -2,11 +2,11 @@
 # devcc
 { lib
 , writeShellApplication
-,
+, xdg-utils
 }:
 (writeShellApplication {
   name = "google";
-  runtimeInputs = [ ];
+  runtimeInputs = [ xdg-utils ];
   text = builtins.readFile ./google.sh;
 })
   // {

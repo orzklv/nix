@@ -5,4 +5,5 @@
   devcc = pkgs.callPackage ./devcc { };
   google = pkgs.callPackage ./google { };
   ghloc = pkgs.callPackage ./ghloc { };
+  fp = pkgs.callPackage ./fp { };
 }

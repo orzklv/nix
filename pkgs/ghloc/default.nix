@@ -2,11 +2,11 @@
 # devcc
 { lib
 , writeShellApplication
-,
+, curl
 }:
 (writeShellApplication {
   name = "ghloc";
-  runtimeInputs = [ ];
+  runtimeInputs = [ curl ];
   text = builtins.readFile ./ghloc.sh;
 })
   // {

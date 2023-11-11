@@ -2,12 +2,12 @@
 # devcc
 { lib
 , writeShellApplication
-,
+, git
 }:
 (writeShellApplication {
-  name = "ghloc";
-  runtimeInputs = [ ];
-  text = builtins.readFile ./ghloc.sh;
+  name = "fp";
+  runtimeInputs = [ git ];
+  text = builtins.readFile ./fp.sh;
 })
   // {
   meta = with lib; {
