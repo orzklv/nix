@@ -42,11 +42,6 @@
 
   # Tech
   pkgs.deno
-  pkgs.go
-  pkgs.jdk
-  pkgs.bun
-  pkgs.poetry
-  pkgs.python3
   pkgs.rustup
   pkgs.volta
   pkgs.zig
