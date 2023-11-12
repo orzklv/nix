@@ -2,15 +2,16 @@
 # devcc
 { lib
 , writeShellApplication
+,
 }:
 (writeShellApplication {
-  name = "devcc";
+  name = "brewster";
   runtimeInputs = [ ];
-  text = builtins.readFile ./devcc.sh;
+  text = builtins.readFile ./brewster.sh;
 })
   // {
   meta = with lib; {
     licenses = licenses.mit;
-    platforms = platforms.all;
+    platforms = platforms.aarch64-darwin;
   };
 }

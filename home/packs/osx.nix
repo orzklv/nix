@@ -7,6 +7,7 @@ let
   additions = with pkgs; [
     # Add new packages here
     pkgs.pinentry_mac
+    pkgs.brewster
   ];
 in
 # Combine the original package list with the new packages
