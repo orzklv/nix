@@ -12,6 +12,9 @@
   // {
   meta = with lib; {
     licenses = licenses.mit;
-    platforms = platforms.aarch64-darwin;
+    platforms = [
+      platforms.aarch64-darwin
+      platforms.x86_64-darwin
+    ];
   };
 }
