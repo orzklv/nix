@@ -2,8 +2,8 @@
 
 # If no argument is supplied, exit
 if [ -z "$1" ]; then
-  echo "No argument supplied"
-  exit 1
+	echo "No argument supplied"
+	exit 1
 fi
 
 # Search for the argument
