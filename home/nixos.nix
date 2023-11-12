@@ -57,9 +57,6 @@
 
     # Packages to be installed on my machine
     packages = import ./packs/linux.nix { inherit pkgs; };
-
-    # Set the default shell to the one you have enabled
-    sessionVariables.SHELL = pkgs.zsh;
   };
 
   # Let's enable home-manager
