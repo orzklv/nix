@@ -57,7 +57,7 @@
       # Others (Developer)
       ports = "sudo lsof -PiTCP -sTCP:LISTEN";
       rit = "gitui";
-
+      dotenv = "eval export $(cat .env)";
       xclip = "xclip -selection c";
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
 
