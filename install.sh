@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Ensure the script is run as root
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+# if [ "$EUID" -ne 0 ]
+#   then echo "Please run as root"
+#   exit
+# fi
 
 # Install Nix
 echo "Installing Nix..."
