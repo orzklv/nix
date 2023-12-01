@@ -28,6 +28,14 @@
       ":q" = "exit";
       ssh-hosts = "grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'";
 
+      # Polite motherfucker!
+      # Do you speak it?!
+      please = "sudo";
+      move = "mv";
+      copy = "cp";
+      remove = "rm";
+      edit = "hx";
+
       # Made with Rust
       top = "btop";
       cat = "bat";
