@@ -34,6 +34,7 @@
       move = "mv";
       copy = "cp";
       remove = "rm";
+      list = "ls";
       edit = "hx";
 
       # Made with Rust
