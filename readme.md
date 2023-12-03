@@ -78,8 +78,6 @@ home-manager switch --flake github:orzklv/nix#sakhib@unstable
 home-manager switch --flake github:orzklv/nix#sakhib@stable
 ```
 
-some
-
 ## Thanks
 
 - [Template](https://github.com/Misterio77/nix-starter-configs)
