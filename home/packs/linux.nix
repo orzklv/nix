@@ -6,7 +6,7 @@ let
   # Additional packages to add
   additions = with pkgs; [
     # Add new packages here
-    # pkgs.volta
+    docker-compose
     pinentry
   ];
 in
