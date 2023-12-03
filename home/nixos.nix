@@ -55,6 +55,9 @@
       recursive = true;
     };
 
+    # Media folder to symlink /media
+    file."Media" = config.lib.file.mkOutOfStoreSymlink /media;
+
     # Packages to be installed on my machine
     packages = import ./packs/linux.nix { inherit pkgs; };
   };
