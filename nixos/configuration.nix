@@ -169,6 +169,7 @@
         discord
         github-desktop
         jetbrains-toolbox
+        spotify
       ];
     };
   };
