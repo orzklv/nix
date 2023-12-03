@@ -51,7 +51,7 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 ``` 
 
-#### NixOS
+#### NixOS (if you want only home-manager configs)
 
 ```shell
 # Unstable
@@ -65,6 +65,8 @@ sudo nix-channel --update
 
 ## Install my configurations
 
+### Home Manager configs
+
 I do have many configurations written on my nix flake, however, for my macs, it actually detects automatically. However, for Linux machines, it's necessary to show which build to use:
 
 ```shell
@@ -76,6 +78,18 @@ home-manager switch --flake github:orzklv/nix#sakhib@unstable
 
 # NixOS
 home-manager switch --flake github:orzklv/nix#sakhib@stable
+```
+
+### NixOS & Home Manager configs
+
+I've written ready configurations for my machines that are using NixOS, so here you are:
+
+```shell
+# Berserk (Home Gaming)
+sudo nixos-rebuild --flake github:orzklv/nix#Berserk --upgrade
+
+# Cyka (Work Station)
+echo TBA
 ```
 
 ## Thanks
