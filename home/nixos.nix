@@ -12,6 +12,7 @@
     ./git
     ./helix
     ./topgrade
+    ./git/linux-agent.nix
   ];
 
   nixpkgs = {

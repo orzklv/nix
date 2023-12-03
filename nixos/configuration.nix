@@ -211,7 +211,6 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "qt";
   };
 
   # Open ports in the firewall.

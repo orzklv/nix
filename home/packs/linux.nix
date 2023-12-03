@@ -8,6 +8,7 @@ let
     # Add new packages here
     docker-compose
     pinentry
+    kwalletcli
   ];
 in
 # Combine the original package list with the new packages
