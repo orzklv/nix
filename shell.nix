@@ -14,6 +14,7 @@
       nix
       nil
       nixpkgs-fmt
+      git
     ];
   };
 }

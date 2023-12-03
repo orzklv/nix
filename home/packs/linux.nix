@@ -6,6 +6,8 @@ let
   # Additional packages to add
   additions = with pkgs; [
     # Add new packages here
+    # pkgs.volta
+    pinentry
   ];
 in
 # Combine the original package list with the new packages
