@@ -174,6 +174,9 @@
     };
   };
 
+  # Don't ask for password
+  security.sudo.wheelNeedsPassword = false;
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
