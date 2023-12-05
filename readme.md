@@ -85,11 +85,11 @@ home-manager switch --flake github:orzklv/nix#sakhib@stable
 I've written ready configurations for my machines that are using NixOS, so here you are:
 
 ```shell
-# Berserk (Home Gaming)
-sudo nixos-rebuild --flake github:orzklv/nix#Berserk --upgrade
+# Guts (Home Gaming)
+sudo nixos-rebuild --flake github:orzklv/nix#Guts --upgrade
 
-# Cyka (Work Station)
-echo TBA
+# Griffith (Work Station)
+sudo nixos-rebuild --flake github:orzklv/nix#Griffith --upgrade
 ```
 
 ## Thanks
