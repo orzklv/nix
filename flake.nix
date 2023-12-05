@@ -99,7 +99,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
-            ./nixos/berserk/configuration.nix
+            ./nixos/guts/configuration.nix
           ];
         };
         "Griffith" = nixpkgs.lib.nixosSystem {
