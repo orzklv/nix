@@ -181,7 +181,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      sakhib = import ../home/nixos.nix;
+      sakhib = import ../../home/nixos.nix;
     };
   };
 
