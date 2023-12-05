@@ -91,7 +91,6 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = ["nvidia"];
     
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
@@ -189,7 +188,6 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
-    enableNvidia = true;
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
