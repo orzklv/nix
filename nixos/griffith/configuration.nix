@@ -152,15 +152,6 @@
     ];
   };
 
-  # Configuring KDE Plasma Desktop Environment.
-  programs.plasma.workspace= {
-    clickItemTo = "select";
-    tooltipDelay = 5;
-    theme = "breeze-dark";
-    colorscheme = "BreezeDark";
-  };
-
-
   users.users = {
     sakhib = {
       isNormalUser = true;
