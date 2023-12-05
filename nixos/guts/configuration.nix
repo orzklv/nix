@@ -82,7 +82,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-    # Set your time zone.
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  # Set your time zone.
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
