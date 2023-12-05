@@ -176,6 +176,7 @@
         github-desktop
         jetbrains-toolbox
         spotify
+        steam
       ];
     };
   };
