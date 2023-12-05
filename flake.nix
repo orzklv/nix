@@ -151,7 +151,7 @@
           ];
         };
 
-        # Kolyma server
+        # Kolyma servers
         "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
       };
     };
