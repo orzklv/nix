@@ -1,36 +1,28 @@
 { config, lib, pkgs, ... }:
 {
-  # Configure Nginx
-  services.nginx = {
-    # Enable the Nginx web server
+  # Configure Caddy
+  services.caddy = {
+    # Enable the Caddy web server
     enable = true;
 
     # Define a simple virtual host
     virtualHosts = {
+        # # Specify the root directory for the website
       "localhost" = {
-        # Enable and force SSL
-        enableACME = true;
-        forceSSL = true;
+        extraConfig = ''
+          encode gzip
+          file_server
+          root * /var/www/localhost
+        '';
 
-        # Specify the root directory for the website
-        root = "/var/www/localhost";
-
-        # Basic configuration for serving static files
-        locations."/" = {
-          extraConfig = ''
-            index index.html;
-          '';
-        };
+        serverAlias = [ 
+          "172.16.9.179"
+          "192.168.0.2"
+        ];
       };
     };
   };
 
   # Ensure the firewall allows HTTP and HTTPS traffic
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-
-  # The following line is optional and only necessary if you are using Let's Encrypt
-  # for SSL certificates
-  # services.nginx.recommendedGzipSettings = true;
-
-  # Additional system-wide settings can go here
 }
