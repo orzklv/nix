@@ -31,4 +31,4 @@
   # services.nginx.recommendedGzipSettings = true;
 
   # Additional system-wide settings can go here
-};
+}
