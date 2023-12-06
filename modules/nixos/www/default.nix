@@ -1,4 +1,4 @@
 {
   # List your web servers here
-  work = import ./work;
+  work = import ./work.nix;
 }
