@@ -14,11 +14,6 @@
           file_server
           root * /var/www/localhost
         '';
-
-        serverAlias = [ 
-          "172.16.9.179"
-          "192.168.0.2"
-        ];
       };
     };
   };
