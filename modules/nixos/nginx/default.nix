@@ -1,24 +1,23 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Enable the Nginx web server
-  services.nginx.enable = true;
-
   # Configure Nginx
   services.nginx = {
+    # Enable the Nginx web server
+    enable = true;
+
     # Define a simple virtual host
-    virtualHosts."localhost" = {
-      # Enable this virtual host
-      enable = true;
+    virtualHosts = {
+      "localhost" = {
+        # Specify the root directory for the website
+        root = "/var/www/localhost";
 
-      # Specify the root directory for the website
-      root = "/var/www/localhost";
-
-      # Basic configuration for serving static files
-      locations."/" = {
-        extraConfig = ''
-          index index.html;
-        '';
+        # Basic configuration for serving static files
+        locations."/" = {
+          extraConfig = ''
+            index index.html;
+          '';
+        };
       };
     };
   };
