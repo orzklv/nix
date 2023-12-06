@@ -8,6 +8,10 @@
     # Define a simple virtual host
     virtualHosts = {
       "localhost" = {
+        # Enable and force SSL
+        enableACME = true;
+        forceSSL = true;
+
         # Specify the root directory for the website
         root = "/var/www/localhost";
 
