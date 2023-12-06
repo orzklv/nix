@@ -7,8 +7,14 @@
 
     # Define a simple virtual host
     virtualHosts = {
-      # Specify the root directory for the website
-      "localhost" = {
+      "192.168.0.2" = {
+        extraConfig = ''
+          root * /var/www/localhost
+          file_server
+        '';
+      };
+
+      "172.16.9.179" = {
         extraConfig = ''
           root * /var/www/localhost
           file_server

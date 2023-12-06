@@ -54,7 +54,7 @@
       korgi = "cargo";
 
       # Refresh
-      refresh = "sudo nixos-rebuild switch";
+      refresh = "sudo nix store gc && sudo nixos-rebuild switch --flake github:orzklv/nix --upgrade";
 
       # Vim
       vi = "hx";
