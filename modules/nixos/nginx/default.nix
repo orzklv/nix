@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   # Configure Nginx
   services.nginx = {
