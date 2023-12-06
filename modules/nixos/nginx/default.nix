@@ -7,12 +7,11 @@
 
     # Define a simple virtual host
     virtualHosts = {
-        # # Specify the root directory for the website
+      # Specify the root directory for the website
       "localhost" = {
         extraConfig = ''
-          encode gzip
-          file_server
           root * /var/www/localhost
+          file_server
         '';
       };
     };
