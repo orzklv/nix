@@ -120,11 +120,11 @@
     
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
-      sddm.enable = true;
+      gdm.enable = true;
     };
 
     desktopManager = {
-      plasma5.enable = true;
+      gnome.enable = true;
     };
 
     # Configure keymap in X11
@@ -174,8 +174,20 @@
     pathsToLink = [ "/share/zsh" ];
     systemPackages = with pkgs; [
       inputs.home-manager.packages.${pkgs.system}.default
+      gnomeExtensions.appindicator
     ];
+    gnome.excludePackages = (with pkgs; [
+      # gnome-photos
+      # gnome-tour
+    ]) ++ (with pkgs.gnome; [
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+    ]);
   };
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   users.users = {
     sakhib = {
