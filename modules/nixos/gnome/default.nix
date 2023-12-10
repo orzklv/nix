@@ -28,6 +28,7 @@
     services.xserver = {
       layout = "us";
       xkbVariant = "";
+      excludePackages = [ pkgs.xterm ];
     };
 
     # Make sure opengl is enabled
