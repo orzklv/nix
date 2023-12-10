@@ -6,3 +6,6 @@ update-impure:
 
 init:
     nix run github:nix-community/home-manager -- switch --flake .
+
+format:
+    nixpkgs-fmt .
