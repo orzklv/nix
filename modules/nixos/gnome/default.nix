@@ -55,7 +55,7 @@
 
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
-      pkgs.dconf-editor
+      gnome.dconf-editor
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
