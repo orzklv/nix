@@ -20,6 +20,7 @@
   pkgs.shfmt
   pkgs.wget
   pkgs.zellij
+  pkgs.direnv
 
   # Environment
   pkgs.bat

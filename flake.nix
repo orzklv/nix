@@ -68,6 +68,30 @@
           inherit system;
           config.allowUnfree = true;
         });
+
+      # Define a development shell for each system
+      devShellFor = system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        pkgs.mkShell {
+          NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
+          buildInputs = with pkgs; [
+            nix
+            nil
+            nixpkgs-fmt
+            git
+          ];
+
+          # Set environment variables, if needed
+          shellHook = ''
+            # export SOME_VAR=some_value
+            echo "Welcome to Sokhibjon's dotfiles!"
+          '';
+        };
     in
     {
       inherit lib;
@@ -127,7 +151,7 @@
 
         # My Apple devices
         "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
-        "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple";        # Home iMac
+        "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Home iMac
 
         # For my unstable non NixOS machines
         "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
@@ -154,5 +178,8 @@
         # Kolyma servers
         "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
       };
+
+      # Development shells
+       devShell = lib.mapAttrs (system: _: devShellFor system) (lib.genAttrs systems {});
     };
 }

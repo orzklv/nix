@@ -54,7 +54,7 @@
       korgi = "cargo";
 
       # Refresh
-      refresh = "sudo nix store gc && sudo nixos-rebuild switch --flake github:orzklv/nix --upgrade";
+      clean = "nix store gc && nix-collect-garbage -d";
 
       # Vim
       vi = "hx";
@@ -71,15 +71,11 @@
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
 
       # Updating system
-      update = "sudo nixos-rebuild switch --upgrade";
-      update-home = "home-manager switch --flake ~/Developer/orzklv/nix";
+      update = "home-manager switch --flake github:orzklv/nix --upgrade";
+      update-all = "sudo nixos-rebuild switch --flake github:orzklv/nix --upgrade";
 
       nix-shell = "nix-shell --run zsh";
-
-      # Editing configurations
-      config = "sudo hx /etc/nixos/configuration.nix";
-      hard-config = "sudo hx /etc/nixos/hardware-configuration.nix";
-      home-config = "sudo hx /etc/nixos/home-manager-configuration.nix";
+      "nix develop" = "nix develop -c \"$SHELL\"";
     };
 
     # Extra manually typed configs

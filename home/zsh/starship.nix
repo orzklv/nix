@@ -2,6 +2,6 @@
   # Prettier terminal prompt
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = true;  
   };
 }
