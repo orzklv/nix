@@ -153,14 +153,12 @@
       extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
       packages = with pkgs; [
         firefox
-        kate
         vscode
         telegram-desktop
         discord
         github-desktop
         jetbrains-toolbox
         spotify
-        steam
       ];
     };
   };
