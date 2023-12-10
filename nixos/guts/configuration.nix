@@ -10,7 +10,8 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules.bootloader
+    outputs.nixosModules.gnome
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -68,28 +69,7 @@
     };
   };
 
-  # Bootloader.
-  boot.loader = {
-    # systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-      theme = pkgs.stdenv.mkDerivation {
-        pname = "distro-grub-themes";
-        version = "3.1";
-        src = pkgs.fetchFromGitHub {
-          owner = "AdisonCavani";
-          repo = "distro-grub-themes";
-          rev = "v3.1";
-          hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
-        };
-        installPhase = "cp -r customize/nixos $out";
-      };
-    };
-  };
+  
 
   networking.hostName = "Guts"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -113,31 +93,8 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    videoDrivers = ["nvidia"];
-    
-    # Enable the KDE Plasma Desktop Environment.
-    displayManager = {
-      gdm.enable = true;
-    };
-
-    desktopManager = {
-      gnome.enable = true;
-    };
-
-    # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Make sure opengl is enabled
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  # NVIDIA driver support
+  services.xserver.videoDrivers = ["nvidia"];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -174,11 +131,9 @@
     pathsToLink = [ "/share/zsh" ];
     systemPackages = with pkgs; [
       inputs.home-manager.packages.${pkgs.system}.default
-      gnomeExtensions.appindicator
     ];
     gnome.excludePackages = (with pkgs; [
-      # gnome-photos
-      # gnome-tour
+      xterm
     ]) ++ (with pkgs.gnome; [
       tali # poker game
       iagno # go game
@@ -186,8 +141,6 @@
       atomix # puzzle game
     ]);
   };
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   users.users = {
     sakhib = {

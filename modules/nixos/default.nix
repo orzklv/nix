@@ -3,4 +3,6 @@
 {
   # List your module files here
   www = import ./www;
+  gnome = import ./gnome;
+  bootloader = import ./bootloader;
 }
