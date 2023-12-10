@@ -132,14 +132,6 @@
     systemPackages = with pkgs; [
       inputs.home-manager.packages.${pkgs.system}.default
     ];
-    gnome.excludePackages = (with pkgs; [
-      xterm
-    ]) ++ (with pkgs.gnome; [
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
   };
 
   users.users = {
@@ -171,18 +163,6 @@
     users = {
       # Import your home-manager configuration
       sakhib = import ../../home/nixos.nix;
-    };
-  };
-
-  # Enabling virtualbox
-  virtualisation.virtualbox = {
-    host = {
-      enable = true;
-      enableExtensionPack = true;
-    };
-    guest = {
-      enable = true;
-      x11 = true;
     };
   };
 

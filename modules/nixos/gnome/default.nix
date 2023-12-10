@@ -22,22 +22,12 @@
 
     # Exclude some packages from the Gnome desktop environment.
     environment.gnome.excludePackages = (with pkgs; [
-      gnome-photos
-      gnome-tour
+      xterm
     ]) ++ (with pkgs.gnome; [
-      cheese # webcam tool
-      gnome-music
-      gedit # text editor
-      epiphany # web browser
-      geary # email reader
-      gnome-characters
       tali # poker game
       iagno # go game
       hitori # sudoku game
       atomix # puzzle game
-      yelp # Help view
-      gnome-contacts
-      gnome-initial-setup
     ]);
 
     # Setting daemons
@@ -50,6 +40,9 @@
     environment.systemPackages = with pkgs; [
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.gsconnect
+      gnomeExtensions.mpris-indicator-button
     ];
   };
 }
