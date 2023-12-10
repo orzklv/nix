@@ -46,6 +46,7 @@
       iagno # go game
       hitori # sudoku game
       atomix # puzzle game
+      epiphany # web browser
     ]);
 
     # Setting daemons
