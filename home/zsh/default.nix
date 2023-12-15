@@ -69,6 +69,7 @@
       dotenv = "eval export $(cat .env)";
       xclip = "xclip -selection c";
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
+      "docker ps --all" = "docker ps --all --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\"";
 
       # Updating system
       update = "home-manager switch --flake github:orzklv/nix --upgrade";
