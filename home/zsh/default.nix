@@ -69,14 +69,14 @@
       dotenv = "eval export $(cat .env)";
       xclip = "xclip -selection c";
       speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
-      "docker ps --all" = "docker ps --all --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\"";
+      dockfm = "docker ps --all --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\"";
 
       # Updating system
       update = "home-manager switch --flake github:orzklv/nix --upgrade";
       update-all = "sudo nixos-rebuild switch --flake github:orzklv/nix --upgrade";
 
       nix-shell = "nix-shell --run zsh";
-      "nix develop" = "nix develop -c \"$SHELL\"";
+      ndm = "nix develop -c \"$SHELL\"";
     };
 
     # Extra manually typed configs
