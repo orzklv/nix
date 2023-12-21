@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # Configure Caddy
   services.caddy = {
     # Enable the Caddy web server
@@ -24,5 +28,5 @@
   };
 
   # Ensure the firewall allows HTTP and HTTPS traffic
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [80 443];
 }

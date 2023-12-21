@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   config = {
     # Enable the X11 windowing system.
     services.xserver.enable = true;
@@ -21,14 +21,13 @@
         pkgs.gsettings-desktop-schemas
         pkgs.gnome.gnome-shell
       ];
-
     };
 
     # Configure keymap in X11
     services.xserver = {
       layout = "us";
       xkbVariant = "";
-      excludePackages = [ pkgs.xterm ];
+      excludePackages = [pkgs.xterm];
     };
 
     # Make sure opengl is enabled
@@ -39,18 +38,20 @@
     };
 
     # Exclude some packages from the Gnome desktop environment.
-    environment.gnome.excludePackages = (with pkgs; [
-      xterm
-    ]) ++ (with pkgs.gnome; [
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-      epiphany # web browser
-    ]);
+    environment.gnome.excludePackages =
+      (with pkgs; [
+        xterm
+      ])
+      ++ (with pkgs.gnome; [
+        tali # poker game
+        iagno # go game
+        hitori # sudoku game
+        atomix # puzzle game
+        epiphany # web browser
+      ]);
 
     # Setting daemons
-    services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
     # Enable the DConf configuration system.
     programs.dconf.enable = true;

@@ -31,162 +31,159 @@
 
   # In this context, outputs are mostly about getting home-manager what it
   # needs since it will be the one using the flake
-  outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    , flake-utils
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    flake-utils,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-      # Legacy packages are needed for home-manager
-      lib = nixpkgs.lib // home-manager.lib;
+    # Legacy packages are needed for home-manager
+    lib = nixpkgs.lib // home-manager.lib;
 
-      # Supported systems for your flake packages, shell, etc.
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
+    # Supported systems for your flake packages, shell, etc.
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
 
-      # This is a function that generates an attribute by calling a function you
-      # pass to it, with each system as an argument
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      # This is a function that generates an attribute by calling a function you
-      # pass to it, with each system as an argument
-      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
 
-      # This is a function that generates an attribute by calling a function you
-      # pass to it, with each system as an argument
-      pkgsFor = lib.genAttrs systems (system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        });
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    pkgsFor = lib.genAttrs systems (system:
+      import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
 
-      # Define a development shell for each system
-      devShellFor = system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-        pkgs.mkShell {
-          NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
-          buildInputs = with pkgs; [
-            nix
-            nil
-            nixpkgs-fmt
-            git
-          ];
-
-          # Set environment variables, if needed
-          shellHook = ''
-            # export SOME_VAR=some_value
-            echo "Welcome to Sokhibjon's dotfiles!"
-          '';
-        };
+    # Define a development shell for each system
+    devShellFor = system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
-    {
-      inherit lib;
+      pkgs.mkShell {
+        NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
+        buildInputs = with pkgs; [
+          nix
+          nil
+          nixpkgs-fmt
+          git
+        ];
 
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
-
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
-
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        "Guts" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./nixos/guts/configuration.nix
-          ];
-        };
-        "Griffith" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./nixos/griffith/configuration.nix
-          ];
-        };
-        "Casca" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./nixos/casca/configuration.nix
-          ];
-        };
+        # Set environment variables, if needed
+        shellHook = ''
+          # export SOME_VAR=some_value
+          echo "Welcome to Sokhibjon's dotfiles!"
+        '';
       };
+  in {
+    inherit lib;
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        # For all my OSX machines
-        "sakhib@apple" = home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/apple.nix
-          ];
-        };
+    # Your custom packages
+    # Acessible through 'nix build', 'nix shell', etc
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
 
-        # My Apple devices
-        "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
-        "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Home iMac
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter =
+      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-        # For my unstable non NixOS machines
-        "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/nixos.nix
-          ];
-        };
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
 
-        # For my stable non NixOS machines
-        "sakhib@stable" = home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/nixos.nix
-          ];
-        };
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
 
-        # Kolyma servers
-        "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      "Guts" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/guts/configuration.nix
+        ];
       };
-
-      # Development shells
-       devShell = lib.mapAttrs (system: _: devShellFor system) (lib.genAttrs systems {});
+      "Griffith" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/griffith/configuration.nix
+        ];
+      };
+      "Casca" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/casca/configuration.nix
+        ];
+      };
     };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      # For all my OSX machines
+      "sakhib@apple" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/apple.nix
+        ];
+      };
+
+      # My Apple devices
+      "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
+      "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Home iMac
+
+      # For my unstable non NixOS machines
+      "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/nixos.nix
+        ];
+      };
+
+      # For my stable non NixOS machines
+      "sakhib@stable" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/nixos.nix
+        ];
+      };
+
+      # Kolyma servers
+      "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
+    };
+
+    # Development shells
+    devShell = lib.mapAttrs (system: _: devShellFor system) (lib.genAttrs systems {});
+  };
 }

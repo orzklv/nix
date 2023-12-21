@@ -1,14 +1,15 @@
 # Cleans up dev space
 # devcc
-{ lib
-, writeShellApplication
+{
+  lib,
+  writeShellApplication,
 }:
 (writeShellApplication {
   name = "devcc";
-  runtimeInputs = [ ];
+  runtimeInputs = [];
   text = builtins.readFile ./devcc.sh;
 })
-  // {
+// {
   meta = with lib; {
     licenses = licenses.mit;
     platforms = platforms.all;

@@ -1,10 +1,11 @@
-{ inputs
-, lib
-, pkgs
-, config
-, outputs
-, packages
-, ...
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  outputs,
+  packages,
+  ...
 }: {
   # Modules
   imports = [
@@ -57,7 +58,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs/osx.nix { inherit pkgs; };
+    packages = import ./packs/osx.nix {inherit pkgs;};
   };
 
   # This is to ensure programs are using ~/.config rather than

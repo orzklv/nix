@@ -1,10 +1,11 @@
-{ inputs
-, lib
-, pkgs
-, config
-, outputs
-, packages
-, ...
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  outputs,
+  packages,
+  ...
 }: {
   # Modules
   imports = [
@@ -62,7 +63,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs/linux.nix { inherit pkgs; };
+    packages = import ./packs/linux.nix {inherit pkgs;};
   };
 
   # Let's enable home-manager
