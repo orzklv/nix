@@ -7,7 +7,7 @@
   packages,
   ...
 }: {
-  # Modules
+  # Home Manager modules
   imports = [
     ./zsh
     ./git
@@ -18,7 +18,7 @@
     ../modules/home-manager/packages
   ];
 
-  packages.isMacOS = false;
+  packages.isMacOS = true;
 
   nixpkgs = {
     # You can add overlays here
@@ -45,6 +45,8 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
+      # Let the system use fucked up programs
+      allowBroken = true;
     };
   };
 
@@ -60,9 +62,6 @@
       source = ../config;
       recursive = true;
     };
-
-    # Packages to be installed on my machine
-    # packages = import ./packs/osx.nix {inherit pkgs;};
   };
 
   # This is to ensure programs are using ~/.config rather than

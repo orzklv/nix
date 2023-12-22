@@ -1,6 +1,6 @@
 {pkgs, ...}: [
     # Add new packages here
-    docker-compose
-    pinentry
-    kwalletcli
+    pkgs.docker-compose
+    pkgs.pinentry
+    pkgs.kwalletcli
 ]

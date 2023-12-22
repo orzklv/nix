@@ -45,6 +45,8 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
+      # Let the system use fucked up programs
+      allowBroken = true;
     };
   };
 
@@ -65,9 +67,6 @@
     file."Media" = {
       source = config.lib.file.mkOutOfStoreSymlink "/media";
     };
-
-    # Packages to be installed on my machine
-    # packages = import ./packs/linux.nix {inherit pkgs;};
   };
 
   # Let's enable home-manager
