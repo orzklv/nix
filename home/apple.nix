@@ -14,7 +14,11 @@
     ./helix
     ./topgrade
     ./git/osx-agent.nix
+
+    ../modules/home-manager/packages
   ];
+
+  packages.isMacOS = false;
 
   nixpkgs = {
     # You can add overlays here
@@ -58,7 +62,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs/osx.nix {inherit pkgs;};
+    # packages = import ./packs/osx.nix {inherit pkgs;};
   };
 
   # This is to ensure programs are using ~/.config rather than

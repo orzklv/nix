@@ -14,7 +14,11 @@
     ./helix
     ./topgrade
     ./git/linux-agent.nix
+
+    ../modules/home-manager/packages
   ];
+
+  packages.isMacOS = false;
 
   nixpkgs = {
     # You can add overlays here
@@ -63,7 +67,7 @@
     };
 
     # Packages to be installed on my machine
-    packages = import ./packs/linux.nix {inherit pkgs;};
+    # packages = import ./packs/linux.nix {inherit pkgs;};
   };
 
   # Let's enable home-manager
