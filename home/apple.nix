@@ -13,6 +13,7 @@
     ./helix
     ./topgrade
     ./git/osx-agent.nix
+    outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages
   ];
 

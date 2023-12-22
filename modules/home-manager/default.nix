@@ -3,4 +3,5 @@
 {
   # List your module files here
   packages = import ./packages;
+  neovim = import ./neovim;
 }
