@@ -7,17 +7,16 @@
   packages,
   ...
 }: {
-  # Home Manager modules
   imports = [
     ./zsh
     ./git
     ./helix
     ./topgrade
     ./git/osx-agent.nix
-
-    ../modules/home-manager/packages
+    outputs.homeManagerModules.packages
   ];
 
+  # Module features
   packages.isMacOS = true;
 
   nixpkgs = {
