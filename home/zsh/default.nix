@@ -55,11 +55,7 @@
 
       # Refresh
       clean = "nix store gc && nix-collect-garbage -d";
-
-      # Vim
-      vi = "hx";
-      vim = "hx";
-
+      
       # Zellij
       hack = "zellij";
 
