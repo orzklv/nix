@@ -1,5 +1,5 @@
 return {
-    colorscheme = "catppuccin",
+    colorscheme = "oxocarbon",
   
     options = {
       opt = {
@@ -13,8 +13,8 @@ return {
   
     plugins = {
       "AstroNvim/astrocommunity",
-      -- colorscheme - catppuccin
-      { import = "astrocommunity.colorscheme.catppuccin" },
+      -- colorscheme - oxocarbon
+      { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
       -- Highly experimental plugin that completely replaces
       -- the UI for messages, cmdline and the popupmenu.
       { import = "astrocommunity.utility.noice-nvim" },
