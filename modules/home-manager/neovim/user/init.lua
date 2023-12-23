@@ -42,7 +42,7 @@ return {
       { import = "astrocommunity.pack.rust" },
       { import = "astrocommunity.pack.python" },
       { import = "astrocommunity.pack.java" },
-      -- { import = "astrocommunity.pack.nix" },  -- manually add config for nix, comment this one.
+      { import = "astrocommunity.pack.nix" },  -- manually add config for nix, comment this one.
       { import = "astrocommunity.pack.proto" },
       ---- Operation & Cloud Native
       { import = "astrocommunity.pack.terraform" },
