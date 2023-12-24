@@ -4,6 +4,8 @@
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
+  helix = import ./helix;
   neovim = import ./neovim;
+  topgrade = import ./topgrade;
   packages = import ./packages;
 }
