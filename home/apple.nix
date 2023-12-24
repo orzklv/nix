@@ -12,9 +12,10 @@ let
 in
 {
   imports = [
-    ./zsh
+    # ./zsh
     ./helix
     ./topgrade
+    outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages

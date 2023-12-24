@@ -14,7 +14,7 @@
     nativeBuildInputs = with pkgs; [
       nix
       nil
-      nixpkgs-fmt
+      alejandra
       git
     ];
   };

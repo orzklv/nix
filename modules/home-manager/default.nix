@@ -3,6 +3,7 @@
 {
   # List your module files here
   git = import ./git;
+  zsh = import ./zsh;
   neovim = import ./neovim;
   packages = import ./packages;
 }
