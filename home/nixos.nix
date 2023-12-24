@@ -6,13 +6,15 @@
   outputs,
   packages,
   ...
-}: {
+}: 
+let
+  isMacOS = false;
+in
+{
   imports = [
     ./zsh
     ./helix
     ./topgrade
-    # ./git
-    # ./git/linux-agent.nix
     outputs.homeManagerModules.git
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages
@@ -68,10 +70,10 @@
   };
 
   # Install linux related package base
-  packages.isMacOS = false;
+  packages.isMacOS = isMacOS;
 
   # Use Linux configured git configs
-  git.isMacOS = false;
+  git.isMacOS = isMacOS;
 
   # Let's enable home-manager
   programs.home-manager.enable = true;

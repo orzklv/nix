@@ -6,13 +6,15 @@
   outputs,
   packages,
   ...
-}: {
+}: 
+let
+  isMacOS = true;
+in
+{
   imports = [
     ./zsh
     ./helix
     ./topgrade
-    # ./git
-    # ./git/osx-agent.nix
     outputs.homeManagerModules.git
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages
@@ -63,10 +65,10 @@
   };
 
   # Install macOS related package base
-  packages.isMacOS = true;
+  packages.isMacOS = isMacOS;
 
   # Use MacOS configured git configs
-  git.isMacOS = true;
+  git.isMacOS = isMacOS;
 
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever

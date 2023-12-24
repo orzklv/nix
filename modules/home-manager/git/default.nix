@@ -12,12 +12,6 @@
   };
 
   config = {
-    # home.packages = 
-    #   if config.packages.isMacOS then
-    #     globals ++ macos
-    #   else
-    #     globals ++ linux;
-
     # Git Configurations
     programs.git = {
       enable = true;
