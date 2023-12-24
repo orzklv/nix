@@ -9,16 +9,14 @@
 }: {
   imports = [
     ./zsh
-    ./git
     ./helix
     ./topgrade
-    ./git/osx-agent.nix
+    # ./git
+    # ./git/osx-agent.nix
+    outputs.homeManagerModules.git
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages
   ];
-
-  # Module features
-  packages.isMacOS = true;
 
   nixpkgs = {
     # You can add overlays here
@@ -63,6 +61,12 @@
       recursive = true;
     };
   };
+
+  # Install macOS related package base
+  packages.isMacOS = true;
+
+  # Use MacOS configured git configs
+  git.isMacOS = true;
 
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever

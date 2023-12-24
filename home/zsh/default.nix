@@ -55,7 +55,7 @@
 
       # Refresh
       clean = "nix store gc && nix-collect-garbage -d";
-      
+
       # Zellij
       hack = "zellij";
 

@@ -9,16 +9,14 @@
 }: {
   imports = [
     ./zsh
-    ./git
     ./helix
     ./topgrade
-    ./git/linux-agent.nix
+    # ./git
+    # ./git/linux-agent.nix
+    outputs.homeManagerModules.git
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.packages
   ];
-
-  # Module features
-  packages.isMacOS = false;
 
   nixpkgs = {
     # You can add overlays here
@@ -68,6 +66,12 @@
       source = config.lib.file.mkOutOfStoreSymlink "/media";
     };
   };
+
+  # Install linux related package base
+  packages.isMacOS = false;
+
+  # Use Linux configured git configs
+  git.isMacOS = false;
 
   # Let's enable home-manager
   programs.home-manager.enable = true;
