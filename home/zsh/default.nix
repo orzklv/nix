@@ -55,6 +55,7 @@
       korgi = "cargo";
 
       # Refresh
+      refresh = "source ~/.zshrc";
       clean = "nix store gc && nix-collect-garbage -d";
 
       # Zellij

@@ -11,6 +11,7 @@
           "pnpm"
           "yarn"
           "home_manager"
+          "vscode"
         ];
       };
       commands = {
