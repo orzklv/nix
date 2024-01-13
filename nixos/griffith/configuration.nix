@@ -12,10 +12,11 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
+    outputs.nixosModules.media
+    outputs.nixosModules.users.sakhib
 
     # Web servers
     outputs.nixosModules.www.work
-    outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd

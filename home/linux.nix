@@ -62,11 +62,6 @@ in
       source = ../config;
       recursive = true;
     };
-
-    # Media folder to symlink /media
-    file."Media" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/media";
-    };
   };
 
   # Install linux related package base
