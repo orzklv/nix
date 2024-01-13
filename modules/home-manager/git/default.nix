@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   options = {
     git = {
       isMacOS = lib.mkOption {
@@ -43,11 +46,13 @@
       ];
     };
 
-    home.file.".gnupg/gpg-agent.conf".text = 
-      if config.git.isMacOS then ''
-      pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
-      '' else ''
-      pinentry-program ${pkgs.kwalletcli}/bin/pinentry-kwallet
+    home.file.".gnupg/gpg-agent.conf".text =
+      if config.git.isMacOS
+      then ''
+        pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      ''
+      else ''
+        pinentry-program ${pkgs.kwalletcli}/bin/pinentry-kwallet
       '';
   };
 }

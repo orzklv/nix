@@ -6,11 +6,9 @@
   outputs,
   packages,
   ...
-}: 
-let
+}: let
   isMacOS = false;
-in
-{
+in {
   imports = [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git

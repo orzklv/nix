@@ -1,5 +1,9 @@
-{ pkgs, inputs, outputs, ... }: 
 {
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}: {
   users.users = {
     sakhib = {
       isNormalUser = true;
