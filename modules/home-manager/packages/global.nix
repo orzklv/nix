@@ -50,6 +50,9 @@
   # Media encode & decode
   pkgs.ffmpeg
 
+  # Anime
+  pkgs.crunchy-cli
+
   # GPG Signing
   pkgs.gnupg
 
