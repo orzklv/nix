@@ -12,6 +12,7 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.gnome
+    outputs.nixosModules.media
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
 

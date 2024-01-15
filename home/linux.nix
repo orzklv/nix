@@ -6,11 +6,9 @@
   outputs,
   packages,
   ...
-}: 
-let
+}: let
   isMacOS = false;
-in
-{
+in {
   imports = [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
@@ -61,11 +59,6 @@ in
     file.".config" = {
       source = ../config;
       recursive = true;
-    };
-
-    # Media folder to symlink /media
-    file."Media" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/media";
     };
   };
 
