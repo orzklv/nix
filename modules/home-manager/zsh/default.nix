@@ -51,7 +51,6 @@
       ping = "gping";
       time = "hyperfine";
       j = "just";
-      make = "just";
       korgi = "cargo";
 
       # Refresh
