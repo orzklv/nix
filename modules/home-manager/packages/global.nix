@@ -46,6 +46,7 @@
   pkgs.rustup
   pkgs.volta
   pkgs.zig
+  pkgs.jdk
 
   # Media encode & decode
   pkgs.ffmpeg
