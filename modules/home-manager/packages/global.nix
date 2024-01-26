@@ -29,9 +29,6 @@
   pkgs.topgrade
 
   # Tech
-  pkgs.go
-  pkgs.zig
-  pkgs.deno
   pkgs.rustup
 
   # For Prismlauncher
