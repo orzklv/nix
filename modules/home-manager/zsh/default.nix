@@ -50,7 +50,6 @@
       find = "fd";
       ping = "gping";
       time = "hyperfine";
-      j = "just";
       korgi = "cargo";
 
       # Refresh
@@ -194,9 +193,9 @@
       # Cargo
       export PATH="$HOME/.cargo/bin:$PATH"
 
-      # Volta
-      export VOLTA_HOME="$HOME/.volta"
-      export PATH="$VOLTA_HOME/bin:$PATH"
+      # Golang's Trash
+      export GOPATH="$HOME/.go"
+      export PATH="$PATH:$HOME/.go/bin"
 
       # Extra services
       # here...
