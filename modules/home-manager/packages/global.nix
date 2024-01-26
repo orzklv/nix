@@ -2,30 +2,19 @@
   # Downloader
   pkgs.aria
 
-  # Linguistics
-  pkgs.aspell
-  pkgs.hunspell
-  pkgs.ispell
-
   # Developer Mode
-  pkgs.cargo-update
   pkgs.gh
-  pkgs.git-lfs
-  pkgs.gitoxide
-  pkgs.gitui
-  pkgs.libheif
-  pkgs.just
-  pkgs.gnumake
-  pkgs.mdbook
-  pkgs.shfmt
   pkgs.wget
+  pkgs.gitui
   pkgs.zellij
   pkgs.direnv
+  pkgs.git-lfs
+  pkgs.gitoxide
+  pkgs.cargo-update
 
   # Environment
   pkgs.bat
   pkgs.btop
-  pkgs.cowsay
   pkgs.eza
   pkgs.fd
   pkgs.figlet
@@ -34,22 +23,23 @@
   pkgs.lolcat
   pkgs.neofetch
   pkgs.onefetch
-  pkgs.pfetch
   pkgs.procs
   pkgs.ripgrep
   pkgs.tealdeer
-  pkgs.tmux
   pkgs.topgrade
 
   # Tech
+  pkgs.go
+  pkgs.zig
   pkgs.deno
   pkgs.rustup
-  pkgs.volta
-  pkgs.zig
+
+  # For Prismlauncher
   pkgs.jdk17
 
   # Media encode & decode
   pkgs.ffmpeg
+  pkgs.libheif
 
   # Anime
   pkgs.crunchy-cli
