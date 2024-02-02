@@ -27,6 +27,7 @@
   pkgs.ripgrep
   pkgs.tealdeer
   pkgs.topgrade
+  pkgs.lint-staged
 
   # Tech
   pkgs.rustup
