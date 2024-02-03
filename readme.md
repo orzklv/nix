@@ -2,7 +2,7 @@
 <img src="https://www.orzklv.uz/favicons/logo.png" alt="logo" height="100" align="left">
 <h1 style="display: inline">Nix</h1>
 
-My nix configurations made for all my machines.
+My nix configurations made for all my NixOS machines.
 
 </header>
 
@@ -49,7 +49,7 @@ Installation of Home Manager differs depending on what OS you use. For MacOS, it
 ```shell
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
-``` 
+```
 
 #### NixOS (if you want only home-manager configs)
 
