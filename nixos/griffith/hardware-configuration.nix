@@ -30,6 +30,7 @@
   fileSystems."/media" =
     { device = "/dev/disk/by-uuid/8b5a3418-dfa3-4d0f-a3de-5b2657bd138e";
       fsType = "ext4";
+      options = ["rw" "uid=1000"];
     };
 
   swapDevices =
