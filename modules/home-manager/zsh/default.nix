@@ -125,7 +125,7 @@
       TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
       # Zsh Autosuggestions Configs
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=gray"
 
       # Zsh Completions Configs
       zstyle ':completion:*:*:*:*:*' menu select

@@ -11,7 +11,7 @@
 
     # Define a simple virtual host
     virtualHosts = {
-      "192.168.0.2" = {
+      "192.168.0.3" = {
         extraConfig = ''
           root * /var/www/localhost
           file_server

@@ -23,7 +23,6 @@
         ])
         ++ (with pkgs.unstable; [
           vscode
-          jetbrains-toolbox
         ]);
     };
   };
