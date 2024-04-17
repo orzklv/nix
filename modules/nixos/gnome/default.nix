@@ -34,7 +34,6 @@
     hardware.opengl = {
       enable = true;
       driSupport = true;
-      driSupport32Bit = true;
     };
 
     # Exclude some packages from the Gnome desktop environment.
