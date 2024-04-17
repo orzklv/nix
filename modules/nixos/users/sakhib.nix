@@ -17,6 +17,7 @@
         (with pkgs; [
           firefox
           telegram-desktop
+          discord
           github-desktop
           spotify
         ])

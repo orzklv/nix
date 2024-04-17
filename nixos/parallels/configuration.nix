@@ -53,6 +53,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowUnsupportedSystem = true;
     };
   };
 
