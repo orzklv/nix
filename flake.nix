@@ -155,7 +155,7 @@
 
       # My Apple devices
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
-      "Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
+      "sakhib@Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
 
       # For my unstable non NixOS machines
       "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
