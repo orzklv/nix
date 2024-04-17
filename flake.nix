@@ -123,18 +123,18 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      "Guts" = nixpkgs.lib.nixosSystem {
+      "Station" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/guts/configuration.nix
+          ./nixos/station/configuration.nix
         ];
       };
-      "Griffith" = nixpkgs.lib.nixosSystem {
+      "Parallels" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/griffith/configuration.nix
+          ./nixos/parallels/configuration.nix
         ];
       };
     };

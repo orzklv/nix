@@ -11,10 +11,11 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.gnome
-    outputs.nixosModules.media
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
+
+    # Web servers
+    # outputs.nixosModules.www.work
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -72,7 +73,11 @@
     };
   };
 
-  networking.hostName = "Guts"; # Define your hostname.
+  # TODO: This is just an example, be sure to use whatever bootloader you prefer
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "Parallels-Nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -82,20 +87,40 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # NVIDIA driver support
-  services.xserver.videoDrivers = ["nvidia"];
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager = {
+      sddm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "sakhib";
+      };
+    };
+
+    desktopManager = {
+      plasma5.enable = true;
+    };
+
+    # Configure keymap in X11
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # Make sure opengl is enabled
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -138,11 +163,10 @@
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
 
-  # Enabling docker
+  # Enabling virtualization
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
-    enableNvidia = true;
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
