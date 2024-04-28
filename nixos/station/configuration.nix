@@ -72,7 +72,7 @@
     };
   };
 
-  networking.hostName = "Station-Nix"; # Define your hostname.
+  networking.hostName = "Station"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
