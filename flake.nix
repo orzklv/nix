@@ -137,6 +137,13 @@
           ./nixos/parallels/configuration.nix
         ];
       };
+      "Experimental" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/experiment/configuration.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
