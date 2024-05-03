@@ -104,10 +104,10 @@
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
       sddm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "sakhib";
-      };
+      # autoLogin = {
+      #   enable = true;
+      #   user = "sakhib";
+      # };
     };
 
     desktopManager = {
@@ -191,8 +191,9 @@
   programs = {
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
+      # enableSSHSupport = true;
     };
+    ssh.startAgent = true;
   };
 
   security.pam.services.sddm.enableKwallet = true;
