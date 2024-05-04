@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   # Installing zsh for system
   programs.zsh.enable = true;
 
