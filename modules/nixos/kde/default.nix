@@ -18,6 +18,7 @@
 
     desktopManager = {
       plasma5.enable = true;
+      xterm.enable = false;
     };
   };
 
@@ -29,12 +30,9 @@
 
   # Exclude some packages from the KDE desktop environment.
   environment.plasma5.excludePackages =
-    (with pkgs; [
-      xterm
-    ])
-    ++ (with pkgs.libsForQt5; [
+    with pkgs.libsForQt5; [
       plasma-browser-integration
       konsole
       oxygen
-    ]);
+    ];
 }
