@@ -1,33 +1,35 @@
 {pkgs, ...}: {
   config = {
     # Enable the X11 windowing system.
-    services.xserver.enable = true;
+    services = {
+      xserver = {
+        enable = true;
 
-    # Enable the Gnome desktop environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome = {
-      enable = true;
-      extraGSettingsOverrides = ''
-        # Change default background
-        [org.gnome.desktop.background]
-        picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+        # Configure keymap in X11
+        layout = "us";
+        xkbVariant = "";
+        excludePackages = [pkgs.xterm];
 
-        # Favorite apps in gnome-shell
-        [org.gnome.shell]
-        favorite-apps=['org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop']
-      '';
+        # Enable the Gnome desktop environment.
+        displayManager.gdm.enable = true;
+        desktopManager.gnome = {
+          enable = true;
+          extraGSettingsOverrides = ''
+            # Change default background
+            [org.gnome.desktop.background]
+            picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
 
-      extraGSettingsOverridePackages = [
-        pkgs.gsettings-desktop-schemas
-        pkgs.gnome.gnome-shell
-      ];
-    };
+            # Favorite apps in gnome-shell
+            [org.gnome.shell]
+            favorite-apps=['org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop']
+          '';
 
-    # Configure keymap in X11
-    services.xserver = {
-      layout = "us";
-      xkbVariant = "";
-      excludePackages = [pkgs.xterm];
+          extraGSettingsOverridePackages = [
+            pkgs.gsettings-desktop-schemas
+            pkgs.gnome.gnome-shell
+          ];
+        };
+      };
     };
 
     # Make sure opengl is enabled

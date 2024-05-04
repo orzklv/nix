@@ -3,6 +3,9 @@
 {
   # List your module files here
   www = import ./www;
+  kde = import ./kde;
+  zsh = import ./zsh;
+  sound = import ./sound;
   gnome = import ./gnome;
   users = import ./users;
   media = import ./media;

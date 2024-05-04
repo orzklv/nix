@@ -11,6 +11,9 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
+    outputs.nixosModules.kde
+    outputs.nixosModules.zsh
+    outputs.nixosModules.sound
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
 
@@ -94,71 +97,11 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-
-    # Enable the KDE Plasma Desktop Environment.
-    displayManager = {
-      sddm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "sakhib";
-      };
-    };
-
-    desktopManager = {
-      plasma5.enable = true;
-    };
-
-    # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Make sure opengl is enabled
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Installing zsh for system
-  programs.zsh.enable = true;
-
-  # All users default shell must be zsh
-  users.defaultUserShell = pkgs.zsh;
-
-  # System configurations
-  environment = {
-    shells = with pkgs; [zsh];
-    pathsToLink = ["/share/zsh"];
-    systemPackages = with pkgs; [
-      inputs.home-manager.packages.${pkgs.system}.default
-    ];
-  };
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
