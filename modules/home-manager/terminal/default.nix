@@ -16,8 +16,6 @@
         italic.family = "JetBrainsMono NF";
       };
 
-      cursor.style = "Beam";
-
       shell = {
         program = "zsh";
         args = [
