@@ -5,7 +5,7 @@
       window = {
         padding.x = 10;
         padding.y = 10;
-        decorations = "buttonless";
+        decorations = "Full";
       };
 
       font = {
