@@ -10,7 +10,6 @@
 
       font = {
         size = 12.0;
-        use_thin_strokes = true;
 
         normal.family = "JetBrainsMono NF";
         bold.family = "JetBrainsMono NF";
