@@ -112,8 +112,7 @@
 
           #-- CloudNative
           nodePackages.dockerfile-language-server-nodejs
-          # terraform  # install via brew on macOS
-          terraform-ls
+          emmet-ls
           jsonnet
           jsonnet-language-server
           hadolint # Dockerfile linter
