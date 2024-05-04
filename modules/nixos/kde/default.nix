@@ -26,4 +26,14 @@
     enable = true;
     driSupport = true;
   };
+
+  # Exclude some packages from the KDE desktop environment.
+  environment.plasma5.excludePackages =
+    (with pkgs; [
+      xterm
+    ])
+    ++ (with pkgs.libsForQt5; [
+      plasma-browser-integration
+      konsole
+    ]);
 }

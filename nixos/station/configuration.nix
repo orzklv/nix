@@ -14,7 +14,9 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.gnome
     outputs.nixosModules.sound
+    outputs.nixosModules.fonts
     outputs.nixosModules.media
+    outputs.nixosModules.terminal
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
 
