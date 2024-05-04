@@ -26,5 +26,4 @@
     enable = true;
     driSupport = true;
   };
-
 }
