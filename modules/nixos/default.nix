@@ -6,8 +6,10 @@
   kde = import ./kde;
   zsh = import ./zsh;
   sound = import ./sound;
+  fonts = import ./fonts;
   gnome = import ./gnome;
   users = import ./users;
   media = import ./media;
+  terminal = import ./terminal;
   bootloader = import ./bootloader;
 }
