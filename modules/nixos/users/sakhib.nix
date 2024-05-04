@@ -19,6 +19,7 @@
           telegram-desktop
           github-desktop
           spotify
+          alacritty
         ])
         ++ (with pkgs.unstable; [
           vscode

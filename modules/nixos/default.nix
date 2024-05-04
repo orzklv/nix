@@ -10,6 +10,5 @@
   gnome = import ./gnome;
   users = import ./users;
   media = import ./media;
-  terminal = import ./terminal;
   bootloader = import ./bootloader;
 }

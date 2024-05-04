@@ -15,6 +15,7 @@ in {
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.topgrade
+    outputs.homeManagerModules.terminal
     outputs.homeManagerModules.packages
   ];
 
