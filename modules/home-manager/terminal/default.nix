@@ -16,14 +16,6 @@
         italic.family = "JetBrainsMono NF";
       };
 
-      shell = {
-        program = "zsh";
-        args = [
-          "-C"
-          "neofetch"
-        ];
-      };
-
       colors = {
         # Default colors
         primary = {
