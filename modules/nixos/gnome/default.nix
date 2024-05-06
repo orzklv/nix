@@ -19,6 +19,14 @@
             [org.gnome.desktop.background]
             picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
 
+            # Background for dark theme
+            [org.gnome.desktop.background]
+            picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+
+            # Prefer dark theme
+            [org.gnome.desktop.interface]
+            color-scheme='prefer-dark'
+
             # Favorite apps in gnome-shell
             [org.gnome.shell]
             favorite-apps=['org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop']
