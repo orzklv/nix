@@ -2,7 +2,7 @@
 <img src="https://www.orzklv.uz/favicons/logo.png" alt="logo" height="100" align="left">
 <h1 style="display: inline">Nix</h1>
 
-My nix configurations made for all my NixOS machines.
+My nix configurations made for all my NixOS machines & Apple.
 
 </header>
 
