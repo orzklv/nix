@@ -5,6 +5,7 @@
   www = import ./www;
   kde = import ./kde;
   zsh = import ./zsh;
+  game = import ./game;
   sound = import ./sound;
   fonts = import ./fonts;
   gnome = import ./gnome;
