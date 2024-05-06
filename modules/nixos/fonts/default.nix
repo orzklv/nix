@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -6,8 +6,8 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    (nerdfonts.override { 
-      fonts = [ "JetBrainsMono" ]; 
+    (nerdfonts.override {
+      fonts = ["JetBrainsMono"];
     })
   ];
 }

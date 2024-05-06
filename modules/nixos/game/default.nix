@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Gayming at its finest
   programs.steam = {
     enable = true;

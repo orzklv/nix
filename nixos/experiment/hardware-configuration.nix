@@ -28,13 +28,11 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-
-  fileSystems."/media" =
-    { device = "/dev/disk/by-uuid/4793a7df-601a-4f00-b52d-544ee8b0bfe2";
-      fsType = "ext4";
-      options = ["rw" "uid=1000"];
-    };
-
+  fileSystems."/media" = {
+    device = "/dev/disk/by-uuid/4793a7df-601a-4f00-b52d-544ee8b0bfe2";
+    fsType = "ext4";
+    options = ["rw" "uid=1000"];
+  };
 
   swapDevices = [
     {device = "/dev/disk/by-uuid/2583e972-cd35-42c5-9082-cfdb834c1057";}
