@@ -19,6 +19,10 @@
             [org.gnome.desktop.background]
             picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
 
+            # Change deafult theme to dark
+            [org.gnome.desktop.interface]
+            color-scheme = "prefer-dark";
+
             # Favorite apps in gnome-shell
             [org.gnome.shell]
             favorite-apps=['org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop']
@@ -26,7 +30,7 @@
 
           extraGSettingsOverridePackages = [
             pkgs.gsettings-desktop-schemas
-            pkgs.gnome.gnome-shell
+            pkgs.gnome.gnome-shell 
           ];
         };
       };

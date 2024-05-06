@@ -12,9 +12,9 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.kde
     outputs.nixosModules.zsh
     outputs.nixosModules.game
+    outputs.nixosModules.gnome
     outputs.nixosModules.fonts
     outputs.nixosModules.media
     outputs.nixosModules.sound
@@ -95,6 +95,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
 
@@ -132,12 +138,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs = {
-    gnupg.agent.enable = true;
-    ssh.startAgent = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
-
-  security.pam.services.sddm.enableKwallet = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
