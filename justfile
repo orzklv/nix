@@ -9,3 +9,6 @@ init:
 
 format:
     nixpkgs-fmt .
+
+test:
+    echo something

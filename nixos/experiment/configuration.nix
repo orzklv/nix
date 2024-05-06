@@ -141,6 +141,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryFlavor = "gnome3";
   };
 
   # Open ports in the firewall.
