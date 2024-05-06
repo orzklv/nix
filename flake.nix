@@ -161,6 +161,7 @@
       };
 
       # My Apple devices
+      "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
       "sakhib@Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
 
