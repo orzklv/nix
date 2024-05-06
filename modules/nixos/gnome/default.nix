@@ -21,7 +21,7 @@
 
             # Change deafult theme to dark
             [org.gnome.desktop.interface]
-            color-scheme = "prefer-dark";
+            color-scheme="prefer-dark";
 
             # Favorite apps in gnome-shell
             [org.gnome.shell]
