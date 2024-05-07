@@ -50,13 +50,14 @@
     environment.gnome.excludePackages =
       (with pkgs; [
         xterm
+        firefox
       ])
       ++ (with pkgs.gnome; [
         tali # poker game
         iagno # go game
         hitori # sudoku game
         atomix # puzzle game
-        epiphany # web browser
+        # epiphany # web browser
       ]);
 
     # Setting daemons
