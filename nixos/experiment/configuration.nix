@@ -81,10 +81,6 @@
     };
   };
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "Experimental"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -137,12 +133,7 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
-  };
+  # programs.mtr.enable = true; 
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

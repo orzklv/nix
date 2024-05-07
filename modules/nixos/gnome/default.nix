@@ -34,7 +34,7 @@
 
           extraGSettingsOverridePackages = [
             pkgs.gsettings-desktop-schemas
-            pkgs.gnome.gnome-shell 
+            pkgs.gnome.gnome-shell
           ];
         };
       };
@@ -61,10 +61,24 @@
       ]);
 
     # Setting daemons
-    services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+    services = {
+      # Udev daemon management
+      udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+    };
+
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "gtk2";
+    };
 
     # Enable the DConf configuration system.
     programs.dconf.enable = true;
+
+    # Enabling seahorse keyring
+    programs.seahorse = {
+      enable = true;
+    };
 
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
