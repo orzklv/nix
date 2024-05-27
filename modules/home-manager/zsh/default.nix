@@ -11,7 +11,7 @@
     enable = true;
 
     # ZSH Autosuggestions
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
 
     # ZSH Completions
     enableCompletion = true;

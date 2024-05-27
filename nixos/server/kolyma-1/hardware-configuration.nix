@@ -8,7 +8,17 @@
   boot.initrd.kernelModules = [ "nvme" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.swraid.enable = true;
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      ARRAY /dev/md/raid1 level=raid1 num-devices=2 metadata=1.2 UUID=d686919c:ef68367d:4d965b13:0b56afc9
+        devices=/dev/nvme0n1p4,/dev/nvme1n1p4
+      ARRAY /dev/md/boot level=raid1 num-devices=2 metadata=1.0 UUID=6573ec39:f375f071:6820f6b2:721988ef
+        devices=/dev/nvme0n1p2,/dev/nvme1n1p2
+      ARRAY /dev/md/plainSwap level=raid1 num-devices=2 metadata=1.2 UUID=d5cb3fd9:f32ac41b:d7805da7:dd791ff4
+        devices=/dev/nvme0n1p3,/dev/nvme1n1p3
+    ''
+  };
   boot.loader.grub = {
     enable = true;
     mirroredBoots = [
