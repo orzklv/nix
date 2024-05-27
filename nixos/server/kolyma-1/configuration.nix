@@ -11,9 +11,6 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.users.sakhib
 
-    # Disk partitionings
-    ./disk.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
