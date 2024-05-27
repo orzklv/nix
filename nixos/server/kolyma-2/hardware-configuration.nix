@@ -26,7 +26,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking = {
-    useDHCP = lib.mkDefault true;
+    networking.useDHCP = false;
 
     interfaces = {
       enp41s0 = {
@@ -49,10 +49,11 @@
 
     defaultGateway6 = {
       address = "fe80::1"; # Replace with your actual gateway for IPv6
+      interface = "enp41s0"; # Replace with your actual interface
     };
 
     # Optional DNS configuration
-    # nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Replace with your desired DNS servers
+    nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Replace with your desired DNS servers
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
