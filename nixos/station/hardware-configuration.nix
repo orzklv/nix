@@ -58,7 +58,6 @@
 
     # GPU (Nvidia)
     nvidia = {
-      modesetting = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       open = false;
