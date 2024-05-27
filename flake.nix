@@ -126,21 +126,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/station/configuration.nix
-        ];
-      };
-      "Parallels" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/parallels/configuration.nix
+          ./nixos/desktop/station/configuration.nix
         ];
       };
       "Experimental" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/experiment/configuration.nix
+          ./nixos/desktop/experiment/configuration.nix
         ];
       };
     };
