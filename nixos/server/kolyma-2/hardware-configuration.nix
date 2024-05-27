@@ -26,10 +26,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking = {
+    useDHCP = lib.mkDefault true;
+
     interfaces = {
       enp41s0 = {
-        useDHCP = true;
-
         ipv4.addresses = [ {
           address = "65.109.61.35";
           prefixLength = 24;
