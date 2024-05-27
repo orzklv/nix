@@ -51,7 +51,7 @@ in {
 
   # This is required information for home-manager to do its job
   home = {
-    stateVersion = "23.11";
+    stateVersion = "24.05";
     username = "sakhib";
     homeDirectory = "/home/sakhib";
 
