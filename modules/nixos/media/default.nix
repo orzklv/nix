@@ -12,7 +12,7 @@
     for user in /home/*; do
       if [ -d /media ]; then
         ln -sfn /media $user/Media
-        chown -R media:media $user/Media
+        chown -R :users $user/Media
       fi
     done
   '';
