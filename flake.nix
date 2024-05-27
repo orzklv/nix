@@ -22,8 +22,8 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Disko for easier partition management
-    inputs.disko.url = "github:nix-community/disko";
-    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
 
     # TODO: Add any other flake you might need
