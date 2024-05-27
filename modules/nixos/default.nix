@@ -6,6 +6,7 @@
   zsh = import ./zsh;
   game = import ./game;
   sound = import ./sound;
+  media = import ./media;
   fonts = import ./fonts;
   gnome = import ./gnome;
   users = import ./users;
