@@ -64,7 +64,7 @@
   networking.hostName = "Kolyma-1";
 
   # Temporarily enabling grub from here
-  boot.loader.grub.enable = true;
+  boot.loader.grub.enable = true;  
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
