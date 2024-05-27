@@ -62,7 +62,7 @@ in {
       recursive = true;
     };
 
-    home.activation = {
+    activation = {
       checkAndSymlinkMedia = {
         text = ''
           if [ -d "/media" ]; then
