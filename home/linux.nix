@@ -63,12 +63,15 @@ in {
     };
 
     activation = {
-      postActivation = ''
-        if [ -d "/media" ]; then
-          ln -sfn /home/sakhib/Media /media
-          chmod -R 777 /home/sakhib/Media
-        fi
-      '';
+      checkAndSymlinkMedia = {
+        text = ''
+          if [ -d "/media" ]; then
+            ln -sfn /home/sakhib/Media /media
+            chmod -R 777 /home/sakhib/Media
+          fi
+        '';
+        priority = 50;
+      };
     };
   };
 
