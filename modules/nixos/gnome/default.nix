@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   config = {
+    # Sum additional variables for system-wide use.
+    environment.variables = {
+      # Disable compositing mode in WebKitGTK
+      # https://github.com/NixOS/nixpkgs/issues/32580
+      WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+    };
+
     # Enable the X11 windowing system.
     services = {
-      # Sum additional variables for system-wide use.
-      environment.variables = {
-        # Disable compositing mode in WebKitGTK
-        # https://github.com/NixOS/nixpkgs/issues/32580
-        WEBKIT_DISABLE_COMPOSITING_MODE = 1;
-      };
-
       xserver = {
         enable = true;
 
