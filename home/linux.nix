@@ -62,8 +62,17 @@ in {
       recursive = true;
     };
 
-    # Don't check whether is home manager release matches
-    enableNixpkgsReleaseCheck = false;
+    home.activation = {
+      checkAndSymlinkMedia = {
+        text = ''
+          if [ -d "/media" ]; then
+            ln -sfn /home/sakhib/Media /media
+            chmod -R 777 /home/sakhib/Media
+          fi
+        '';
+        priority = 50;
+      };
+    };
   };
 
   # Install linux related package base
