@@ -13,7 +13,8 @@
       if [ -d /media ]; then
         ln -sfn /media $user/Media
         chown -R :users $user/Media
-      fi
+        chmod -R 777 $user/Media
+      fi  
     done
   '';
 }
