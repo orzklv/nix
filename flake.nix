@@ -136,6 +136,13 @@
           ./nixos/desktop/experiment/configuration.nix
         ];
       };
+      "Kolyma-2" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/server/kolyma-2/configuration.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
