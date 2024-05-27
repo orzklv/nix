@@ -6,8 +6,10 @@
         enable = true;
 
         # Configure keymap in X11
-        layout = "us";
-        xkbVariant = "";
+        xkb = {
+          variant = "";
+          layout = "us";
+        };
         excludePackages = [pkgs.xterm];
 
         # Enable the Gnome desktop environment.
