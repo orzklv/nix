@@ -61,6 +61,9 @@ in {
       source = ../config;
       recursive = true;
     };
+
+    # Don't check if home manager is same as nixpkgs
+    enableNixpkgsReleaseCheck = false;
   };
 
   # Install linux related package base
