@@ -63,6 +63,8 @@
   # Hostname of the system
   networking.hostName = "Kolyma-2";
 
+  # Don't ask for password
+  security.sudo.wheelNeedsPassword = false;
   
   # Enabling docker
   virtualisation.docker = {
@@ -70,7 +72,7 @@
     enableOnBoot = true;
   };
 
-  # Disable memory swapping
+  # Disable z-ram memory swapping
   zramSwap.enable = false;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
