@@ -1,24 +1,41 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
-  imports = [ 
-    (modulesPath + "/profiles/qemu-guest.nix") 
+  imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi" "xhci_pci" "ahci" "nvme" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" ];
   boot.initrd.kernelModules = [ "nvme" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.tmp.cleanOnBoot = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      MAILADDR sakhib@orzklv.uz
+    '';
+  };
+  boot.loader.grub = {
+    enable = true;
+    mirroredBoots = [
+      {
+        devices = [ "/dev/nvme0n1" ]; # List all drives in the RAID array
+        path = "/boot"; # Path where GRUB should be installed
+      }
+    ];
+  };
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/34b56be9-51ae-4c8b-aa09-1b89bb892c51";
+    { device = "/dev/disk/by-uuid/0ba4c2c9-275b-42a0-92e1-74da751ea471";
       fsType = "ext4";
     };
 
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/FF65-BE3D";
+      fsType = "vfat";
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/c26d1ace-c209-45f7-abfa-a67af5c74bbb"; }
+    [ { device = "/dev/disk/by-uuid/3ad38ead-cb6a-4e4c-9b5d-acb1fc67e444"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -29,7 +46,7 @@
     useDHCP = false;
 
     interfaces = {
-      enp41s0 = {
+      eth0 = {
         useDHCP = true;
 
         ipv4.addresses = [ {
@@ -47,12 +64,12 @@
     # If you want to configure the default gateway
     defaultGateway = {
       address = "65.109.61.1"; # Replace with your actual gateway for IPv4
-      interface = "enp41s0"; # Replace with your actual interface
+      interface = "eth0"; # Replace with your actual interface
     };
 
     defaultGateway6 = {
       address = "fe80::1"; # Replace with your actual gateway for IPv6
-      interface = "enp41s0"; # Replace with your actual interface
+      interface = "eth0"; # Replace with your actual interface
     };
 
     # Optional DNS configuration
