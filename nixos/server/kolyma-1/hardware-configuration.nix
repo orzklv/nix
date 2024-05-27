@@ -17,6 +17,7 @@
         path = "/boot"; # Path where GRUB should be installed
       }
     ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/484dd5fe-7269-4f51-b40a-12615fdc2dc8";

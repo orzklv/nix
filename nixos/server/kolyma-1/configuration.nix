@@ -62,7 +62,7 @@
 
   # Hostname of the system
   networking.hostName = "Kolyma-1";
-\
+
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
   
