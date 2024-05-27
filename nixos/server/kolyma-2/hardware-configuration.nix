@@ -45,7 +45,10 @@
     # If you want to configure the default gateway
     defaultGateway = {
       address = "65.109.61.1"; # Replace with your actual gateway for IPv4
-      address6 = "fe80::1"; # Replace with your actual gateway for IPv6
+    };
+
+    defaultGateway6 = {
+      address = "fe80::1"; # Replace with your actual gateway for IPv6
     };
 
     # Optional DNS configuration
