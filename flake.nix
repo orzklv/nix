@@ -136,6 +136,13 @@
           ./nixos/desktop/experiment/configuration.nix
         ];
       };
+      "Kolyma-1" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/server/kolyma-1/configuration.nix
+        ];
+      };
       "Kolyma-2" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
