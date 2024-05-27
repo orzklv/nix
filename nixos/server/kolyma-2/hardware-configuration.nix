@@ -30,6 +30,8 @@
 
     interfaces = {
       enp41s0 = {
+        useDHCP = true;
+
         ipv4.addresses = [ {
           address = "65.109.61.35";
           prefixLength = 24;
@@ -45,6 +47,7 @@
     # If you want to configure the default gateway
     defaultGateway = {
       address = "65.109.61.1"; # Replace with your actual gateway for IPv4
+      interface = "enp41s0"; # Replace with your actual interface
     };
 
     defaultGateway6 = {
