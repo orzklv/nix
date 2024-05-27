@@ -61,18 +61,6 @@ in {
       source = ../config;
       recursive = true;
     };
-
-    home.activation = {
-      checkAndSymlinkMedia = {
-        text = ''
-          if [ -d "/media" ]; then
-            ln -sfn /home/sakhib/Media /media
-            chmod -R 777 /home/sakhib/Media
-          fi
-        '';
-        priority = 50;
-      };
-    };
   };
 
   # Install linux related package base
