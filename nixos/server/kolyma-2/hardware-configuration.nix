@@ -1,48 +1,57 @@
-{ modulesPath, ... }:
-let
-  external-mac = "00:11:22:33:44:55";
-  ext-if = "et0";
-  external-ip = "144.x.x.x";
-  external-gw = "144.x.x.255";
-  external-ip6 = "2a01:XXXX:XXXX::1";
-  external-gw6 = "fe80::1";
-  external-netmask = 27;
-  external-netmask6 = 64;
-in
+{ config, lib, pkgs, modulesPath, ... }:
 {
   imports = [ 
     (modulesPath + "/profiles/qemu-guest.nix") 
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi" "xhci_pci" "ahci" "nvme" ];
+  boot.initrd.kernelModules = [ "nvme" ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
   boot.tmp.cleanOnBoot = true;
   boot.loader.grub.device = "/dev/nvme0n1";
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi" ];
-  boot.initrd.kernelModules = [ "nvme" ];
   
-  fileSystems."/" = 
-    { 
-      device = "/dev/nvme0n1p3"; fsType = "ext4"; 
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/34b56be9-51ae-4c8b-aa09-1b89bb892c51";
+      fsType = "ext4";
     };
-  
-  swapDevices = [ 
-    { device = "/dev/nvme0n1p1"; } 
-  ];
 
-  # enp41s0
-  networking.usePredictableInterfaceNames = false;
-  systemd.network = {
-    enable = true;
-    networks."enp41s0".extraConfig = ''
-      [Match]
-      Name = enp41s0
-      [Network]
-      # Add your own assigned ipv6 subnet here here!
-      Address = 2a01:4f8:161:714c::/64
-      Gateway = fe80::1
-      # optionally you can do the same for ipv4 and disable DHCP (networking.dhcpcd.enable = false;)
-      # Address =  144.x.x.x/26
-      # Gateway = 144.x.x.1
-    '';
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/c26d1ace-c209-45f7-abfa-a67af5c74bbb"; }
+    ];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking = {
+    interfaces = {
+      enp41s0 = {
+        useDHCP = true;
+
+        ipv4.addresses = [ {
+          address = "65.109.61.35";
+          prefixLength = 24;
+        } ];
+
+        ipv6.addresses = [ {
+          address = "2a01:4f9:5a:5110::";
+          prefixLength = 64;
+        } ];
+      };
+    };
+
+    # If you want to configure the default gateway
+    defaultGateway = {
+      address = "65.109.61.1"; # Replace with your actual gateway for IPv4
+      address6 = "fe80::1"; # Replace with your actual gateway for IPv6
+    };
+
+    # Optional DNS configuration
+    # nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Replace with your desired DNS servers
   };
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
