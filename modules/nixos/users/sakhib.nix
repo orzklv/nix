@@ -15,15 +15,11 @@
       extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
       packages =
         (with pkgs; [
-          firefox
           telegram-desktop
           github-desktop
           spotify
-          alacritty
         ])
-        ++ (with pkgs.unstable; [
-          vscode
-        ]);
+        ++ (with pkgs.unstable; []);
     };
   };
 

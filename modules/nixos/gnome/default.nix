@@ -44,6 +44,7 @@
     hardware.opengl = {
       enable = true;
       driSupport = true;
+      driSupport32Bit = true;
     };
 
     # Exclude some packages from the Gnome desktop environment.
@@ -69,7 +70,6 @@
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gtk2";
     };
 
     # Enable the DConf configuration system.

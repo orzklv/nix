@@ -12,19 +12,17 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.zsh
+    outputs.nixosModules.game
     outputs.nixosModules.gnome
     outputs.nixosModules.sound
     outputs.nixosModules.fonts
-    outputs.nixosModules.media
+    # outputs.nixosModules.media
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -144,5 +142,5 @@
   networking.firewall.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

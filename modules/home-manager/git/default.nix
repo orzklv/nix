@@ -54,5 +54,14 @@
       else ''
         pinentry-program ${pkgs.kwalletcli}/bin/pinentry-kwallet
       '';
+
+    home.file.".gnupg/gpg.conf".text =
+      if config.git.isMacOS
+      then ''
+        no-tty
+        use-agent
+      ''
+      else ''
+      '';
   };
 }

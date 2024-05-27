@@ -3,7 +3,6 @@
 {
   # List your module files here
   www = import ./www;
-  kde = import ./kde;
   zsh = import ./zsh;
   game = import ./game;
   sound = import ./sound;
