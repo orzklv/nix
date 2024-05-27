@@ -17,7 +17,7 @@
         devices=/dev/nvme0n1p2,/dev/nvme1n1p2
       ARRAY /dev/md/plainSwap level=raid1 num-devices=2 metadata=1.2 UUID=d5cb3fd9:f32ac41b:d7805da7:dd791ff4
         devices=/dev/nvme0n1p3,/dev/nvme1n1p3
-    ''
+    '';
   };
   boot.loader.grub = {
     enable = true;
