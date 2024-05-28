@@ -57,7 +57,12 @@ in {
     # Tell it to map everything in the `config` directory in this
     # repository to the `.config` in my home-manager directory
     file.".config" = {
-      source = ../config;
+      source = ../configs/config;
+      recursive = true;
+    };
+
+    file.".local/share" = {
+      source = ../configs/share;
       recursive = true;
     };
   };
