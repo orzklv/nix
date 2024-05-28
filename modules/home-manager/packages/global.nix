@@ -13,7 +13,6 @@
   pkgs.direnv
   pkgs.git-lfs
   pkgs.gitoxide
-  pkgs.fastfetch
   pkgs.cargo-update
 
   # Environment
@@ -25,17 +24,14 @@
   pkgs.gping
   pkgs.hyperfine
   pkgs.lolcat
-  pkgs.neofetch
+  pkgs.fastfetch
   pkgs.onefetch
   pkgs.procs
   pkgs.ripgrep
   pkgs.tealdeer
   pkgs.topgrade
-  pkgs.lint-staged
 
   # Tech
-  pkgs.bun
-  pkgs.zig
   pkgs.rustup
 
   # For Prismlauncher
