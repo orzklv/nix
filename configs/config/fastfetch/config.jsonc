@@ -9,7 +9,8 @@
     }
   },
   "display": {
-    "binaryPrefix": "si"
+    "binaryPrefix": "si",
+    "color": "black"
   },
   "modules": [
     "title",
