@@ -18,6 +18,7 @@
           telegram-desktop
           github-desktop
           spotify
+          discord
         ])
         ++ (with pkgs.unstable; []);
     };
