@@ -4,19 +4,23 @@
 
   # Developer Mode
   pkgs.gh
+  pkgs.jq
   pkgs.wget
+  pkgs.zola
   pkgs.gitui
   pkgs.zellij
+  pkgs.netcat
   pkgs.direnv
   pkgs.git-lfs
   pkgs.gitoxide
+  pkgs.fastfetch
   pkgs.cargo-update
 
   # Environment
+  pkgs.fd
   pkgs.bat
   pkgs.btop
   pkgs.eza
-  pkgs.fd
   pkgs.figlet
   pkgs.gping
   pkgs.hyperfine
@@ -30,6 +34,8 @@
   pkgs.lint-staged
 
   # Tech
+  pkgs.bun
+  pkgs.zig
   pkgs.rustup
 
   # For Prismlauncher
