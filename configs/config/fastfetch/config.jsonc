@@ -3,8 +3,9 @@
   "logo": {
     "source": "orzklv",
     "padding": {
+      "top": 3,
       "right": 3,
-      "top": 3
+      "left": 3
     }
   },
   "display": {
