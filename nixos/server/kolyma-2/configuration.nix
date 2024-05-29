@@ -12,7 +12,7 @@
     outputs.nixosModules.users.sakhib
 
     # Deployed Servers
-    outputs.serverModules.bind.slave
+    outputs.serverModules.bind.kolyma-2
     outputs.serverModules.caddy.kolyma-2
 
     # Import your generated (nixos-generate-config) hardware configuration

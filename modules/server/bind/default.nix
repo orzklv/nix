@@ -1,5 +1,5 @@
 {
   # List your nameservers here
-  master = import ./master.nix;
-  slave = import ./slave.nix;
+  kolyma-1 = import ./kolyma-1.nix;
+  kolyma-2 = import ./kolyma-2.nix;
 }
