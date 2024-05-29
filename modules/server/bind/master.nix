@@ -18,7 +18,7 @@
       };
     };
 
-    zonesFiles."master/dumba.uz" = ''
+    zones."master/dumba.uz" = ''
       $TTL 86400
       @     IN  SOA  ns1.kolyma.uz. admin.dumba.uz. (
                 2024010101 ; serial
