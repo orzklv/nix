@@ -185,13 +185,11 @@
         ];
       };
       
-      # Shortcut for old MacBook Air 2015
-      "sakhib@Sokhibjons-MacBook-Air.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
-
-      # My current Apple devices
+      # Shortcuts for all my OSX machines
       "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
       "sakhib@Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
+      "sakhib@Sokhibjons-MacBook-Air.local" = self.homeConfigurations."sakhib@old-apple"; # Old MacBook Air 2015s
 
       # For my unstable non NixOS machines
       "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
