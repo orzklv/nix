@@ -1,3 +1,7 @@
+# =================================
+# For further configuration extention, please refer to:
+# https://wiki.nixos.org/wiki/GNOME
+# =================================
 {pkgs, ...}: {
   config = {
     # Sum additional variables for system-wide use.
