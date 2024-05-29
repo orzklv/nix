@@ -15,7 +15,7 @@
           ln -sfn /media $user/Media
           chown -R :users $user/Media
           chmod -R 777 $user/Media
-        fi  
+        fi
       done
     else
       echo "Media folder not found"

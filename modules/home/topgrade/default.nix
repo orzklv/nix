@@ -13,7 +13,7 @@
         ];
         no_retry = true;
         assume_yes = true;
-        no_self_update = true;   
+        no_self_update = true;
       };
       commands = {};
       linux = {
