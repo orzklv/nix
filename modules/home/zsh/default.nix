@@ -70,11 +70,10 @@
       dockfm = "docker ps --all --format \"NAME:   {{.Names}}\nSTATUS: {{.Status}}\nPORTS:  {{.Ports}}\n\"";
 
       # Updating system
-      update = "home-manager switch --flake github:orzklv/nix --upgrade";
-      update-all = "sudo nixos-rebuild switch --flake github:orzklv/nix --upgrade";
+      update = "nix store gc && topgrade";
 
       nix-shell = "nix-shell --run zsh";
-      ndm = "nix develop -c \"$SHELL\"";
+      nix-develop = "nix develop -c \"$SHELL\"";
     };
 
     # Extra manually typed configs
