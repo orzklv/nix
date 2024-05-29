@@ -3,4 +3,5 @@
 {
   # List your module files here
   caddy = import ./caddy;
+  bind = import ./bind;
 }

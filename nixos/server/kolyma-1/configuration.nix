@@ -11,7 +11,8 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.users.sakhib
 
-    # Web servers
+    # Deployed Servers
+    outputs.serverModules.bind.master
     outputs.serverModules.caddy.kolyma-1
 
     # Import your generated (nixos-generate-config) hardware configuration
