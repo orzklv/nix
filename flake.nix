@@ -184,7 +184,7 @@
           ./home/macos.nix
         ];
       };
-      
+
       # Shortcuts for all my OSX machines
       "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
