@@ -6,10 +6,9 @@
 }: {
   services.bind = {
     enable = true;
+    directory = "/var/bind";
     extraConfig = ''
       options {
-        directory "/var/bind";
-        allow-query { any; };
         allow-transfer { 65.109.61.35; }; # IP address of the slave server ns2.kolyma.uz
       };
     '';

@@ -6,12 +6,7 @@
 }: {
   services.bind = {
     enable = true;
-    extraConfig = ''
-      options {
-        directory "/var/bind";
-        allow-query { any; };
-      };
-    '';
+    directory = "/var/bind";
 
     zones = {
       "dumba.uz" = {
