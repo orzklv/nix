@@ -174,6 +174,17 @@
         ];
       };
 
+      # For my good old MacBook Air 2015
+      "sakhib@old-apple" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-unstable.legacyPackages.x86_64-darwin; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/macos.nix
+        ];
+      };
+
       # My Apple devices
       "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
