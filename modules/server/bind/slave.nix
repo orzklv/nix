@@ -15,7 +15,6 @@
 
     zones = {
       "dumba.uz" = {
-        slave = true;
         file = "/var/dns/dumba.uz.zone";
         masters = [ "5.9.66.12" ]; # IP address of the master server ns1.kolyma.uz
       };
