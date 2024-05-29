@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, lib, ... }:
 {
   services.bind = {
     enable = true;
@@ -13,25 +12,21 @@
 
     zones = {
       "dumba.uz" = {
-        name = "dumba.uz";
-        file = "master/dumba.uz";
         master = true;
+        name = "dumba.uz";
+        file = "/var/dns/dumba.uz.zone";
       };
     };
+  };
 
-    zones."master/dumba.uz" = ''
-      $TTL 86400
-      @     IN  SOA  ns1.kolyma.uz. admin.dumba.uz. (
-                2024010101 ; serial
-                3600       ; refresh (1 hour)
-                900        ; retry (15 minutes)
-                604800     ; expire (1 week)
-                86400      ; minimum (1 day)
-              )
-      @     IN  NS   ns1.kolyma.uz.
-      @     IN  NS   ns2.kolyma.uz.
-      @     IN  A    76.76.21.21
+  system.activationScripts.copyZones = lib.mkForce {
+    text = ''
+      mkdir -p /var/dns
+      for zoneFile in ${./configs/zones}/*.zone; do
+        cp -f "$zoneFile" /var/dns/
+      done
     '';
+    deps = [];
   };
 
   # DNS standard port for connections + that require more than 512 bytes
