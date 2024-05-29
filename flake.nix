@@ -163,7 +163,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # For all my OSX machines
+      # For all my current OSX machines
       "sakhib@apple" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-unstable.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
@@ -184,8 +184,11 @@
           ./home/macos.nix
         ];
       };
+      
+      # Shortcut for old MacBook Air 2015
+      "sakhib@Sokhibjons-MacBook-Air.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
 
-      # My Apple devices
+      # My current Apple devices
       "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
       "sakhib@Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
