@@ -202,8 +202,8 @@
         ];
       };
 
-      # Kolyma servers
-      "sakhib@kolyma" = self.homeConfigurations."sakhib@unstable";
+      # For topgrade from NixOS instances
+      "sakhib" = self.homeConfigurations."sakhib@stable";
     };
 
     # Development shells
