@@ -13,6 +13,7 @@
 
     zones = {
       "dumba.uz" = {
+        name = "dumba.uz";
         file = "master/dumba.uz";
         master = true;
       };
