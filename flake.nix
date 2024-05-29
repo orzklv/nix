@@ -122,7 +122,11 @@
 
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./modules/home;
+
+    # Reusable server modules you might want to export
+    # These are usually stuff you would upstream services to global
+    serverModules = import ./modules/server;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'

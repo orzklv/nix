@@ -22,7 +22,11 @@
         excludePackages = [pkgs.xterm];
 
         # Enable the Gnome desktop environment.
-        displayManager.gdm.enable = true;
+        displayManager.gdm = {
+          enable = true;
+          autoSuspend = false;
+        };
+
         desktopManager.gnome = {
           enable = true;
           extraGSettingsOverrides = ''

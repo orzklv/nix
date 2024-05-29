@@ -11,6 +11,9 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.users.sakhib
 
+    # Web servers
+    outputs.nixosModules.caddy.kolyma-1
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
@@ -25,6 +28,8 @@
         outputs.overlays.additions
         outputs.overlays.modifications
         outputs.overlays.unstable-packages
+
+
 
         # You can also add overlays exported from other flakes:
         # neovim-nightly-overlay.overlays.default
