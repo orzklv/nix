@@ -10,6 +10,7 @@
           "node"
           "pnpm"
           "yarn"
+          "cargo"
           "home_manager"
           "vscode"
         ];
