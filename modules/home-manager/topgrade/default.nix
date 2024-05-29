@@ -21,7 +21,7 @@
         # "Home Manager" = "home-manager switch --flake github:orzklv/nix";
       };
       linux = {
-        nix_arguments = ["--flake" "github:orzklv/nix"];
+        nix_arguments = "--flake github:orzklv/nix";
         home_manager_arguments = ["--flake" "github:orzklv/nix"];
       };
       brew = {
