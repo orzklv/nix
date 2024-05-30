@@ -97,6 +97,7 @@
           nix
           nil
           git
+          just
         ];
 
         # Set environment variables, if needed
@@ -248,5 +249,6 @@
 
     # Development shells
     devShell = lib.mapAttrs (system: _: devShellFor system) (lib.genAttrs systems {});
+    # devShells = lib.mapAttrs (system: _: devShellFor system) (lib.genAttrs systems {});
   };
 }
