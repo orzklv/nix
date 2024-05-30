@@ -1,8 +1,13 @@
 {
+  #     _   ___         ______            ____
+  #    / | / (_)  __   / ____/___  ____  / __/____
+  #   /  |/ / / |/_/  / /   / __ \/ __ \/ /_/ ___/
+  #  / /|  / />  <   / /___/ /_/ / / / / __(__  )
+  # /_/ |_/_/_/|_|   \____/\____/_/ /_/_/ /____/
   description = "Sokhibjon's dotfiles";
 
   # inputs are other flakes you use within your own flake, dependencies
-  # if you will
+  # for your flake, etc.
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -130,6 +135,12 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
+      #     ____            __
+      #    / __ \___  _  __/ /_____  ____  _____
+      #   / / / / _ \| |/_/ __/ __ \/ __ \/ ___/
+      #  / /_/ /  __/>  </ /_/ /_/ / /_/ (__  )
+      # /_____/\___/_/|_|\__/\____/ .___/____/
+      #                          /_/
       "Station" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
@@ -144,6 +155,12 @@
           ./nixos/desktop/experiment/configuration.nix
         ];
       };
+
+      #    _____
+      #   / ___/___  ______   _____  __________
+      #   \__ \/ _ \/ ___/ | / / _ \/ ___/ ___/
+      #  ___/ /  __/ /   | |/ /  __/ /  (__  )
+      # /____/\___/_/    |___/\___/_/  /____/
       "Kolyma-1" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
@@ -163,6 +180,12 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
+      #     ___                __
+      #    /   |  ____  ____  / /__
+      #   / /| | / __ \/ __ \/ / _ \
+      #  / ___ |/ /_/ / /_/ / /  __/
+      # /_/  |_/ .___/ .___/_/\___/
+      #       /_/   /_/
       # For all my current OSX machines
       "sakhib@apple" = home-manager.lib.homeManagerConfiguration {
         pkgs =
@@ -189,8 +212,14 @@
       "sakhib@Sokhibjons-iMac.local" = self.homeConfigurations."sakhib@apple"; # Personal iMac
       "sakhib@Sokhibjons-MacBook-Pro.local" = self.homeConfigurations."sakhib@apple"; # Personal MacBook Pro
       "sakhib@Sokhibjons-Virtual-Machine.local" = self.homeConfigurations."sakhib@apple"; # Parallels VIrtual Machine
-      "sakhib@Sokhibjons-MacBook-Air.local" = self.homeConfigurations."sakhib@old-apple"; # Old MacBook Air 2015s
+      "sakhib@Sokhibjons-MacBook-Air.local" = self.homeConfigurations."sakhib@old-apple"; # Old MacBook Air 2015
 
+      #      ___   __            _  _   ___
+      #    _/_/ | / /___  ____  | |/ | / (_)  ______  _____
+      #   / //  |/ / __ \/ __ \ / /  |/ / / |/_/ __ \/ ___/
+      #  / // /|  / /_/ / / / // / /|  / />  </ /_/ (__  )
+      # / //_/ |_/\____/_/ /_//_/_/ |_/_/_/|_|\____/____/
+      # |_|                 /_/
       # For my unstable non NixOS machines
       "sakhib@unstable" = home-manager.lib.homeManagerConfiguration {
         pkgs =
