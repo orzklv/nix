@@ -71,12 +71,6 @@ in {
     enableNixpkgsReleaseCheck = false;
   };
 
-  # Install linux related package base
-  packages.isMacOS = isMacOS;
-
-  # Use Linux configured git configs
-  git.isMacOS = isMacOS;
-
   # Let's enable home-manager
   programs.home-manager.enable = true;
 }

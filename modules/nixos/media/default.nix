@@ -4,11 +4,10 @@
   ...
 }: {
   config.system.activationScripts.createMediaSymlink = lib.stringAfter ["users"] ''
-    # if [ "${toString config.users.users.sakhib.isNormalUser}" = "true" ] && [ -d /media ]; then
-    #   ln -sfn /media ${config.users.users.sakhib.home}/Media
-    # fi
-
-    # loop /home every user folder and create symlink to /media folder as Media, e.g: /home/sakhib/Media
+    # Loop /home every user folder and create symlink to /media folder as Media,
+    # For example:
+    #   - /home/sakhib/Media
+    #   - /home/someone/Media
     if [ -d /media ]; then
       for user in /home/*; do
         if [ -d /media ]; then

@@ -67,12 +67,6 @@ in {
     };
   };
 
-  # Install macOS related package base
-  packages.isMacOS = isMacOS;
-
-  # Use MacOS configured git configs
-  git.isMacOS = isMacOS;
-
   # This is to ensure programs are using ~/.config rather than
   # /Users/sakhib/Library/whatever
   xdg.enable = true;
