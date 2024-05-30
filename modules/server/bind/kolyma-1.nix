@@ -18,10 +18,11 @@
     };
   };
 
+  # Copy all zone files to /var/dns
   system.activationScripts.copyZones = lib.mkForce {
     text = ''
       mkdir -p /var/dns
-      for zoneFile in ${../../../configs/zones}/*.zone; do
+      for zoneFile in ${./zones}/*.zone; do
         cp -f "$zoneFile" /var/dns/
       done
     '';
