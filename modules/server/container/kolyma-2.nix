@@ -32,7 +32,7 @@
       ];
       environmentFiles = ["/srv/git/.env"];
       extraOptions = [
-        "--shm-size 256m"
+        "--shm-size=268435456"
       ];
     };
   };
