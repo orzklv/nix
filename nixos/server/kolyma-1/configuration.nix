@@ -12,6 +12,7 @@
     outputs.nixosModules.users.sakhib
 
     # Deployed Servers
+    outputs.serverModules.data
     outputs.serverModules.bind.kolyma-1
     outputs.serverModules.caddy.kolyma-1
 
