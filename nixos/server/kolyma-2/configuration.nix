@@ -15,7 +15,7 @@
     outputs.serverModules.data
     outputs.serverModules.bind.kolyma-2
     outputs.serverModules.caddy.kolyma-2
-    outputs.serverModules.containers.kolyma-2
+    outputs.serverModules.container.kolyma-2
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix

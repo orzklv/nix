@@ -5,4 +5,5 @@
   bind = import ./bind;
   data = import ./data;
   caddy = import ./caddy;
+  container = import ./container;
 }
