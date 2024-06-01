@@ -10,7 +10,7 @@
     docker = {
       enable = true;
       enableOnBoot = true;
-      autoPrune = true;
+      autoPrune.enable = true;
     };
     oci-containers = {
       backend = "docker";
