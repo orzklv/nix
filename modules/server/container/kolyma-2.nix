@@ -34,7 +34,6 @@
       extraOptions = [
         "--shm-size 256m"
       ];
-      backend = "docker";
     };
   };
 
