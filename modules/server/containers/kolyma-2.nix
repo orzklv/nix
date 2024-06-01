@@ -24,4 +24,8 @@
       backend = "docker";
     };
   };
+
+  # Git Server SSH Port
+  config.networking.firewall.allowedTCPPorts = [22];
+  config.networking.firewall.allowedUDPPorts = [22];
 }
