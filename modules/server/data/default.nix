@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  config.users.groups.admins = {
+    name = "admins";
+  };
+
   config.system.activationScripts.chownSrv = {
     text = ''
       #!/bin/sh
