@@ -4,6 +4,19 @@
   pkgs,
   ...
 }: {
+  
+  # Enabling docker
+  config.virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+      autoPrune = true;
+    };
+    oci-containers = {
+      backend = "docker";
+    };
+  };
+
   config.virtualisation.oci-containers.containers = {
     git = {
       image = "gitlab/gitlab-ee:latest";
