@@ -3,18 +3,20 @@
   inputs,
   ...
 }: {
-  # Installing zsh for system
-  programs.zsh.enable = true;
+  config = {
+    # Installing zsh for system
+    programs.zsh.enable = true;
 
-  # All users default shell must be zsh
-  users.defaultUserShell = pkgs.zsh;
+    # All users default shell must be zsh
+    users.defaultUserShell = pkgs.zsh;
 
-  # System configurations
-  environment = {
-    shells = with pkgs; [zsh];
-    pathsToLink = ["/share/zsh"];
-    systemPackages = with pkgs; [
-      inputs.home-manager.packages.${pkgs.system}.default
-    ];
+    # System configurations
+    environment = {
+      shells = with pkgs; [zsh];
+      pathsToLink = ["/share/zsh"];
+      systemPackages = with pkgs; [
+        inputs.home-manager.packages.${pkgs.system}.default
+      ];
+    };
   };
 }

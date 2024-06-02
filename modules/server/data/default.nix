@@ -4,25 +4,27 @@
   pkgs,
   ...
 }: {
-  config.users.groups.admins = {
-    name = "admins";
-  };
+  config = {
+    users.groups.admins = {
+      name = "admins";
+    };
 
-  config.system.activationScripts.chownSrv = {
-    text = ''
-      #!/bin/sh
-      chown -R :admins /srv
-      chmod -R 777 /srv
-    '';
-  };
+    system.activationScripts.chownSrv = {
+      text = ''
+        #!/bin/sh
+        chown -R :admins /srv
+        chmod -R 777 /srv
+      '';
+    };
 
-  config.systemd.services.chownSrv = {
-    description = "Change ownership of /srv";
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c ${config.system.activationScripts.chownSrv.text}";
-      RemainAfterExit = true;
+    systemd.services.chownSrv = {
+      description = "Change ownership of /srv";
+      wantedBy = ["multi-user.target"];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.bash}/bin/bash -c ${config.system.activationScripts.chownSrv.text}";
+        RemainAfterExit = true;
+      };
     };
   };
 }
