@@ -29,6 +29,18 @@
           '';
         };
 
+        "https://65.109.61.35" = {
+          extraConfig = ''
+            redir https://kolyma.uz
+          '';
+        };
+
+        "https://2A01:4F9:5A:5110::2" = {
+          extraConfig = ''
+            redir https://kolyma.uz
+          '';
+        };
+
         "ns2.kolyma.uz" = {
           extraConfig = ''
             redir https://kolyma.uz
