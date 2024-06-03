@@ -1,5 +1,5 @@
 $TTL 86400
-@      IN    SOA    ns1.kolyma.uz. sakhib.orzklv.uz. (
+@      IN    SOA    ns1.kolyma.uz. admin.kolyma.uz. (
              2024060301 ; Serial
              3600       ; Refresh
              1800       ; Retry
