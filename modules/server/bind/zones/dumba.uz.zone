@@ -1,10 +1,10 @@
 $TTL 86400
-@      IN  SOA  ns1.kolyma.uz. sakhib.orzklv.uz. (
-           2024060301 ; Serial
-           3600       ; Refresh
-           1800       ; Retry
-           604800     ; Expire
-           86400 )    ; Minimum TTL
+@      IN    SOA    ns1.kolyma.uz. sakhib.orzklv.uz. (
+             2024060301 ; Serial
+             3600       ; Refresh
+             1800       ; Retry
+             604800     ; Expire
+             86400 )    ; Minimum TTL
 
 ; Nameservers
 @      IN    NS    ns1.kolyma.uz.
