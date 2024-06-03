@@ -30,7 +30,6 @@
           "8450:80"
           "22:22"
         ];
-        environmentFiles = ["/srv/git/.env"];
         extraOptions = [
           "--shm-size=268435456"
         ];
@@ -39,7 +38,7 @@
       remote-hbbr = {
         image = "rustdesk/rustdesk-server:latest";
         volumes = [
-          "/srv/remote/data:/root"
+          "/srv/remote:/root"
         ];
         cmd = ["hbbr"];
         extraOptions = [
@@ -50,7 +49,7 @@
       remote-hbbs = {
         image = "rustdesk/rustdesk-server:latest";
         volumes = [
-          "/srv/remote/data:/root"
+          "/srv/remote:/root"
         ];
         cmd = ["hbbs"];
         dependsOn = [
