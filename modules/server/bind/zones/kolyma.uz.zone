@@ -32,9 +32,9 @@ git    IN    A     65.109.61.35
 git    IN    AAAA  2A01:4F9:5A:5110::2
 
 ; Remote Access (RustDesk)
-remote IN  A     65.109.61.35
-remote IN  AAAA  2A01:4F9:5A:5110::2
+remote IN    A     65.109.61.35
+remote IN    AAAA  2A01:4F9:5A:5110::2
 
 ; CDN Hosting (Caddy)
-cdn    IN  A     5.9.66.12
-cdn    IN  AAAA  2A01:4F8:161:714C::2
+cdn    IN    A     5.9.66.12
+cdn    IN    AAAA  2A01:4F8:161:714C::2
