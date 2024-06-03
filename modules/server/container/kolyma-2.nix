@@ -18,6 +18,16 @@
     };
 
     virtualisation.oci-containers.containers = {
+      #  _       __     __         _ __
+      # | |     / /__  / /_  _____(_) /____
+      # | | /| / / _ \/ __ \/ ___/ / __/ _ \
+      # | |/ |/ /  __/ /_/ (__  ) / /_/  __/
+      # |__/|__/\___/_.___/____/_/\__/\___/
+      website = {
+        image = "ghcr.io/orzklv/kolyma:master";
+        ports = ["8440:80"];
+      };
+
       #    _______ __  __          __
       #   / ____(_) /_/ /   ____ _/ /_
       #  / / __/ / __/ /   / __ `/ __ \
@@ -75,15 +85,16 @@
       #   \__ \/ __/ __ `/ / | /| / / __ `/ ___/ __/
       #  ___/ / /_/ /_/ / /| |/ |/ / /_/ / /  / /_
       # /____/\__/\__,_/_/ |__/|__/\__,_/_/   \__/
-      mail = {
-        image = "stalwartlabs/mail-server:latest";
-        volumes = [
-          "/srv/mail:/opt/stalwart-mail"
-        ];
-        ports = [
-          ""
-        ];
-      };
+      #     Still WIP. Not ready for production
+      # mail = {
+      #   image = "stalwartlabs/mail-server:latest";
+      #   volumes = [
+      #     "/srv/mail:/opt/stalwart-mail"
+      #   ];
+      #   ports = [
+      #     ""
+      #   ];
+      # };
     };
 
     # Necessary firewall rules for docker containers
