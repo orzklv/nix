@@ -21,7 +21,7 @@
       minecraft = {
         image = "itzg/minecraft-server:latest";
         volumes = [
-          "/srv/minecraft/server:/data"
+          "/srv/minecraft:/data"
         ];
         ports = [
           "25565:25565"
@@ -37,7 +37,7 @@
       runner-1 = {
         image = "gitlab/gitlab-runner:latest";
         volumes = [
-          "/srv/git/runner-1/config:/etc/gitlab-runner"
+          "/srv/git/runner-1:/etc/gitlab-runner"
           "/var/run/docker.sock:/var/run/docker.sock"
         ];
       };
@@ -45,7 +45,7 @@
       runner-2 = {
         image = "gitlab/gitlab-runner:latest";
         volumes = [
-          "/srv/git/runner-2/config:/etc/gitlab-runner"
+          "/srv/git/runner-2:/etc/gitlab-runner"
           "/var/run/docker.sock:/var/run/docker.sock"
         ];
       };
