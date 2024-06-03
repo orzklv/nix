@@ -24,8 +24,12 @@ mail   IN    AAAA  2A01:4F9:5A:5110::2
 ; Main website (Caddy)
 @      IN    A     65.109.61.35
 @      IN    AAAA  2A01:4F9:5A:5110::2
+@      IN    A     5.9.66.12
+@      IN    AAAA  2A01:4F8:161:714C::2
 www    IN    A     65.109.61.35
 www    IN    AAAA  2A01:4F9:5A:5110::2
+www    IN    A     5.9.66.12
+www    IN    AAAA  2A01:4F8:161:714C::2
 
 ; Git (GitLab)
 git    IN    A     65.109.61.35
