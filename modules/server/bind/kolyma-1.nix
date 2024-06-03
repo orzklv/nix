@@ -10,6 +10,13 @@
       directory = "/var/bind";
 
       zones = {
+        "kolyma.uz" = {
+          master = true;
+          name = "kolyma.uz";
+          file = "/var/dns/kolyma.uz.zone";
+          slaves = ["65.109.61.35"];
+        };
+
         "dumba.uz" = {
           master = true;
           name = "dumba.uz";
