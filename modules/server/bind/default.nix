@@ -36,7 +36,7 @@
       zones);
 
   # If type is master, activate system.activationScripts.copyZones 
-  zoneFiles = lib.mkIf (config.services.nameserver.enable && config.services.nameserver.type == "master") {
+  zoneFiles = if config.services.nameserver.enable && config.services.nameserver.type == "master" then {
     system.activationScripts.copyZones = lib.mkForce {
       text = ''
         mkdir -p /var/dns
@@ -46,7 +46,7 @@
       '';
       deps = [];
     };
-  };
+  } else {};
 in {
   options = {
     services.nameserver = {
