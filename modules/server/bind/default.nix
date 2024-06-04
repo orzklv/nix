@@ -13,23 +13,23 @@
   # Statically defined list of zones
   zones = ["kolyma.uz"];
 
+  generateZone = zone: type: let
+    master = type == "master";
+    file = "/var/dns/${zone}.zone";
+  in
+    if master then {
+      inherit master file;
+      slaves = config.services.nameserver.slaves;
+    } else {
+      inherit master file;
+      masters = config.services.nameserver.masters;
+    };
+
   # Map through given array of zones and generate zone object list
   zonesMap = zones: type:
     lib.listToAttrs (map (zone: {
         name = zone;
-        value =
-          lib.attrsets.removeAttrs {
-            master = type == "master";
-            file = "/var/dns/${zone}.zone";
-            slaves = config.services.nameserver.slaves;
-            masters = config.services.nameserver.masters;
-          } [
-            (
-              if type == "master"
-              then "slaves"
-              else "masters"
-            )
-          ];
+        value = generateZone zone type;
       })
       zones);
 
