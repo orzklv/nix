@@ -12,7 +12,7 @@
   };
 
   # Map through given array of zones and generate zone object list
-  slaveZonesMap = zones: lib.listToAttrs (map (zone: zone -> zone -> slaveZoneGenerator zone) zones);
+  slaveZonesMap = zones: lib.listToAttrs (map (zone: { name = zone; value = slaveZoneGenerator zone; }) zones);
 in {
   config = {
     services.bind = {
