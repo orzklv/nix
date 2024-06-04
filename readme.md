@@ -72,10 +72,10 @@ sudo nixos-rebuild switch --flake github:orzklv/nix#Experimental --upgrade
 
 ## Thanks
 
-- [Template](https://github.com/Misterio77/nix-starter-configs)
-- [Example](https://github.com/Misterio77/nix-config)
-- [Home Manager](https://github.com/nix-community/home-manager)
-- [Nix](https://nixos.org/)
+- [Template](https://github.com/Misterio77/nix-starter-configs) - Started with this template
+- [Example](https://github.com/Misterio77/nix-config) - Learned from his configurations
+- [Home Manager](https://github.com/nix-community/home-manager) - Simplyifying my life and avoid frustrations
+- [Nix](https://nixos.org/) - Masterpiece of package management
 
 ## License
 
