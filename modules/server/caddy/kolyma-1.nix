@@ -16,8 +16,8 @@
           serverAliases = [
             "www.kolyma.uz"
             "ns1.kolyma.uz"
-            "5.9.66.12"
-            "2a01:4f8:161:714c::"
+            "http://5.9.66.12"
+            "http://2a01:4f8:161:714c::"
           ];
           extraConfig = ''
             reverse_proxy 127.0.0.1:8440 {
