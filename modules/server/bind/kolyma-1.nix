@@ -25,26 +25,26 @@ in {
         "dumba.uz"
       ];
 
-    #   zones = {
-    #     "kolyma.uz" = {
-    #       master = true;
-    #       file = "/var/dns/kolyma.uz.zone";
-    #       slaves = ["65.109.61.35"];
-    #     };
+      # zones = {
+      #   "kolyma.uz" = {
+      #     master = true;
+      #     file = "/var/dns/kolyma.uz.zone";
+      #     slaves = ["65.109.61.35"];
+      #   };
 
-    #     "katsuki.moe" = {
-    #       master = true;
-    #       file = "/var/dns/katsuki.moe.zone";
-    #       slaves = ["65.109.61.35"];
-    #     };
+      #   "katsuki.moe" = {
+      #     master = true;
+      #     file = "/var/dns/katsuki.moe.zone";
+      #     slaves = ["65.109.61.35"];
+      #   };
 
-    #     "dumba.uz" = {
-    #       master = true;
-    #       file = "/var/dns/dumba.uz.zone";
-    #       slaves = ["65.109.61.35"];
-    #     };
-    #   };
-    # };
+      #   "dumba.uz" = {
+      #     master = true;
+      #     file = "/var/dns/dumba.uz.zone";
+      #     slaves = ["65.109.61.35"];
+      #   };
+      # };
+    };
 
     # Copy all zone files to /var/dns
     system.activationScripts.copyZones = lib.mkForce {
