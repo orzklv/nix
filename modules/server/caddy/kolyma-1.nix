@@ -31,8 +31,8 @@
         
         "ns1.kolyma.uz" = {
           serverAliases = [
-            "http://5.9.66.12" 
-            "http://[2a01:4f8:161:714c::]"
+            "5.9.66.12" 
+            "2a01:4f8:161:714c::"
           ];
           extraConfig = ''
             redir https://kolyma.uz
