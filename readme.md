@@ -4,9 +4,12 @@
 
 <p align="center">
     <h3 align="center">My nix configurations made for all my NixOS machines & Apple.</h3>
-    <img src="https://img.shields.io/github/languages/top/orzklv/nix?style=flat&logo=nixos&logoColor=ffffff&labelColor=242424&color=242424" alt="Top Used Language">
-    <a href="https://t.me/orzklvb"><img src="https://img.shields.io/badge/Chat-grey?style=flat&logo=telegram&logoColor=ffffff&labelColor=242424&color=242424" alt="Telegram Channel"></a>
-    <a href="https://github.com/orzklv/nix/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/orzklv/nix/test.yml?style=flat&labelColor=242424&color=242424" alt="Test CI"></a>
+</p>
+
+<p align="center">
+    <img align="center" src="https://img.shields.io/github/languages/top/orzklv/nix?style=flat&logo=nixos&logoColor=ffffff&labelColor=242424&color=242424" alt="Top Used Language">
+    <a href="https://t.me/orzklvb"><img align="center" src="https://img.shields.io/badge/Chat-grey?style=flat&logo=telegram&logoColor=ffffff&labelColor=242424&color=242424" alt="Telegram Channel"></a>
+    <a href="https://github.com/orzklv/nix/actions/workflows/test.yml"><img align="center" src="https://img.shields.io/github/actions/workflow/status/orzklv/nix/test.yml?style=flat&labelColor=242424&color=242424" alt="Test CI"></a>
 </p>
 
 ## About
