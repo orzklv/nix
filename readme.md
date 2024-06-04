@@ -103,3 +103,7 @@ sudo nixos-rebuild --flake github:orzklv/nix#Griffith --upgrade
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](license) file for details.
+
+<p align="center">
+    <img src=".github/assets/footer.png" alt="Orzklv's {Nix}">
+</p>
