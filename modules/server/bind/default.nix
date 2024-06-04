@@ -11,8 +11,6 @@
   ...
 }: let
   # Statically defined list of zones
-  # "katsuki.moe"
-  # "dumba.uz"
   zones = ["kolyma.uz"];
 
   # Map through given array of zones and generate zone object list
