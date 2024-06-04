@@ -84,6 +84,13 @@ home-manager switch --flake github:orzklv/nix#sakhib@unstable
 home-manager switch --flake github:orzklv/nix#sakhib@stable
 ```
 
+If you skipped home-manager installation part, you can use nix run to instantly apply my configurations. It should be something like this:
+
+```shell
+# Replace <target> with any of sakhib@apple, sakhib@old-apple, sakhib@unstable, sakhib@stable
+nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#<target>
+```
+
 ### NixOS & Home Manager configs
 
 I've written ready configurations for my machines that are using NixOS, so here you are:
