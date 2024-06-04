@@ -24,11 +24,7 @@
             slaves = config.services.nameserver.slaves;
             masters = config.services.nameserver.master;
           } [
-            (
-              if type == "master"
-              then "slaves"
-              else "masters"
-            )
+            (if type == "master" then "slaves" else "masters")
           ];
       })
       zones);
