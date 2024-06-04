@@ -40,7 +40,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L \
 
 ## Install Home Manager
 
-Installation of Home Manager differs depending on what OS you use. For MacOS or Non-Nixos target, it's just a simple command, however, on NixOS, it's a bit different story (go to #nixos--home-manager-configs).
+Installation of Home Manager differs depending on what OS you use. For MacOS or Non-Nixos target, it's just a simple command, however, on NixOS, it's a bit different story (go to [NixOS & Home Manager](#nixos--home-manager-configs)).
 
 #### MacOS & Non NixOS
 
