@@ -11,11 +11,8 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.users.sakhib
 
-    # Deployed Servers
-    outputs.serverModules.data
-    outputs.serverModules.bind.kolyma-2
-    outputs.serverModules.caddy.kolyma-2
-    outputs.serverModules.container.kolyma-2
+    # Import your deployed service list
+    ./services.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
