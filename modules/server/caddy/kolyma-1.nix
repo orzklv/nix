@@ -13,6 +13,12 @@
       # Define a simple virtual host
       virtualHosts = {
         "kolyma.uz" = {
+          serverAliases = [
+            "www.kolyma.uz"
+            "ns1.kolyma.uz"
+            "5.9.66.12"
+            "2a01:4f8:161:714c::"
+          ];
           extraConfig = ''
             reverse_proxy 127.0.0.1:8440 {
               header_up Host {host}
@@ -23,21 +29,21 @@
           '';
         };
 
-        "www.kolyma.uz" = {
-          extraConfig = ''
-            redir https://kolyma.uz
-          '';
-        };
+        # "www.kolyma.uz" = {
+        #   extraConfig = ''
+        #     redir https://kolyma.uz
+        #   '';
+        # };
         
-        "ns1.kolyma.uz" = {
-          serverAliases = [
-            "5.9.66.12" 
-            "2a01:4f8:161:714c::"
-          ];
-          extraConfig = ''
-            redir https://kolyma.uz
-          '';
-        };
+        # "ns1.kolyma.uz" = {
+        #   serverAliases = [
+        #     "5.9.66.12" 
+        #     "2a01:4f8:161:714c::"
+        #   ];
+        #   extraConfig = ''
+        #     redir https://kolyma.uz
+        #   '';
+        # };
       };
     };
 
