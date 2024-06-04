@@ -1,15 +1,13 @@
-<header>
-<img src="https://www.orzklv.uz/favicons/logo.png" alt="logo" height="100" align="left">
-<h1 style="display: inline">Nix</h1>
+<p align="center">
+    <img src=".github/assets/header.png" alt="Orzklv's {Nix}">
+</p>
 
-My nix configurations made for all my NixOS machines & Apple.
-
-</header>
-
-[![GitHub top language](https://img.shields.io/github/languages/top/orzklv/nix?style=flat-square&logo=github)](https://github.com/orzklv/nix)
-[![Channel](https://img.shields.io/badge/Chat-grey?style=flat-square&logo=telegram)](https://t.me/orzklvb)
-
-[//]: # ([![Shellcheck CI]&#40;https://github.com/orzklv/dots/actions/workflows/test.yml/badge.svg&#41;]&#40;https://github.com/orzklv/dots/actions/workflows/test.yml&#41;)
+<p align="center">
+    <h3 align="center">My nix configurations made for all my NixOS machines & Apple.</h3>
+    <img src="https://img.shields.io/github/languages/top/orzklv/nix?style=flat&logo=nixos&logoColor=ffffff&labelColor=242424&color=242424" alt="Top Used Language">
+    <a href="https://t.me/orzklvb"><img src="https://img.shields.io/badge/Chat-grey?style=flat&logo=telegram&logoColor=ffffff&labelColor=242424&color=242424" alt="Telegram Channel"></a>
+    <a href="https://github.com/orzklv/nix/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/orzklv/nix/test.yml?style=flat&labelColor=242424&color=242424" alt="Test CI"></a>
+</p>
 
 ## About
 
