@@ -20,34 +20,19 @@
             "http://2a01:4f9:5a:5110::"
           ];
           extraConfig = ''
-            reverse_proxy 127.0.0.1:8440 {
-              header_up Host {host}
-              header_up X-Real-IP {remote}
-              header_up Upgrade {http_upgrade}
-              header_up Connection {>Connection}
-            }
+            reverse_proxy 127.0.0.1:8440
           '';
         };
 
         "mail.kolyma.uz" = {
           extraConfig = ''
-            reverse_proxy 127.0.0.1:8460 {
-              header_up Host {host}
-              header_up X-Real-IP {remote}
-              header_up Upgrade {http_upgrade}
-              header_up Connection {>Connection}
-            }
+            reverse_proxy 127.0.0.1:8460
           '';
         };
 
         "git.kolyma.uz" = {
           extraConfig = ''
-            reverse_proxy 127.0.0.1:8450 {
-              header_up Host {host}
-              header_up X-Real-IP {remote}
-              header_up Upgrade {http_upgrade}
-              header_up Connection {>Connection}
-            }
+            reverse_proxy 127.0.0.1:8450
           '';
         };
       };
