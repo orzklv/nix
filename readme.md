@@ -48,7 +48,7 @@ Installation of Home Manager differs depending on what OS you use. For MacOS or 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 
-# Optional, just go with nix run...
+# Optional, just go with nix run if you want...
 nix-shell '<home-manager>' -A install
 ```
 
