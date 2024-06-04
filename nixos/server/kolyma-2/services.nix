@@ -22,5 +22,6 @@
       "dumba.uz"
       "katsuki.moe"
     ];
+    masters = ["5.9.66.12"];
   };
 }

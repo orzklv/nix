@@ -22,5 +22,6 @@
       "dumba.uz"
       "katsuki.moe"
     ];
+    slaves = ["65.109.61.1"];
   };
 }

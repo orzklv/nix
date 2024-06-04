@@ -22,9 +22,13 @@
             master = type == "master";
             file = "/var/dns/${zone}.zone";
             slaves = config.services.nameserver.slaves;
-            masters = config.services.nameserver.master;
+            masters = config.services.nameserver.masters;
           } [
-            (if type == "master" then "slaves" else "masters")
+            (
+              if type == "master"
+              then "slaves"
+              else "masters"
+            )
           ];
       })
       zones);
@@ -68,7 +72,7 @@ in {
         description = "The type of the bind zone, either 'master' or 'slave'.";
       };
 
-      master = lib.mkOption {
+      masters = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = ["5.9.66.12"];
         description = "IP address of the master server.";
