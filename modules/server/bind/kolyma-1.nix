@@ -3,32 +3,48 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  # Generate a slave zone object
+  masterZoneGenerator = zone: {
+    master = true;
+    file = "/var/dns/${zone}.zone";
+    slaves = ["65.109.61.35"]; # IP address of the slave server ns2.kolyma.uz
+  };
+
+  # Map through given array of zones and generate zone object list
+  masterZonesMap = zones: lib.listToAttrs (map (zone: { name = zone; value = masterZoneGenerator zone; }) zones);
+in {
   config = {
     services.bind = {
       enable = true;
       directory = "/var/bind";
 
-      zones = {
-        "kolyma.uz" = {
-          master = true;
-          file = "/var/dns/kolyma.uz.zone";
-          slaves = ["65.109.61.35"];
-        };
+      zones = masterZonesMap [
+        "kolyma.uz"
+        "katsuki.moe"
+        "dumba.uz"
+      ];
 
-        "katsuki.moe" = {
-          master = true;
-          file = "/var/dns/katsuki.moe.zone";
-          slaves = ["65.109.61.35"];
-        };
+    #   zones = {
+    #     "kolyma.uz" = {
+    #       master = true;
+    #       file = "/var/dns/kolyma.uz.zone";
+    #       slaves = ["65.109.61.35"];
+    #     };
 
-        "dumba.uz" = {
-          master = true;
-          file = "/var/dns/dumba.uz.zone";
-          slaves = ["65.109.61.35"];
-        };
-      };
-    };
+    #     "katsuki.moe" = {
+    #       master = true;
+    #       file = "/var/dns/katsuki.moe.zone";
+    #       slaves = ["65.109.61.35"];
+    #     };
+
+    #     "dumba.uz" = {
+    #       master = true;
+    #       file = "/var/dns/dumba.uz.zone";
+    #       slaves = ["65.109.61.35"];
+    #     };
+    #   };
+    # };
 
     # Copy all zone files to /var/dns
     system.activationScripts.copyZones = lib.mkForce {
