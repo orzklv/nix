@@ -17,7 +17,7 @@ ns2    IN    A     65.109.61.35
 ns2    IN    AAAA  2a01:4f9:5a:5110::
 
 ; Mail server (Stalwart)
-@      IN    MX 10 mail.kolyma.uz.
+@      IN    MX    10 mail.kolyma.uz.
 @      IN    TXT   "v=spf1 mx ra=postmaster -all"
 mail   IN    A     65.109.61.35
 mail   IN    AAAA  2a01:4f9:5a:5110::

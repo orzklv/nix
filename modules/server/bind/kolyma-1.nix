@@ -12,14 +12,18 @@
       zones = {
         "kolyma.uz" = {
           master = true;
-          name = "kolyma.uz";
           file = "/var/dns/kolyma.uz.zone";
+          slaves = ["65.109.61.35"];
+        };
+
+        "katsuki.moe" = {
+          master = true;
+          file = "/var/dns/katsuki.moe.zone";
           slaves = ["65.109.61.35"];
         };
 
         "dumba.uz" = {
           master = true;
-          name = "dumba.uz";
           file = "/var/dns/dumba.uz.zone";
           slaves = ["65.109.61.35"];
         };
