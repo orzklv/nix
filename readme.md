@@ -15,7 +15,7 @@
 ## About
 
 In this repository I keep all my configurations and dot files to maintain my healthy development environment for any case. It contains configurations
-for shell and environments like zsh (arch-linux, macos), powershell (windows). It comes with installer to shorten my time spending on set up.
+for shell and environments for any linux distro and macos. It comes with installer to shorten my time spending on set up.
 
 > Everytime I installed my dev env manually by myself, I started feeling like a garbage myself... So here you are!
 
@@ -31,25 +31,25 @@ for shell and environments like zsh (arch-linux, macos), powershell (windows). I
 
 ## Install Nix
 
-Before installing my configuration, we need to perform some dependency installation get nix ready in our machine.
+Before installing my configuration, we need to get nix ready in our machine. We could have used official installer, but due to many reasons, I prefer going with installer by [determinate.systems](https://determinate.systems/oss/).
 
 ```shell
-# MacOS
-sh <(curl -L https://nixos.org/nix/install)
-
-# Linux
-sh <(curl -L https://nixos.org/nix/install) --daemon
+curl --proto '=https' --tlsv1.2 -sSf -L \
+  https://install.determinate.systems/nix | sh -s -- install
 ```
 
 ## Install Home Manager
 
-Installation of Home Manager differs depending on what OS you use. For MacOS, it's just a simple command, however, for Linux, it's a bit more complicated.
+Installation of Home Manager differs depending on what OS you use. For MacOS or Non-Nixos target, it's just a simple command, however, on NixOS, it's a bit different story (go to #nixos--home-manager-configs).
 
 #### MacOS & Non NixOS
 
 ```shell
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
+
+# Optional, just go with nix run...
+nix-shell '<home-manager>' -A install
 ```
 
 #### NixOS (if you want only home-manager configs)
@@ -74,10 +74,13 @@ I do have many configurations written on my nix flake, however, for my macs, it 
 # Apple Macs
 home-manager switch --flake github:orzklv/nix#sakhib@apple
 
-# Non NixOS
+# Intel Apple Macs
+home-manager switch --flake github:orzklv/nix#sakhib@old-apple
+
+# Non NixOS Linux
 home-manager switch --flake github:orzklv/nix#sakhib@unstable
 
-# NixOS
+# Stable Latest NixOS
 home-manager switch --flake github:orzklv/nix#sakhib@stable
 ```
 
@@ -86,11 +89,11 @@ home-manager switch --flake github:orzklv/nix#sakhib@stable
 I've written ready configurations for my machines that are using NixOS, so here you are:
 
 ```shell
-# Guts (Home Gaming)
-sudo nixos-rebuild --flake github:orzklv/nix#Guts --upgrade
+# Station (Home Gaming)
+sudo nixos-rebuild switch --flake github:orzklv/nix#Guts --upgrade
 
-# Griffith (Work Station)
-sudo nixos-rebuild --flake github:orzklv/nix#Griffith --upgrade
+# Experimental (Work PC)
+sudo nixos-rebuild switch --flake github:orzklv/nix#Experimental --upgrade
 ```
 
 ## Thanks
