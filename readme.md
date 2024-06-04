@@ -38,32 +38,6 @@ curl --proto '=https' --tlsv1.2 -sSf -L \
   https://install.determinate.systems/nix | sh -s -- install
 ```
 
-## Install Home Manager
-
-Installation of Home Manager differs depending on what OS you use. For MacOS or Non-Nixos target, it's just a simple command, however, on NixOS, it's a bit different story (go to [NixOS & Home Manager](#nixos--home-manager-configs)).
-
-#### MacOS & Non NixOS
-
-```shell
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-
-# Optional, just go with nix run if you want...
-nix-shell '<home-manager>' -A install
-```
-
-#### NixOS (if you want only home-manager configs)
-
-```shell
-# Unstable
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-sudo nix-channel --update
-
-# Stable 24.05
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
-sudo nix-channel --update
-```
-
 ## Install my configurations
 
 ### Home Manager configs
@@ -72,23 +46,16 @@ I do have many configurations written on my nix flake, however, for my macs, it 
 
 ```shell
 # Apple Macs
-home-manager switch --flake github:orzklv/nix#sakhib@apple
+nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@apple
 
 # Intel Apple Macs
-home-manager switch --flake github:orzklv/nix#sakhib@old-apple
+nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@old-apple
 
 # Non NixOS Linux
-home-manager switch --flake github:orzklv/nix#sakhib@unstable
+nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@unstable
 
 # Stable Latest NixOS
-home-manager switch --flake github:orzklv/nix#sakhib@stable
-```
-
-If you skipped home-manager installation part, you can use nix run to instantly apply my configurations. It should be something like this:
-
-```shell
-# Replace <target> with any of sakhib@apple, sakhib@old-apple, sakhib@unstable, sakhib@stable
-nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#<target>
+nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@stable
 ```
 
 ### NixOS & Home Manager configs
