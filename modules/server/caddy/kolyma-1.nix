@@ -29,7 +29,7 @@
           '';
         };
         
-        "http://5.9.66.12, http://[2a01:4f8:161:714c::], ns1.kolyma.uz" = {
+        "http://5.9.66.12, http://2a01:4f8:161:714c::, ns1.kolyma.uz" = {
           extraConfig = ''
             redir https://kolyma.uz
           '';
