@@ -12,9 +12,9 @@ $TTL 86400
 
 ; A & AAAA records for nameservers
 ns1    IN    A     5.9.66.12
-ns1    IN    AAAA  2A01:4F8:161:714C::2
+ns1    IN    AAAA  2a01:4f8:161:714c::
 ns2    IN    A     65.109.61.35
-ns2    IN    AAAA  2A01:4F9:5A:5110::2
+ns2    IN    AAAA  2a01:4f9:5a:5110::
 
 ; Mail server (Stalwart)
 @      IN    MX 10 mail.kolyma.uz.
@@ -38,22 +38,22 @@ _dmarc             IN TXT "v=DMARC1; p=reject; rua=mailto:postmaster@kolyma.uz; 
 
 ; Main website (Caddy)
 @      IN    A     65.109.61.35
-@      IN    AAAA  2A01:4F9:5A:5110::2
+@      IN    AAAA  2a01:4f9:5a:5110::
 @      IN    A     5.9.66.12
-@      IN    AAAA  2A01:4F8:161:714C::2
+@      IN    AAAA  2a01:4f8:161:714c::
 www    IN    A     65.109.61.35
-www    IN    AAAA  2A01:4F9:5A:5110::2
+www    IN    AAAA  2a01:4f9:5a:5110::
 www    IN    A     5.9.66.12
-www    IN    AAAA  2A01:4F8:161:714C::2
+www    IN    AAAA  2a01:4f8:161:714c::
 
 ; Git (GitLab)
 git    IN    A     65.109.61.35
-git    IN    AAAA  2A01:4F9:5A:5110::2
+git    IN    AAAA  2a01:4f9:5a:5110::
 
 ; Remote Access (RustDesk)
 remote IN    A     65.109.61.35
-remote IN    AAAA  2A01:4F9:5A:5110::2
+remote IN    AAAA  2a01:4f9:5a:5110::
 
 ; CDN Hosting (Caddy)
 cdn    IN    A     5.9.66.12
-cdn    IN    AAAA  2A01:4F8:161:714C::2
+cdn    IN    AAAA  2a01:4f8:161:714c::

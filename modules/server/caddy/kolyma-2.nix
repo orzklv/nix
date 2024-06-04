@@ -35,7 +35,7 @@
           '';
         };
 
-        "https://2A01:4F9:5A:5110::2" = {
+        "https://2a01:4f9:5a:5110::" = {
           extraConfig = ''
             redir https://kolyma.uz
           '';
