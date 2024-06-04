@@ -28,26 +28,11 @@
             }
           '';
         };
-
-        # "www.kolyma.uz" = {
-        #   extraConfig = ''
-        #     redir https://kolyma.uz
-        #   '';
-        # };
-        
-        # "ns1.kolyma.uz" = {
-        #   serverAliases = [
-        #     "5.9.66.12" 
-        #     "2a01:4f8:161:714c::"
-        #   ];
-        #   extraConfig = ''
-        #     redir https://kolyma.uz
-        #   '';
-        # };
       };
     };
 
     # Ensure the firewall allows HTTP and HTTPS traffic
     networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall.allowedUDPPorts = [80 443];
   };
 }

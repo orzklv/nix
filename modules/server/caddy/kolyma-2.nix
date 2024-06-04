@@ -13,6 +13,12 @@
       # Define a simple virtual host
       virtualHosts = {
         "kolyma.uz" = {
+          serverAliases = [
+            "www.kolyma.uz"
+            "ns2.kolyma.uz"
+            "65.109.61.35"
+            "2a01:4f9:5a:5110::"
+          ];
           extraConfig = ''
             reverse_proxy 127.0.0.1:8440 {
               header_up Host {host}
@@ -20,22 +26,6 @@
               header_up Upgrade {http_upgrade}
               header_up Connection {>Connection}
             }
-          '';
-        };
-
-        "www.kolyma.uz" = {
-          extraConfig = ''
-            redir https://kolyma.uz
-          '';
-        };
-
-        "ns2.kolyma.uz" = {
-          serverAliases = [
-            "65.109.61.35"
-            "2a01:4f9:5a:5110::"
-          ];
-          extraConfig = ''
-            redir https://kolyma.uz
           '';
         };
 
@@ -65,5 +55,6 @@
 
     # Ensure the firewall allows HTTP and HTTPS traffic
     networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall.allowedUDPPorts = [80 443];
   };
 }
