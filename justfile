@@ -9,10 +9,6 @@ default:
 #  / __  / /_/ / / / / / /  __/
 # /_/ /_/\____/_/ /_/ /_/\___/
 
-send-updates:
-    ssh kolyma-1 update
-    ssh kolyma-2 update
-
 hm-update-local:
     home-manager switch --flake .
 
