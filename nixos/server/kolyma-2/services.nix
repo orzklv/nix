@@ -18,9 +18,12 @@
     enable = true;
     type = "slave";
     zones = [
+      "orzklv.uz"
       "kolyma.uz"
+      "khakimovs.uz"
       "dumba.uz"
       "katsuki.moe"
+      "cxsmxs.space"
     ];
     masters = ["5.9.66.12"];
   };

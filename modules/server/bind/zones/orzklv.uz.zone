@@ -1,0 +1,36 @@
+$TTL 86400
+@      IN    SOA    ns1.kolyma.uz. admin.kolyma.uz. (
+             2024060400 ; Serial YYYYMMDDNN (NN is the revision number)
+             3600       ; Refresh
+             1800       ; Retry
+             604800     ; Expire
+             86400 )    ; Minimum TTL
+    
+; Nameservers
+@      IN    NS    ns1.kolyma.uz.
+@      IN    NS    ns2.kolyma.uz.
+
+; Mail server (iCloud)
+@      IN    MX    10 mx01.mail.icloud.com.
+@      IN    MX    10 mx02.mail.icloud.com.
+@      IN    TXT   "apple-domain=ZbyTKRrbJj5XpfPW"
+@      IN    TXT   "v=spf1 include:icloud.com ~all"
+sig1._domainkey    IN CNAME sig1.dkim.orzklv.uz.at.icloudmailadmin.com
+
+; GitHub Verifications
+_github-pages-challenge-orzklv          IN    TXT    "3d5ce2b8dae82ac62af937b9a90bb2"
+_github-pages-challenge-orzklv.pages    IN    TXT    "307a41f23aa243d950ca496eb30a5d"
+_github-challenge-dark-voyage-org       IN    TXT    "8193f09f31"
+
+; GitHub Pages
+license IN CNAME orzklv.github.io. 
+
+; Main website (Caddy)
+; @      IN    A     65.109.61.35
+; @      IN    AAAA  2a01:4f9:5a:5110::
+; @      IN    A     5.9.66.12
+; @      IN    AAAA  2a01:4f8:161:714c::
+; www    IN    A     65.109.61.35
+; www    IN    AAAA  2a01:4f9:5a:5110::
+; www    IN    A     5.9.66.12
+; www    IN    AAAA  2a01:4f8:161:714c::
