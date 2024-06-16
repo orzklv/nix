@@ -1,0 +1,30 @@
+$TTL 86400
+@      IN    SOA    ns1.kolyma.uz. admin.kolyma.uz. (
+             2024060400 ; Serial YYYYMMDDNN (NN is the revision number)
+             3600       ; Refresh
+             1800       ; Retry
+             604800     ; Expire
+             86400 )    ; Minimum TTL
+
+; Nameservers
+@      IN    NS    ns1.kolyma.uz.
+@      IN    NS    ns2.kolyma.uz.
+
+; Entry points
+@      IN    A     76.76.21.21
+
+; Telegram Bots
+xeonitte    IN    A    34.120.54.55
+xeonitte    IN    AAAA 2600:1901:0:6D85::
+xinitra     IN    A    34.120.54.55
+xinitra     IN    AAAA 2600:1901:0:6D85::
+xinuxmgr    IN    A    65.109.61.35
+xinuxmgr    IN    AAAA 2A01:4F9:5A:5110::2
+
+; GitHub Verifications
+_github-challenge-xinux-org-org      IN      TXT      1a06c6d74b
+_github-challenge-xinux-archive-org  IN      TXT      a604047c1d
+
+; Deno Deploy verifications
+_acme-challenge.xinitra    IN    TXT    fd5348973ccf5a1bd5bd77c5._acme.deno.dev
+_acme-challenge.xeonitte   IN    TXT    b3d8281e4647ff52b23c0f0c._acme.deno.dev

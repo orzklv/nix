@@ -18,12 +18,20 @@
     enable = true;
     type = "master";
     zones = [
+      # Personal Space
       "orzklv.uz"
       "kolyma.uz"
+      "katsuki.moe"
+
+      # Not that personal
       "khakimovs.uz"
       "dumba.uz"
-      "katsuki.moe"
+      
+      # Projects
       "cxsmxs.space"
+      "floss.uz"
+      "rust-lang.uz"
+      "xinux.uz"
     ];
     slaves = ["65.109.61.1"];
   };
