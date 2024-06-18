@@ -33,6 +33,6 @@
       "rust-lang.uz"
       "xinux.uz"
     ];
-    slaves = ["65.109.61.1"];
+    slaves = ["65.109.61.35"];
   };
 }
