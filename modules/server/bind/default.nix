@@ -52,6 +52,8 @@
       directory = "/var/bind";
       zones = zonesMap config.services.nameserver.zones config.services.nameserver.type;
       cacheNetworks = [
+        "127.0.0.0/24"
+        "::1/128"
         "5.9.66.12" 
         "2a01:4f8:161:714c::" 
         "65.109.61.35" 
