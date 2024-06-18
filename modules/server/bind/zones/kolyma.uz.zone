@@ -1,6 +1,6 @@
 $TTL 86400
 @      IN    SOA    ns1.kolyma.uz. admin.kolyma.uz. (
-             2024060400 ; Serial YYYYMMDDNN (NN is the revision number)
+             2024061900 ; Serial YYYYMMDDNN (NN is the revision number)
              3600       ; Refresh
              1800       ; Retry
              604800     ; Expire
