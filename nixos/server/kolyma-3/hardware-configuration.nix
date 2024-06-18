@@ -21,6 +21,8 @@
   };
   boot.loader.grub = {
     enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
     mirroredBoots = [
       {
         devices = ["/dev/nvme0n1" "/dev/nvme1n1"]; # List all drives in the RAID array
