@@ -51,6 +51,17 @@
       enable = config.services.nameserver.enable;
       directory = "/var/bind";
       zones = zonesMap config.services.nameserver.zones config.services.nameserver.type;
+      extraConfig = ''
+        acl trusted {
+          5.9.66.12/24;
+          65.109.61.35/24;
+        };
+
+        options {
+          allow-query-cache { trusted; };
+          allow-transfer { trusted; };
+        };
+      '';
     };
 
     # DNS standard port for connections + that require more than 512 bytes
