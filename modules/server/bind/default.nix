@@ -53,8 +53,8 @@
       zones = zonesMap config.services.nameserver.zones config.services.nameserver.type;
       extraConfig = ''
         acl trusted {
-          5.9.66.12/24;
-          65.109.61.35/24;
+          5.9.66.12;
+          65.109.61.35;
         };
 
         options {
