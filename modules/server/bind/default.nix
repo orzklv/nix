@@ -51,13 +51,14 @@
       enable = config.services.nameserver.enable;
       directory = "/var/bind";
       zones = zonesMap config.services.nameserver.zones config.services.nameserver.type;
-      extraConfig = ''
-        acl "trusted" { 5.9.66.12; 2a01:4f8:161:714c::; 65.109.61.35; 2a01:4f9:5a:5110::; };
-      '';
+      cacheNetworks = [
+        "5.9.66.12" 
+        "2a01:4f8:161:714c::" 
+        "65.109.61.35" 
+        "2a01:4f9:5a:5110::"
+      ];
       extraOptions = ''
-        allow-query { cachenetworks; trusted; };
-        allow-recursion { trusted; };
-        allow-query-cache { trusted; };
+        allow-query-cache { cachenetworks; };
       '';
     };
 
