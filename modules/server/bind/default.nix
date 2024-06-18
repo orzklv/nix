@@ -1,9 +1,3 @@
-# In case if something goes wrong, go with these
-# {
-#   # List your nameservers here
-#   kolyma-1 = import ./kolyma-1.nix;
-#   kolyma-2 = import ./kolyma-2.nix;
-# }
 {
   config,
   pkgs,
@@ -51,17 +45,6 @@
       enable = config.services.nameserver.enable;
       directory = "/var/bind";
       zones = zonesMap config.services.nameserver.zones config.services.nameserver.type;
-      cacheNetworks = [
-        "127.0.0.0/24"
-        "::1/128"
-        "5.9.66.12" 
-        "2a01:4f8:161:714c::" 
-        "65.109.61.35" 
-        "2a01:4f9:5a:5110::"
-      ];
-      extraOptions = ''
-        allow-query-cache { cachenetworks; };
-      '';
     };
 
     # DNS standard port for connections + that require more than 512 bytes
