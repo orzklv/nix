@@ -16,7 +16,6 @@ $TTL 86400
 @      IN    A     185.199.110.153
 @      IN    A     185.199.111.153
 
-@      IN    CNAME rust-lang-uz.github.io.
 www    IN    CNAME rust-lang-uz.github.io.
 doc    IN    CNAME rust-lang-uz.github.io.
 
