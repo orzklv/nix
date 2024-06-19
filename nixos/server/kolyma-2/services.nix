@@ -30,6 +30,8 @@
       # Projects
       "cxsmxs.space"
       "floss.uz"
+      "rust-lang.uz"
+      "xinux.uz"
     ];
     masters = ["5.9.66.12"];
   };
