@@ -12,6 +12,7 @@ $TTL 86400
 
 ; Entry points
 @      IN    CNAME rust-lang-uz.github.io.
+doc    IN    CNAME rust-lang-uz.github.io.
 
 ; Telegram Bots
 rustina    IN    A    65.109.61.35
