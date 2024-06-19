@@ -11,7 +11,7 @@ $TTL 86400
 @      IN    NS    ns2.kolyma.uz.
 
 ; Entry points
-@      IN    A     76.76.21.21
+@      IN    CNAME rust-lang-uz.github.io.
 
 ; Telegram Bots
 rustina    IN    A    65.109.61.35
