@@ -11,7 +11,7 @@ $TTL 86400
 @      IN    NS    ns2.kolyma.uz.
 
 ; Entry points
-@      IN    ALIAS rust-lang-uz.github.io.
+@      IN    CNAME rust-lang-uz.github.io.
 www    IN    CNAME rust-lang-uz.github.io.
 doc    IN    CNAME rust-lang-uz.github.io.
 
