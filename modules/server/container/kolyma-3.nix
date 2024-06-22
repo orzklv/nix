@@ -76,6 +76,7 @@
       #     ];
       #   };
       # };
+    };
 
     # Necessary firewall rules for docker containers
     networking.firewall.allowedUDPPorts = [
