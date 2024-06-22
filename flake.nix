@@ -60,6 +60,7 @@
     nixpkgs-unstable,
     home-manager,
     flake-utils,
+    muzaffar-cfg,
     ...
   } @ inputs: let
     inherit (self) outputs;
