@@ -18,6 +18,8 @@
             "ns1.kolyma.uz"
             "http://5.9.66.12"
             "http://2a01:4f8:161:714c::"
+            "cxsmxs.space"
+            "www.cxsmxs.space"
           ];
           extraConfig = ''
             reverse_proxy 127.0.0.1:8440
