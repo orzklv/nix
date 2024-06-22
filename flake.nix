@@ -46,10 +46,10 @@
 
     # Other's Configs
     # Muzaffar (Minecraft Server Moderator)
-    muzaffar-cfg = {
-      url = "github:Muzaffar-x/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # muzaffar-cfg = {
+    #   url = "github:Muzaffar-x/nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
