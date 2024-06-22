@@ -11,6 +11,9 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.users.sakhib
 
+    # Third party modules
+    inputs.muzaffar-cfg.nixosModules.users.muzaffar
+
     # Import your deployed service list
     ./services.nix
 
