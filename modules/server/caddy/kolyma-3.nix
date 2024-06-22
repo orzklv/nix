@@ -15,24 +15,21 @@
         "kolyma.uz" = {
           serverAliases = [
             "www.kolyma.uz"
-            "ns2.kolyma.uz"
-            "http://65.109.61.35"
-            "http://2a01:4f9:5a:5110::"
+            "ns3.kolyma.uz"
+            "http://95.216.248.25"
+            "http://2a01:4f9:3070:322c::"
           ];
           extraConfig = ''
             reverse_proxy 127.0.0.1:8440
           '';
         };
 
-        "mail.kolyma.uz" = {
+        "khakimovs.uz" = {
+          serverAliases = [
+            "www.khakimovs.uz"
+          ];
           extraConfig = ''
-            reverse_proxy 127.0.0.1:8460
-          '';
-        };
-
-        "git.kolyma.uz" = {
-          extraConfig = ''
-            reverse_proxy 127.0.0.1:8450
+            reverse_proxy 127.0.0.1:8441
           '';
         };
       };
