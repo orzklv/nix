@@ -24,7 +24,7 @@
       # | |/ |/ /  __/ /_/ (__  ) / /_/  __/
       # |__/|__/\___/_.___/____/_/\__/\___/
       website = {
-        image = "ghcr.io/orzklv/kolyma:master";
+        image = "ghcr.io/kolyma-labs/gate:master";
         ports = ["8440:80"];
       };
 
