@@ -14,17 +14,9 @@ $TTL 86400
 @      IN    A     76.76.21.21
 
 ; Telegram Bots
-xeonitte    IN    A    34.120.54.55
-xeonitte    IN    AAAA 2600:1901:0:6D85::
-xinitra     IN    A    34.120.54.55
-xinitra     IN    AAAA 2600:1901:0:6D85::
-xinuxmgr    IN    A    65.109.61.35
-xinuxmgr    IN    AAAA 2A01:4F9:5A:5110::2
+xinuxmgr    IN    A    95.216.248.25
+xinuxmgr    IN    AAAA 2a01:4f9:3070:322c::
 
 ; GitHub Verifications
 _github-challenge-xinux-org-org      IN      TXT      1a06c6d74b
 _github-challenge-xinux-archive-org  IN      TXT      a604047c1d
-
-; Deno Deploy verifications
-_acme-challenge.xinitra    IN    TXT    fd5348973ccf5a1bd5bd77c5._acme.deno.dev
-_acme-challenge.xeonitte   IN    TXT    b3d8281e4647ff52b23c0f0c._acme.deno.dev

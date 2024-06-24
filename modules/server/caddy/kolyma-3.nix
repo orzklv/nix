@@ -32,6 +32,12 @@
             reverse_proxy 127.0.0.1:8441
           '';
         };
+
+        "xinuxmgr.xinux.uz" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:8445
+          ''; 
+        };
       };
     };
 

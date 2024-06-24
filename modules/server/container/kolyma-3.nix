@@ -33,6 +33,14 @@
         ports = ["8441:3000"];
       };
 
+      bot-xinuxmgr = {
+        image = "ghcr.io/xinux-org/xinuxmgr:main";
+        ports = ["8445:8445"];
+        environmentFiles = [
+          /srv/bots/xinuxmgr.env
+        ];
+      };
+
       #     __  ___                                  ______
       #    /  |/  /___  __  ______  ______________ _/ __/ /_
       #   / /|_/ / __ \/ / / / __ \/ ___/ ___/ __ `/ /_/ __/
