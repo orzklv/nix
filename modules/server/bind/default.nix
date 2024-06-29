@@ -11,10 +11,12 @@
     master = type == "master";
     file = "/var/dns/${zone}.zone";
   in
-    if master then {
+    if master
+    then {
       inherit master file;
       slaves = config.services.nameserver.slaves;
-    } else {
+    }
+    else {
       inherit master file;
       masters = config.services.nameserver.masters;
     };

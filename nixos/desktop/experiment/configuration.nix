@@ -14,12 +14,12 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.zsh
     outputs.nixosModules.game
-    outputs.nixosModules.gnome
     outputs.nixosModules.fonts
     outputs.nixosModules.sound
     outputs.nixosModules.media
     outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
+    outputs.nixosModules.desktop.gnome
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd

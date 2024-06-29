@@ -26,7 +26,7 @@
       # Not that personal
       "khakimovs.uz"
       "dumba.uz"
-      
+
       # Projects
       "cxsmxs.space"
       "floss.uz"

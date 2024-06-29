@@ -14,10 +14,10 @@
     outputs.nixosModules.zsh
     outputs.nixosModules.game
     outputs.nixosModules.boot
-    outputs.nixosModules.gnome
     outputs.nixosModules.sound
     outputs.nixosModules.fonts
     outputs.nixosModules.media
+    outputs.nixosModules.desktop.kde
     outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):

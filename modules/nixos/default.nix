@@ -3,11 +3,11 @@
 {
   # List your module files here
   zsh = import ./zsh;
+  boot = import ./boot;
   game = import ./game;
   sound = import ./sound;
   media = import ./media;
   fonts = import ./fonts;
-  gnome = import ./gnome;
   users = import ./users;
-  boot = import ./boot;
+  desktop = import ./desktop;
 }
