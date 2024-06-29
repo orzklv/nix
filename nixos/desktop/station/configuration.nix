@@ -13,11 +13,11 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.zsh
     outputs.nixosModules.game
+    outputs.nixosModules.boot
     outputs.nixosModules.gnome
     outputs.nixosModules.sound
     outputs.nixosModules.fonts
     outputs.nixosModules.media
-    outputs.nixosModules.bootloader
     outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
@@ -91,6 +91,7 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
+  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

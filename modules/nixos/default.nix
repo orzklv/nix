@@ -9,5 +9,5 @@
   fonts = import ./fonts;
   gnome = import ./gnome;
   users = import ./users;
-  bootloader = import ./bootloader;
+  boot = import ./boot;
 }

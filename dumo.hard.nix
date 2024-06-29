@@ -12,32 +12,29 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
   boot.supportedFilesystems = ["ntfs"];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b2fb8c65-4d85-40f4-a638-c8d25e2b7a03";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/b0e6f83a-96a9-4c7a-a6c1-6478a4bef69d";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EC4A-43AC";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/5858-96DA";
+    fsType = "vfat";
+  };
 
-  fileSystems."/media" =
-    { device = "/dev/disk/by-uuid/B64C0C324C0BEC45";
-      fsType = "ntfs-3g";
-      options = ["rw" "uid=1000"];
-    };
+  swapDevices = [{device = "/dev/disk/by-uuid/1fae41ab-62fb-4a3f-a1a2-0ed52ddceb58";}];
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/f3db2d23-035b-4eaf-8531-f850fe028e36"; }
-    ];
+  fileSystems."/media" = {
+    device = "/dev/disk/by-uuid/CC5693BC5693A62C";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -48,22 +45,6 @@
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
-  # List packages system hardware configuration
-  hardware = {
-    # CPU (Intel)
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-    # GPU (Nvidia)
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-  };
-
-  # Select host type for the system
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
