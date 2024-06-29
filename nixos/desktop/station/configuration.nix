@@ -17,7 +17,7 @@
     outputs.nixosModules.sound
     outputs.nixosModules.fonts
     outputs.nixosModules.media
-    outputs.nixosModules.desktop.kde
+    outputs.nixosModules.desktop
     outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
