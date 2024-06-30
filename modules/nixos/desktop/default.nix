@@ -56,9 +56,9 @@
         iagno # go game
         hitori # sudoku game
         atomix # puzzle game
-        # epiphany # web browser
         gnome-contacts
         gnome-initial-setup
+        gnome-terminal
       ]);
 
     # Setting daemons

@@ -20,7 +20,7 @@
 
   boot.loader.grub.gfxmodeEfi = "3440x1440";
 
-  fileSystems."/" = { 
+  fileSystems."/" = {
     device = "/dev/disk/by-uuid/2bd867ea-4e5b-4547-b202-80af5d066056";
     fsType = "ext4";
   };
