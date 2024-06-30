@@ -9,20 +9,20 @@
     gtk = {
       enable = true;
 
-      iconTheme = {
-        name = "polarnight1";
-        package = pkgs.papirus-nord;
-      };
+      # iconTheme = {
+      #   name = "polarnight1";
+      #   package = pkgs.papirus-nord;
+      # };
 
-      theme = {
-        name = "Nordic";
-        package = pkgs.nordic;
-      };
+      # theme = {
+      #   name = "Nordic";
+      #   package = pkgs.nordic;
+      # };
 
-      cursorTheme = {
-        name = "Nordzy";
-        package = pkgs.nordzy-cursor-theme;
-      };
+      # cursorTheme = {
+      #   name = "Nordzy";
+      #   package = pkgs.nordzy-cursor-theme;
+      # };
 
       gtk3.extraConfig = {
         Settings = ''
@@ -58,10 +58,10 @@
         disable-user-extensions = false;
 
         # `gnome-extensions list` for a list
-        enabled-extensions = [
-          "user-theme@gnome-shell-extensions.gcampax.github.com"
-          "dash-to-panel@jderose9.github.com"
-        ];
+        # enabled-extensions = [
+        #   "user-theme@gnome-shell-extensions.gcampax.github.com"
+        #   "dash-to-panel@jderose9.github.com"
+        # ];
       };
     };
 

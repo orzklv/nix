@@ -12,7 +12,7 @@ in {
   imports = [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
-    # outputs.homeManagerModules.gtk
+    outputs.homeManagerModules.gtk
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.topgrade
