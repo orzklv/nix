@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # my $DEV_SPACE is ~/Developer, set your own $DEV_SPACE and add it to
 # your ~/.zshrc or ~/.bashrc file to let this script detect it

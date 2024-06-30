@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Ask user for GitHub access token if not set and add to ~/.zshrc
 read -r -p 'Enter your GitHub access token: ' GITHUB_ACCESS_TOKEN

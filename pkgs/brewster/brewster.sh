@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Additional helper to manage brew
 if [ -z "$1" ]; then

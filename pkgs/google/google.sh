@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # If no argument is supplied, exit
 if [ -z "$1" ]; then
