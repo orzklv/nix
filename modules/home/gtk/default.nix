@@ -51,8 +51,8 @@
       # GNOME Extensions
       "org/gnome/shell" = {
         favorite-apps = [
-          "org.gnome.Console.desktop"
           "org.gnome.Nautilus.desktop"
+          "org.gnome.Console.desktop"
         ];
 
         disable-user-extensions = false;
