@@ -52,7 +52,7 @@
       "org/gnome/shell" = {
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
-          "org.gnome.Console.desktop"
+          "org.gnome.Epiphany.desktop"
           "org.gnome.SystemMonitor.desktop"
           "Alacritty.desktop"
         ];
