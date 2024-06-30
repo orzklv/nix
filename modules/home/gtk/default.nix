@@ -10,12 +10,12 @@
       enable = true;
 
       iconTheme = {
-        name = "polarnight1";
+        name = "Papirus-Dark";
         package = pkgs.papirus-nord;
       };
 
       theme = {
-        name = "Nordic-darker";
+        name = "Nordic-Polar-standard-buttons";
         package = pkgs.nordic;
       };
 
