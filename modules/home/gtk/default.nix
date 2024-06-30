@@ -42,11 +42,7 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
-
-      "/org/gnome/shell/extensions/user-theme" = {
-        name = "Nordic-darker";
-      };
-
+      
       "org/gnome/desktop/background" = {
         picture-uri = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
         picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
