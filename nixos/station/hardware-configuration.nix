@@ -32,7 +32,7 @@
   fileSystems."/media" =
     { device = "/dev/disk/by-uuid/B64C0C324C0BEC45";
       fsType = "ntfs-3g";
-      options = ["rw" "uid=1000"];\
+      options = ["rw" "uid=1000"];
     };
 
   swapDevices =
