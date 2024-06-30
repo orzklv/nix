@@ -10,12 +10,12 @@
       enable = true;
 
       iconTheme = {
-        name = "Papirus-Dark";
+        name = "polarnight1";
         package = pkgs.papirus-nord;
       };
 
       theme = {
-        name = "Nordic-Polar-standard-buttons";
+        name = "Nordic-darker";
         package = pkgs.nordic;
       };
 
@@ -44,7 +44,7 @@
       };
 
       "/org/gnome/shell/extensions/user-theme" = {
-        name = "Nordic-standard-buttons";
+        name = "Nordic-darker";
       };
 
       "org/gnome/desktop/background" = {
