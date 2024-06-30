@@ -9,20 +9,20 @@
     gtk = {
       enable = true;
 
-      # iconTheme = {
-      #   name = "Adwaita";
-      #   package = pkgs.papirus-nord;
-      # };
+      iconTheme = {
+        name = "polarnight1";
+        package = pkgs.papirus-nord;
+      };
 
       theme = {
-        name = "Nordic";
+        name = "Nordic-darker";
         package = pkgs.nordic;
       };
 
-      # cursorTheme = {
-      #   name = "Nordzy";
-      #   package = pkgs.nordzy-cursor-theme;
-      # };
+      cursorTheme = {
+        name = "Nordzy-cursors-white";
+        package = pkgs.nordzy-cursor-theme;
+      };
 
       gtk3.extraConfig = {
         Settings = ''
