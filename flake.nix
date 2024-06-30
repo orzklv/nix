@@ -43,13 +43,6 @@
       url = "github:AstroNvim/AstroNvim/v3.40.3";
       flake = false;
     };
-
-    # Other's Configs
-    # Muzaffar (Minecraft Server Moderator)
-    # muzaffar-cfg = {
-    #   url = "github:Muzaffar-x/nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -60,7 +53,6 @@
     nixpkgs-unstable,
     home-manager,
     flake-utils,
-    # muzaffar-cfg,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -137,58 +129,21 @@
     # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home;
 
-    # Reusable server modules you might want to export
-    # These are usually stuff you would upstream services to global
-    serverModules = import ./modules/server;
-
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      #     ____            __
-      #    / __ \___  _  __/ /_____  ____  _____
-      #   / / / / _ \| |/_/ __/ __ \/ __ \/ ___/
-      #  / /_/ /  __/>  </ /_/ /_/ / /_/ (__  )
-      # /_____/\___/_/|_|\__/\____/ .___/____/
-      #                          /_/
       "Station" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/desktop/station/configuration.nix
+          ./nixos/station/configuration.nix
         ];
       };
       "Experimental" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/desktop/experiment/configuration.nix
-        ];
-      };
-
-      #    _____
-      #   / ___/___  ______   _____  __________
-      #   \__ \/ _ \/ ___/ | / / _ \/ ___/ ___/
-      #  ___/ /  __/ /   | |/ /  __/ /  (__  )
-      # /____/\___/_/    |___/\___/_/  /____/
-      "Kolyma-1" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/server/kolyma-1/configuration.nix
-        ];
-      };
-      "Kolyma-2" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/server/kolyma-2/configuration.nix
-        ];
-      };
-      "Kolyma-3" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/server/kolyma-3/configuration.nix
+          ./nixos/experiment/configuration.nix
         ];
       };
     };

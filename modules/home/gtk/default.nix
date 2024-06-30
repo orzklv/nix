@@ -4,9 +4,6 @@
   lib,
   ...
 }: {
-  options = {
-  };
-
   config = {
     # GNOME Gtk settings
     gtk = {
