@@ -10,14 +10,14 @@
       enable = true;
 
       # iconTheme = {
-      #   name = "polarnight1";
+      #   name = "Adwaita";
       #   package = pkgs.papirus-nord;
       # };
 
-      # theme = {
-      #   name = "Nordic";
-      #   package = pkgs.nordic;
-      # };
+      theme = {
+        name = "Nordic";
+        package = pkgs.nordic;
+      };
 
       # cursorTheme = {
       #   name = "Nordzy";
@@ -58,10 +58,11 @@
         disable-user-extensions = false;
 
         # `gnome-extensions list` for a list
-        # enabled-extensions = [
-        #   "user-theme@gnome-shell-extensions.gcampax.github.com"
-        #   "dash-to-panel@jderose9.github.com"
-        # ];
+        enabled-extensions = [
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "dash-to-dock@micxgx.gmail.com"
+          "appindicatorsupport@rgcjonas.gmail.com"
+        ];
       };
     };
 
