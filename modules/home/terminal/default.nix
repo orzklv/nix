@@ -20,7 +20,7 @@
         colors = {
           # Default colors
           primary = {
-            background = "0x090909";
+            background = "0x2e3440";
             foreground = "0xeceef0";
           };
 

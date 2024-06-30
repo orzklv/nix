@@ -53,6 +53,8 @@
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
           "org.gnome.Console.desktop"
+          "org.gnome.SystemMonitor.desktop"
+          "Alacritty.desktop"
         ];
 
         disable-user-extensions = false;
