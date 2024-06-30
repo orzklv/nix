@@ -63,7 +63,6 @@
           "dash-to-panel@jderose9.github.com"
         ];
       };
-
     };
 
     home.sessionVariables.GTK_THEME = "Nordic";
