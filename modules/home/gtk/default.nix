@@ -10,7 +10,7 @@
       enable = true;
 
       iconTheme = {
-        name = "Papirus Dark";
+        name = "Papirus-Dark";
         package = pkgs.papirus-nord;
       };
 
@@ -44,8 +44,8 @@
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
-        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
+        picture-uri = "file://${pkgs.nixos-artwork.wallpapers.dracula.gnomeFilePath}";
+        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.dracula.gnomeFilePath}";
       };
 
       # GNOME Extensions
