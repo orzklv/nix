@@ -164,7 +164,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/macos.nix
+          ./home
         ];
       };
 
@@ -175,7 +175,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/macos.nix
+          ./home
         ];
       };
 
@@ -198,7 +198,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/linux.nix
+          ./home
         ];
       };
 
@@ -209,7 +209,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/linux.nix
+          ./home
         ];
       };
 

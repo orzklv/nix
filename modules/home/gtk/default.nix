@@ -4,7 +4,17 @@
   lib,
   ...
 }: {
-  config = {
+  options = {
+    desktop = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enable GNOME GTK settings.";
+      };
+    };
+  };
+
+  config = lib.mkIf config.hood.gtk.enable {
     # GNOME Gtk settings
     gtk = {
       enable = true;
