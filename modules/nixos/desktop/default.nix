@@ -32,7 +32,38 @@
         };
 
         # Enable the GNOME Desktop Environment.
-        desktopManager.gnome.enable = true;
+        desktopManager.gnome = {
+          enable = true;
+
+          extraGSettingsOverrides = ''
+            # Change default background
+            [org.gnome.desktop.background]
+            picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+
+            # Background for dark theme
+            [org.gnome.desktop.background]
+            picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+
+            # Prefer dark theme
+            [org.gnome.desktop.interface]
+            color-scheme='prefer-dark'
+
+            # Favorite apps in gnome-shell
+            [org.gnome.shell]
+            favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.SystemMonitor.desktop', 'Alacritty.desktop']
+
+            [org.gnome.shell]
+            disable-user-extensions=false
+
+            [org.gnome.shell]
+            enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com']
+          '';
+
+          extraGSettingsOverridePackages = [
+            pkgs.gsettings-desktop-schemas
+            pkgs.gnome.gnome-shell
+          ];
+        };
       };
     };
 

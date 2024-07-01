@@ -10,7 +10,6 @@
   imports = lib.traceSeqN 2 outputs [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
-    outputs.homeManagerModules.gtk
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.neovim
     outputs.homeManagerModules.nixpkgs
