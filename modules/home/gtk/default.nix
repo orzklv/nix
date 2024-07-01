@@ -4,7 +4,8 @@
   lib,
   ...
 }: let
-  gnome = config.services.xserver.desktopManager.gnome.enable;
+  # gnome = config.services.xserver.desktopManager.gnome.enable;
+  _ = builtins.trace "Config: ${builtins.toJSON config}" null;
 
   cfg = {
     # GNOME Gtk settings
