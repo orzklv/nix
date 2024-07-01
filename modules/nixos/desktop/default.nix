@@ -52,11 +52,21 @@
             [org.gnome.shell]
             favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.SystemMonitor.desktop', 'Alacritty.desktop']
 
+            # Enable user extensions
             [org.gnome.shell]
             disable-user-extensions=false
 
+            # List of enabled extensions
             [org.gnome.shell]
             enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com']
+
+            # Set the icon theme
+            [org.gnome.desktop.interface]
+            icon-theme='Papirus-Dark'
+
+            # Never show the notice on tweak
+            [org.gnome.tweaks]
+            show-extensions-notice=false
           '';
 
           extraGSettingsOverridePackages = [
