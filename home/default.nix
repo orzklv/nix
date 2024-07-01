@@ -11,6 +11,10 @@
   isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
   desktop = lib.mkIf ((!isMacOS) && system.services.xserver.enable) {
+    imports = lib.traceSeqN 2 outputs [
+      outputs.homeManagerModules.gtk
+    ];
+
     desktop.enable = true;
   };
 
@@ -28,7 +32,6 @@
 
   linux = lib.mkIf (!isMacOS) {
     imports = lib.traceSeqN 2 outputs [
-      outputs.homeManagerModules.gtk
       outputs.homeManagerModules.terminal
     ];
 
