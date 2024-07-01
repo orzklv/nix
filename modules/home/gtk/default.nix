@@ -5,7 +5,8 @@
   ...
 }: let
   # gnome = config.services.xserver.desktopManager.gnome.enable;
-  _ = builtins.trace "Config: ${builtins.toJSON config}" null;
+  system = (import <nixpkgs/nixos> {}).config;
+  gnome = system.services.xserver.desktopManager.gnome.enable;
 
   cfg = {
     # GNOME Gtk settings
@@ -74,5 +75,5 @@
     home.sessionVariables.GTK_THEME = "Nordic";
   };
 in
-  # lib.mkIf gnome cfg
-  cfg
+  lib.mkIf gnome cfg
+  # cfg
