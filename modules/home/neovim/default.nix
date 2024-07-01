@@ -46,7 +46,6 @@
           lldb
 
           #-- python
-          nodePackages.pyright # python language server
           python3Packages.black # python formatter
           python3Packages.ruff-lsp
           (python3.withPackages (
