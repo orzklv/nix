@@ -71,4 +71,13 @@
     programs.home-manager.enable = true;
   };
 in
-  lib.mkMerge [cfg macos linux desktop]
+  lib.mkMerge [
+    cfg {
+      outputs = outputs;
+    } 
+    macos {} 
+    linux {
+      outputs = outputs;
+    } 
+    desktop {}
+  ]
