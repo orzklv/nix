@@ -58,7 +58,23 @@
 
             # List of enabled extensions
             [org.gnome.shell]
-            enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com']
+            enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io']
+
+            # ID of GSConnect device
+            [org.gnome.shell.extensions.gsconnect]
+            id='5fe9c449-c81e-4ca0-bc20-2dfc2b353228'
+
+            # Name of GSConnect device
+            [org.gnome.shell.extensions.gsconnect]
+            name='Kolyma'
+
+            # Workspace should grow dynamically
+            [org.gnome.mutter]
+            dynamic-workspaces=true
+
+            # Edge Tiling with mouse
+            [org.gnome.mutter]
+            edge-tiling=true
 
             # Set the icon theme
             [org.gnome.desktop.interface]
