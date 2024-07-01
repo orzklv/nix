@@ -9,7 +9,7 @@
 }: let
   isMacOS = false;
 in {
-  imports = [
+  imports = lib.traceSeqN 2 outputs [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
     outputs.homeManagerModules.gtk
