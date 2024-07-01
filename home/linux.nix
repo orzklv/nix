@@ -6,11 +6,8 @@
   outputs,
   packages,
   ...
-}: let 
-  # Debug outputs
-  _ = lib.trace "Outputs: ${builtins.toString outputs}";
-in {
-  imports = lib.traceValSeq [
+}: {
+  imports = [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
     outputs.homeManagerModules.helix
