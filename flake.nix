@@ -106,6 +106,9 @@
           echo "Welcome to Sokhibjon's dotfiles!"
         '';
       };
+    
+    evalHomeModules = import ./modules/home;
+
   in {
     inherit lib;
 
@@ -127,7 +130,7 @@
 
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home;
+    homeManagerModules = evalHomeModules;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
