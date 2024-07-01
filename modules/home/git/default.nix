@@ -48,7 +48,6 @@ in {
       ];
     };
 
-    # TODO: Change pinentry for linux to something GNOME specific
     home.file.".gnupg/gpg-agent.conf".text =
       if config.git.isMacOS
       then ''

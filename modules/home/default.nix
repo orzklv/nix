@@ -7,7 +7,6 @@
   zsh = import ./zsh;
   helix = import ./helix;
   neovim = import ./neovim;
-  nixpkgs = import ./nixpkgs;
   terminal = import ./terminal;
   topgrade = import ./topgrade;
   packages = import ./packages;
