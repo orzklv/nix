@@ -9,6 +9,10 @@
 }: let
   isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
+  desktop = lib.mkIf config.services.xserver.enable {
+    desktop.enable = true;
+  };
+
   macos = lib.mkIf isMacOS {
     # imports = [];
 
@@ -67,4 +71,4 @@
     programs.home-manager.enable = true;
   };
 in
-  lib.mkMerge [cfg macos linux]
+  lib.mkMerge [cfg macos linux desktop]
