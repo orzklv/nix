@@ -7,7 +7,7 @@
   packages,
   ...
 }: {
-  imports = lib.traceSeqN 2 outputs [
+  imports = lib.traceValSeq [
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
     outputs.homeManagerModules.helix
