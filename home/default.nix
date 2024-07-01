@@ -5,9 +5,9 @@
   config,
   outputs,
   packages,
-  system ? (import <nixpkgs/nixos> {}).config,
   ...
 }: let
+	system = (import <nixpkgs/nixos> {}).config;
   isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
   desktop = lib.mkIf ((!isMacOS) && system.services.xserver.enable) {
