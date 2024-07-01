@@ -22,7 +22,7 @@
   };
 
   linux = lib.mkIf (!isMacOS) {
-    imports = [
+    imports = lib.traceSeqN 2 outputs [
       outputs.homeManagerModules.gtk
       outputs.homeManagerModules.terminal
     ];
