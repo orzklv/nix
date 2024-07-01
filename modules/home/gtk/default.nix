@@ -74,4 +74,5 @@
     home.sessionVariables.GTK_THEME = "Nordic";
   };
 in
-  lib.mkIf gnome cfg
+  # lib.mkIf gnome cfg
+  cfg
