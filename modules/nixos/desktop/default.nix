@@ -113,11 +113,17 @@
 
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
+      # Gnome Modding
       gnome.dconf-editor
       gnome.gnome-tweaks
+
+      # Gnome Extensions
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
       gnomeExtensions.gsconnect
+
+      # Gnome Shell Packs
+      papirus-icon-theme
     ];
   };
 }
