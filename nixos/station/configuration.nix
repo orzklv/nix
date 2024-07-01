@@ -6,20 +6,19 @@
   lib,
   config,
   pkgs,
-  self,
   ...
 }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    self.nixosModules.zsh
-    self.nixosModules.game
-    self.nixosModules.boot
-    self.nixosModules.sound
-    self.nixosModules.fonts
-    self.nixosModules.media
-    self.nixosModules.desktop
-    self.nixosModules.users.sakhib
+    outputs.nixosModules.zsh
+    outputs.nixosModules.game
+    outputs.nixosModules.boot
+    outputs.nixosModules.sound
+    outputs.nixosModules.fonts
+    outputs.nixosModules.media
+    outputs.nixosModules.desktop
+    outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -36,9 +35,9 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      self.overlays.additions
-      self.overlays.modifications
-      self.overlays.unstable-packages
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
