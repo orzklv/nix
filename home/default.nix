@@ -7,16 +7,16 @@
   packages,
   ...
 }: let
-	system = (import <nixpkgs/nixos> {}).config;
+  system = (import <nixpkgs/nixos> {}).config;
   isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
-  desktop = lib.mkIf ((!isMacOS) && system.services.xserver.enable) {
+  desktop = lib.mkIf ((!isMacOS) && system.services.xserver.enable) ({...}: {
     imports = lib.traceSeqN 2 outputs [
       outputs.homeManagerModules.gtk
     ];
-  };
+  });
 
-  macos = lib.mkIf isMacOS {
+  macos = lib.mkIf isMacOS ({...}: {
     home = {
       homeDirectory = "/Users/sakhib";
     };
@@ -24,9 +24,9 @@
     # This is to ensure programs are using ~/.config rather than
     # /Users/sakhib/Library/whatever
     xdg.enable = true;
-  };
+  });
 
-  linux = lib.mkIf (!isMacOS) {
+  linux = lib.mkIf (!isMacOS) ({outputs, ...}: {
     imports = lib.traceSeqN 2 outputs [
       outputs.homeManagerModules.terminal
     ];
@@ -37,9 +37,9 @@
       # Don't check if home manager is same as nixpkgs
       enableNixpkgsReleaseCheck = false;
     };
-  };
+  });
 
-  cfg = {
+  cfg = {outputs, ...}: {
     imports = lib.traceSeqN 2 outputs [
       outputs.homeManagerModules.zsh
       outputs.homeManagerModules.git
