@@ -5,6 +5,7 @@
   config,
   outputs,
   packages,
+  self,
   ...
 }: {
   imports = [
