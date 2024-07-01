@@ -28,7 +28,7 @@
       "...." = "cd ../..";
       "celar" = "clear";
       ":q" = "exit";
-      neofetch = "neofetch --source ~/.config/neofetch/logo.ascii";
+      neofetch = "fastfetch";
       ssh-hosts = "grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'";
 
       # Polite motherfucker!
