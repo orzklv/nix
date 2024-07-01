@@ -67,6 +67,14 @@
             # Never show the notice on tweak
             [org.gnome.tweaks]
             show-extensions-notice=false
+
+            # Show all three button layers
+            [org.gnome.desktop.wm.preferences]
+            button-layout='appmenu:minimize,maximize,close'
+
+            # Shitty monospace font to JetBrains Mono
+            [org.gnome.desktop.interface]
+            monospace-font-name='JetBrainsMono Nerd Font 10'
           '';
 
           extraGSettingsOverridePackages = [
