@@ -14,13 +14,9 @@
     imports = lib.traceSeqN 2 outputs [
       outputs.homeManagerModules.gtk
     ];
-
-    desktop.enable = true;
   };
 
   macos = lib.mkIf isMacOS {
-    # imports = [];
-
     home = {
       homeDirectory = "/Users/sakhib";
     };
