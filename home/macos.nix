@@ -16,7 +16,7 @@
     outputs.homeManagerModules.topgrade
     outputs.homeManagerModules.packages
   ];
-  
+
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "24.05";

@@ -3,8 +3,10 @@
   pkgs,
   lib,
   ...
-}: {
-  config = {
+}: let
+  gnome = config.services.xserver.desktopManager.gnome.enable;
+
+  cfg = {
     # GNOME Gtk settings
     gtk = {
       enable = true;
@@ -70,4 +72,5 @@
 
     home.sessionVariables.GTK_THEME = "Nordic";
   };
-}
+in
+  lib.mkIf gnome cfg
