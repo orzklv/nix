@@ -9,14 +9,14 @@
   ...
 }: {
   imports = [
-    outputs.homeManagerModules.zsh
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.helix
-    outputs.homeManagerModules.neovim
-    outputs.homeManagerModules.nixpkgs
-    outputs.homeManagerModules.topgrade
-    outputs.homeManagerModules.terminal
-    outputs.homeManagerModules.packages
+    inputs.self.homeManagerModules.zsh
+    inputs.self.homeManagerModules.git
+    inputs.self.homeManagerModules.helix
+    inputs.self.homeManagerModules.neovim
+    inputs.self.homeManagerModules.nixpkgs
+    inputs.self.homeManagerModules.topgrade
+    inputs.self.homeManagerModules.terminal
+    inputs.self.homeManagerModules.packages
   ];
 
   # This is required information for home-manager to do its job
