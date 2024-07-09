@@ -70,6 +70,11 @@ sudo nixos-rebuild switch --flake github:orzklv/nix#Guts --upgrade
 sudo nixos-rebuild switch --flake github:orzklv/nix#Experimental --upgrade
 ```
 
+> If you hit GitHub's rate limit, put your GitHub token in `~/.config/nix/nix.conf` file like this:
+> ```conf
+> access-tokens = github.com=<YOUR_TOKEN>
+> ```
+
 ## Thanks
 
 - [Template](https://github.com/Misterio77/nix-starter-configs) - Started with this template

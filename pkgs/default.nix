@@ -2,9 +2,9 @@
 # You can build them using 'nix build .#example'
 {pkgs ? import <nixpkgs> {}}: rec {
   # Personal scripts
-  fp = pkgs.callPackage ./fp {};
-  devcc = pkgs.callPackage ./devcc {};
-  ghloc = pkgs.callPackage ./ghloc {};
+  force-push = pkgs.callPackage ./force-push {};
+  dev-clean = pkgs.callPackage ./dev-clean {};
+  org-location = pkgs.callPackage ./org-location {};
   google = pkgs.callPackage ./google {};
   brewster = pkgs.callPackage ./brewster {};
 }

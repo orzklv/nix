@@ -3,11 +3,12 @@
 {
   lib,
   writeShellApplication,
+  curl,
 }:
 (writeShellApplication {
-  name = "devcc";
-  runtimeInputs = [];
-  text = builtins.readFile ./devcc.sh;
+  name = "org-location";
+  runtimeInputs = [curl];
+  text = builtins.readFile ./org-location.sh;
 })
 // {
   meta = with lib; {

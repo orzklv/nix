@@ -3,12 +3,11 @@
 {
   lib,
   writeShellApplication,
-  curl,
 }:
 (writeShellApplication {
-  name = "ghloc";
-  runtimeInputs = [curl];
-  text = builtins.readFile ./ghloc.sh;
+  name = "dev-clean";
+  runtimeInputs = [];
+  text = builtins.readFile ./dev-clean.sh;
 })
 // {
   meta = with lib; {

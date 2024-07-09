@@ -6,9 +6,9 @@
   git,
 }:
 (writeShellApplication {
-  name = "fp";
+  name = "force-push";
   runtimeInputs = [git];
-  text = builtins.readFile ./fp.sh;
+  text = builtins.readFile ./force-push.sh;
 })
 // {
   meta = with lib; {

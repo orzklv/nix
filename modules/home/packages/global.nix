@@ -48,8 +48,8 @@
   pkgs.gnupg
 
   # Selfmade programs
-  pkgs.fp
-  pkgs.devcc
-  pkgs.ghloc
+  pkgs.force-push
+  pkgs.dev-clean
+  pkgs.org-location
   pkgs.google
 ]
