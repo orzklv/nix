@@ -87,6 +87,7 @@
 
       nix-shell = "nix-shell --run zsh";
       nix-develop = "nix develop -c \"$SHELL\"";
+      repair = "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- repair";
     };
 
     # Extra manually typed configs
