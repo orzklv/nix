@@ -12,7 +12,6 @@
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.git
     outputs.homeManagerModules.helix
-    outputs.homeManagerModules.neovim
     outputs.homeManagerModules.nixpkgs
     outputs.homeManagerModules.topgrade
     outputs.homeManagerModules.terminal
