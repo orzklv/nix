@@ -48,8 +48,10 @@
     # Refresh
     refresh = "source ~/.zshrc";
 
-    # Zellij
+    # Development
     hack = "zellij";
+    vim = "hx";
+    nvim = "hx";
 
     # Others (Developer)
     ports = "sudo lsof -PiTCP -sTCP:LISTEN";
