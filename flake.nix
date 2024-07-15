@@ -96,9 +96,11 @@
         buildInputs = with pkgs; [
           nix
           nil
-          nixd
           git
+          nixd
           just
+          nixpkgs-fmt
+          nixpkgs-lint
         ];
 
         # Set environment variables, if needed
