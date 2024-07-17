@@ -15,10 +15,9 @@
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
     outputs.nixosModules.boot
-    outputs.nixosModules.game
     outputs.nixosModules.fonts
     outputs.nixosModules.sound
-    outputs.nixosModules.media
+    # outputs.nixosModules.media
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.users.sakhib
@@ -59,6 +58,9 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # NVIDIA driver support
+  services.xserver.videoDrivers = ["nvidia"];
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -72,11 +74,16 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
+    enableNvidia = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
