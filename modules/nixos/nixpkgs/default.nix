@@ -42,7 +42,7 @@
 
       settings = {
         # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes";
+        experimental-features = "nix-command flakes repl-flake";
         # Deduplicate and optimize nix store
         auto-optimise-store = true;
       };
