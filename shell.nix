@@ -14,7 +14,6 @@
       nix
       nil
       nixd
-      alejandra
       nixpkgs-fmt
       git
     ];
