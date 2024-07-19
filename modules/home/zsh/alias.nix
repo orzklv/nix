@@ -1,4 +1,5 @@
-{pkgs, lib, ...}: let
+{ pkgs, lib, ... }:
+let
   determinateSystems = "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix";
   isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
@@ -65,6 +66,7 @@
     update = "nix store gc && topgrade";
     nix-shell = "nix-shell --run zsh";
     nix-develop = "nix develop -c \"$SHELL\"";
+    determinate = "${determinateSystems} | sh -s -- ";
     repair = "${determinateSystems} | sh -s -- repair";
   };
 
@@ -73,7 +75,8 @@
     linux
     default
   ];
-in {
+in
+{
   config = {
     programs.zsh.shellAliases = cfg;
   };
