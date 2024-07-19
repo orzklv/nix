@@ -6,6 +6,7 @@
         misc = {
           disable = [
             "bun"
+            "sel"
             "node"
             "pnpm"
             "yarn"
