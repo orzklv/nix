@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Prettier terminal prompt
   programs.starship = {
     enable = true;

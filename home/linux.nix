@@ -1,12 +1,11 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  config,
-  outputs,
-  packages,
-  self,
-  ...
+{ inputs
+, lib
+, pkgs
+, config
+, outputs
+, packages
+, self
+, ...
 }: {
   imports = [
     outputs.homeManagerModules.zsh

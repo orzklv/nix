@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   config = {
     fonts.packages = with pkgs; [
       noto-fonts
@@ -8,7 +8,7 @@
       fira-code
       fira-code-symbols
       (nerdfonts.override {
-        fonts = ["JetBrainsMono"];
+        fonts = [ "JetBrainsMono" ];
       })
     ];
   };

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   config = {
     # Bootloader.
     boot = {
@@ -16,7 +16,7 @@
         efi.canTouchEfiVariables = true;
         grub = {
           enable = true;
-          devices = ["nodev"];
+          devices = [ "nodev" ];
           efiSupport = true;
           useOSProber = true;
           theme = pkgs.stdenv.mkDerivation {

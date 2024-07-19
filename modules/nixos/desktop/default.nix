@@ -2,7 +2,7 @@
 # For further configuration extention, please refer to:
 # https://wiki.nixos.org/wiki/GNOME
 # =================================
-{pkgs, ...}: {
+{ pkgs, ... }: {
   config = {
     # Sum additional variables for system-wide use.
     environment.variables = {
@@ -23,7 +23,7 @@
         };
 
         # Exclude some defautl packages
-        excludePackages = [pkgs.xterm];
+        excludePackages = [ pkgs.xterm ];
 
         # Enable the GDM display manager.
         displayManager.gdm = {
@@ -137,7 +137,7 @@
     # Setting daemons
     services = {
       # Udev daemon management
-      udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+      udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     };
 
     programs.gnupg.agent = {

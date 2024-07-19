@@ -1,10 +1,9 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   config = {
-    system.activationScripts.createMediaSymlink = lib.stringAfter ["users"] ''
+    system.activationScripts.createMediaSymlink = lib.stringAfter [ "users" ] ''
       # Loop /home every user folder and create symlink to /media folder as Media,
       # For example:
       #   - /home/sakhib/Media

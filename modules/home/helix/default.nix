@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   config = {
     programs.helix = {
       enable = true;
@@ -28,9 +28,9 @@
           };
 
           statusline = {
-            left = ["mode" "spinner" "read-only-indicator" "file-modification-indicator"];
+            left = [ "mode" "spinner" "read-only-indicator" "file-modification-indicator" ];
 
-            center = ["file-name"];
+            center = [ "file-name" ];
 
             right = [
               "diagnostics"
@@ -169,7 +169,7 @@
         ]
         ++ (
           if pkgs.stdenv.isDarwin
-          then []
+          then [ ]
           else [
             #-- verilog / systemverilog
             verible

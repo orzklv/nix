@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   config = {
     programs.topgrade = {
       enable = true;
@@ -17,10 +17,10 @@
           assume_yes = true;
           no_self_update = true;
         };
-        commands = {};
+        commands = { };
         linux = {
           nix_arguments = "--flake github:orzklv/nix";
-          home_manager_arguments = ["--flake" "github:orzklv/nix"];
+          home_manager_arguments = [ "--flake" "github:orzklv/nix" ];
         };
         brew = {
           autoremove = true;
