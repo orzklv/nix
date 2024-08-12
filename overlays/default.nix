@@ -20,4 +20,12 @@
       config.allowUnfree = true;
     };
   };
+
+  # Bind the kerio packages over pkgs.kerio
+  kerio-addition = final: _prev: {
+    kerio = import inputs.kerio {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+  };
 }

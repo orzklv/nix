@@ -27,8 +27,10 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Disko for easier partition management
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -42,6 +44,12 @@
     astronvim = {
       url = "github:AstroNvim/AstroNvim/v3.40.3";
       flake = false;
+    };
+
+    # Kerio Control Access
+    kerio = {
+      url = "github:shakhzodkudratov/kerio-control-vpnclient-nix"
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
