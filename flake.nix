@@ -48,7 +48,7 @@
 
     # Kerio Control Access
     kerio = {
-      url = "github:shakhzodkudratov/kerio-control-vpnclient-nix";
+      url = "github:kolyma-labs/kerio";
       inputs.nixpkgs.follows = "nixpkgs";
       flake = true;
     };
