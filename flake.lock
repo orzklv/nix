@@ -102,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723467207,
-        "narHash": "sha256-Zo3s95i1fx0S/xkfPyWvW+yrXp813KANgmxGIeQHB4s=",
+        "lastModified": 1723468033,
+        "narHash": "sha256-GFftHdi6JjtR4RXH0lxweCU2hix+0h2PlfqVwcPm91E=",
         "owner": "kolyma-labs",
         "repo": "kerio",
-        "rev": "4d1af22d7de3ed8932d473ce0d372a05e00d48b5",
+        "rev": "ba915e040c9fac4d82b95fbd4ff7f0e58ea6f752",
         "type": "github"
       },
       "original": {
