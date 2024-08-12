@@ -85,8 +85,8 @@
   };
 
   # Adding kerio control vpn
-  environment.systemPackages = with pkgs.kerio [
-    kerio-control-vpnclient
+  environment.systemPackages = [
+    pkgs.kerio.kerio-control-vpnclient
   ];
 
   # Open ports in the firewall.
