@@ -50,6 +50,7 @@
     kerio = {
       url = "github:shakhzodkudratov/kerio-control-vpnclient-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      flake = true;
     };
   };
 
