@@ -76,6 +76,26 @@
         "type": "github"
       }
     },
+    "kerio": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1723460418,
+        "narHash": "sha256-z2RaFZuWwptf6b707XbJV6161xnZtrTwHyTvOfzny9w=",
+        "owner": "shakhzodkudratov",
+        "repo": "kerio-control-vpnclient-nix",
+        "rev": "f3fc81ab564873c04c328081154fdf19c8ad20c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shakhzodkudratov",
+        "repo": "kerio-control-vpnclient-nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1719707984,
@@ -114,6 +134,7 @@
         "disko": "disko",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "kerio": "kerio",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
