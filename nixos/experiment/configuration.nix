@@ -84,11 +84,6 @@
     enableSSHSupport = true;
   };
 
-  # Adding kerio control vpn
-  environment.systemPackages = [
-    pkgs.kerio # .kerio-control-vpnclient
-  ];
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

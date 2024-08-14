@@ -38,20 +38,6 @@
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
-
-    # Astro Neovim
-    # Non-flake repository
-    astronvim = {
-      url = "github:AstroNvim/AstroNvim/v3.40.3";
-      flake = false;
-    };
-
-    # Kerio Control Access
-    kerio = {
-      url = "github:kolyma-labs/kerio";
-      inputs.nixpkgs.follows = "nixpkgs";
-      flake = true;
-    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it

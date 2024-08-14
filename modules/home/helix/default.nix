@@ -164,8 +164,8 @@
           fzf
 
           #-- Optional Requirements:
-          gdu # disk usage analyzer, required by AstroNvim
-          ripgrep # fast search tool, required by AstroNvim's '<leader>fw'(<leader> is space key)
+          gdu # disk usage analyzer
+          ripgrep # fast search tool
         ]
         ++ (
           if pkgs.stdenv.isDarwin
