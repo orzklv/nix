@@ -21,8 +21,7 @@
         # Enable the GDM display manager.
         displayManager.sddm = {
           enable = true;
-          wayland.enable = true;
-          defaultSession = "plasmax11";
+          # wayland.enable = true;
         };
 
         # Enable the KDE Desktop Environment.
