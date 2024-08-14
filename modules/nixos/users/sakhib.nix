@@ -22,6 +22,7 @@
             github-desktop
             spotify
             discord
+            zed-editor
           ])
           ++ (with pkgs.unstable; [ ]);
       };
