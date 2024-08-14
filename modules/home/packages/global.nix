@@ -31,9 +31,6 @@
   pkgs.tealdeer
   pkgs.topgrade
 
-  # Tech
-  pkgs.rustup
-
   # For Prismlauncher
   pkgs.jdk17
 
