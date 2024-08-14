@@ -34,9 +34,7 @@
     qt = {
       enable = true;
       platformTheme = "kde";
-      style = {
-        name = "breeze";
-      };
+      style = "breeze";
     };
 
     # Make sure opengl is enabled
