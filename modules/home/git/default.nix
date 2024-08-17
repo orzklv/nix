@@ -46,6 +46,7 @@ in
       ignores = [
         ".idea"
         ".DS_Store"
+        "nohup.out"
       ];
     };
 
