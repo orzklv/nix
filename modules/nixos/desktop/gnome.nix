@@ -4,8 +4,6 @@
 # =================================
 { pkgs, ... }:
 let
-  isAarch64 = builtins.currentSystem == "aarch64";
-
   x86_64-opengl = {
     enable = true;
     driSupport = true;
@@ -17,7 +15,7 @@ let
     driSupport = true;
   };
 
-  opengl = if isAarch64 then aarch64-opengl else x86_64-opengl;
+  opengl = if pkgs.stdenv.isAarch64 then aarch64-opengl else x86_64-opengl;
 in
 {
   config = {
