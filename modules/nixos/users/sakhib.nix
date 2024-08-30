@@ -5,7 +5,23 @@
 , config
 , packages
 , ...
-}: {
+}:
+let
+  aarch64-unfriendly = with pkgs; [
+    discord
+  ] ++ (with pkgs.unstable; [ ]);
+  general-packs = with pkgs; [
+    telegram-desktop
+    github-desktop
+    spotify
+    discord
+    zed-editor
+  ] ++ (with pkgs.unstable; [ ]);
+
+  # remove aarch64-unfriendly packages from general-packs
+  packs = lib.filterAttrs (name: _: !lib.elem name aarch64-unfriendly) general-packs;
+in
+{
   config = {
     users.users = {
       sakhib = {
