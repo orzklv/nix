@@ -147,6 +147,13 @@
             ./nixos/experiment/configuration.nix
           ];
         };
+        "Portland" = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            ./nixos/portland/configuration.nix
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
