@@ -2,7 +2,24 @@
 # For further configuration extention, please refer to:
 # https://wiki.nixos.org/wiki/GNOME
 # =================================
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  isAarch64 = builtins.currentSystem == "aarch64";
+
+  x86_64-opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  }
+
+  aarch64-opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
+  opengl = if isAarch64 then aarch64-opengl else x86_64-opengl;
+in
+{
   config = {
     # Sum additional variables for system-wide use.
     environment.variables = {
@@ -110,11 +127,7 @@
     };
 
     # Make sure opengl is enabled
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    hardware.opengl = opengl;
 
     # Exclude some packages from the Gnome desktop environment.
     environment.gnome.excludePackages =
