@@ -10,7 +10,7 @@ let
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-  }
+  };
 
   aarch64-opengl = {
     enable = true;
