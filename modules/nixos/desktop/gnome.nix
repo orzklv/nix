@@ -15,7 +15,7 @@ let
     driSupport = true;
   };
 
-  opengl = if pkgs.stdenv.isAarch64 then aarch64-opengl else x86_64-opengl;
+  opengl = if pkgs.stdenv.hostPlatform.isAarch64 then aarch64-opengl else x86_64-opengl;
 in
 {
   config = {
