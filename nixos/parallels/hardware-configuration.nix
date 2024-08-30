@@ -11,29 +11,25 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  boot.loader.grub.gfxmodeEfi = "1920x1080";
-
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/375535ef-c926-4f7a-8896-e20646f74bf6";
+    { device = "/dev/disk/by-uuid/caf807d3-bb74-462e-8c8b-052474394cab";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/1BC4-4AD8";
+    { device = "/dev/disk/by-uuid/14F8-6F1F";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/b9732315-1d47-4d5f-9cd7-d7d4c3e7af63"; }];
-
+    [ { device = "/dev/disk/by-uuid/ccce9ab2-e2d7-40e8-880d-2aae2527447a"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -43,33 +39,8 @@
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
-  # List packages system hardware configuration
-  hardware = {
-    # CPU (AMD)
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-    # GPU (Nvidia)
-    nvidia = {
-      # Required
-      modesetting.enable = true;
-
-      # Enable GPU power management, useful for laptops
-      powerManagement.enable = true;
-
-      # Turn off GPU when not used
-      powerManagement.finegrained = false;
-
-      # Open Source drivers
-      open = false;
-
-      # Settings application
-      nvidiaSettings = true;
-
-      # The shipping package
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-  };
-
   # Select host type for the system
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  hardware.parallels.enable = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
 }
