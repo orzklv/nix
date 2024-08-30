@@ -23,7 +23,7 @@ let
 
   # if pkgs.stdenv.hostPlatform.isAarch64 is true, remove aarch64-unfriendly packages from general-packs
   packs = if pkgs.stdenv.hostPlatform.isAarch64 then
-    lib.filterAttrs (name: _: !lib.elem name not-aarch64) any-packs
+    lib.filter (pkg: !lib.elem pkg not-aarch64) any-packs
   else
     any-packs;
 in
