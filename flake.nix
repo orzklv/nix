@@ -47,8 +47,8 @@
     , nixpkgs
     , nixpkgs-unstable
     , home-manager
-    , flake-utils,
-      ...
+    , flake-utils
+    , ...
     } @ inputs:
     let
       inherit (self) outputs;
