@@ -1,6 +1,9 @@
-name: Test CI
+name: Update CI
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -17,8 +20,7 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      - name: Build the flake
-        run: nix build .#homeConfigurations.sakhib@unstable.activationPackage --show-trace
-
-      - name: Test installation
-        run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@unstable.activationPackage
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          token: ${{ secrets.PAT }}
