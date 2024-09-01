@@ -56,9 +56,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # NVIDIA driver support
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
