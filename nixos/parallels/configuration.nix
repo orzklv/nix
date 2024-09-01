@@ -68,15 +68,6 @@
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
 
-  # Enabling virtualization
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-  };
-
-  # GPU for docker containers
-  hardware.nvidia-container-toolkit.enable = true;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
