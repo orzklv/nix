@@ -1,18 +1,29 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  # Don't update home manager on NixOS
+  duhm =
+    if pkgs.lib.hostPlatform.system == "darwin"
+    then [ ]
+    else [ "home_manager" ];
+
+  # Disable updates for these programs
+  dull = [
+    "bun"
+    "nix"
+    "node"
+    "pnpm"
+    "yarn"
+    "cargo"
+    "vscode"
+  ];
+in
+{
   config = {
     programs.topgrade = {
       enable = true;
       settings = {
         misc = {
-          disable = [
-            "bun"
-            "nix"
-            "node"
-            "pnpm"
-            "yarn"
-            "cargo"
-            "vscode"
-          ];
+          disable = dull ++ duhm;
           no_retry = true;
           assume_yes = true;
           no_self_update = true;
