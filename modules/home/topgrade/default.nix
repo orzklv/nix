@@ -2,7 +2,7 @@
 let
   # Don't update home manager on NixOS
   duhm =
-    if pkgs.lib.hostPlatform.system == "darwin"
+    if pkgs.stdenv.isDarwin
     then [ ]
     else [ "home_manager" ];
 
