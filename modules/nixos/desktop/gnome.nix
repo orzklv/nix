@@ -4,18 +4,16 @@
 # =================================
 { pkgs, ... }:
 let
-  x86_64-opengl = {
+  x86_64-opengl =
+    if (!pkgs.stdenv.hostPlatform.isAarch64)
+    then {
+      driSupport32Bit = true;
+    } else { };
+
+  all-opengl = {
     enable = true;
     driSupport = true;
-    driSupport32Bit = true;
   };
-
-  aarch64-opengl = {
-    enable = true;
-    driSupport = true;
-  };
-
-  opengl = if pkgs.stdenv.hostPlatform.isAarch64 then aarch64-opengl else x86_64-opengl;
 in
 {
   config = {
@@ -125,7 +123,7 @@ in
     };
 
     # Make sure opengl is enabled
-    hardware.opengl = opengl;
+    hardware.opengl = all-opengl // x86_64-opengl;
 
     # Exclude some packages from the Gnome desktop environment.
     environment.gnome.excludePackages =
