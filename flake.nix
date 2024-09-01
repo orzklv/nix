@@ -51,6 +51,9 @@
     , ...
     } @ inputs:
     let
+      # Self instance pointer
+      outputs = self;
+
       # Attribute for each system
       afes = flake-utils.lib.eachDefaultSystem (system:
         let
@@ -72,9 +75,6 @@
 
       # Attribute from static evaluation
       afse = {
-        # Self instance for various references
-        inherit (self) outputs;
-
         # Nixpkgs and Home-Manager helpful functions
         lib = nixpkgs.lib // home-manager.lib;
 
@@ -191,9 +191,6 @@
           "sakhib" = self.homeConfigurations."sakhib@stable";
         };
       };
-
-      # Self instance pointer
-      outputs = self;
     in
     afes // afse;
 }
