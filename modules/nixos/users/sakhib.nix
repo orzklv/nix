@@ -22,7 +22,7 @@
           spotify
           zed-editor
         ]) ++ (with pkgs.unstable; [
-          discord
+          # discord
         ]);
       };
     };
