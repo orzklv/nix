@@ -24,6 +24,7 @@ let
     telegram-desktop
     github-desktop
     spotify
+  ]) ++ (with pkgs.unstable; [
     zed-editor
   ]);
 in
