@@ -5,12 +5,12 @@
     "padding": {
       "top": 3,
       "right": 3,
-      "left": 3
-    }
+      "left": 3,
+    },
   },
   "display": {
-    "binaryPrefix": "si",
-    "color": "black"
+    "size": { "binaryPrefix": "si" },
+    "color": "black",
   },
   "modules": [
     "title",
@@ -41,8 +41,6 @@
     "poweradapter",
     "locale",
     "break",
-    "colors"
-  ]
+    "colors",
+  ],
 }
-
-  

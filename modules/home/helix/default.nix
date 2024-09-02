@@ -73,22 +73,6 @@
           llvmPackages.clang-unwrapped # c/c++ tools with clang-tools such as clangd
           lldb
 
-          #-- python
-          python3Packages.black # python formatter
-          python3Packages.ruff-lsp
-          (python3.withPackages (
-            ps:
-              with ps; [
-                pynvim # Python client and plugin host for Nvim
-
-                ipython
-                pandas
-                requests
-                pyquery
-                pyyaml
-              ]
-          ))
-
           #-- rust
           rust-analyzer
           cargo # rust package manager
