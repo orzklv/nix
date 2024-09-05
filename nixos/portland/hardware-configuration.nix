@@ -15,6 +15,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.binfmt.emulatedSystems = [ "i686-linux" "aarch64-linux" ];
+  nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
