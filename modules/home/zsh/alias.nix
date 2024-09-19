@@ -54,6 +54,7 @@ let
     vim = "hx";
     nvim = "hx";
     zednix = "nohup zed --new --foreground . &";
+    zn = "nohup zed --new --foreground . &";
 
     # Others (Developer)
     ports = "sudo lsof -PiTCP -sTCP:LISTEN";
