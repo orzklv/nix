@@ -104,7 +104,7 @@
       typeset -gA ZSH_HIGHLIGHT_STYLES
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
       ZSH_HIGHLIGHT_STYLES[default]=none
-      ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white,underline
+      ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=gray,underline
       ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
       ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
       ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
