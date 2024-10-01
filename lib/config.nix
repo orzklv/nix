@@ -46,23 +46,8 @@
       ];
     };
 
-  # Generate homeConfigurations from:
-  # homeConfigurations = mapHome { inherit inputs, outputs } {
-  #   apple = {
-  #     inherit inputs outputs;
-  #     user = "sakhib";
-  #     arch = "aarch64-darwin";
-  #     repo = nixpkgs;
-  #     aliases = [ "Sokhibjons-iMac.local" "Sokhibjons-MacBook-Pro.local" ];
-  #   };
-  #   nixos = {
-  #     inherit inputs outputs;
-  #     user = "sakhib";
-  #     arch = "x86_64-linux";
-  #     repo = nixpkgs-unstable;
-  #     aliases = [ "" ];
-  #   };
-  # };
+  # WARNING!
+  # Becomes impure when opath provided
   mapHome =
     { inputs
     , outputs
