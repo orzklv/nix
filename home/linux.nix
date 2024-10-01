@@ -13,7 +13,6 @@
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.nixpkgs
     outputs.homeManagerModules.topgrade
-    outputs.homeManagerModules.terminal
     outputs.homeManagerModules.packages
   ];
 
