@@ -76,8 +76,11 @@
       # Attribute from static evaluation
       afse =
         {
-          # Nixpkgs and Home-Manager helpful functions
-          lib = nixpkgs.lib // home-manager.lib;
+          # Nixpkgs, Home-Manager and personal helpful functions
+          lib =
+            nixpkgs.lib
+            // home-manager.lib
+            // (import ./lib/extend.nix nixpkgs.lib).orzklv;
 
           # Your custom packages and modifications, exported as overlays
           overlays = import ./overlays { inherit inputs; };
@@ -92,36 +95,12 @@
 
           # NixOS configuration entrypoint
           # Available through 'nixos-rebuild --flake .#your-hostname'
-          nixosConfigurations = {
-            "Station" = nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
-              modules = [
-                # > Our main nixos configuration file <
-                ./nixos/station/configuration.nix
-              ];
+          # Stored at/as root/nixos/<hostname lower case>/*.nix
+          nixosConfigurations =
+            self.lib.config.mapSystem {
+              inherit inputs outputs;
+              list = [ "Station" "Experimental" "Portland" "Parallels" ];
             };
-            "Experimental" = nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
-              modules = [
-                # > Our main nixos configuration file <
-                ./nixos/experiment/configuration.nix
-              ];
-            };
-            "Portland" = nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
-              modules = [
-                # > Our main nixos configuration file <
-                ./nixos/portland/configuration.nix
-              ];
-            };
-            "Parallels" = nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
-              modules = [
-                # > Our main nixos configuration file <
-                ./nixos/parallels/configuration.nix
-              ];
-            };
-          };
 
           # Standalone home-manager configuration entrypoint
           # Available through 'home-manager --flake .#your-username@your-hostname'
