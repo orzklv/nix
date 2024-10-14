@@ -152,6 +152,7 @@
 
       # Cargo
       export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
       # Golang's Trash
       export GOPATH="$HOME/.go"
