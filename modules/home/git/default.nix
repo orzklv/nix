@@ -4,14 +4,16 @@
 , ...
 }:
 let
-  isMacOS = pkgs.stdenv.hostPlatform.system == "aarch64-darwin" || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
+  is-mac =
+    pkgs.stdenv.hostPlatform.system == "aarch64-darwin"
+    || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 in
 {
   options = {
     git = {
       isMacOS = lib.mkOption {
         type = lib.types.bool;
-        default = isMacOS;
+        default = is-mac;
         description = "Install MacOS specific agent.";
       };
     };
