@@ -113,11 +113,13 @@ let
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
+    ${mac-extra}
+
     # Extra services
     # here...
   '';
 
-  mac-extra = ''
+  mac-extra = if is-mac then ''
     # Cargo
     export PATH="$HOME/.cargo/bin:$PATH"
     export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
@@ -125,7 +127,7 @@ let
     # Golang's Trash
     export GOPATH="$HOME/.go"
     export PATH="$PATH:$HOME/.go/bin"
-  '';
+  '' else '''';
 
 in
 {
@@ -166,9 +168,6 @@ in
     ];
 
     # Extra manually typed configs
-    initExtra =
-      if is-mac
-      then extra ++ mac-extra
-      else extra;
+    initExtra = extra;
   };
 }
