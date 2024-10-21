@@ -53,96 +53,96 @@
     let
       # Self instance pointer
       outputs = self;
-
-      # Attribute for each system
-      afes = flake-utils.lib.eachDefaultSystem (system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        # Nixpkgs packages for the current system
-        {
-          # Your custom packages
-          # Acessible through 'nix build', 'nix shell', etc
-          packages = import ./pkgs { inherit pkgs; };
-
-          # Formatter for your nix files, available through 'nix fmt'
-          # Other options beside 'alejandra' include 'nixpkgs-fmt'
-          formatter = pkgs.nixpkgs-fmt;
-
-          # Development shells
-          devShells.default = import ./shell.nix { inherit pkgs; };
-        });
-
-      # Attribute from static evaluation
-      afse =
-        {
-          # Nixpkgs, Home-Manager and personal helpful functions
-          lib =
-            nixpkgs.lib
-            // home-manager.lib
-            // (import ./lib/extend.nix nixpkgs.lib).orzklv;
-
-          # Your custom packages and modifications, exported as overlays
-          overlays = import ./overlays { inherit inputs; };
-
-          # Reusable nixos modules you might want to export
-          # These are usually stuff you would upstream into nixpkgs
-          nixosModules = import ./modules/nixos;
-
-          # Reusable home-manager modules you might want to export
-          # These are usually stuff you would upstream into home-manager
-          homeManagerModules = import ./modules/home;
-
-          # NixOS configuration entrypoint
-          # Available through 'nixos-rebuild --flake .#your-hostname'
-          # Stored at/as root/nixos/<hostname lower case>/*.nix
-          nixosConfigurations =
-            self.lib.config.mapSystem {
-              inherit inputs outputs;
-              list = [ "Station" "Experimental" "Portland" "Parallels" ];
-            };
-
-          # Standalone home-manager configuration entrypoint
-          # Available through 'home-manager --flake .#your-username@your-hostname'
-          homeConfigurations = self.lib.config.mapHome
-            {
-              inherit inputs outputs;
-            }
-            {
-              apple = {
-                inherit inputs outputs;
-                user = "sakhib";
-                arch = "aarch64-darwin";
-                repo = nixpkgs-unstable;
-                aliases = [
-                  "Sokhibjons-iMac.local"
-                  "Sokhibjons-MacBook-Pro.local"
-                  "Sokhibjons-Virtual-Machine.local"
-                ];
-              };
-
-              old-apple = {
-                inherit inputs outputs;
-                user = "sakhib";
-                arch = "x86_64-darwin";
-                repo = nixpkgs-unstable;
-                aliases = [
-                  "Sokhibjons-MacBook-Air.local"
-                ];
-              };
-
-              stable = {
-                inherit inputs outputs;
-                user = "sakhib";
-                arch = "x86_64-linux";
-                repo = nixpkgs;
-                aliases = [
-                  ""
-                ];
-              };
-            };
-        };
     in
-    # Merging all final results
-    afes // afse;
+
+    # Attributes for each system
+    flake-utils.lib.eachDefaultSystem
+      (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      # Nixpkgs packages for the current system
+      {
+        # Your custom packages
+        # Acessible through 'nix build', 'nix shell', etc
+        packages = import ./pkgs { inherit pkgs; };
+
+        # Formatter for your nix files, available through 'nix fmt'
+        # Other options beside 'alejandra' include 'nixpkgs-fmt'
+        formatter = pkgs.nixpkgs-fmt;
+
+        # Development shells
+        devShells.default = import ./shell.nix { inherit pkgs; };
+      })
+
+    // # and ...
+
+    # Attribute from static evaluation
+    {
+      # Nixpkgs, Home-Manager and personal helpful functions
+      lib =
+        nixpkgs.lib
+        // home-manager.lib
+        // (import ./lib/extend.nix nixpkgs.lib).orzklv;
+
+      # Your custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
+
+      # Reusable nixos modules you might want to export
+      # These are usually stuff you would upstream into nixpkgs
+      nixosModules = import ./modules/nixos;
+
+      # Reusable home-manager modules you might want to export
+      # These are usually stuff you would upstream into home-manager
+      homeManagerModules = import ./modules/home;
+
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      # Stored at/as root/nixos/<hostname lower case>/*.nix
+      nixosConfigurations =
+        self.lib.config.mapSystem {
+          inherit inputs outputs;
+          list = [ "Station" "Experimental" "Portland" "Parallels" ];
+        };
+
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = self.lib.config.mapHome
+        {
+          inherit inputs outputs;
+        }
+        {
+          apple = {
+            inherit inputs outputs;
+            user = "sakhib";
+            arch = "aarch64-darwin";
+            repo = nixpkgs-unstable;
+            aliases = [
+              "Sokhibjons-iMac.local"
+              "Sokhibjons-MacBook-Pro.local"
+              "Sokhibjons-Virtual-Machine.local"
+            ];
+          };
+
+          old-apple = {
+            inherit inputs outputs;
+            user = "sakhib";
+            arch = "x86_64-darwin";
+            repo = nixpkgs-unstable;
+            aliases = [
+              "Sokhibjons-MacBook-Air.local"
+            ];
+          };
+
+          stable = {
+            inherit inputs outputs;
+            user = "sakhib";
+            arch = "x86_64-linux";
+            repo = nixpkgs;
+            aliases = [
+              ""
+            ];
+          };
+        };
+    };
 }
