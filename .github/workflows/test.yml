@@ -21,4 +21,4 @@ jobs:
         run: nix build .#homeConfigurations.sakhib@unstable.activationPackage --show-trace
 
       - name: Test installation
-        run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@unstable.activationPackage
+        run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@stable.activationPackage
