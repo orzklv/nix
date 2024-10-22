@@ -9,12 +9,12 @@
 }:
 let
   modules = [
-    outputs.homeManagerModules.zsh
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.helix
-    outputs.homeManagerModules.nixpkgs
-    outputs.homeManagerModules.topgrade
-    outputs.homeManagerModules.packages
+    outputs.homeModules.zsh
+    outputs.homeModules.git
+    outputs.homeModules.helix
+    outputs.homeModules.nixpkgs
+    outputs.homeModules.topgrade
+    outputs.homeModules.packages
   ];
 
   osx =

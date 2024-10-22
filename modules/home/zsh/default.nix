@@ -119,15 +119,16 @@ let
     # here...
   '';
 
-  mac-extra = if is-mac then ''
-    # Cargo
-    export PATH="$HOME/.cargo/bin:$PATH"
-    export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+  mac-extra =
+    if is-mac then ''
+      # Cargo
+      export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
-    # Golang's Trash
-    export GOPATH="$HOME/.go"
-    export PATH="$PATH:$HOME/.go/bin"
-  '' else '''';
+      # Golang's Trash
+      export GOPATH="$HOME/.go"
+      export PATH="$PATH:$HOME/.go/bin"
+    '' else '''';
 
 in
 {
