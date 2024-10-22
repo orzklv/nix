@@ -43,10 +43,4 @@
 
   # GPG Signing
   pkgs.gnupg
-
-  # Selfmade programs
-  pkgs.force-push
-  pkgs.dev-clean
-  pkgs.org-location
-  pkgs.google
 ]
