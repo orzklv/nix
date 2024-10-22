@@ -18,7 +18,7 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Build the flake
-        run: nix build .#homeConfigurations.sakhib@unstable.activationPackage --show-trace
+        run: nix build .#homeConfigurations.sakhib@stable.activationPackage --show-trace
 
       - name: Test installation
         run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@stable.activationPackage
