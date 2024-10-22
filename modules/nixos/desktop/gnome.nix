@@ -71,15 +71,7 @@ in
 
             # List of enabled extensions
             [org.gnome.shell]
-            enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io']
-
-            # ID of GSConnect device
-            [org.gnome.shell.extensions.gsconnect]
-            id='5fe9c449-c81e-4ca0-bc20-2dfc2b353228'
-
-            # Name of GSConnect device
-            [org.gnome.shell.extensions.gsconnect]
-            name='Kolyma'
+            enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com', 'light-style@gnome-shell-extensions.gcampax.github.com', 'system-monitor@gnome-shell-extensions.gcampax.github.com']
 
             # Workspace should grow dynamically
             [org.gnome.mutter]
@@ -93,6 +85,14 @@ in
             [org.gnome.desktop.interface]
             icon-theme='Papirus-Dark'
 
+            # Use default color scheme
+            [org.gnome.desktop.interface]
+            color-scheme='default'
+
+            # Automatic timezone
+            [org.gnome.desktop.datetime]
+            automatic-timezone=true
+
             # Never show the notice on tweak
             [org.gnome.tweaks]
             show-extensions-notice=false
@@ -104,6 +104,14 @@ in
             # Shitty monospace font to JetBrains Mono
             [org.gnome.desktop.interface]
             monospace-font-name='JetBrainsMono Nerd Font 10'
+
+            # Dash to dock for multiple monitors
+            [org.gnome.shell.extensions.dash-to-dock]
+            multi-monitor=true
+
+            # Custom theme on Dash to dock
+            [org.gnome.shell.extensions.dash-to-dock]
+            apply-custom-theme=true
 
             # Don't hibernate on delay
             [org.gnome.settings-daemon.plugins.power]
