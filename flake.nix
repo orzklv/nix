@@ -17,6 +17,12 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/home.nix'.
 
+    # Nix-darwin for macOS systems management
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -46,6 +52,7 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , nix-darwin
     , home-manager
     , flake-utils
     , ...
@@ -103,6 +110,21 @@
         self.lib.config.mapSystem {
           inherit inputs outputs;
           list = [ "Station" "Experimental" "Portland" "Parallels" ];
+        };
+
+      # Darwin configuration entrypoint
+      # Available through 'darwin-rebuild build --flake .#your-hostname'
+      # Stored at/as root/darwin/<alias name for machine>/*.nix
+      darwinConfigurations =
+        self.lib.config.attrSystem {
+          inherit inputs outputs;
+          type = "darwin";
+          list = [
+            {
+              name = "Sokhibjons-MacBook-Pro";
+              alias = "macbook-pro";
+            }
+          ];
         };
 
       # Standalone home-manager configuration entrypoint
