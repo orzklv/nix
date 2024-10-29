@@ -41,6 +41,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.sakhib = import ../../home.nix;
+    extraSpecialArgs = { inherit inputs outputs; };
   };
 
   # The platform the configuration will be used on.
