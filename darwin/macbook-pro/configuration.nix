@@ -1,6 +1,16 @@
-{ config, pkgs, ... }:
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
+}: {
+  # You can import other NixOS modules here
+  imports = [
+    # Home Manager NixOS Module
+    inputs.home-manager.darwinModules.home-manager
+  ];
 
-{
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
@@ -25,6 +35,13 @@
 
   # Set Git commit hash for darwin-version.
   # system.configurationRevision = self.rev or self.dirtyRev or null;
+
+  # Home manager configuration for users
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.sakhib = import ../../home.nix;
+  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";

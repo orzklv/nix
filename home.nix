@@ -1,10 +1,10 @@
-{ inputs
+{ self
+, inputs
+, outputs
 , lib
 , pkgs
 , config
-, outputs
 , packages
-, self
 , ...
 }:
 let
