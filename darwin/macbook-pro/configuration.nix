@@ -38,8 +38,6 @@
 
   # Home manager configuration for users
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
     users.sakhib = import ../../home.nix;
     extraSpecialArgs = { inherit inputs outputs; };
   };
