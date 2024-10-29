@@ -51,15 +51,15 @@ in
           extraGSettingsOverrides = ''
             # Change default background
             [org.gnome.desktop.background]
-            picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+            picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish.gnomeFilePath}'
 
             # Background for dark theme
             [org.gnome.desktop.background]
             picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
 
-            # Prefer dark theme
+            # Prefer light theme
             [org.gnome.desktop.interface]
-            color-scheme='prefer-dark'
+            color-scheme='prefer-light'
 
             # Favorite apps in gnome-shell
             [org.gnome.shell]
@@ -83,7 +83,7 @@ in
 
             # Set the icon theme
             [org.gnome.desktop.interface]
-            icon-theme='Papirus-Dark'
+            icon-theme='Papirus'
 
             # Use default color scheme
             [org.gnome.desktop.interface]

@@ -99,6 +99,10 @@
       # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
 
+      # Reusable darwin modules you might want to export
+      # These are usually stuff you would upstream into nixpkgs
+      darwinModules = import ./modules/darwin;
+
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
       homeModules = import ./modules/home;
@@ -125,46 +129,6 @@
               alias = "macbook-pro";
             }
           ];
-        };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = self.lib.config.mapHome
-        {
-          inherit inputs outputs;
-        }
-        {
-          apple = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "aarch64-darwin";
-            repo = nixpkgs-unstable;
-            aliases = [
-              "Sokhibjons-iMac.local"
-              "Sokhibjons-MacBook-Pro.local"
-              "Sokhibjons-Virtual-Machine.local"
-            ];
-          };
-
-          old-apple = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "x86_64-darwin";
-            repo = nixpkgs-unstable;
-            aliases = [
-              "Sokhibjons-MacBook-Air.local"
-            ];
-          };
-
-          stable = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "x86_64-linux";
-            repo = nixpkgs;
-            aliases = [
-              ""
-            ];
-          };
         };
     };
 }

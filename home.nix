@@ -29,18 +29,16 @@ let
     else "home";
 
   macos = lib.mkIf osx {
+    # Leave here configs that should be applied only at macos machines
+
     # This is to ensure programs are using ~/.config rather than
     # /Users/sakhib/Library/whatever
     xdg.enable = true;
   };
 
-  linux = lib.mkIf (!osx) {
-    # This is required information for home-manager to do its job
-    home = {
-      # Don't check if home manager is same as nixpkgs
-      enableNixpkgsReleaseCheck = false;
-    };
-  };
+  # linux = lib.mkIf (!osx) {
+  #   # Leave here configs that should be applied only at linux machines
+  # };
 
   cfg = {
     # This is required information for home-manager to do its job
@@ -48,6 +46,7 @@ let
       stateVersion = "24.05";
       username = "sakhib";
       homeDirectory = "/${home}/sakhib";
+      enableNixpkgsReleaseCheck = false;
 
       # Tell it to map everything in the `config` directory in this
       # repository to the `.config` in my home-manager directory
