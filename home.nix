@@ -36,9 +36,9 @@ let
     xdg.enable = true;
   };
 
-  # linux = lib.mkIf (!osx) {
-  #   # Leave here configs that should be applied only at linux machines
-  # };
+  linux = lib.mkIf (!osx) {
+    # Leave here configs that should be applied only at linux machines
+  };
 
   cfg = {
     # This is required information for home-manager to do its job
