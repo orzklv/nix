@@ -103,7 +103,7 @@
             user = value.user;
             arch = value.arch;
             repo = value.repo;
-            alias = value.aliases;
+            alias = value.aliases or [ ];
           })
         attr;
 
@@ -118,8 +118,7 @@
   attrHome =
     { name
     , user ? " sakhib "
-    , arch ? "
-        x86_64-linux "
+    , arch ? "x86_64-linux"
     , repo ? <nixpkgs>
     , alias ? [ ]
     , path

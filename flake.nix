@@ -113,7 +113,7 @@
       nixosConfigurations =
         self.lib.config.mapSystem {
           inherit inputs outputs;
-          list = [ "Station" "Experimental" "Portland" "Parallels" ];
+          list = [ "Station" "Portland" "Parallels" ];
         };
 
       # Darwin configuration entrypoint
@@ -163,7 +163,6 @@
               user = "sakhib";
               arch = "x86_64-linux";
               repo = nixpkgs;
-              aliases = [ "" ];
             };
 
             unstable = {
@@ -171,7 +170,6 @@
               user = "sakhib";
               arch = "x86_64-linux";
               repo = nixpkgs-unstable;
-              aliases = [ "" ];
             };
           };
     };
