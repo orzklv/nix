@@ -6,8 +6,6 @@
 , packages
 , ...
 }:
-let
-in
 {
   config = {
     # Available users in the machine
