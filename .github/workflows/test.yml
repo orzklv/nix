@@ -3,7 +3,7 @@ name: Test CI
 on: [push, pull_request]
 
 jobs:
-  build-linux:
+  test-flake:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,13 +19,23 @@ jobs:
       - name: Check up flake configuration
         run: nix flake check --all-systems --show-trace
 
+  build-nixos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Cache Nix store
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
       - name: Build NixOS configuration
         run: nix build .#nixosConfigurations.Station.config.system.build.toplevel --show-trace
 
-      - name: Build & Test Home configuration
-        run: nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@apple
-
-  build-macos:
+  build-darwin:
     runs-on: macos-latest
 
     steps:
@@ -38,11 +48,43 @@ jobs:
       - name: Cache Nix store
         uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Check up flake configuration
-        run: nix flake check --all-systems --show-trace
-
       - name: Build Darwin configuration
         run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
 
-      - name: Build & Test Home configuration
-        run: nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@stable
+  build-home-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Cache Nix store
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build Home configuration
+        run: nix build .#homeConfigurations.sakhib@stable.activationPackage --show-trace
+
+      - name: Test installation
+        run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@stable.activationPackage
+
+  build-home-macos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Cache Nix store
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build Home configuration
+        run: nix build .#homeConfigurations.sakhib@apple.activationPackage --show-trace
+
+      - name: Test installation
+        run: nix profile install --profile /tmp/test-profile ./#homeConfigurations.sakhib@apple.activationPackage
