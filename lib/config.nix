@@ -42,7 +42,7 @@
     }:
     let
       # Generate absolute path to the configuration
-      path = name: opath + "/${type}/${name}/configuration.nix";
+      path = name: opath + "/${type}/${lib.toLower name}/configuration.nix";
 
       #   Name  =                Value
       # "Lorem" = self.lib.config.makeSystem "station";
