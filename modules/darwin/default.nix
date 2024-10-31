@@ -3,4 +3,5 @@
 {
   # List your module files here
   users = import ./users;
+  homebrew = import ./homebrew;
 }
