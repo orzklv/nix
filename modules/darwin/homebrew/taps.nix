@@ -8,7 +8,6 @@
 }:
 let
   apps = lib.mkIf config.homebrew.enable [
-    "homebrew/cask"
     "shaunsingh/sfmono-nerd-font-ligaturized/font-sf-mono-nerd-font-ligaturized"
   ];
 in
