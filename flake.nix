@@ -113,7 +113,7 @@
       nixosConfigurations =
         self.lib.config.mapSystem {
           inherit inputs outputs;
-          list = [ "Station" "Portland" "Parallels" ];
+          list = [ "Station" "Parallels" ];
         };
 
       # Darwin configuration entrypoint
