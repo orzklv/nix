@@ -5,6 +5,9 @@
 , ...
 }: {
   config = {
+    # Auto upgrade nix package and the daemon service.
+    services.nix-daemon.enable = true;
+
     nixpkgs = {
       # You can add overlays here
       overlays = [
@@ -40,6 +43,10 @@
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
+      # Customized nix packages for rollback purposes
+      # package = pkgs.nix;
+
+      # Additional settings
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
