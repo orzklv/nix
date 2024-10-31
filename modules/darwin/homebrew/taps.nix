@@ -8,7 +8,7 @@
 }:
 let
   apps = lib.mkIf config.homebrew.enable [
-    "shaunsingh/sfmono-nerd-font-ligaturized/font-sf-mono-nerd-font-ligaturized"
+    "shaunsingh/SFMono-Nerd-Font-Ligaturized"
   ];
 in
 {

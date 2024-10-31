@@ -16,6 +16,7 @@ let
     "discord"
     "elmedia-player"
     "folx"
+    "font-sf-mono-nerd-font-ligaturized"
     "gitfox"
     "iterm2"
     "itermai"
