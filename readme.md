@@ -38,6 +38,14 @@ curl --proto '=https' --tlsv1.2 -sSf -L \
   https://install.determinate.systems/nix | sh -s -- install
 ```
 
+## Install Homebrew (if it's nix-darwin) configurations
+
+Basically, we will go with official way of installing homebrew to get nix-darwin configurations working:
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## Install my configurations
 
 ### Home Manager configs
@@ -58,7 +66,7 @@ nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sa
 nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@stable
 ```
 
-### NixOS & Home Manager configs
+### NixOS configurations
 
 I've written ready configurations for my machines that are using NixOS, so here you are:
 
@@ -68,6 +76,20 @@ sudo nixos-rebuild switch --flake github:orzklv/nix#Guts --upgrade
 
 # Experimental (Work PC)
 sudo nixos-rebuild switch --flake github:orzklv/nix#Experimental --upgrade
+```
+
+### Darwin configurations
+
+The same actually goes for my Darwin machines as well, everything is ready for setup:
+
+```shell
+# MacBook Pro
+nix run nix-darwin -- switch --flake github:orzklv/nix#Sokhibjons-MacBook-Pro # or
+darwin-rebuild switch --flake github:orzklv/nix#Sokhibjons-MacBook-Pro
+
+# Mac Studio
+nix run nix-darwin -- switch --flake github:orzklv/nix#Sokhibjons-Mac-Studio # or
+darwin-rebuild switch --flake github:orzklv/nix#Sokhibjons-Mac-Studio
 ```
 
 > If you hit GitHub's rate limit, put your GitHub token in `~/.config/nix/nix.conf` file like this:
