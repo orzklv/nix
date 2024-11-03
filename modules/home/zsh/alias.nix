@@ -65,7 +65,7 @@ let
     dockfm = "docker ps --all --format \"NAME:   {{.Names}}\nSTATUS: {{.Status}}\nPORTS:  {{.Ports}}\n\"";
 
     # Updating system
-    update = "nix store gc && topgrade";
+    update = "topgrade";
     nix-shell = "nix-shell --run zsh";
     nix-develop = "nix develop -c \"$SHELL\"";
     determinate = "${determinate-systems} | sh -s -- ";
