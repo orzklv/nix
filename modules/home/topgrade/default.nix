@@ -26,6 +26,10 @@ let
       no_self_update = true;
     };
 
+    pre_commands = {
+      "Clean Nix Store" = "nix store gc";
+    };
+
     linux = {
       nix_arguments = "--flake github:orzklv/nix";
       home_manager_arguments = [ "--flake" "github:orzklv/nix" ];
