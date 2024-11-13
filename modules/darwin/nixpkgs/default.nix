@@ -47,7 +47,7 @@
       # package = pkgs.nix;
 
       # Deduplicate and optimize nix store
-      optimisation = {
+      optimise = {
         automatic = true;
       };
 

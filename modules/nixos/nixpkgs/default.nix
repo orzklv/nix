@@ -41,7 +41,7 @@
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
       # Deduplicate and optimize nix store
-      optimisation = {
+      optimise = {
         automatic = true;
       };
 
