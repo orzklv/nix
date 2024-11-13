@@ -20,7 +20,6 @@ let
         "vscode"
         "home_manager"
       ];
-      pre_sudo = true;
       no_retry = true;
       assume_yes = true;
       no_self_update = true;
