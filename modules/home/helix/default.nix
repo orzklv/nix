@@ -77,10 +77,6 @@
           rust-analyzer
           cargo # rust package manager
           rustfmt
-
-          #-- zig
-          zls
-
           #-- nix
           nil
           nixd
