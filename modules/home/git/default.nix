@@ -31,6 +31,7 @@ in
 
       extraConfig = {
         http.sslVerify = false;
+        pull.rebase = false;
       };
 
       # GPG Signing
