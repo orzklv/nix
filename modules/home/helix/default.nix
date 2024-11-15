@@ -66,7 +66,8 @@
         [
           #-- c/c++
           cmake
-          cmake-language-server
+          # python dns having hard times to build
+          # cmake-language-server
           gnumake
           checkmake
           gcc # c/c++ compiler, required by nvim-treesitter!
@@ -77,6 +78,7 @@
           rust-analyzer
           cargo # rust package manager
           rustfmt
+
           #-- nix
           nil
           nixd
@@ -103,37 +105,20 @@
           maven
           spring-boot-cli
 
-          #-- lua
-          stylua
-          lua-language-server
-
           #-- bash
           nodePackages.bash-language-server
           shellcheck
           shfmt
 
-          #-- javascript/typescript --#
-          nodePackages.nodejs
-          nodePackages.typescript
-          nodePackages.typescript-language-server
-          # HTML/CSS/JSON/ESLint language servers extracted from vscode
-          nodePackages.vscode-langservers-extracted
-          nodePackages."@tailwindcss/language-server"
-
           #-- CloudNative
-          nodePackages.dockerfile-language-server-nodejs
-          emmet-ls
           jsonnet
           jsonnet-language-server
-          hadolint # Dockerfile linter
 
           #-- Others
           taplo # TOML language server / formatter / validator
           sqlfluff # SQL linter
           actionlint # GitHub Actions linter
-          buf # protoc plugin for linting and formatting
           proselint # English prose linter
-          guile # scheme language
 
           #-- Misc
           tree-sitter # common language parser/highlighter
@@ -147,7 +132,7 @@
           ripgrep # fast search tool
         ]
         ++ (
-          if pkgs.stdenv.isDarwin
+          if stdenv.isDarwin
           then [ ]
           else [
             #-- verilog / systemverilog
