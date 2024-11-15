@@ -129,7 +129,6 @@
 
           #-- Others
           taplo # TOML language server / formatter / validator
-          nodePackages.yaml-language-server
           sqlfluff # SQL linter
           actionlint # GitHub Actions linter
           buf # protoc plugin for linting and formatting
