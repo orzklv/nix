@@ -36,6 +36,7 @@ let
     "sketch"
     "xcodes"
     "zed"
+    "github"
   ];
 in
 {
