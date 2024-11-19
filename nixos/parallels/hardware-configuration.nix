@@ -17,20 +17,29 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/caf807d3-bb74-462e-8c8b-052474394cab";
+    { device = "/dev/disk/by-uuid/4970e510-5bf8-4262-adfd-03d6c4b7ce2a";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/14F8-6F1F";
+    { device = "/dev/disk/by-uuid/FF32-D6D4";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/media/psf/RosettaLinux" =
+    { device = "RosettaLinux";
+      fsType = "prl_fs";
+    };
+
+  fileSystems."/media/psf/iCloud" =
+    { device = "iCloud";
+      fsType = "prl_fs";
+    };
+
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/ccce9ab2-e2d7-40e8-880d-2aae2527447a"; }];
+    [ { device = "/dev/disk/by-uuid/a595d0f0-c3d9-42c8-8162-268b87d96845"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
