@@ -18,7 +18,7 @@
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
     outputs.nixosModules.users.sakhib
-    outputs.nixosModules.desktop.gnome
+    outputs.nixosModules.desktop.kde
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
