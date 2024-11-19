@@ -70,6 +70,9 @@ in
 
     # Additional packs for customization.
     environment.systemPackages = with pkgs; [
+      # Browser for at least searching something
+      librewolf
+
       # Papirus Icon Pack
       papirus-icon-theme
     ];
