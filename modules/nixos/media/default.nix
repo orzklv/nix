@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   config = {
     system.activationScripts.createMediaSymlink = lib.stringAfter [ "users" ] ''
       # Function to create symlink and set permissions

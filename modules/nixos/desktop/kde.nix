@@ -4,11 +4,7 @@
 # =================================
 { pkgs, ... }:
 let
-  x86_64-opengl =
-    if (!pkgs.stdenv.hostPlatform.isAarch64)
-    then {
-      driSupport32Bit = true;
-    } else { };
+  x86_64-opengl = if (!pkgs.stdenv.hostPlatform.isAarch64) then { driSupport32Bit = true; } else { };
 
   all-opengl = {
     enable = true;
@@ -54,11 +50,10 @@ in
     hardware.opengl = all-opengl // x86_64-opengl;
 
     # Exclude some packages from the KDE desktop environment.
-    environment.plasma6.excludePackages =
-      with pkgs.kdePackages; [
-        kate # that editor
-        plasma-browser-integration # browser integration
-      ];
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
+      kate # that editor
+      plasma-browser-integration # browser integration
+    ];
 
     # programs.gnupg.agent = {
     #   enable = true;

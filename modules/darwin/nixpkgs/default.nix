@@ -1,9 +1,11 @@
-{ outputs
-, lib
-, config
-, inputs
-, ...
-}: {
+{
+  outputs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
   config = {
     # Auto upgrade nix package and the daemon service.
     services.nix-daemon.enable = true;

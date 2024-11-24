@@ -1,10 +1,11 @@
-{ pkgs
-, inputs
-, outputs
-, lib
-, config
-, packages
-, ...
+{
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  config,
+  packages,
+  ...
 }:
 {
   imports = [
@@ -21,9 +22,7 @@
       autoUpdate = true;
       cleanup = "uninstall";
       upgrade = true;
-      extraFlags = [
-        "--verbose"
-      ];
+      extraFlags = [ "--verbose" ];
     };
   };
 }

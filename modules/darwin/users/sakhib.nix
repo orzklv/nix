@@ -1,10 +1,11 @@
-{ pkgs
-, inputs
-, outputs
-, lib
-, config
-, packages
-, ...
+{
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  config,
+  packages,
+  ...
 }:
 {
   config = {
@@ -20,7 +21,9 @@
 
     # Home manager configuration for users
     home-manager = {
-      extraSpecialArgs = { inherit inputs outputs; };
+      extraSpecialArgs = {
+        inherit inputs outputs;
+      };
       users = {
         # Import your home-manager configuration
         sakhib = import ../../../home.nix;

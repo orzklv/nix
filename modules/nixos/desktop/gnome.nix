@@ -4,11 +4,7 @@
 # =================================
 { pkgs, ... }:
 let
-  x86_64-opengl =
-    if (!pkgs.stdenv.hostPlatform.isAarch64)
-    then {
-      driSupport32Bit = true;
-    } else { };
+  x86_64-opengl = if (!pkgs.stdenv.hostPlatform.isAarch64) then { driSupport32Bit = true; } else { };
 
   all-opengl = {
     enable = true;

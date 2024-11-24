@@ -1,7 +1,5 @@
-{ pkgs
-, inputs
-, ...
-}: {
+{ pkgs, inputs, ... }:
+{
   config = {
     # Installing zsh for system
     programs.zsh.enable = true;
@@ -13,9 +11,7 @@
     environment = {
       shells = with pkgs; [ zsh ];
       pathsToLink = [ "/share/zsh" ];
-      systemPackages = [
-        inputs.home-manager.packages.${pkgs.system}.default
-      ];
+      systemPackages = [ inputs.home-manager.packages.${pkgs.system}.default ];
     };
   };
 }

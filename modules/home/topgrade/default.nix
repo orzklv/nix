@@ -31,7 +31,10 @@ let
 
     linux = {
       nix_arguments = "--flake github:orzklv/nix";
-      home_manager_arguments = [ "--flake" "github:orzklv/nix" ];
+      home_manager_arguments = [
+        "--flake"
+        "github:orzklv/nix"
+      ];
     };
 
     brew = {
@@ -43,7 +46,10 @@ in
   config = {
     programs.topgrade = {
       enable = true;
-      settings = lib.mkMerge [ cfg darwin ];
+      settings = lib.mkMerge [
+        cfg
+        darwin
+      ];
     };
   };
 }

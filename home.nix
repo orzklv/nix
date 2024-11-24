@@ -1,11 +1,12 @@
-{ self
-, inputs
-, outputs
-, lib
-, pkgs
-, config
-, packages
-, ...
+{
+  self,
+  inputs,
+  outputs,
+  lib,
+  pkgs,
+  config,
+  packages,
+  ...
 }:
 let
   modules = [
@@ -17,16 +18,12 @@ let
     outputs.homeModules.packages
   ];
 
-  osx =
-    builtins.elem pkgs.system [
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
+  osx = builtins.elem pkgs.system [
+    "aarch64-darwin"
+    "x86_64-darwin"
+  ];
 
-  home =
-    if osx
-    then "Users"
-    else "home";
+  home = if osx then "Users" else "home";
 
   macos = lib.mkIf osx {
     # Leave here configs that should be applied only at macos machines
