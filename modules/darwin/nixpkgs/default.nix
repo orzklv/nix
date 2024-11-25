@@ -48,11 +48,6 @@
       # Customized nix packages for rollback purposes
       # package = pkgs.nix;
 
-      # Deduplicate and optimize nix store
-      optimise = {
-        automatic = true;
-      };
-
       # Additional settings
       settings = {
         # Enable flakes and new 'nix' command
