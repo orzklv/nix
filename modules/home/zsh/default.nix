@@ -114,6 +114,7 @@ let
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
     ${mac-extra}
+    ${linux-extra}
   '';
 
   mac-extra =
@@ -126,6 +127,24 @@ let
         # Golang's Trash
         export GOPATH="$HOME/.go"
         export PATH="$PATH:$HOME/.go/bin"
+      ''
+    else
+      '''';
+
+  linux-extra =
+    if (!is-mac) then
+      ''
+        if [[ -z "$ZELLIJ" ]]; then
+            if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+                zellij attach -c
+            else
+                zellij
+            fi
+
+            if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+                exit
+            fi
+        fi
       ''
     else
       '''';

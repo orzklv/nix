@@ -12,7 +12,6 @@ let
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
-    outputs.homeModules.helix
     outputs.homeModules.nixpkgs
     outputs.homeModules.topgrade
     outputs.homeModules.packages
