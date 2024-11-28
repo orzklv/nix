@@ -7,13 +7,10 @@
   pkgs.gh
   pkgs.jq
   pkgs.wget
-  pkgs.zola
   pkgs.gitui
-  pkgs.zellij
   pkgs.netcat
   pkgs.direnv
   pkgs.git-lfs
-  pkgs.gitoxide
   pkgs.cargo-update
 
   # Environment
@@ -24,7 +21,6 @@
   pkgs.figlet
   pkgs.gping
   pkgs.hyperfine
-  pkgs.lolcat
   pkgs.fastfetch
   pkgs.onefetch
   pkgs.procs

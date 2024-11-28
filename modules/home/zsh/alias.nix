@@ -52,11 +52,7 @@ let
     refresh = "source ~/.zshrc";
 
     # Development
-    hack = "zellij";
-    vim = "hx";
-    nvim = "hx";
-    zednix = "nohup zed --new --foreground . &";
-    zn = "nohup zed --new --foreground . &";
+    hack = "nix develop -c $SHELL && zed .";
 
     # Others (Developer)
     ports = "sudo lsof -PiTCP -sTCP:LISTEN";

@@ -114,21 +114,6 @@ let
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
     ${mac-extra}
-
-    if [[ -z "$ZELLIJ" ]]; then
-        if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-            zellij attach -c
-        else
-            zellij
-        fi
-
-        if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-            exit
-        fi
-    fi
-
-    # Extra services
-    # here...
   '';
 
   mac-extra =
@@ -149,8 +134,7 @@ in
 {
   imports = [
     ./alias.nix
-    ./zoxide.nix
-    ./starship.nix
+    ./prompt.nix
   ];
 
   # I use zsh, but bash and fish work just as well here. This will setup

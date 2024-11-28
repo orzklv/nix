@@ -8,7 +8,6 @@
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
-  helix = import ./helix;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;

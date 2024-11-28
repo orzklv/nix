@@ -9,5 +9,4 @@ rec {
   dev-clean = pkgs.callPackage ./dev-clean { };
   org-location = pkgs.callPackage ./org-location { };
   google = pkgs.callPackage ./google { };
-  brewster = pkgs.callPackage ./brewster { };
 }
