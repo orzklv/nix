@@ -10,7 +10,7 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:

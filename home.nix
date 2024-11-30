@@ -39,7 +39,7 @@ let
   cfg = {
     # This is required information for home-manager to do its job
     home = {
-      stateVersion = "24.05";
+      stateVersion = "24.11";
       username = "sakhib";
       homeDirectory = "/${home}/sakhib";
       enableNixpkgsReleaseCheck = false;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # Prettier terminal prompt
   programs.starship = {
