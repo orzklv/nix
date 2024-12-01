@@ -4,11 +4,10 @@
 # =================================
 { pkgs, ... }:
 let
-  x86_64-opengl = if (!pkgs.stdenv.hostPlatform.isAarch64) then { driSupport32Bit = true; } else { };
+  x86_64-graphics = if (!pkgs.stdenv.hostPlatform.isAarch64) then { enable32Bit = true; } else { };
 
-  all-opengl = {
+  all-graphics = {
     enable = true;
-    driSupport = true;
   };
 in
 {
@@ -120,14 +119,14 @@ in
 
           extraGSettingsOverridePackages = [
             pkgs.gsettings-desktop-schemas
-            pkgs.gnome.gnome-shell
+            pkgs.gnome-shell
           ];
         };
       };
     };
 
     # Make sure opengl is enabled
-    hardware.opengl = all-opengl // x86_64-opengl;
+    hardware.graphics = all-graphics // x86_64-graphics;
 
     # Exclude some packages from the Gnome desktop environment.
     environment.gnome.excludePackages =
@@ -135,7 +134,7 @@ in
         xterm
         firefox
       ])
-      ++ (with pkgs.gnome; [
+      ++ (with pkgs; [
         cheese # webcam app
         geary # email client
         tali # poker game
@@ -150,7 +149,7 @@ in
     # Setting daemons
     services = {
       # Udev daemon management
-      udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+      udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
 
     programs.gnupg.agent = {
@@ -169,8 +168,8 @@ in
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
       # Gnome Modding
-      gnome.dconf-editor
-      gnome.gnome-tweaks
+      dconf-editor
+      gnome-tweaks
 
       # Gnome Extensions
       gnomeExtensions.appindicator

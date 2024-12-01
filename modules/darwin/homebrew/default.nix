@@ -22,7 +22,6 @@
       autoUpdate = true;
       cleanup = "uninstall";
       upgrade = true;
-      extraFlags = [ "--verbose" ];
     };
   };
 }

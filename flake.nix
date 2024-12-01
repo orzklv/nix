@@ -56,6 +56,7 @@
       nix-darwin,
       home-manager,
       flake-utils,
+      disko,
       ...
     }@inputs:
     let
@@ -131,44 +132,6 @@
               alias = "mac-studio";
             }
           ];
-        };
-
-        # Standalone home-manager configuration entrypoint
-        # Available through 'home-manager --flake .#your-username@your-hostname'
-        homeConfigurations = self.lib.config.mapHome { inherit inputs outputs; } {
-          apple = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "aarch64-darwin";
-            repo = nixpkgs-unstable;
-            aliases = [
-              "Sokhibjons-iMac.local"
-              "Sokhibjons-MacBook-Pro.local"
-              "Sokhibjons-Virtual-Machine.local"
-            ];
-          };
-
-          old-apple = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "x86_64-darwin";
-            repo = nixpkgs-unstable;
-            aliases = [ "Sokhibjons-MacBook-Air.local" ];
-          };
-
-          stable = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "x86_64-linux";
-            repo = nixpkgs;
-          };
-
-          unstable = {
-            inherit inputs outputs;
-            user = "sakhib";
-            arch = "x86_64-linux";
-            repo = nixpkgs-unstable;
-          };
         };
       };
 }

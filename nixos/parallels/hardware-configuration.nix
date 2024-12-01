@@ -2,6 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -9,7 +10,14 @@
   ...
 }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    # Disko generated partitions
+    inputs.disko.nixosModules.disko
+    ./disk-configuration.nix
+
+    # Not detected hardware modules
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
@@ -18,20 +26,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4970e510-5bf8-4262-adfd-03d6c4b7ce2a";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FF32-D6D4";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
 
   fileSystems."/media/psf/RosettaLinux" = {
     device = "RosettaLinux";
@@ -42,8 +36,6 @@
     device = "iCloud";
     fsType = "prl_fs";
   };
-
-  swapDevices = [ { device = "/dev/disk/by-uuid/a595d0f0-c3d9-42c8-8162-268b87d96845"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
