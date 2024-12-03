@@ -1,6 +1,6 @@
 return {
     colorscheme = "oxocarbon",
-  
+
     options = {
       opt = {
         relativenumber = true, -- Show relative numberline
@@ -10,20 +10,24 @@ return {
         smartindent = false, -- fix https://github.com/ryan4yin/nix-config/issues/4
       },
     },
-  
+
     plugins = {
       "AstroNvim/astrocommunity",
+
       -- colorscheme - oxocarbon
       { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
+
       -- Highly experimental plugin that completely replaces
       -- the UI for messages, cmdline and the popupmenu.
       { import = "astrocommunity.utility.noice-nvim" },
+
       -- Fully featured & enhanced replacement for copilot.vim
       -- <Tab> work with both auto completion in cmp and copilot
       { import = "astrocommunity.motion.leap-nvim" },
       { import = "astrocommunity.motion.flit-nvim" },
       { import = "astrocommunity.scrolling.nvim-scrollbar" },
       { import = "astrocommunity.editing-support.todo-comments-nvim" },
+
       -- Language Support
       ---- Frontend & NodeJS
       { import = "astrocommunity.pack.typescript-all-in-one" },
@@ -50,27 +54,21 @@ return {
       { import = "astrocommunity.pack.cmake" },
       { import = "astrocommunity.pack.cpp" },
       { import = "astrocommunity.pack.docker" },
+
       -- Motion
       { import = "astrocommunity.motion.mini-surround" },
+
       -- https://github.com/echasnovski/mini.ai
       { import = "astrocommunity.motion.mini-ai" },
       { import = "astrocommunity.motion.flash-nvim" },
       { "folke/flash.nvim",                                          vscode = false },
+
       -- Lua implementation of CamelCaseMotion, with extra consideration of punctuation.
       { import = "astrocommunity.motion.nvim-spider" },
+
       -- AI Assistant
       { import = "astrocommunity.completion.copilot-lua-cmp" },
-      -- Custom copilot-lua to enable filtypes: markdown
-      {
-        "zbirenbaum/copilot.lua",
-        opts = function(_, opts)
-          opts.filetypes = {
-            yaml = true,
-            markdown = true,
-          }
-        end,
-      },
-  
+
       {
         "0x00-ketsu/autosave.nvim",
         -- lazy-loading on events
@@ -79,20 +77,7 @@ return {
           opts.prompt_style = "notify" -- or stdout
         end,
       },
-  
-      -- markdown preview
-      {
-        "0x00-ketsu/markdown-preview.nvim",
-        ft = { "md", "markdown", "mkd", "mkdn", "mdwn", "mdown", "mdtxt", "mdtext", "rmd", "wiki" },
-        config = function()
-          require("markdown-preview").setup({
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the setup section below
-          })
-        end,
-      },
-  
+
       -- clipboard manager
       {
         "gbprod/yanky.nvim",
@@ -155,32 +140,7 @@ return {
           { "=P", "<Plug>(YankyPutBeforeFilter)",           desc = "Put before applying a filter" },
         },
       },
-  
-      -- Enhanced matchparen.vim plugin for Neovim to highlight the outer pair.
-      {
-        "utilyre/sentiment.nvim",
-        version = "*",
-        event = "VeryLazy", -- keep for lazy loading
-        opts = {
-          -- config
-        },
-        init = function()
-          -- `matchparen.vim` needs to be disabled manually in case of lazy loading
-          vim.g.loaded_matchparen = 1
-        end,
-      },
-  
-      -- joining blocks of code into oneline, or splitting one line into multiple lines.
-      {
-        "Wansmer/treesj",
-        keys = { "<space>m", "<space>j", "<space>s" },
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        config = function()
-          require("treesj").setup({ --[[ your config ]]
-          })
-        end,
-      },
-  
+
       -- File explorer(Custom configs)
       {
         "nvim-neo-tree/neo-tree.nvim",
@@ -194,6 +154,7 @@ return {
           },
         },
       },
+
       -- The plugin offers the alibity to refactor code.
       {
         "ThePrimeagen/refactoring.nvim",
@@ -202,6 +163,7 @@ return {
           { "nvim-treesitter/nvim-treesitter" },
         },
       },
+
       -- The plugin offers the abilibty to search and replace.
       {
         "nvim-pack/nvim-spectre",
@@ -209,12 +171,12 @@ return {
           { "nvim-lua/plenary.nvim" },
         },
       },
-  
+
       -- full signature help, docs and completion for the nvim lua API.
       { "folke/neodev.nvim",     opts = {} },
-  
+
       { "RRethy/vim-illuminate", config = function() end },
-  
+
       -- Language Parser for syntax highlighting / indentation / folding / Incremental selection
       {
         "nvim-treesitter/nvim-treesitter",
@@ -235,15 +197,13 @@ return {
             "lua",
             -- operation & cloud native
             "dockerfile",
-            "hcl",
             "jsonnet",
             "regex",
-            "terraform",
             "nix",
           })
         end,
       },
-  
+
       -- implementation/definition preview
       {
         "rmagatti/goto-preview",
@@ -251,10 +211,10 @@ return {
           require("goto-preview").setup({})
         end,
       },
-  
+
       -- Undo tree
       { "debugloop/telescope-undo.nvim" },
-  
+
       -- Install lsp, formmatter and others via home manager instead of Mason.nvim
       -- LSP installations
       {
@@ -262,10 +222,10 @@ return {
         -- overwrite ensure_installed to install lsp via home manager(except emmet_ls)
         opts = function(_, opts)
           opts.ensure_installed = {
-            "emmet_ls", -- not exist in nixpkgs, so install it via mason
           }
         end,
       },
+
       -- Formatters/Linter installation
       {
         "jay-babu/mason-null-ls.nvim",
@@ -296,34 +256,31 @@ return {
               code_actions.shellcheck,
               code_actions.proselint, -- English prose linter
               code_actions.statix, -- Lints and suggestions for Nix.
-  
+
               -- Diagnostic
               diagnostics.actionlint, -- GitHub Actions workflow syntax checking
               diagnostics.buf,  -- check text in current buffer
               diagnostics.checkmake, -- check Makefiles
               diagnostics.deadnix, -- Scan Nix files for dead code.
-  
+
               -- Formatting
               formatting.prettier,                          -- js/ts/vue/css/html/json/... formatter
               diagnostics.hadolint,                         -- Dockerfile linter
-              formatting.black,                             -- Python formatter
-              formatting.ruff,                              -- extremely fast Python linter
               formatting.goimports,                         -- Go formatter
               formatting.shfmt,                             -- Shell formatter
               formatting.rustfmt,                           -- Rust formatter
               formatting.taplo,                             -- TOML formatteautoindentr
-              formatting.terraform_fmt,                     -- Terraform formatter
               formatting.stylua,                            -- Lua formatter
               formatting.alejandra,                         -- Nix formatter
               formatting.sqlfluff.with({                    -- SQL formatter
                 extra_args = { "--dialect", "postgres" },   -- change to your dialect
               }),
               formatting.nginx_beautifier,                  -- Nginx formatter
-              null_ls.builtins.formatting.verible_verilog_format, -- Verilog formatter
             })
           end
         end,
       },
+
       -- Debugger installation
       {
         "jay-babu/mason-nvim-dap.nvim",
@@ -333,7 +290,7 @@ return {
           opts.automatic_installation = false
         end,
       },
-  
+
       {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
@@ -342,7 +299,7 @@ return {
           -- 1. Disable highlighting for certain filetypes
           -- 2. Ignore files larger than a certain filesize
           local previewers = require("telescope.previewers")
-  
+
           local _bad = { ".*%.csv", ".*%.min.js" } -- Put all filetypes that slow you down in this array
           local filesize_threshold = 300 * 1024 -- 300KB
           local bad_files = function(filepath)
@@ -353,16 +310,16 @@ return {
             end
             return true
           end
-  
+
           local new_maker = function(filepath, bufnr, opts)
             opts = opts or {}
             if opts.use_ft_detect == nil then
               opts.use_ft_detect = true
             end
-  
+
             -- 1. Check if the file is in the bad_files array, and if so, don't highlight it
             opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
-  
+
             -- 2. Check the file size, and ignore it if it's too big(preview nothing).
             filepath = vim.fn.expand(filepath)
             vim.loop.fs_stat(filepath, function(_, stat)
@@ -376,7 +333,7 @@ return {
               end
             end)
           end
-  
+
           require("telescope").setup({
             defaults = {
               buffer_previewer_maker = new_maker,
@@ -385,7 +342,7 @@ return {
         end,
       },
     },
-  
+
     -- Configure require("lazy").setup() options
     lazy = {
       defaults = { lazy = true },
@@ -396,7 +353,7 @@ return {
         },
       },
     },
-  
+
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     lsp = {
       config = {
@@ -415,8 +372,6 @@ return {
         "tailwindcss", -- tailwindcss language server
         "html",       -- html language server
         "cssls",      -- css language server
-        "prismals",   -- prisma language server
-        "volar",      -- vue language server
         ---- Configuration Language
         "marksman",   -- markdown ls
         "jsonls",     -- json language server
@@ -426,21 +381,16 @@ return {
         "lua_ls",     -- lua
         "gopls",      -- go
         "rust_analyzer", -- rust
-        "pyright",    -- python
-        "ruff_lsp",   -- extremely fast Python linter and code transformation
         "jdtls",      -- java
         "nil_ls",     -- nix language server
         "bufls",      -- protocol buffer language server
         "zls",        -- zig language server
-        ---- HDL
-        "verible",    -- verilog language server
         ---- Operation & Cloud Nativautoindente
         "bashls",     -- bash
         "cmake",      -- cmake language server
         "clangd",     -- c/c++
         "dockerls",   -- dockerfile
         "jsonnet_ls", -- jsonnet language server
-        "terraformls", -- terraform hcl
       },
       formatting = {
         disabled = {},
@@ -450,7 +400,6 @@ return {
             "go",
             "jsonnet",
             "rust",
-            "terraform",
           },
         },
       },

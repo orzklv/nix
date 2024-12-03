@@ -96,10 +96,8 @@
 
           #-- CloudNative
           nodePackages.dockerfile-language-server-nodejs
-          emmet-ls
           jsonnet
           jsonnet-language-server
-          hadolint # Dockerfile linter
 
           #-- Others
           taplo # TOML language server / formatter / validator
