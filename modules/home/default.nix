@@ -8,6 +8,7 @@
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
+  neovim = import ./neovim;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;

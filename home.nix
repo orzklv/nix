@@ -24,6 +24,10 @@ let
 
   home = if osx then "Users" else "home";
 
+  macos-modules = [
+
+  ];
+
   macos = lib.mkIf osx {
     # Leave here configs that should be applied only at macos machines
 
@@ -31,6 +35,10 @@ let
     # /Users/sakhib/Library/whatever
     xdg.enable = true;
   };
+
+  linux-modules = [
+    outputs.homeModules.neovim
+  ];
 
   linux = lib.mkIf (!osx) {
     # Leave here configs that should be applied only at linux machines
@@ -62,7 +70,7 @@ let
   };
 in
 {
-  imports = modules;
+  imports = modules ++ macos-modules ++ linux-modules;
 
   config = lib.mkMerge [
     cfg

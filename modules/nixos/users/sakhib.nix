@@ -15,7 +15,7 @@ let
   arm-incs = if (pkgs.stdenv.hostPlatform.isAarch64) then [ ] else (with pkgs; [ discord ]);
 
   # General packages
-  any-pkgs = (with pkgs; [ telegram-desktop ]) ++ (with pkgs.unstable; [ zed-editor ]);
+  any-pkgs = (with pkgs; [ telegram-desktop ]) ++ (with pkgs.unstable; [ ]);
 in
 {
   config = {
