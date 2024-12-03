@@ -350,12 +350,6 @@ return {
     -- Configure require("lazy").setup() options
     lazy = {
       defaults = { lazy = true },
-      performance = {
-        rtp = {
-          -- customize default disabled vim plugins
-          disabled_plugins = {},
-        },
-      },
     },
 
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
