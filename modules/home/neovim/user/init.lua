@@ -12,6 +12,10 @@ return {
     },
 
     plugins = {
+      -- astrocorenvim core features
+      "AstroNvim/astrocore",
+
+      -- community provided extentions
       "AstroNvim/astrocommunity",
 
       -- colorscheme - oxocarbon
