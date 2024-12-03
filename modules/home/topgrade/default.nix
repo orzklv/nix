@@ -18,6 +18,7 @@ let
         "yarn"
         "cargo"
         "vscode"
+        "containers"
         "home_manager"
       ];
       no_retry = true;
