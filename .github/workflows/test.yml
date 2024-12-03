@@ -20,17 +20,11 @@ jobs:
         run: nix flake check --all-systems --show-trace
 
   build-nixos:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-
-      - name: Cache Nix store
-        uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Build NixOS configuration
         run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
