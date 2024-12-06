@@ -1,6 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -15,19 +14,17 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
-    outputs.nixosModules.fonts
     outputs.nixosModules.sound
+    outputs.nixosModules.fonts
+    outputs.nixosModules.media
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
-    outputs.nixosModules.users.sakhib
     outputs.nixosModules.desktop.gnome
+    outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -36,7 +33,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  networking.hostName = "Parallels"; # Define your hostname.
+  networking.hostName = "Station"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -54,9 +51,13 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
+  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # NVIDIA driver support
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
@@ -75,6 +76,6 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "24.11"; # Did you read the comment?
+  # https://wiki.nixos.org/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "24.11";
 }

@@ -120,7 +120,10 @@
         # Stored at/as root/nixos/<hostname lower case>/*.nix
         nixosConfigurations = self.lib.config.mapSystem {
           inherit inputs outputs;
-          list = [ "Parallels" ];
+          list = [
+            "Station"
+            "Parallels"
+          ];
         };
 
         # Darwin configuration entrypoint
