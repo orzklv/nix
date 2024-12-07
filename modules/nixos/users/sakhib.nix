@@ -7,16 +7,6 @@
   packages,
   ...
 }:
-let
-  # If unstable packages are needed, add to pkgs list
-  # ++ (with pkgs.unstable; [ ])
-
-  # Packages that aren't available on aarch64
-  arm-incs = if (pkgs.stdenv.hostPlatform.isAarch64) then [ ] else (with pkgs; [ discord ]);
-
-  # General packages
-  any-pkgs = (with pkgs; [ telegram-desktop ]) ++ (with pkgs.unstable; [ ]);
-in
 {
   config = {
     users.users = {
@@ -34,7 +24,12 @@ in
           "vboxusers"
           "admins"
         ];
-        packages = any-pkgs ++ arm-incs;
+        packages =
+          (with pkgs; [
+            paper-plane
+            dissent
+          ])
+          ++ (with pkgs.unstable; [ ]);
       };
     };
 
