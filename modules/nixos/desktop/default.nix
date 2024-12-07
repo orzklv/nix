@@ -185,7 +185,6 @@ in
       fragments
       newsflash
       apostrophe
-      cartridges
       eyedropper
       impression
       textpieces
@@ -198,6 +197,13 @@ in
       gnome-secrets
       gnome-obfuscate
       gnome-resources
+
+      # Developer
+      gnome-boxes
+      gnome-builder
+      d-spy
+      devhelp
+      sysprof
 
       # Gnome Modding
       dconf-editor
