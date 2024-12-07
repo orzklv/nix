@@ -141,9 +141,6 @@ in
         iagno # go game
         hitori # sudoku game
         atomix # puzzle game
-        gnome-contacts
-        gnome-initial-setup
-        gnome-terminal
       ]);
 
     # Setting daemons
@@ -167,6 +164,41 @@ in
 
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
+      # Additional Gnome apps
+      gitg
+      lorem
+      emblem
+      commit
+      mousai
+      polari
+      amberol
+      blanket
+      curtail
+      elastic
+      errands
+      dialect
+      komikku
+      decibels
+      citations
+      newsflash
+      collision
+      fragments
+      newsflash
+      apostrophe
+      cartridges
+      eyedropper
+      impression
+      textpieces
+      letterpress
+      forge-sparks
+      gnome-graphs
+      share-preview
+      authenticator
+      gnome-decoder
+      gnome-secrets
+      gnome-obfuscate
+      gnome-resources
+
       # Gnome Modding
       dconf-editor
       gnome-tweaks
