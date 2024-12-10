@@ -7,8 +7,7 @@
   config,
   packages,
   ...
-}:
-let
+}: let
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
@@ -22,11 +21,12 @@ let
     "x86_64-darwin"
   ];
 
-  home = if osx then "Users" else "home";
+  home =
+    if osx
+    then "Users"
+    else "home";
 
-  macos-modules = [
-
-  ];
+  macos-modules = [];
 
   macos = lib.mkIf osx {
     # Leave here configs that should be applied only at macos machines
@@ -36,9 +36,7 @@ let
     xdg.enable = true;
   };
 
-  linux-modules = [
-    outputs.homeModules.neovim
-  ];
+  linux-modules = [];
 
   linux = lib.mkIf (!osx) {
     # Leave here configs that should be applied only at linux machines
@@ -68,8 +66,7 @@ let
     # Let's enable home-manager
     programs.home-manager.enable = true;
   };
-in
-{
+in {
   imports = modules ++ macos-modules ++ linux-modules;
 
   config = lib.mkMerge [

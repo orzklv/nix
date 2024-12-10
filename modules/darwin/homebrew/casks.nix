@@ -6,8 +6,7 @@
   config,
   packages,
   ...
-}:
-let
+}: let
   apps = lib.mkIf config.homebrew.enable [
     "arduino-ide"
     "balenaetcher"
@@ -39,8 +38,7 @@ let
     "zed"
     "github"
   ];
-in
-{
+in {
   # Homebrew Casks installations
   homebrew.casks = apps;
 }

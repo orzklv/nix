@@ -12,6 +12,7 @@
   pkgs.direnv
   pkgs.git-lfs
   pkgs.cargo-update
+  # pkgs.nixvim
 
   # Environment
   pkgs.fd

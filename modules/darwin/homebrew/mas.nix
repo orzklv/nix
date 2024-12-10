@@ -6,8 +6,7 @@
   config,
   packages,
   ...
-}:
-let
+}: let
   apps = lib.mkIf config.homebrew.enable {
     "Affinity Publisher 2" = 1606941598;
     "GarageBand" = 682658836;
@@ -45,8 +44,7 @@ let
     "Hotspot Shield" = 771076721;
     "Shazam" = 897118787;
   };
-in
-{
+in {
   # macOS App Store installations
   homebrew.masApps = apps;
 }

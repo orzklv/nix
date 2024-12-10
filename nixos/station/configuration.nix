@@ -7,8 +7,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -58,7 +57,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # NVIDIA driver support
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;

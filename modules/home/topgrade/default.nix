@@ -1,7 +1,11 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   is-darwin =
-    pkgs.stdenv.hostPlatform.system == "aarch64-darwin"
+    pkgs.stdenv.hostPlatform.system
+    == "aarch64-darwin"
     || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
   darwin = lib.mkIf is-darwin {
@@ -42,8 +46,7 @@ let
       autoremove = true;
     };
   };
-in
-{
+in {
   config = {
     programs.topgrade = {
       enable = true;

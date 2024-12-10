@@ -1,7 +1,10 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   config = {
-    system.activationScripts.createMediaSymlink = lib.stringAfter [ "users" ] ''
+    system.activationScripts.createMediaSymlink = lib.stringAfter ["users"] ''
       # Function to create symlink and set permissions
       create_symlink_and_permissions() {
         local user_dir=$1

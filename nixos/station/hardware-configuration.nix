@@ -8,8 +8,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     # Disko generated partitions
     inputs.disko.nixosModules.disko
@@ -27,9 +26,9 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "nvme" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = ["nvme"];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
   boot.binfmt.emulatedSystems = [
     "i686-linux"
     "aarch64-linux"

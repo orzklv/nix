@@ -3,7 +3,6 @@
 #
 # Refer to the link below for more options:
 # https://search.nixos.org/options
-
 {
   # List your module files here
   ssh = import ./ssh;

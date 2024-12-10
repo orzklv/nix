@@ -7,7 +7,7 @@
 }:
 (writeShellApplication {
   name = "force-push";
-  runtimeInputs = [ git ];
+  runtimeInputs = [git];
   text = builtins.readFile ./force-push.sh;
 })
 // {

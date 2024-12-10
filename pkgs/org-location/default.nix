@@ -7,7 +7,7 @@
 }:
 (writeShellApplication {
   name = "org-location";
-  runtimeInputs = [ curl ];
+  runtimeInputs = [curl];
   text = builtins.readFile ./org-location.sh;
 })
 // {

@@ -1,5 +1,3 @@
-{ lib }:
-
-rec {
-  config = import ./config.nix { inherit lib; };
+{lib}: rec {
+  config = import ./config.nix {inherit lib;};
 }

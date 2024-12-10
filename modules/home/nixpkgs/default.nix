@@ -1,5 +1,4 @@
-{ outputs, ... }:
-{
+{outputs, ...}: {
   config = {
     nixpkgs = {
       # You can add overlays here

@@ -12,6 +12,7 @@
     # Enable the Gnome Tweaks tool.
     environment.systemPackages = with pkgs; [
       cartridges
+      prismlauncher
     ];
   };
 }

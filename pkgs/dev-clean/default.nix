@@ -1,9 +1,12 @@
 # Cleans up dev space
 # devcc
-{ lib, writeShellApplication }:
+{
+  lib,
+  writeShellApplication,
+}:
 (writeShellApplication {
   name = "dev-clean";
-  runtimeInputs = [ ];
+  runtimeInputs = [];
   text = builtins.readFile ./dev-clean.sh;
 })
 // {

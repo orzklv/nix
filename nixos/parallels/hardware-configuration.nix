@@ -8,8 +8,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     # Disko generated partitions
     inputs.disko.nixosModules.disko
@@ -23,9 +22,9 @@
     "xhci_pci"
     "sr_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = [];
+  boot.extraModulePackages = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -38,5 +37,5 @@
   # Select host type for the system
   hardware.parallels.enable = true;
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["prl-tools"];
 }

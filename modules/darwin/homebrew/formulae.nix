@@ -6,15 +6,13 @@
   config,
   packages,
   ...
-}:
-let
+}: let
   apps = lib.mkIf config.homebrew.enable [
     "pkl"
     "vapor"
     "rustup"
   ];
-in
-{
+in {
   # Homebrew Formulae installations
   homebrew.brews = apps;
 }

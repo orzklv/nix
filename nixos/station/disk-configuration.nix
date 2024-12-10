@@ -8,8 +8,7 @@
     "/dev/sdb"
   ],
   ...
-}:
-{
+}: {
   disko.devices = {
     disk = {
       main = {
@@ -25,7 +24,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             SWAP = {

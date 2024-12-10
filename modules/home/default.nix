@@ -3,12 +3,10 @@
 #
 # Refer to the link below for more options:
 # https://nix-community.github.io/home-manager/options.xhtml
-
 {
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
-  neovim = import ./neovim;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;

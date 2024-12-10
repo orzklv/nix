@@ -2,15 +2,16 @@
 # For further configuration extention, please refer to:
 # https://wiki.nixos.org/wiki/GNOME
 # =================================
-{ pkgs, ... }:
-let
-  x86_64-graphics = if (!pkgs.stdenv.hostPlatform.isAarch64) then { enable32Bit = true; } else { };
+{pkgs, ...}: let
+  x86_64-graphics =
+    if (!pkgs.stdenv.hostPlatform.isAarch64)
+    then {enable32Bit = true;}
+    else {};
 
   all-graphics = {
     enable = true;
   };
-in
-{
+in {
   config = {
     # Sum additional variables for system-wide use.
     environment.variables = {
@@ -31,7 +32,7 @@ in
         };
 
         # Exclude some defautl packages
-        excludePackages = [ pkgs.xterm ];
+        excludePackages = [pkgs.xterm];
 
         # Enable the GDM display manager.
         displayManager.gdm = {
@@ -146,7 +147,7 @@ in
     # Setting daemons
     services = {
       # Udev daemon management
-      udev.packages = with pkgs; [ gnome-settings-daemon ];
+      udev.packages = with pkgs; [gnome-settings-daemon];
     };
 
     programs.gnupg.agent = {

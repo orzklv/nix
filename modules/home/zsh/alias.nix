@@ -1,8 +1,12 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   determinate-systems = "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix";
   is-mac =
-    pkgs.stdenv.hostPlatform.system == "aarch64-darwin"
+    pkgs.stdenv.hostPlatform.system
+    == "aarch64-darwin"
     || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
   mac = lib.mkIf is-mac {
@@ -75,8 +79,7 @@ let
     linux
     default
   ];
-in
-{
+in {
   config = {
     programs.zsh.shellAliases = cfg;
   };

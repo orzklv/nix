@@ -6,8 +6,7 @@
   config,
   packages,
   ...
-}:
-{
+}: {
   imports = [
     ./mas.nix
     ./taps.nix

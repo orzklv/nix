@@ -6,8 +6,7 @@
   config,
   packages,
   ...
-}:
-{
+}: {
   config = {
     # Available users in the machine
     users.users = {

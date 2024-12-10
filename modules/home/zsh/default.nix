@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   is-mac =
-    pkgs.stdenv.hostPlatform.system == "aarch64-darwin"
+    pkgs.stdenv.hostPlatform.system
+    == "aarch64-darwin"
     || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
 
   extra = ''
@@ -118,39 +118,35 @@ let
   '';
 
   mac-extra =
-    if is-mac then
-      ''
-        # Cargo
-        export PATH="$HOME/.cargo/bin:$PATH"
-        export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+    if is-mac
+    then ''
+      # Cargo
+      export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
-        # Golang's Trash
-        export GOPATH="$HOME/.go"
-        export PATH="$PATH:$HOME/.go/bin"
-      ''
-    else
-      '''';
+      # Golang's Trash
+      export GOPATH="$HOME/.go"
+      export PATH="$PATH:$HOME/.go/bin"
+    ''
+    else '''';
 
   linux-extra =
-    if (!is-mac) then
-      ''
-        if [[ -z "$ZELLIJ" ]]; then
-            if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-                zellij attach -c
-            else
-                zellij
-            fi
+    if (!is-mac)
+    then ''
+      if [[ -z "$ZELLIJ" ]]; then
+          if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+              zellij attach -c
+          else
+              zellij
+          fi
 
-            if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-                exit
-            fi
-        fi
-      ''
-    else
-      '''';
-
-in
-{
+          if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+              exit
+          fi
+      fi
+    ''
+    else '''';
+in {
   imports = [
     ./alias.nix
     ./prompt.nix

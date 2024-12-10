@@ -3,13 +3,12 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   is-mac =
-    pkgs.stdenv.hostPlatform.system == "aarch64-darwin"
+    pkgs.stdenv.hostPlatform.system
+    == "aarch64-darwin"
     || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
-in
-{
+in {
   options = {
     git = {
       isMacOS = lib.mkOption {
@@ -55,20 +54,18 @@ in
     };
 
     home.file.".gnupg/gpg-agent.conf".text =
-      if config.git.isMacOS then
-        ''
-          pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
-        ''
-      else
-        '''';
+      if config.git.isMacOS
+      then ''
+        pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      ''
+      else '''';
 
     home.file.".gnupg/gpg.conf".text =
-      if config.git.isMacOS then
-        ''
-          no-tty
-          use-agent
-        ''
-      else
-        '''';
+      if config.git.isMacOS
+      then ''
+        no-tty
+        use-agent
+      ''
+      else '''';
   };
 }
