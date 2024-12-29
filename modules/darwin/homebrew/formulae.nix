@@ -1,16 +1,12 @@
 {
-  pkgs,
-  inputs,
-  outputs,
   lib,
   config,
-  packages,
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable [
     "pkl"
     "vapor"
-    "rustup"
+    "mas"
   ];
 in {
   # Homebrew Formulae installations

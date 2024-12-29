@@ -1,10 +1,6 @@
 {
-  pkgs,
-  inputs,
-  outputs,
   lib,
   config,
-  packages,
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable {
@@ -23,7 +19,6 @@
     "ServerCat" = 1501532023;
     "Classroom" = 1358883623;
     "RunCat" = 1429033973;
-    "Budget Flow" = 1640091876;
     "Cleora" = 1497821000;
     "Affinity Photo 2" = 1616822987;
     # Deprecated from App Store

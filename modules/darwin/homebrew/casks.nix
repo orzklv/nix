@@ -1,10 +1,6 @@
 {
-  pkgs,
-  inputs,
-  outputs,
   lib,
   config,
-  packages,
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable [
@@ -18,6 +14,7 @@
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
     "gitfox"
+    "github"
     "iterm2"
     "itermai"
     "jetbrains-toolbox"
@@ -34,9 +31,9 @@
     "rectangle-pro"
     "sf-symbols"
     "sketch"
+    "slack"
     "xcodes"
     "zed"
-    "github"
   ];
 in {
   # Homebrew Casks installations
