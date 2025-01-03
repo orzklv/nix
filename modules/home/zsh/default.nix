@@ -120,13 +120,8 @@
   mac-extra =
     if is-mac
     then ''
-      # Cargo
-      source $HOME/.cargo/env
-      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-
       # Golang's Trash
       export GOPATH="$HOME/.go"
-      export PATH="$PATH:$HOME/.go/bin"
     ''
     else '''';
 
