@@ -121,7 +121,7 @@
     if is-mac
     then ''
       # Cargo
-      export PATH="$HOME/.cargo/bin:$PATH"
+      source $HOME/.cargo/env
       export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
       # Golang's Trash
