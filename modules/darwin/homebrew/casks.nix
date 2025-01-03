@@ -34,6 +34,7 @@
     "slack"
     "xcodes"
     "zed"
+    "docker"
   ];
 in {
   # Homebrew Casks installations
