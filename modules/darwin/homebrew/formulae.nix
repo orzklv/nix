@@ -7,7 +7,6 @@
     "pkl"
     "vapor"
     "mas"
-    "rustup"
   ];
 in {
   # Homebrew Formulae installations
