@@ -48,24 +48,6 @@ Basically, we will go with official way of installing homebrew to get nix-darwin
 
 ## Install my configurations
 
-### Home Manager configs
-
-I do have many configurations written on my nix flake, however, for my macs, it actually detects automatically. However, for Linux machines, it's necessary to show which build to use:
-
-```shell
-# Apple Macs
-nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@apple
-
-# Intel Apple Macs
-nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@old-apple
-
-# Non NixOS Linux
-nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@unstable
-
-# Stable Latest NixOS
-nix run github:nix-community/home-maagner -- switch --flake github:orzklv/nix#sakhib@stable
-```
-
 ### NixOS configurations
 
 I've written ready configurations for my machines that are using NixOS, so here you are:
