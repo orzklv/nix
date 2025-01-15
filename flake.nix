@@ -38,8 +38,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Vim repository
-    vim.url = "github:orzklv/vim";
+    # Neovim Framework repository
+    nvf.url = "github:notashelf/nvf";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";

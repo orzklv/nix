@@ -6,8 +6,7 @@
   config,
   packages,
   ...
-}:
-{
+}: {
   config = {
     users.users = {
       sakhib = {
@@ -29,7 +28,7 @@
             paper-plane
             dissent
           ])
-          ++ (with pkgs.unstable; [ ]);
+          ++ (with pkgs.unstable; []);
       };
     };
 
