@@ -9,6 +9,7 @@
     "chatgpt"
     "cleanmymac"
     "codeedit"
+    "cool-retro-term"
     "discord"
     "elmedia-player"
     "folx"
