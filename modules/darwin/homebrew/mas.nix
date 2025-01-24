@@ -10,7 +10,6 @@
     "Playgrounds" = 1496833156;
     "Image2icon" = 992115977;
     "Xcode" = 497799835;
-    "DaftCloud" = 1320450034;
     "OctoLinker" = 1549308269;
     "HextEdit" = 1557247094;
     "Transporter" = 1450874784;
