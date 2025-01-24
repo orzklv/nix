@@ -4,12 +4,9 @@
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable [
-    "arduino-ide"
     "balenaetcher"
     "chatgpt"
     "cleanmymac"
-    "codeedit"
-    "cool-retro-term"
     "discord"
     "elmedia-player"
     "folx"
@@ -18,7 +15,6 @@
     "github"
     "iterm2"
     "itermai"
-    "jetbrains-toolbox"
     "keka"
     "kekaexternalhelper"
     "little-snitch"
