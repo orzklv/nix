@@ -14,13 +14,18 @@
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
+
+    # Nixpkgs for darwin
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+
+    # Unstable Nixpkgs
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/home.nix'.
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     # Home manager
@@ -54,6 +59,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-darwin,
     nixpkgs-unstable,
     nix-darwin,
     home-manager,
