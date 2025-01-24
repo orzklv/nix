@@ -22,7 +22,9 @@
         "yarn"
         "cargo"
         "vscode"
+        "brew_cask"
         "containers"
+        "brew_formula"
         "home_manager"
       ];
       no_retry = true;
