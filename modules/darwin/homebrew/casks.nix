@@ -29,6 +29,7 @@
     "sf-symbols"
     "sketch"
     "slack"
+    "steam"
     "xcodes"
     "zed"
     "docker"
