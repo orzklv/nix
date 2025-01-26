@@ -65,7 +65,7 @@
     home-manager,
     flake-utils,
     disko,
-    vim,
+    nvf,
     ...
   } @ inputs: let
     # Self instance pointer
