@@ -59,7 +59,8 @@ in {
 
             # Favorite apps in gnome-shell
             [org.gnome.shell]
-            favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.SystemMonitor.desktop', 'Alacritty.desktop']
+            favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Console.desktop', 'org.gnome.gitg.desktop', 'org.gnome.Builder.desktop', 'org.gnome.Polari.desktop', 'app.drey.PaperPlane.desktop']
+            app-picker-layout=[{'org.gnome.Calendar.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Snapshot.desktop': <{'position': <2>}>, 'org.gnome.Weather.desktop': <{'position': <3>}>, 'org.gnome.clocks.desktop': <{'position': <4>}>, 'org.gnome.Maps.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.Calculator.desktop': <{'position': <7>}>, 'simple-scan.desktop': <{'position': <8>}>, 'org.gnome.Settings.desktop': <{'position': <9>}>, 'yelp.desktop': <{'position': <10>}>, 'org.gnome.Extensions.desktop': <{'position': <11>}>, 'nixos-manual.desktop': <{'position': <12>}>, 'org.gnome.Tour.desktop': <{'position': <13>}>, 'net.nokyan.Resources.desktop': <{'position': <14>}>, 'org.gnome.TextEditor.desktop': <{'position': <15>}>, 'org.gnome.World.Secrets.desktop': <{'position': <16>}>, 'io.gitlab.news_flash.NewsFlash.desktop': <{'position': <17>}>, 'f72ef462-c527-41e2-ab11-2b387528f4f2': <{'position': <18>}>, '50fbc66e-0ae1-4b79-8e78-fb8becd497b8': <{'position': <19>}>, 'cb5ebe4c-b1d8-4d4b-b00d-80385abdb5c9': <{'position': <20>}>, 'Utilities': <{'position': <21>}>}]
 
             # Enable user extensions
             [org.gnome.shell]
