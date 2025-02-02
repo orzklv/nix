@@ -4,6 +4,7 @@
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable [
+    "anki"
     "balenaetcher"
     "chatgpt"
     "cleanmymac"
