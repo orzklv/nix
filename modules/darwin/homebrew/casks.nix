@@ -32,7 +32,6 @@
     "slack"
     "steam"
     "xcodes"
-    "zed"
     "docker"
   ];
 in {
