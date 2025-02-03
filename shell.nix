@@ -16,7 +16,7 @@ pkgs.stdenv.mkDerivation {
     git
     nixd
     sops
-    nixfmt-rfc-style
+    alejandra
   ];
 
   NIX_CONFIG = "extra-experimental-features = nix-command flakes";

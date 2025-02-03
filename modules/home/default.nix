@@ -8,7 +8,9 @@
   git = import ./git;
   zsh = import ./zsh;
   vim = import ./vim;
+  zed = import ./zed;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;
+  fastfetch = import ./fastfetch;
 }

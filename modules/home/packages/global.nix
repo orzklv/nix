@@ -21,7 +21,6 @@
   pkgs.figlet
   pkgs.gping
   pkgs.hyperfine
-  pkgs.fastfetch
   pkgs.onefetch
   pkgs.procs
   pkgs.ripgrep

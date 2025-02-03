@@ -12,9 +12,11 @@
     outputs.homeModules.zsh
     outputs.homeModules.git
     outputs.homeModules.vim
+    outputs.homeModules.zed
     outputs.homeModules.nixpkgs
     outputs.homeModules.topgrade
     outputs.homeModules.packages
+    outputs.homeModules.fastfetch
   ];
 
   osx = builtins.elem pkgs.system [
@@ -53,13 +55,8 @@
 
       # Tell it to map everything in the `config` directory in this
       # repository to the `.config` in my home-manager directory
-      file.".config" = {
-        source = ./configs/config;
-        recursive = true;
-      };
-
-      file.".local/share" = {
-        source = ./configs/share;
+      file.".local/share/fastfetch" = {
+        source = ./configs/fastfetch;
         recursive = true;
       };
     };
