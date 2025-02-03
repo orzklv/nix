@@ -56,7 +56,9 @@
     refresh = "source ~/.zshrc";
 
     # Development
-    hack = "nix develop -c $SHELL && zed .";
+    zed = "zeditor";
+    heck = "zed .";
+    hack = "nix develop -c $SHELL";
 
     # Others (Developer)
     ports = "sudo lsof -PiTCP -sTCP:LISTEN";
