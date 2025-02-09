@@ -60,6 +60,21 @@ sudo nixos-rebuild switch --flake github:orzklv/nix#Guts --upgrade
 sudo nixos-rebuild switch --flake github:orzklv/nix#Experimental --upgrade
 ```
 
+If you're planning to do clean install within Nix installer iso, do this:
+
+```shell
+# Clone the repository
+git clone https://github.com/orzklv/nix.git config
+
+# Partition disks regarding to configuration
+# Replace ? with available hostname
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko ./config/nixos/?/disk-configuration.nix
+
+# Install using flake configurations on top of partitioned disks
+# Replace ? with available hostname
+sudo nixos-install --flake ./config#?
+```
+
 ### Darwin configurations
 
 The same actually goes for my Darwin machines as well, everything is ready for setup:
@@ -75,6 +90,7 @@ darwin-rebuild switch --flake github:orzklv/nix#Sokhibjons-Mac-Studio
 ```
 
 > If you hit GitHub's rate limit, put your GitHub token in `~/.config/nix/nix.conf` file like this:
+>
 > ```conf
 > access-tokens = github.com=<YOUR_TOKEN>
 > ```

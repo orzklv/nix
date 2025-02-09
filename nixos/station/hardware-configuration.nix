@@ -25,9 +25,10 @@
     "usbhid"
     "usb_storage"
     "sd_mod"
+    "rtsx_pci_sdmmc"
   ];
   boot.initrd.kernelModules = ["nvme"];
-  boot.kernelModules = ["kvm-intel"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
   boot.binfmt.emulatedSystems = [
     "i686-linux"
@@ -38,7 +39,7 @@
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
   # Adjust GRUB loader screen
-  boot.loader.grub.gfxmodeEfi = "3440x1440";
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -52,12 +53,12 @@
   # List packages system hardware configuration
   hardware = {
     # CPU (Intel)
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     # GPU (Nvidia)
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
