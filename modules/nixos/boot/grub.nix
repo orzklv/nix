@@ -17,7 +17,6 @@
           enable = true;
           devices = ["nodev"];
           efiSupport = true;
-          useOSProber = true;
           theme = pkgs.stdenv.mkDerivation {
             pname = "hyperfluent-grub-theme";
             version = "1.0.1";
