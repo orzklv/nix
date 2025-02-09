@@ -21,9 +21,6 @@
     outputs.nixosModules.boot.grub
     outputs.nixosModules.users.sakhib
 
-    # TO BE REMOVED LATER!!!
-    inputs.e-imzo.nixosModules.e-imzo
-
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -72,11 +69,6 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  };
-
-  # E-IMZO integration, to be removed later!
-  services.e-imzo = {
-    enable = true;
   };
 
   # Open ports in the firewall.
