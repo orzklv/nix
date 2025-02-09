@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1739118550,
-        "narHash": "sha256-Sej0vyRnCw94q76El6tnsmnMZY5pUhPU4SsOSBTTSJA=",
+        "lastModified": 1739119296,
+        "narHash": "sha256-NxYA492mP6bbMSEKwDk2+gmtVVoiXB+mUAQJhH0z2kI=",
         "owner": "xinux-org",
         "repo": "e-imzo",
-        "rev": "5b5b13430d1acb20e478d55d848d90c2cb39e0c1",
+        "rev": "005c910e678eea2c9b98dd8fbea05639f7fe7c37",
         "type": "github"
       },
       "original": {
