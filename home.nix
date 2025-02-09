@@ -65,11 +65,16 @@
     programs.home-manager.enable = true;
   };
 in {
-  imports = modules ++ macos-modules ++ linux-modules;
+  imports =
+    modules
+    ++ macos-modules
+    ++ linux-modules;
 
-  config = lib.mkMerge [
-    cfg
-    macos
-    linux
-  ];
+  config =
+    lib.mkMerge
+    [
+      cfg
+      macos
+      linux
+    ];
 }
