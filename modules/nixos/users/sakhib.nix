@@ -22,8 +22,7 @@
           "docker"
           "vboxusers"
           "admins"
-          "kvm"
-          "libvirt"
+          "libvirtd"
         ];
         packages =
           (with pkgs; [
