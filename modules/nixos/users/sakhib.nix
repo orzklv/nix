@@ -22,6 +22,8 @@
           "docker"
           "vboxusers"
           "admins"
+          "kvm"
+          "libvirt"
         ];
         packages =
           (with pkgs; [
