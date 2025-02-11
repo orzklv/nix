@@ -52,7 +52,7 @@
 
   # List packages system hardware configuration
   hardware = {
-    # CPU (Intel)
+    # CPU (AMD)
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     # GPU (Nvidia)
