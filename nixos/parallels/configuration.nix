@@ -31,8 +31,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
-    inputs.e-imzo.nixosModules.e-imzo
-
     # Home Manager NixOS Module
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -71,10 +69,6 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  };
-
-  services.e-imzo = {
-    enable = true;
   };
 
   # Open ports in the firewall.

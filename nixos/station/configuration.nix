@@ -29,6 +29,8 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    inputs.kerio.nixosModules.kerio
+
     # Home Manager NixOS Module
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -88,6 +90,16 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  services.kerio-kvc = {
+    enable = true;
+    config = {
+      domain = "uic-gw.uzinfocom.uz";
+      user = "YTMDST_TEST";
+      password = "/srv/pass";
+      fingerprint.auto = true;
+    };
   };
 
   # Open ports in the firewall.

@@ -46,8 +46,8 @@
     # Neovim Framework repository
     nvf.url = "github:notashelf/nvf";
 
-    # E-IMZO intregration
-    e-imzo.url = "github:xinux-org/e-imzo";
+    # Kerio demo
+    kerio.url = "github:xinux-org/kerio";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
