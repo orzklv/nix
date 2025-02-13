@@ -26,7 +26,7 @@
         ];
         packages =
           (with pkgs; [
-            paper-plane
+            telegram-desktop
             dissent
           ])
           ++ (with pkgs.unstable; []);
