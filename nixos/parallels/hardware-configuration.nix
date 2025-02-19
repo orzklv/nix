@@ -35,7 +35,18 @@
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   # Select host type for the system
-  hardware.parallels.enable = true;
+  hardware.parallels = {
+    enable = true;
+    package = config.boot.kernelPackages.prl-tools.overrideAttrs (
+      finalAttrs: previousAttrs: {
+        version = "20.2.1-55876";
+        src = previousAttrs.src.overrideAttrs {
+          outputHash = "sha256-MZuvEjSjRqtdr22bl4NhcKZBNDmdM/axI/8wOP/SvPU=";
+        };
+      }
+    );
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["prl-tools"];
 }
