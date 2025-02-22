@@ -27,7 +27,7 @@
         packages =
           (with pkgs; [
             telegram-desktop
-            dissent
+            discord
           ])
           ++ (with pkgs.unstable; []);
       };
