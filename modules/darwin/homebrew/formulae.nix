@@ -5,7 +5,6 @@
 }: let
   apps = lib.mkIf config.homebrew.enable [
     "pkl"
-    "vapor"
     "mas"
   ];
 in {

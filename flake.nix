@@ -46,9 +46,6 @@
     # Neovim Framework repository
     nvf.url = "github:notashelf/nvf";
 
-    # Kerio demo
-    kerio.url = "github:xinux-org/kerio";
-
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 

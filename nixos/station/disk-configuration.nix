@@ -1,6 +1,11 @@
 {
   disks ? [
+    # 1TB NVME
     "/dev/nvme0n1"
+    # 2TB HDD
+    "/dev/sda"
+    # 500GB SATA
+    "/dev/sdb"
   ],
   ...
 }: {
@@ -13,7 +18,7 @@
           type = "gpt";
           partitions = {
             BOOT = {
-              size = "2G";
+              size = "10G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -23,7 +28,7 @@
               };
             };
             SWAP = {
-              size = "32G";
+              size = "64G";
               content = {
                 type = "swap";
               };
@@ -34,6 +39,42 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+          };
+        };
+      };
+
+      server = {
+        device = builtins.elemAt disks 2;
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            MEDIA = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/srv";
+              };
+            };
+          };
+        };
+      };
+
+      media = {
+        device = builtins.elemAt disks 1;
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            MEDIA = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/media";
               };
             };
           };

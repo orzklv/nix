@@ -12,7 +12,6 @@
     "elmedia-player"
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
-    "gitfox"
     "github"
     "iterm2"
     "itermai"
@@ -30,7 +29,6 @@
     "sf-symbols"
     "sketch"
     "slack"
-    "steam"
     "xcodes"
     "docker"
   ];
