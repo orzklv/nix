@@ -13,21 +13,29 @@
 }: let
   lib = pkgs.lib;
 
-  non-aarch64 = [
-    pkgs.discord
-  ];
+  mkArrIf = condition: content:
+    if condition
+    then content
+    else [];
 
-  all-packages =
-    (with pkgs; [
-      telegram-desktop
-      discord
-    ])
-    ++ (with pkgs.unstable; []);
+  # Packages that are not aarch64 compatible
+  aarch64-packages =
+    mkArrIf
+    # pkgs.stdenv.hostPlatform.isAarch64
+    false
+    [
+      pkgs.discord
+    ];
 
   packages =
-    if pkgs.stdenv.hostPlatform.isAarch64
-    then lib.filter (pkg: !lib.elem pkg non-aarch64) all-packages
-    else all-packages;
+    # Stable packages
+    (with pkgs; [
+      telegram-desktop
+    ])
+    # Unstable packages
+    ++ (with pkgs.unstable; [])
+    # Aarch64 only packages
+    ++ aarch64-packages;
 in {
   inherit packages;
 }
