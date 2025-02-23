@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   outputs,
-  lib,
   config,
   packages,
   ...
