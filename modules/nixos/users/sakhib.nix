@@ -13,9 +13,9 @@
   aarch64 =
     lib.condition.mkArrIf
     pkgs.stdenv.hostPlatform.isAarch64
-    [
+    (with pkgs; [
       pkgs.discord
-    ];
+    ]);
 
   packages =
     (with pkgs; [
