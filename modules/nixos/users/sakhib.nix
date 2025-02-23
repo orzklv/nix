@@ -11,7 +11,7 @@
 
   # Packages that are not aarch64 compatible
   aarch64-packages =
-    lib.condition.mkArrIf pkgs.stdenv.isAarch64
+    lib.condition.mkArrIf pkgs.stdenv.hostPlatform.isAarch64
     (with pkgs; [
       discord
     ])
