@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build NixOS configuration
-        run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
+        run: nix build .#nixosConfigurations.Station.config.system.build.toplevel --show-trace
 
   build-darwin:
     runs-on: macos-latest
