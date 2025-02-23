@@ -23,7 +23,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build NixOS configuration
-        run: export NIXPKGS_ALLOW_UNFREE=1 && nix eval --impure --json -f ./repl.nix packages
+        run: nix eval --impure --json -f ./repl.nix packages
+        env:
+          NIXPKGS_ALLOW_UNFREE: "1"
+          NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
 
   aarch64-darwin:
     runs-on: macos-latest
