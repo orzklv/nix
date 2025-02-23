@@ -200,7 +200,7 @@ in {
       gnome-resources
 
       # Developer
-      gnome-boxesaa
+      gnome-boxes
       gnome-builder
       d-spy
       devhelp
