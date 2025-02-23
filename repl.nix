@@ -11,8 +11,6 @@
     import nixpkgs {overlays = [];},
   ...
 }: let
-  lib = pkgs.lib;
-
   mkArrIf = condition: content:
     if condition
     then content
@@ -21,8 +19,7 @@
   # Packages that are not aarch64 compatible
   aarch64-packages =
     mkArrIf
-    # pkgs.stdenv.hostPlatform.isAarch64
-    false
+    pkgs.stdenv.hostPlatform.isAarch64
     [
       pkgs.discord
     ];
