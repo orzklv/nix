@@ -14,6 +14,7 @@ pkgs.stdenv.mkDerivation {
 
   nativeBuildInputs = with pkgs; [
     git
+    just
     nixd
     sops
     statix

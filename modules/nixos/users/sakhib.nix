@@ -7,22 +7,26 @@
   packages,
   ...
 }: let
-  # Packages that are not aarch64 compatible
-  non-aarch64 = [
-    pkgs.discord
-  ];
+  lib = inputs.self.lib;
 
-  all-packages =
+  # Packages that are not aarch64 compatible
+  aarch64-packages =
+    lib.condition.mkArrIf pkgs.stdenv.isAarch64
     (with pkgs; [
-      telegram-desktop
       discord
     ])
     ++ (with pkgs.unstable; []);
 
   packages =
-    if pkgs.stdenv.hostPlatform.isAarch64
-    then lib.filter (pkg: !lib.elem pkg non-aarch64) all-packages
-    else all-packages;
+    # Stable packages
+    (with pkgs; [
+      telegram-desktop
+      discord
+    ])
+    # Unstable packages
+    ++ (with pkgs.unstable; [])
+    # Aarch64 only packages
+    ++ aarch64-packages;
 in {
   config = {
     users.users = {
