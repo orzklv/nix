@@ -16,6 +16,8 @@ pkgs.stdenv.mkDerivation {
     git
     nixd
     sops
+    statix
+    deadnix
     alejandra
   ];
 

@@ -67,7 +67,6 @@
     xclip = "xclip -selection c";
     speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
     dockfm = "docker ps --all --format \"NAME:   {{.Names}}\nSTATUS: {{.Status}}\nPORTS:  {{.Ports}}\n\"";
-    krisper = "unalias find && krisp-patcher $(find ~/.config/discord/ -name \"discord_krisp.node\" -path \"*/modules/discord_krisp/*\")";
 
     # Updating system
     update = "topgrade";

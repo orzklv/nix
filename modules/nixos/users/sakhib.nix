@@ -6,10 +6,29 @@
   config,
   packages,
   ...
-}: {
+}: let
+  # Packages that are not aarch64 compatible
+  non-aarch64 = [
+    pkgs.discord
+  ];
+
+  all-packages =
+    (with pkgs; [
+      telegram-desktop
+      discord
+    ])
+    ++ (with pkgs.unstable; []);
+
+  packages =
+    if pkgs.stdenv.hostPlatform.isAarch64
+    then lib.filter (pkg: !lib.elem pkg non-aarch64) all-packages
+    else all-packages;
+in {
   config = {
     users.users = {
       sakhib = {
+        inherit packages;
+
         isNormalUser = true;
         description = "Sokhibjon Orzikulov";
         initialPassword = "F1st1ng15300Buck$!?";
@@ -24,12 +43,6 @@
           "admins"
           "libvirtd"
         ];
-        packages =
-          (with pkgs; [
-            telegram-desktop
-            discord
-          ])
-          ++ (with pkgs.unstable; []);
       };
     };
 
