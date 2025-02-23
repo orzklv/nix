@@ -19,7 +19,17 @@ jobs:
       - name: Check up flake configuration
         run: nix flake check --all-systems --show-trace
 
-  build-nixos:
+  build-nixos-aarch64:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Build NixOS configuration
+        run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
+
+  build-nixos-x86_64:
     runs-on: self-hosted
 
     steps:
