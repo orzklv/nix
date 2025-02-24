@@ -58,7 +58,7 @@ jobs:
         run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
 
       - name: Build x86_64 NixOS configuration
-        if: ${{ matrix.os != 'self-host' }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: nix build .#nixosConfigurations.Station.config.system.build.toplevel --show-trace
 
   build-darwin:
@@ -79,5 +79,10 @@ jobs:
       - name: Cache Nix store
         uses: DeterminateSystems/flakehub-cache-action@main
 
-      - name: Build Darwin configuration
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
+      - name: Build Aarch64 Darwin configuration
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-traces
+
+      - name: Build x86_64 Darwin configuration
+        if: ${{ matrix.os == 'macos-13' }}
+        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Air.config.system.build.toplevel --show-trace

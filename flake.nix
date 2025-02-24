@@ -131,6 +131,10 @@
         type = "darwin";
         list = [
           {
+            name = "Sokhibjons-MacBook-Air";
+            alias = "macbook-air";
+          }
+          {
             name = "Sokhibjons-MacBook-Pro";
             alias = "macbook-pro";
           }
