@@ -81,7 +81,7 @@ jobs:
 
       - name: Build Aarch64 Darwin configuration
         if: ${{ matrix.os == 'macos-latest' }}
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-traces
+        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
 
       - name: Build x86_64 Darwin configuration
         if: ${{ matrix.os == 'macos-13' }}
