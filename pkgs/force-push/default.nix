@@ -1,5 +1,3 @@
-# Cleans up dev space
-# devcc
 {
   lib,
   writeShellApplication,
