@@ -4,7 +4,11 @@ on: [push, pull_request]
 
 jobs:
   test-flake:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, self-host]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Check out the repository
