@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, self-host]
+        os: [ubuntu-latest, self-host, macos-latest, macos-13]
 
     runs-on: ${{ matrix.os }}
 
@@ -22,7 +22,7 @@ jobs:
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Check up flake configuration
-        run: nix flake check --all-systems --show-trace
+        run: nix flake check --show-trace
 
   build-nixos-aarch64:
     runs-on: self-hosted
