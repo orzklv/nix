@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, self-host, macos-latest, macos-13]
+        os: [ubuntu-latest, self-hosted, macos-latest, macos-13]
 
     runs-on: ${{ matrix.os }}
 
@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, self-host]
+        os: [ubuntu-latest, self-hosted]
 
     runs-on: ${{ matrix.os }}
 
