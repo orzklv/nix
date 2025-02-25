@@ -13,7 +13,10 @@
     lib.condition.mkArrIf
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
+      # Latest discord
       pkgs.discord
+      # To patch discord's krisp
+      pkgs.krisper
     ]);
 
   packages =
