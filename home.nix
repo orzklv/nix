@@ -11,8 +11,8 @@
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
-    outputs.homeModules.vim
     outputs.homeModules.zed
+    outputs.homeModules.helix
     outputs.homeModules.nixpkgs
     outputs.homeModules.topgrade
     outputs.homeModules.packages

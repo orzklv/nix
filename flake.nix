@@ -43,9 +43,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Neovim Framework repository
-    nvf.url = "github:notashelf/nvf";
-
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -65,7 +62,6 @@
     home-manager,
     flake-utils,
     disko,
-    nvf,
     ...
   } @ inputs: let
     # Self instance pointer

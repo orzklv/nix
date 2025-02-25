@@ -7,8 +7,8 @@
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
-  vim = import ./vim;
   zed = import ./zed;
+  helix = import ./helix;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;
