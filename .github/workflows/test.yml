@@ -16,11 +16,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nix
-        if: ${{ matrix.os != 'self-host' }}
+        if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
       - name: Cache Nix store
-        if: ${{ matrix.os != 'self-host' }}
+        if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Check up flake configuration
@@ -46,15 +46,15 @@ jobs:
           sudo rm -rf /opt/hostedtoolcache
 
       - name: Install Nix
-        if: ${{ matrix.os != 'self-host' }}
+        if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
       - name: Cache Nix store
-        if: ${{ matrix.os != 'self-host' }}
+        if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Build Aarch64 NixOS configuration
-        if: ${{ matrix.os == 'self-host' }}
+        if: ${{ matrix.os == 'self-hosted' }}
         run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
 
       - name: Build x86_64 NixOS configuration
