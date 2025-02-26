@@ -43,6 +43,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Personal repo of packages
+    orzklv-pkgs = {
+      url = "github:orzklv/pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -62,6 +68,7 @@
     home-manager,
     flake-utils,
     disko,
+    orzklv-pkgs,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -74,10 +81,6 @@
       in
         # Nixpkgs packages for the current system
         {
-          # Your custom packages
-          # Acessible through 'nix build', 'nix shell', etc
-          packages = import ./pkgs {inherit pkgs;};
-
           # Formatter for your nix files, available through 'nix fmt'
           # Other options beside 'alejandra' include 'nixpkgs-fmt'
           formatter = pkgs.alejandra;
