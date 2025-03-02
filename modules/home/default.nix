@@ -9,6 +9,7 @@
   zsh = import ./zsh;
   zed = import ./zed;
   helix = import ./helix;
+  secret = import ./secret;
   nixpkgs = import ./nixpkgs;
   topgrade = import ./topgrade;
   packages = import ./packages;

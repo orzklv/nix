@@ -17,6 +17,7 @@
     outputs.nixosModules.sound
     outputs.nixosModules.fonts
     outputs.nixosModules.media
+    outputs.nixosModules.secret
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub

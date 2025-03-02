@@ -37,6 +37,12 @@
     # Flake utils for eachSystem
     flake-utils.url = "github:numtide/flake-utils";
 
+    # Secrets management
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Disko for easier partition management
     disko = {
       url = "github:nix-community/disko";

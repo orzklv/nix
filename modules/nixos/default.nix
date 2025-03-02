@@ -13,6 +13,7 @@
   media = import ./media;
   fonts = import ./fonts;
   users = import ./users;
+  secret = import ./secret;
   desktop = import ./desktop;
   nixpkgs = import ./nixpkgs;
 }

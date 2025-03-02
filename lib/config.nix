@@ -14,7 +14,7 @@
     #   Name  =                Value
     # "Lorem" = self.lib.config.makeSystem "station";
     system = attr: {
-      name = attr.name;
+      inherit (attr) name;
       value = lib.orzklv.config.makeSystem {
         inherit inputs outputs type;
         path = path attr.alias;
@@ -43,7 +43,7 @@
     #   Name  =                Value
     # "Lorem" = self.lib.config.makeSystem "station";
     system = name: {
-      name = name;
+      inherit name;
       value = lib.orzklv.config.makeSystem {
         inherit inputs outputs type;
         path = path name;
@@ -93,11 +93,9 @@
       lib.mapAttrs (
         name: value:
           lib.orzklv.config.attrHome {
+            inherit (value) repo user arch;
             inherit inputs outputs name;
             path = opath;
-            user = value.user;
-            arch = value.arch;
-            repo = value.repo;
             alias = value.aliases or [];
           }
       )
@@ -124,10 +122,7 @@
     main = {
       name = "${user}@${name}";
       value = lib.orzklv.config.makeHome {
-        inherit inputs outputs;
-        path = path;
-        arch = arch;
-        repo = repo;
+        inherit inputs outputs path arch repo;
       };
     };
 
@@ -138,8 +133,8 @@
 
     aliases =
       lib.map (name: {
+        inherit (main) value;
         name = binding user name;
-        value = main.value;
       })
       alias;
   in

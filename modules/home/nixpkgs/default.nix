@@ -1,6 +1,6 @@
 {
-  outputs,
   inputs,
+  outputs,
   ...
 }: {
   config = {
