@@ -22,6 +22,7 @@
   packages =
     (with pkgs; [
       telegram-desktop
+      github-desktop
     ])
     ++ x86_64-only;
 in {

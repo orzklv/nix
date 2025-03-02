@@ -53,6 +53,13 @@
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
+        substituters = [
+          "https://cache.xinux.uz/"
+          "https://cache.nixos.org/"
+        ];
+        trusted-public-keys = [
+          "cache.xinux.uz-1:gX2Z53woXiIoLANfcC/Qp7vPPKVdK1sEa8MSiRhjj/M="
+        ];
       };
     };
   };
