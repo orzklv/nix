@@ -46,12 +46,17 @@
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
+        # Deduplicate and optimize nix store
+        auto-optimise-store = true;
+        # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"
         ];
+        # Additional servers to fetch binary from
         substituters = [
           "https://cache.xinux.uz/"
         ];
+        # Keys that packages to be signed with
         trusted-public-keys = [
           "cache.xinux.uz-1:gX2Z53woXiIoLANfcC/Qp7vPPKVdK1sEa8MSiRhjj/M="
         ];
