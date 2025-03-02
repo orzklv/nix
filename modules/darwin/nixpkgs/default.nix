@@ -54,10 +54,11 @@
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
         substituters = [
-          "https://cache.xinux.uz/"
           "https://cache.nixos.org/"
+          "https://cache.xinux.uz/"
         ];
         trusted-public-keys = [
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "cache.xinux.uz-1:gX2Z53woXiIoLANfcC/Qp7vPPKVdK1sEa8MSiRhjj/M="
         ];
       };
