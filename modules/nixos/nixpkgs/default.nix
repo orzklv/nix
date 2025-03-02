@@ -46,7 +46,9 @@
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
-        trusted-users = ["sakhib"];
+        trusted-users = [
+          "${config.users.users.sakhib.name}"
+        ];
         substituters = [
           "https://cache.nixos.org/"
           "https://cache.xinux.uz/"
