@@ -46,8 +46,6 @@
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
-        # Deduplicate and optimize nix store
-        auto-optimise-store = true;
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"
