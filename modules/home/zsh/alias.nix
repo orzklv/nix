@@ -56,6 +56,8 @@
     refresh = "source ~/.zshrc";
 
     # Development
+    vi = "hx";
+    vim = "hx";
     zed = "zeditor";
     heck = "zed .";
     hack = "nix develop -c $SHELL";
