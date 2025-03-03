@@ -6,6 +6,7 @@
 {
   # List your module files here
   users = import ./users;
+  secret = import ./secret;
   homebrew = import ./homebrew;
   nixpkgs = import ./nixpkgs;
 }

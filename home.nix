@@ -13,6 +13,7 @@
     outputs.homeModules.git
     outputs.homeModules.zed
     outputs.homeModules.helix
+    outputs.homeModules.secret
     outputs.homeModules.nixpkgs
     outputs.homeModules.topgrade
     outputs.homeModules.packages
@@ -35,24 +36,8 @@
     xdg.enable = true;
   };
 
-  linux-modules = [outputs.homeModules.secret];
-  linux = lib.mkIf (!osx) {
-    # Leave here configs that should be applied only at linux machines
-    sops.secrets = {
-      "nix-serve/private" = {};
-      "nix-serve/public" = {};
-    };
-
-    # Copy generated copy of fastfetch to here
-    home.file.".config/nix/nix.conf" = {
-      source = pkgs.writeTextFile {
-        name = "nix.conf";
-        text = ''
-          secret-key-files = ${config.sops.secrets."nix-serve/private".path}
-        '';
-      };
-    };
-  };
+  linux-modules = [];
+  linux = lib.mkIf (!osx) {};
 
   cfg = {
     # This is required information for home-manager to do its job
