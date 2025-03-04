@@ -3,12 +3,7 @@
   lib,
   ...
 }: let
-  is-darwin =
-    pkgs.stdenv.hostPlatform.system
-    == "aarch64-darwin"
-    || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
-
-  darwin = lib.mkIf is-darwin {
+  darwin = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     commands."Darwin Nix" = "darwin-rebuild switch --flake github:orzklv/nix";
   };
 
@@ -32,16 +27,8 @@
       no_self_update = true;
     };
 
-    pre_commands = {
-      "Clean Nix Store" = "nix store gc";
-    };
-
     linux = {
       nix_arguments = "--flake github:orzklv/nix";
-      home_manager_arguments = [
-        "--flake"
-        "github:orzklv/nix"
-      ];
     };
 
     brew = {
