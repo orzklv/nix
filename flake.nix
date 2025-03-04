@@ -68,13 +68,8 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-darwin,
-    nixpkgs-unstable,
-    nix-darwin,
     home-manager,
     flake-utils,
-    disko,
-    orzklv-pkgs,
     ...
   } @ inputs: let
     # Self instance pointer

@@ -1,11 +1,7 @@
 {
-  self,
-  inputs,
   outputs,
   lib,
   pkgs,
-  config,
-  packages,
   ...
 }: let
   modules = [

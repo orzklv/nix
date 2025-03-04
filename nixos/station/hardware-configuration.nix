@@ -5,7 +5,6 @@
   inputs,
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -18,28 +17,34 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-    "rtsx_pci_sdmmc"
-  ];
-  boot.initrd.kernelModules = ["nvme"];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-  boot.binfmt.emulatedSystems = [
-    "i686-linux"
-    "aarch64-linux"
-  ];
+  boot = {
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
+
+    binfmt.emulatedSystems = [
+      "i686-linux"
+      "aarch64-linux"
+    ];
+
+    initrd = {
+      kernelModules = ["nvme"];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
+    };
+
+    # Adjust GRUB loader screen
+    loader.grub.gfxmodeEfi = "1920x1080";
+  };
 
   # Emulation + Cross compilation
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
-
-  # Adjust GRUB loader screen
-  boot.loader.grub.gfxmodeEfi = "1920x1080";
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

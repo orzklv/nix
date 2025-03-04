@@ -13,10 +13,10 @@
       cartridges
       prismlauncher
       (lutris.override {
-        extraPkgs = pkgs: [
+        extraPkgs = _pkgs: [
           # List package dependencies here
         ];
-        extraLibraries = pkgs: [
+        extraLibraries = _pkgs: [
           # List library dependencies here
         ];
       })

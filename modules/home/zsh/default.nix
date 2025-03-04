@@ -1,8 +1,5 @@
 {pkgs, ...}: let
-  is-mac =
-    pkgs.stdenv.hostPlatform.system
-    == "aarch64-darwin"
-    || pkgs.stdenv.hostPlatform.system == "x86_64-darwin";
+  is-mac = pkgs.stdenv.hostPlatform.isDarwin;
 
   extra = ''
     # Global settings

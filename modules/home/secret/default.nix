@@ -1,5 +1,5 @@
 {
-  outputs,
+  pkgs,
   inputs,
   config,
   ...
@@ -17,5 +17,21 @@ in {
     defaultSopsFile = ../../../secrets/secrets.yaml;
     # The format of the secret file
     defaultSopsFormat = "yaml";
+  };
+
+  # Leave here configs that should be applied only at linux machines
+  sops.secrets = {
+    "nix-serve/private" = {};
+    "nix-serve/public" = {};
+  };
+
+  # Copy generated copy of fastfetch to here
+  home.file.".config/nix/nix.conf" = {
+    source = pkgs.writeTextFile {
+      name = "nix.conf";
+      text = ''
+        secret-key-files = ${config.sops.secrets."nix-serve/private".path}
+      '';
+    };
   };
 }

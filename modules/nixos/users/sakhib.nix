@@ -2,8 +2,6 @@
   pkgs,
   inputs,
   outputs,
-  config,
-  packages,
   ...
 }: let
   inherit (inputs.self) lib;

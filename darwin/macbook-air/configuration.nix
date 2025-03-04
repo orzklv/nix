@@ -2,8 +2,6 @@
   inputs,
   outputs,
   lib,
-  config,
-  pkgs,
   ...
 }: {
   # You can import other Darwin modules here

@@ -13,13 +13,6 @@
   };
 in {
   config = {
-    # Sum additional variables for system-wide use.
-    environment.variables = {
-      # Disable compositing mode in WebKitGTK
-      # https://github.com/NixOS/nixpkgs/issues/32580
-      WEBKIT_DISABLE_COMPOSITING_MODE = 1;
-    };
-
     # Enable the X11 windowing system.
     services = {
       xserver = {
@@ -129,94 +122,104 @@ in {
     # Make sure opengl is enabled
     hardware.graphics = all-graphics // x86_64-graphics;
 
-    # Exclude some packages from the Gnome desktop environment.
-    environment.gnome.excludePackages =
-      (with pkgs; [
-        xterm
-        firefox
-      ])
-      ++ (with pkgs; [
-        cheese # webcam app
-        geary # email client
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
-      ]);
-
     # Setting daemons
     services = {
       # Udev daemon management
       udev.packages = with pkgs; [gnome-settings-daemon];
     };
 
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+    programs = {
+      gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+      # Enable the DConf configuration system.
+      dconf.enable = true;
+
+      # Enabling seahorse keyring
+      seahorse = {
+        enable = true;
+      };
     };
 
-    # Enable the DConf configuration system.
-    programs.dconf.enable = true;
+    environment = {
+      # Sum additional variables for system-wide use.
+      variables = {
+        # Disable compositing mode in WebKitGTK
+        # https://github.com/NixOS/nixpkgs/issues/32580
+        WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+      };
 
-    # Enabling seahorse keyring
-    programs.seahorse = {
-      enable = true;
+      # Exclude some packages from the Gnome desktop environment.
+      gnome.excludePackages =
+        (with pkgs; [
+          xterm
+          firefox
+        ])
+        ++ (with pkgs; [
+          cheese # webcam app
+          geary # email client
+          tali # poker game
+          iagno # go game
+          hitori # sudoku game
+          atomix # puzzle game
+        ]);
+
+      # Enable the Gnome Tweaks tool.
+      systemPackages = with pkgs; [
+        # Additional Gnome apps
+        gitg
+        lorem
+        emblem
+        commit
+        mousai
+        polari
+        amberol
+        blanket
+        curtail
+        elastic
+        errands
+        dialect
+        komikku
+        decibels
+        citations
+        newsflash
+        collision
+        fragments
+        newsflash
+        apostrophe
+        eyedropper
+        impression
+        textpieces
+        letterpress
+        forge-sparks
+        gnome-graphs
+        share-preview
+        authenticator
+        gnome-decoder
+        gnome-secrets
+        gnome-obfuscate
+        gnome-resources
+
+        # Developer
+        gnome-boxes
+        gnome-builder
+        d-spy
+        devhelp
+        sysprof
+
+        # Gnome Modding
+        dconf-editor
+        gnome-tweaks
+
+        # Gnome Extensions
+        gnomeExtensions.appindicator
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.gsconnect
+
+        # Gnome Shell Packs
+        unstable.papirus-icon-theme
+      ];
     };
-
-    # Enable the Gnome Tweaks tool.
-    environment.systemPackages = with pkgs; [
-      # Additional Gnome apps
-      gitg
-      lorem
-      emblem
-      commit
-      mousai
-      polari
-      amberol
-      blanket
-      curtail
-      elastic
-      errands
-      dialect
-      komikku
-      decibels
-      citations
-      newsflash
-      collision
-      fragments
-      newsflash
-      apostrophe
-      eyedropper
-      impression
-      textpieces
-      letterpress
-      forge-sparks
-      gnome-graphs
-      share-preview
-      authenticator
-      gnome-decoder
-      gnome-secrets
-      gnome-obfuscate
-      gnome-resources
-
-      # Developer
-      gnome-boxes
-      gnome-builder
-      d-spy
-      devhelp
-      sysprof
-
-      # Gnome Modding
-      dconf-editor
-      gnome-tweaks
-
-      # Gnome Extensions
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.gsconnect
-
-      # Gnome Shell Packs
-      unstable.papirus-icon-theme
-    ];
   };
 }

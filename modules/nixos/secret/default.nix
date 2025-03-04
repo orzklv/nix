@@ -1,8 +1,6 @@
 {
   config,
   inputs,
-  lib,
-  pkgs,
   ...
 }: let
   key = "${config.users.users.sakhib.home}/.config/sops/age/keys.txt";

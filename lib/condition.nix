@@ -1,4 +1,4 @@
-{lib}: {
+{...}: {
   mkArrIf = predicate: value:
     if predicate
     then value
