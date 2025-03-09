@@ -28,7 +28,6 @@
     "rectangle-pro"
     "sf-symbols"
     "sketch"
-    "slack"
     "xcodes"
     "docker"
   ];
