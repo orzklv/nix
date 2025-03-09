@@ -18,10 +18,7 @@
     "ServerCat" = 1501532023;
     "Classroom" = 1358883623;
     "RunCat" = 1429033973;
-    "Cleora" = 1497821000;
     "Affinity Photo 2" = 1616822987;
-    # Deprecated from App Store
-    # "Twitter" = 1482454543;
     "TestFlight" = 899247664;
     "Pages" = 409201541;
     "Telegram" = 747648890;
@@ -32,7 +29,6 @@
     "Refined GitHub" = 1519867270;
     "iMovie" = 408981434;
     "Numbers" = 409203825;
-    "LINE" = 539883307;
     "ColorSlurp" = 1287239339;
     "Keynote" = 409183694;
     "Hotspot Shield" = 771076721;
