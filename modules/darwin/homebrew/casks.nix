@@ -22,6 +22,7 @@
     "minecraft"
     "obs"
     "openscad"
+    "openvpn-connect"
     "parallels"
     "prismlauncher"
     "raspberry-pi-imager"
