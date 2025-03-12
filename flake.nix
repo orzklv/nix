@@ -49,10 +49,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Personal repo of packages
-    orzklv-pkgs = {
+    # Personal repository of lib, overlays and packages
+    orzklv = {
       url = "github:orzklv/pkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+      };
     };
 
     # TODO: Add any other flake you might need
@@ -70,6 +73,7 @@
     nixpkgs,
     home-manager,
     flake-utils,
+    orzklv,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -82,10 +86,6 @@
       in
         # Nixpkgs packages for the current system
         {
-          # Formatter for your nix files, available through 'nix fmt'
-          # Other options beside 'alejandra' include 'nixpkgs-fmt'
-          formatter = pkgs.alejandra;
-
           # Development shells
           devShells.default = import ./shell.nix {inherit pkgs;};
         }
@@ -94,11 +94,12 @@
     //
     # Attribute from static evaluation
     {
-      # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // (import ./lib/extend.nix nixpkgs.lib).orzklv;
+      # Formatter for your nix files, available through 'nix fmt'
+      # Other options beside 'alejandra' include 'nixpkgs-fmt'
+      inherit (orzklv) formatter;
 
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays {inherit inputs;};
+      # Nixpkgs, Home-Manager and personal helpful functions
+      lib = nixpkgs.lib // home-manager.lib // orzklv.lib;
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
@@ -115,8 +116,9 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = self.lib.config.mapSystem {
+      nixosConfigurations = orzklv.lib.config.mapSystem {
         inherit inputs outputs;
+        opath = ./.;
         list = [
           "Station"
           "Parallels"
@@ -126,8 +128,9 @@
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
       # Stored at/as root/darwin/<alias name for machine>/*.nix
-      darwinConfigurations = self.lib.config.attrSystem {
+      darwinConfigurations = orzklv.lib.config.attrSystem {
         inherit inputs outputs;
+        opath = ./.;
         type = "darwin";
         list = [
           {
