@@ -1,5 +1,4 @@
 {
-  outputs,
   lib,
   config,
   inputs,
