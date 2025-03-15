@@ -29,6 +29,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    # Testing services
+    ./services
+
     # Home Manager NixOS Module
     inputs.home-manager.nixosModules.home-manager
   ];
