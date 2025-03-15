@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742058722,
-        "narHash": "sha256-4nO8DcmpIye7JJcROMC4dvF1zzRIj1z81XNDB83KUmk=",
+        "lastModified": 1742060291,
+        "narHash": "sha256-3SLxOC6L36uCAN21OpVtTmBvZqzBJrbOMY/NMr/omZw=",
         "owner": "xinux-org",
         "repo": "demo-server",
-        "rev": "423263cf8960672d30fe9b55f384ce841f3a3770",
+        "rev": "c0a6e96070b6630969ad4a7382a06e332f77b228",
         "type": "github"
       },
       "original": {
