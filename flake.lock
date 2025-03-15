@@ -220,7 +220,7 @@
       },
       "locked": {
         "lastModified": 1741817085,
-        "narHash": "sha256-yJybZQIyU2A7GSCBWlEnHrI9ArxOh0cviN+e83TJjTM=",
+        "narHash": "sha256-bfOQHTAxV7MiWGnMV4ZF019k/JgrJwv8dJ5M8/fXoGA=",
         "owner": "orzklv",
         "repo": "pkgs",
         "rev": "f90dbe6336f31668dd9df2f2d25fea362af8514c",
