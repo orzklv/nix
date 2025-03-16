@@ -22,12 +22,6 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/home.nix'.
 
-    # Nix-darwin for macOS systems management
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
