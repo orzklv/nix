@@ -65,6 +65,8 @@
     # Others (Developer)
     ports = "sudo lsof -PiTCP -sTCP:LISTEN";
     rit = "gitui";
+    youtube-video = ''yt-dlp -f bestvideo+bestaudio/best -S vcodec:h264,res,acodec:m4a --add-metadata -o "%(title)s.%(ext)s" --embed-chapters'';
+    youtube-music = ''yt-dlp -f ba[ext=m4a] --add-metadata -o "%(title)s.%(ext)s"'';
     dotenv = "eval export $(cat .env)";
     xclip = "xclip -selection c";
     speedtest = "curl -o /dev/null cachefly.cachefly.net/100mb.test";
