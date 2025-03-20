@@ -9,6 +9,7 @@
     "chatgpt"
     "cleanmymac"
     "discord"
+    "element"
     "elmedia-player"
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
