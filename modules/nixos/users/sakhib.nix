@@ -19,7 +19,9 @@
 
   packages =
     (with pkgs; [
-      telegram-desktop
+      # Matrix client
+      fractal
+      # GUI git client
       github-desktop
     ])
     ++ x86_64-only;
