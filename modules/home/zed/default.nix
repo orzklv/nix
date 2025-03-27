@@ -69,7 +69,8 @@
     languages = {
       Markdown = {
         format_on_save = "on";
-        remove_trailing_whitespace_on_save = false;
+        use_on_type_format = true;
+        remove_trailing_whitespace_on_save = true;
       };
 
       Ruby = {
