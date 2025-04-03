@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, self-hosted, macos-latest, macos-13]
+        os: [self-hosted, macos-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -27,47 +27,17 @@ jobs:
         run: nix flake check --show-trace
 
   build-nixos:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, self-hosted]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: self-hosted
 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      - name: Remove unnecessary files
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-          sudo rm -rf /opt/hostedtoolcache
-
-      - name: Install Nix
-        if: ${{ matrix.os != 'self-hosted' }}
-        uses: DeterminateSystems/nix-installer-action@main
-
-      - name: Cache Nix store
-        if: ${{ matrix.os != 'self-hosted' }}
-        uses: DeterminateSystems/flakehub-cache-action@main
-
       - name: Build Aarch64 NixOS configuration
-        if: ${{ matrix.os == 'self-hosted' }}
         run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
 
-      - name: Build x86_64 NixOS configuration
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: nix build .#nixosConfigurations.Station.config.system.build.toplevel --show-trace
-
   build-darwin:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, macos-13]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
 
     steps:
       - name: Check out the repository
@@ -80,9 +50,4 @@ jobs:
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Build Aarch64 Darwin configuration
-        if: ${{ matrix.os == 'macos-latest' }}
         run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
-
-      - name: Build x86_64 Darwin configuration
-        if: ${{ matrix.os == 'macos-13' }}
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Air.config.system.build.toplevel --show-trace

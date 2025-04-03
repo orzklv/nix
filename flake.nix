@@ -120,7 +120,6 @@
         inherit inputs outputs;
         opath = ./.;
         list = [
-          "Station"
           "Parallels"
         ];
       };
@@ -133,10 +132,6 @@
         opath = ./.;
         type = "darwin";
         list = [
-          {
-            name = "Sokhibjons-MacBook-Air";
-            alias = "macbook-air";
-          }
           {
             name = "Sokhibjons-MacBook-Pro";
             alias = "macbook-pro";
