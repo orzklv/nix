@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   test-flake:
+    name: "Test Configurations"
     strategy:
       fail-fast: false
       matrix:
@@ -27,6 +28,7 @@ jobs:
         run: nix flake check --show-trace
 
   build-nixos:
+    name: "Build Configurations for NixOS instances"
     runs-on: self-hosted
 
     steps:
@@ -37,6 +39,7 @@ jobs:
         run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
 
   build-darwin:
+    name: "Build Configurations for Darwin instances"
     runs-on: macos-latest
 
     steps:
@@ -51,3 +54,16 @@ jobs:
 
       - name: Build Aarch64 Darwin configuration
         run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
+
+  update-merge:
+    name: "Merge Update PRs"
+    needs: [test-flake, build-nixos, build-darwin]
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'orzklv' && github.event_name == 'pull_request' }}
+
+    steps:
+      - name: Enable auto-merge for Update PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
