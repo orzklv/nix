@@ -102,10 +102,10 @@
 
       TSX = {
         language_servers = [
+          "typescript-language-server"
           "deno"
-          "!typescript-language-server"
-          "!vtsls"
           "!eslint"
+          "!vtsls"
         ];
         formatter = "language_server";
       };
