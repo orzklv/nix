@@ -35,8 +35,6 @@
     "Shazam" = 897118787;
   };
 in {
-  # Note:
-  # Uncomment for the first time,
-  # it keeps installing over and over.
-  # homebrew.masApps = apps;
+  # AppStore installations
+  homebrew.masApps = apps;
 }
