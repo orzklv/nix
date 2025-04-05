@@ -9,9 +9,9 @@
       # You can add overlays here
       overlays = [
         # Add overlays your own flake exports (from overlays and pkgs dir):
-        inputs.orzklv.overlays.unstable
-        inputs.orzklv.overlays.additions
-        inputs.orzklv.overlays.modifications
+        inputs.orzklv-pkgs.overlays.unstable
+        inputs.orzklv-pkgs.overlays.additions
+        inputs.orzklv-pkgs.overlays.modifications
 
         # You can also add overlays exported from other flakes:
         # neovim-nightly-overlay.overlays.default
@@ -39,7 +39,7 @@
     nix = {
       # This will add each flake input as a registry
       # To make nix3 commands consistent with your flake
-      registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+      # registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!

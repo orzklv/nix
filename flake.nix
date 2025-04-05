@@ -50,7 +50,7 @@
     };
 
     # Personal repository of lib, overlays and packages
-    orzklv = {
+    orzklv-pkgs = {
       url = "github:orzklv/pkgs";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -73,7 +73,7 @@
     nixpkgs,
     home-manager,
     flake-utils,
-    orzklv,
+    orzklv-pkgs,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -96,10 +96,10 @@
     {
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      inherit (orzklv) formatter;
+      inherit (orzklv-pkgs) formatter;
 
       # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // orzklv.lib;
+      lib = nixpkgs.lib // home-manager.lib // orzklv-pkgs.lib;
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
@@ -116,7 +116,7 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = orzklv.lib.config.mapSystem {
+      nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
         inherit inputs outputs;
         opath = ./.;
         list = [
@@ -127,7 +127,7 @@
       # Darwin configuration entrypoint
       # Available through 'darwin-rebuild build --flake .#your-hostname'
       # Stored at/as root/darwin/<alias name for machine>/*.nix
-      darwinConfigurations = orzklv.lib.config.attrSystem {
+      darwinConfigurations = orzklv-pkgs.lib.config.attrSystem {
         inherit inputs outputs;
         opath = ./.;
         type = "darwin";
