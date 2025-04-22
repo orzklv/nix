@@ -60,17 +60,17 @@
         enable = true;
 
         # Necessary ones
-        # mandatoryFeatures = [
-        #   "kvm"
-        #   "benchmark"
-        #   "big-parallel"
-        # ];
+        mandatoryFeatures = [
+          "kvm"
+          "benchmark"
+          "big-parallel"
+        ];
 
         # Supported architectures
-        # systems = [
-        #   "x86_64-linux"
-        #   "aarch64-linux"
-        # ];
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
       };
 
       # Additional settings
