@@ -57,6 +57,8 @@
 
         # Necessary ones
         mandatoryFeatures = [
+          "kvm"
+          "benchmark"
           "big-parallel"
         ];
 
@@ -73,6 +75,7 @@
         experimental-features = "nix-command flakes";
         # Trusted users for secret-key
         trusted-users = [
+          "@admin"
           "${config.users.users.sakhib.name}"
         ];
         # Additional servers to fetch binary from

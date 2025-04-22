@@ -136,10 +136,6 @@
             name = "Sokhibjons-MacBook-Pro";
             alias = "macbook-pro";
           }
-          {
-            name = "Sokhibjons-Mac-Studio";
-            alias = "mac-studio";
-          }
         ];
       };
     };
