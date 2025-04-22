@@ -55,9 +55,6 @@
       linux-builder = {
         enable = true;
         ephemeral = true;
-
-        # Needed architectures
-        systems = ["aarch64-linux" "x86_64-linux"];
       };
 
       # Additional settings
