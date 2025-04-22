@@ -52,7 +52,6 @@
       # package = pkgs.nix;
 
       extraOptions = ''
-        builders = @/etc/nix/machines
         extra-platforms = x86_64-darwin aarch64-darwin
       '';
 
