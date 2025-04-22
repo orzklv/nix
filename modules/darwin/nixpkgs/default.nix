@@ -51,6 +51,22 @@
       # Customized nix packages for rollback purposes
       # package = pkgs.nix;
 
+      # Linux builder for Linux projects
+      linuxBuilder = {
+        enable = true;
+
+        # Necessary ones
+        mandatoryFeatures = [
+          "big-parallel"
+        ];
+
+        # Supported architectures
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+      };
+
       # Additional settings
       settings = {
         # Enable flakes and new 'nix' command

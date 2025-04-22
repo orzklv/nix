@@ -22,6 +22,10 @@
       '';
     };
 
+    programs.nix-index = {
+      enable = true;
+    };
+
     # System configurations
     # environment = {
     #   shells = with pkgs; [zsh];
