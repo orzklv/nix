@@ -63,7 +63,7 @@
         ];
 
         # Supported architectures
-        systems = ["x86_64-linux" "aarch64-linux"];
+        systems = ["x86_64-linux"];
 
         # Put x86_64 under emulation
         config.boot.binfmt.emulatedSystems = ["x86_64-linux"];
