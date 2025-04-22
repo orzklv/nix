@@ -51,10 +51,6 @@
       # Customized nix packages for rollback purposes
       # package = pkgs.nix;
 
-      extraOptions = ''
-        extra-platforms = x86_64-darwin aarch64-darwin
-      '';
-
       # Linux builder for Linux projects
       linux-builder = {
         enable = true;
@@ -67,9 +63,11 @@
         ];
 
         # Supported architectures
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
+        systems = with inputs.flake-utils.lib.system; [
+          aarch64-darwin
+          x86_64-darwin
+          aarch64-linux
+          x86_64-linux
         ];
       };
 
