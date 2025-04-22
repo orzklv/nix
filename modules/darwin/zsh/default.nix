@@ -9,7 +9,6 @@
       enable = true;
       enableCompletion = true;
       enableBashCompletion = true;
-      enableFastSyntaxHighlighting = true;
       enableSyntaxHighlighting = true;
     };
 
