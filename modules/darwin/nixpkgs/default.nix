@@ -55,18 +55,8 @@
       linux-builder = {
         enable = true;
 
-        # Necessary ones
-        # mandatoryFeatures = [
-        #   "kvm"
-        #   "benchmark"
-        #   "big-parallel"
-        # ];
-
-        # Supported architectures
-        # systems = ["x86_64-linux"];
-
-        # Put x86_64 under emulation
-        # config.boot.binfmt.emulatedSystems = ["x86_64-linux"];
+        # Needed architectures
+        systems = ["aarch64-linux" "x86_64-linux"];
       };
 
       # Additional settings
