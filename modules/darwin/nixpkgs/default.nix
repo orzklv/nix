@@ -52,7 +52,7 @@
       # package = pkgs.nix;
 
       # Linux builder for Linux projects
-      linuxBuilder = {
+      linux-builder = {
         enable = true;
 
         # Necessary ones
