@@ -30,6 +30,9 @@
   #     pkgs.neovim
   #   ];
 
+  # Fingerprint sudo
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
 

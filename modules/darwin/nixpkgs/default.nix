@@ -51,6 +51,10 @@
       # Customized nix packages for rollback purposes
       # package = pkgs.nix;
 
+      extraOptions = ''
+        extra-platforms = x86_64-darwin aarch64-darwin
+      '';
+
       # Linux builder for Linux projects
       linux-builder = {
         enable = true;
