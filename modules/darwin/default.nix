@@ -5,6 +5,7 @@
 # https://daiderd.com/nix-darwin/manual/index.html
 {
   # List your module files here
+  zsh = import ./zsh;
   users = import ./users;
   secret = import ./secret;
   homebrew = import ./homebrew;

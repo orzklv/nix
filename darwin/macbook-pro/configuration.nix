@@ -7,6 +7,7 @@
   # You can import other Darwin modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
+    outputs.darwinModules.zsh
     outputs.darwinModules.secret
     outputs.darwinModules.nixpkgs
     outputs.darwinModules.homebrew
