@@ -52,22 +52,22 @@
       # package = pkgs.nix;
 
       # Linux builder for Linux projects
-      #linux-builder = {
-      #  enable = true;
+      linux-builder = {
+        enable = true;
 
-      #  # Necessary ones
-      #  mandatoryFeatures = [
-      #    "kvm"
-      #    "benchmark"
-      #    "big-parallel"
-      # ];
-      #
-      #  # Supported architectures
-      #  systems = ["x86_64-linux"];
-      #
-      #  # Put x86_64 under emulation
-      #  config.boot.binfmt.emulatedSystems = ["x86_64-linux"];
-      #};
+        # Necessary ones
+        mandatoryFeatures = [
+          "kvm"
+          "benchmark"
+          "big-parallel"
+        ];
+
+        # Supported architectures
+        systems = ["x86_64-linux"];
+
+        # Put x86_64 under emulation
+        config.boot.binfmt.emulatedSystems = ["x86_64-linux"];
+      };
 
       # Additional settings
       settings = {
@@ -75,7 +75,6 @@
         experimental-features = "nix-command flakes";
         # Trusted users for secret-key
         trusted-users = [
-          "@admin"
           "${config.users.users.sakhib.name}"
         ];
         # Additional servers to fetch binary from
