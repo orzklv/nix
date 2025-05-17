@@ -16,9 +16,6 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Cache Nix store
-        uses: DeterminateSystems/flakehub-cache-action@main
-
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:

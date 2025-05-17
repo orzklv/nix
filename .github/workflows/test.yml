@@ -5,10 +5,11 @@ on: [push, pull_request]
 jobs:
   test-flake:
     name: "Test Configurations"
+
     strategy:
       fail-fast: false
       matrix:
-        os: [self-hosted, macos-latest]
+        os: [self-hosted, macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -20,23 +21,33 @@ jobs:
         if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Cache Nix store
-        if: ${{ matrix.os != 'self-hosted' }}
-        uses: DeterminateSystems/flakehub-cache-action@main
-
       - name: Check up flake configuration
         run: nix flake check --show-trace
 
-  build-nixos:
+  build-nixos-arm:
     name: "Build Configurations for NixOS instances"
-    runs-on: self-hosted
+
+    strategy:
+      fail-fast: false
+      matrix:
+        pattern:
+          - system: self-hosted
+            target: Parallels
+          - system: ubuntu-latest
+            target: Laboratory
+
+    runs-on: ${{ matrix.pattern.system }}
 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
 
+      - name: Install Nix
+        if: ${{ matrix.os != 'self-hosted' }}
+        uses: DeterminateSystems/nix-installer-action@main
+
       - name: Build Aarch64 NixOS configuration
-        run: nix build .#nixosConfigurations.Parallels.config.system.build.toplevel --show-trace
+        run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace
 
   build-darwin:
     name: "Build Configurations for Darwin instances"
