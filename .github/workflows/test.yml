@@ -24,7 +24,7 @@ jobs:
       - name: Check up flake configuration
         run: nix flake check --show-trace
 
-  build-nixos-arm:
+  build-nixos:
     name: "Build Configurations for NixOS instances"
 
     strategy:
