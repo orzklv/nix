@@ -121,6 +121,7 @@
         opath = ./.;
         list = [
           "Parallels"
+          "Laboratory"
         ];
       };
 
