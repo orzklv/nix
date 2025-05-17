@@ -89,7 +89,7 @@
           alejandra # Nix Code Formatter
 
           #-- bash
-          nodePackages.bash-language-server
+          bash-language-server
           shellcheck
           shfmt
 
@@ -100,13 +100,12 @@
 
           #-- Others
           taplo # TOML language server / formatter / validator
-          nodePackages.yaml-language-server
+          yaml-language-server
           sqlfluff # SQL linter
           actionlint # GitHub Actions linter
 
           #-- Misc
           tree-sitter # common language parser/highlighter
-          nodePackages.prettier # common code formatter
           marksman # language server for markdown
           glow # markdown previewer
           fzf
