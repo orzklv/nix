@@ -53,7 +53,7 @@
           type = "gpt";
           partitions = {
             MEDIA = {
-              size = "50%";
+              size = "900G";
               content = {
                 type = "filesystem";
                 format = "ext4";
@@ -61,7 +61,7 @@
               };
             };
             SERVER = {
-              size = "50%";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
