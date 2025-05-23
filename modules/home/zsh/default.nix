@@ -166,6 +166,6 @@ in {
     ];
 
     # Extra manually typed configs
-    initExtra = extra;
+    initContent = extra;
   };
 }

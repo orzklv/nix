@@ -7,7 +7,7 @@
       liberation_ttf
       fira-code
       fira-code-symbols
-      (nerdfonts.override {fonts = ["JetBrainsMono"];})
+      nerd-fonts.jetbrains-mono
     ];
   };
 }

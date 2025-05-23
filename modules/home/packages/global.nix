@@ -34,9 +34,6 @@
   pkgs.ffmpeg
   pkgs.libheif
 
-  # Anime
-  pkgs.crunchy-cli
-
   # GPG Signing
   pkgs.gnupg
 ]
