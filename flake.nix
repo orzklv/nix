@@ -10,13 +10,13 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
 
     # Nixpkgs for darwin
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
     # Unstable Nixpkgs
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -24,13 +24,13 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "github:xinux-org/nix-darwin/nix-darwin-24.11";
+      url = "github:xinux-org/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
