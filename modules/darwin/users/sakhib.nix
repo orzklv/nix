@@ -5,6 +5,8 @@
   ...
 }: {
   config = {
+    system.primaryUser = "sakhib";
+
     # Available users in the machine
     users.users = {
       sakhib = {
