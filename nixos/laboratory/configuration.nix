@@ -58,10 +58,16 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Asia/Tashkent";
+  time = {
+    timeZone = "Asia/Tashkent";
+    hardwareClockInLocalTime = true;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # NVIDIA driver support
+  services.xserver.videoDrivers = ["nvidia"];
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
