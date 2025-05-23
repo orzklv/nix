@@ -12,17 +12,17 @@
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
       # Latest discord
-      pkgs.discord
+      # pkgs.discord
       # To patch discord's krisp
-      pkgs.krisper
+      # pkgs.krisper
     ]);
 
   packages =
     (with pkgs; [
       # Matrix client
       fractal
-      # GUI git client
-      github-desktop
+      # Mastodon client
+      tuba
     ])
     ++ x86_64-only;
 
