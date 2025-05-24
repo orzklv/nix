@@ -13,6 +13,7 @@
       enableBashCompletion = true;
       syntaxHighlighting.enable = true;
     };
+
     # All users default shell must be zsh
     users.defaultUserShell = pkgs.zsh;
 
