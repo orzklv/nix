@@ -13,9 +13,11 @@
       enableBashCompletion = true;
       syntaxHighlighting.enable = true;
     };
+
     # All users default shell must be zsh
     users.defaultUserShell = pkgs.zsh;
 
+    # Automatic flake devShell loading
     programs.direnv = {
       enable = true;
       silent = true;
@@ -24,6 +26,7 @@
       enableZshIntegration = true;
     };
 
+    # Replace commant not found with nix-index
     programs.nix-index = {
       # enable = true;
       # enableBashIntegration = true;

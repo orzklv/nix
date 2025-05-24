@@ -29,3 +29,9 @@ format:
 
 test:
     nix flake check --all-systems --show-trace
+
+build-darwin:
+  nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
+
+build-nixos:
+  nix build .#nixosConfigurations.Laboratory.config.system.build.toplevel --show-trace

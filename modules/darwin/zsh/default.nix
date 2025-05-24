@@ -12,25 +12,17 @@
       enableSyntaxHighlighting = true;
     };
 
+    # Automatic flake devShell loading
     programs.direnv = {
       enable = true;
       silent = true;
       loadInNixShell = false;
       nix-direnv.enable = true;
-      direnvrcExtra = ''
-        echo "Direnv has been loaded!"
-      '';
     };
 
+    # Replace commant not found with nix-index
     programs.nix-index = {
       enable = true;
     };
-
-    # System configurations
-    # environment = {
-    #   shells = with pkgs; [zsh];
-    #   pathsToLink = ["/share/zsh"];
-    #   systemPackages = [inputs.home-manager.packages.${pkgs.system}.default];
-    # };
   };
 }

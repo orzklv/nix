@@ -5,9 +5,6 @@
   ...
 }: {
   config = {
-    # Auto upgrade nix package and the daemon service.
-    services.nix-daemon.enable = true;
-
     nixpkgs = {
       # You can add overlays here
       overlays = [
@@ -40,6 +37,8 @@
     };
 
     nix = {
+      enable = true;
+
       # This will add each flake input as a registry
       # To make nix3 commands consistent with your flake
       # registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
