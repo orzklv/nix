@@ -4,6 +4,7 @@
 {
   inputs,
   outputs,
+  pkgs,
   ...
 }: {
   # You can import other NixOS modules here
@@ -68,6 +69,26 @@
 
   # NVIDIA driver support
   services.xserver.videoDrivers = ["nvidia"];
+
+  # KVM Virtualization (for GNOME Boxes)
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+          .fd
+        ];
+      };
+    };
+  };
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
