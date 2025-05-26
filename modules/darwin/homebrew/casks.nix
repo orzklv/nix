@@ -31,7 +31,6 @@
     "sf-symbols"
     "sketch"
     "xcodes"
-    "docker"
   ];
 in {
   # Homebrew Casks installations
