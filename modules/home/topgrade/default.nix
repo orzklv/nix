@@ -21,6 +21,8 @@
         "containers"
         "brew_formula"
         "home_manager"
+        "ruby_gems"
+        "gem"
       ];
       no_retry = true;
       assume_yes = true;
