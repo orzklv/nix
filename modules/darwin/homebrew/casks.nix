@@ -8,7 +8,6 @@
     "balenaetcher"
     "chatgpt"
     "cleanmymac"
-    "discord"
     "element"
     "elmedia-player"
     "folx"
