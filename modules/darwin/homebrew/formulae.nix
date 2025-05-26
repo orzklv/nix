@@ -10,6 +10,7 @@
     "sourcery"
     "swiftformat"
     "swiftgen"
+    "rustup"
     "swiftlint"
     "xcodegen"
     "localazy/tools/localazy"

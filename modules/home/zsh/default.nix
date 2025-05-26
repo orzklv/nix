@@ -119,6 +119,9 @@
     then ''
       # Golang's Trash
       export GOPATH="$HOME/.go"
+
+      # Rustup for globals
+      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
     ''
     else '''';
 
