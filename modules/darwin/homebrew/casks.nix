@@ -14,7 +14,6 @@
     "font-sf-mono-nerd-font-ligaturized"
     "github"
     "iterm2"
-    "itermai"
     "keka"
     "kekaexternalhelper"
     "little-snitch"
