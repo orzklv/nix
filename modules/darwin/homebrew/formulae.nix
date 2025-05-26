@@ -10,6 +10,7 @@
     "sourcery"
     "swiftformat"
     "swiftgen"
+    "swiftlint"
     "xcodegen"
     "localazy/tools/localazy"
     "kiliankoe/formulae/swift-outdated"
