@@ -29,7 +29,6 @@
     "sf-symbols"
     "sketch"
     "xcodes"
-    "periphery"
   ];
 in {
   # Homebrew Casks installations
