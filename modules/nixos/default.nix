@@ -10,7 +10,7 @@
   boot = import ./boot;
   game = import ./game;
   sound = import ./sound;
-  media = import ./media;
+  data = import ./data;
   fonts = import ./fonts;
   users = import ./users;
   secret = import ./secret;
