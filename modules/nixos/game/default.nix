@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    inputs.aagl.nixosModules.default
+  ];
+
   config = {
     # Gayming at its finest
     programs.steam = {
@@ -8,7 +16,11 @@
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
 
-    # Enable the Gnome Tweaks tool.
+    # Xuyovo Labs games launchers!
+    programs.anime-game-launcher.enable = true;
+    programs.anime-games-launcher.enable = true;
+
+    # Other launchers with configurations.
     environment.systemPackages = with pkgs; [
       cartridges
       prismlauncher
