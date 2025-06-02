@@ -47,6 +47,7 @@ in {
           "wheel"
           "docker"
           "vboxusers"
+          "media"
           "admins"
           "libvirtd"
         ];

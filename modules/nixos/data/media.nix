@@ -1,5 +1,9 @@
 {lib, ...}: {
   config = {
+    users.groups.media = {
+      name = "media";
+    };
+
     system.activationScripts.createMediaSymlink = lib.stringAfter ["users"] ''
       # Function to create symlink and set permissions
       create_symlink_and_permissions() {
@@ -11,7 +15,7 @@
           echo "Failed to create symlink for $user_dir" >&2
         fi
 
-        if chown -R :users "$user_dir/Media" 2>/dev/null; then
+        if chown -R :media "$user_dir/Media" 2>/dev/null; then
           echo "Changed group ownership for $user_dir/Media"
         else
           echo "Failed to change group ownership for $user_dir/Media" >&2
