@@ -8,15 +8,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1747867343,
-        "narHash": "sha256-FmEdhjLXtv92TQcFQHTetgVXkM4vBmD4nls8mvG9lMg=",
+        "lastModified": 1747867156,
+        "narHash": "sha256-JmJ4nLbrT0Lx+bK6ALVgU3H/W7C58fGDBwSP47sMQN0=",
         "owner": "ezKEa",
         "repo": "aagl-gtk-on-nix",
-        "rev": "2d87503f028c14f523f63ccb4a87d4b8d55c02d2",
+        "rev": "7bfabf36395a50f775dc26f63089e4d5df28c8f2",
         "type": "github"
       },
       "original": {
         "owner": "ezKEa",
+        "ref": "release-25.05",
         "repo": "aagl-gtk-on-nix",
         "type": "github"
       }
@@ -44,11 +45,11 @@
     "flake-compat": {
       "flake": false,
       "locked": {
-        "lastModified": 1747046372,
-        "narHash": "sha256-CIVLLkVgvHYbgI2UpXvIIBJ12HWgX+fjA8Xf8PUmqCY=",
+        "lastModified": 1733328505,
+        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
         "owner": "edolstra",
         "repo": "flake-compat",
-        "rev": "9100a0f413b0c601e0533d1d94ffd501ce2e7885",
+        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
         "type": "github"
       },
       "original": {
