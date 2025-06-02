@@ -15,7 +15,6 @@
     "font-sf-mono-nerd-font-ligaturized"
     "github"
     "iterm2"
-    "itermai"
     "keka"
     "kekaexternalhelper"
     "little-snitch"
@@ -31,7 +30,7 @@
     "sf-symbols"
     "sketch"
     "xcodes"
-    "docker"
+    "periphery"
   ];
 in {
   # Homebrew Casks installations

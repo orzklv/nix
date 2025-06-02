@@ -4,7 +4,7 @@
   ...
 }: let
   darwin = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
-    commands."Darwin Nix" = "darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
+    commands."Darwin Nix" = "sudo darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
   };
 
   cfg = {
@@ -21,6 +21,8 @@
         "containers"
         "brew_formula"
         "home_manager"
+        "ruby_gems"
+        "gem"
       ];
       no_retry = true;
       assume_yes = true;
