@@ -8,6 +8,14 @@
   ];
 
   config = {
+    # Prepare for the worst
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        glibc
+      ];
+    };
+
     # Gayming at its finest
     programs.steam = {
       enable = true;
