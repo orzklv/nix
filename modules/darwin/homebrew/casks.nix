@@ -29,7 +29,6 @@
     "rectangle-pro"
     "sf-symbols"
     "sketch"
-    "typst"
     "xcodes"
     "periphery"
   ];
