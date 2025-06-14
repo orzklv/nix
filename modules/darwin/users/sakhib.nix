@@ -11,6 +11,7 @@
     users.users = {
       sakhib = {
         home = "/Users/sakhib";
+
         openssh.authorizedKeys.keys = lib.strings.splitString "\n" (
           builtins.readFile (
             builtins.fetchurl {
