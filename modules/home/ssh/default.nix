@@ -38,7 +38,7 @@ in {
     programs.ssh = {
       enable = true;
       inherit extraConfig;
-      addKeysToAgent = true;
+      addKeysToAgent = "yes";
 
       # Server keep alive
       serverAliveInterval = 30;
