@@ -21,11 +21,13 @@
   }:
     builtins.listToAttrs (
       builtins.genList (
-        i: {
-          name = "${prefix}${toString i}";
+        i: let
+          n = i + 1;
+        in {
+          name = "${prefix}${toString n}";
           value = {
             inherit user port;
-            hostname = "ns${i}.kolyma.uz";
+            hostname = "ns${toString n}.kolyma.uz";
           };
         }
       )
