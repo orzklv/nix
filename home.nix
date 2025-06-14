@@ -7,6 +7,7 @@
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
+    outputs.homeModules.ssh
     outputs.homeModules.zed
     outputs.homeModules.helix
     outputs.homeModules.secret

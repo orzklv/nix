@@ -1,0 +1,55 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  extraConfig =
+    ''
+      IdentityFile ~/.ssh/id_rsa
+    ''
+    ++ (lib.optionalString pkgs.stdenv.isDarwin
+      ''
+        UseKeychain yes
+      '');
+
+  kolymas = {
+    amount,
+    prefix ? "kolyma-",
+    user ? "sakhib",
+    port ? 22,
+  }:
+    builtins.listToAttrs (
+      builtins.genList (
+        i: {
+          name = "${prefix}${toString i}";
+          value = {
+            inherit user port;
+            hostname = "ns${i}.kolyma.uz";
+          };
+        }
+      )
+      amount
+    );
+in {
+  config = {
+    programs.ssh = {
+      inherit extraConfig;
+      addKeysToAgent = true;
+
+      # Server keep alive
+      serverAliveInterval = 30;
+      serverAliveCountMax = 3;
+
+      matchBlocks =
+        {
+          local-1 = {
+            port = 22;
+            user = "sakhib";
+            hostname = "192.168.0.2";
+          };
+        }
+        // (kolymas 4);
+    };
+  };
+}
