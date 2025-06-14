@@ -50,7 +50,7 @@ in {
             hostname = "192.168.0.2";
           };
         }
-        // (kolymas 4);
+        // (kolymas {amount = 4;});
     };
   };
 }
