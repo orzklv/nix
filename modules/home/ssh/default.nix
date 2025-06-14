@@ -9,7 +9,7 @@
     ${(lib.optionalString pkgs.stdenv.isDarwin
       ''
         UseKeychain yes
-      '')};
+      '')}
   '';
 
   kolymas = {
