@@ -4,14 +4,13 @@
   lib,
   ...
 }: let
-  extraConfig =
-    ''
-      IdentityFile ~/.ssh/id_rsa
-    ''
-    ++ (lib.optionalString pkgs.stdenv.isDarwin
+  extraConfig = ''
+    IdentityFile ~/.ssh/id_rsa
+    ${(lib.optionalString pkgs.stdenv.isDarwin
       ''
         UseKeychain yes
-      '');
+      '')};
+  '';
 
   kolymas = {
     amount,
