@@ -45,13 +45,22 @@ in {
 
       matchBlocks =
         {
-          local-1 = {
-            port = 22;
+          # Uzinfocom
+          uzinfocom-efael = {
+            port = 48596;
             user = "sakhib";
-            hostname = "192.168.0.2";
+            hostname = "93.188.85.94";
+          };
+
+          # Local Hub Kolyma
+          local-1 = {
+            port = 6666;
+            user = "sakhib";
+            hostname = "uz1.kolyma.uz";
           };
         }
-        // (kolymas {amount = 4;});
+        # Global Kolymas
+        // (kolymas {amount = 3;});
     };
   };
 }
