@@ -2,7 +2,7 @@
   config = {
     sops.secrets.ostl-configs = {
       format = "binary";
-      sopsFile = ../../../../secrets/config-ostl.hell;
+      sopsFile = ../../../secrets/config-ostl.hell;
     };
 
     services.openvpn.servers = {
