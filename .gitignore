@@ -22,3 +22,6 @@ result-*
 # direnv garbage
 .direnv
 nohup.out
+
+# secrets retarded files
+secrets/*.retard
