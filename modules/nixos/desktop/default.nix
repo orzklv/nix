@@ -117,6 +117,9 @@ in {
           ];
         };
       };
+
+      # For gnome development
+      flatpak.enable = true;
     };
 
     # Make sure opengl is enabled
@@ -207,6 +210,7 @@ in {
         d-spy
         devhelp
         sysprof
+        flatpak-builder
 
         # Gnome Modding
         dconf-editor
