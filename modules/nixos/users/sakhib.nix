@@ -23,6 +23,8 @@
       fractal
       # Mastodon client
       tuba
+      # Telegram desktop
+      paper-plane
       # GitHub Desktop
       github-desktop
     ])
