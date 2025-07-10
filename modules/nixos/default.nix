@@ -9,6 +9,7 @@
   zsh = import ./zsh;
   boot = import ./boot;
   game = import ./game;
+  vpn = import ./vpn;
   sound = import ./sound;
   data = import ./data;
   fonts = import ./fonts;

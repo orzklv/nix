@@ -66,6 +66,7 @@ in {
     };
 
     home-manager = {
+      backupFileExtension = "hbak";
       extraSpecialArgs = {
         inherit inputs outputs;
       };

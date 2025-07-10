@@ -7,6 +7,7 @@
   # List your module files here
   git = import ./git;
   zsh = import ./zsh;
+  ssh = import ./ssh;
   zed = import ./zed;
   helix = import ./helix;
   secret = import ./secret;
