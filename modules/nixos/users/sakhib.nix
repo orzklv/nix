@@ -23,6 +23,8 @@
       fractal
       # Mastodon client
       tuba
+      # GitHub Desktop
+      github-desktop
     ])
     ++ x86_64-only;
 
