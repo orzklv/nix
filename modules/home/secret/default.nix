@@ -20,18 +20,20 @@ in {
   };
 
   # Leave here configs that should be applied only at linux machines
-  sops.secrets = {
-    "nix-serve/private" = {};
-    "nix-serve/public" = {};
-  };
+  # sops.secrets = {
+  #   "nixpkgs/github" = {};
+  #   "nix-serve/public" = {};
+  #   "nix-serve/private" = {};
+  # };
 
   # Copy generated copy of fastfetch to here
-  home.file.".config/nix/nix.conf" = {
-    source = pkgs.writeTextFile {
-      name = "nix.conf";
-      text = ''
-        secret-key-files = ${config.sops.secrets."nix-serve/private".path}
-      '';
-    };
-  };
+  # home.file.".config/nix/nix.conf" = {
+  #   source = pkgs.writeTextFile {
+  #     name = "nix.conf";
+  #     text = ''
+  #       secret-key-files = ${config.sops.secrets."nix-serve/private".path}
+  #       access-tokens = github.com=${config.sops.placeholder."nixpkgs/github"}
+  #     '';
+  #   };
+  # };
 }
