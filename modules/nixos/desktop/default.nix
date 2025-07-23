@@ -56,7 +56,7 @@ in {
 
             # Favorite apps in gnome-shell
             [org.gnome.shell]
-            favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Console.desktop', 'org.gnome.gitg.desktop', 'org.gnome.Builder.desktop', 'org.gnome.Polari.desktop']
+            favorite-apps=['org.gnome.Nautilus.desktop', 'zen-twilight.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Console.desktop', 'org.gnome.gitg.desktop', 'org.gnome.Builder.desktop', 'org.gnome.Polari.desktop']
 
             # Enable user extensions
             [org.gnome.shell]
