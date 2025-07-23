@@ -128,6 +128,7 @@
         list = [
           "Parallels"
           "Laboratory"
+          "Station"
         ];
       };
 
