@@ -162,6 +162,7 @@ in {
         (with pkgs; [
           xterm
           firefox
+          epiphany
         ])
         ++ (with pkgs; [
           cheese # webcam app
