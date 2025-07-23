@@ -35,6 +35,8 @@ jobs:
             target: Parallels
           - system: ubuntu-latest
             target: Laboratory
+          - system: ubuntu-latest
+            target: Station
 
     runs-on: ${{ matrix.pattern.system }}
 
