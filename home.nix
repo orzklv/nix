@@ -1,4 +1,5 @@
 {
+  inputs,
   outputs,
   lib,
   pkgs,
@@ -15,6 +16,9 @@
     outputs.homeModules.topgrade
     outputs.homeModules.packages
     outputs.homeModules.fastfetch
+
+    # Third party modules
+    inputs.zen-browser.homeModules.twilight
   ];
   inherit (pkgs) stdenv;
   osx = stdenv.hostPlatform.isDarwin;
@@ -24,7 +28,6 @@
     then "Users"
     else "home";
 
-  macos-modules = [];
   macos = lib.mkIf osx {
     # Leave here configs that should be applied only at macos machines
 
@@ -33,8 +36,30 @@
     xdg.enable = true;
   };
 
-  linux-modules = [];
-  linux = lib.mkIf (!osx) {};
+  linux = lib.mkIf (!osx) {
+    programs.zen-browser = {
+      enable = true;
+      nativeMessagingHosts = [pkgs.firefoxpwa];
+      policies = {
+        AutofillAddressEnabled = true;
+        AutofillCreditCardEnabled = false;
+        DisableAppUpdate = true;
+        DisableFeedbackCommands = true;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        # DontCheckDefaultBrowser = false;
+        NoDefaultBookmarks = true;
+        # OfferToSaveLogins = false;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+      };
+    };
+  };
 
   cfg = {
     # This is required information for home-manager to do its job
@@ -56,10 +81,7 @@
     programs.home-manager.enable = true;
   };
 in {
-  imports =
-    modules
-    ++ macos-modules
-    ++ linux-modules;
+  imports = modules;
 
   config =
     lib.mkMerge

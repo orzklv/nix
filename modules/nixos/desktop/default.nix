@@ -2,7 +2,11 @@
 # For further configuration extention, please refer to:
 # https://wiki.nixos.org/wiki/GNOME
 # =================================
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   x86_64-graphics =
     if (!pkgs.stdenv.hostPlatform.isAarch64)
     then {enable32Bit = true;}
@@ -223,6 +227,9 @@ in {
 
         # Gnome Shell Packs
         unstable.papirus-icon-theme
+
+        # Normal fucking browser
+        inputs.zen-browser.packages."${pkgs.system}".twilight
       ];
     };
   };
