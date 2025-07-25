@@ -12,11 +12,14 @@
         # "udev.log_priority=3"
       ];
       loader = {
-        efi.canTouchEfiVariables = true;
+        efi = {
+          canTouchEfiVariables = true;
+        };
         grub = {
           enable = true;
           devices = ["nodev"];
           efiSupport = true;
+          useOSProber = true;
           theme = pkgs.stdenv.mkDerivation {
             pname = "hyperfluent-grub-theme";
             version = "1.0.1";
