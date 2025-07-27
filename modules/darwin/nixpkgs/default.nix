@@ -64,14 +64,6 @@
         trusted-users = [
           "${config.users.users.sakhib.name}"
         ];
-        # Additional servers to fetch binary from
-        # substituters = [
-        #   "https://cache.xinux.uz/"
-        # ];
-        # Keys that packages to be signed with
-        # trusted-public-keys = [
-        #   "cache.xinux.uz-1:gX2Z53woXiIoLANfcC/Qp7vPPKVdK1sEa8MSiRhjj/M="
-        # ];
       };
     };
   };

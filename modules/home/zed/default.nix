@@ -5,36 +5,29 @@
 }: let
   extensions = [
     "assembly"
-    "caddyfile"
-    "catppuccin-blur"
     "deno"
-    "docker-compose"
-    "dockerfile"
     "env"
     "glsl"
     "haskell"
     "html"
     "ini"
-    "java"
     "just"
     "latex"
     "lua"
     "make"
+    "material-icon-theme"
     "neocmake"
     "nginx"
     "nix"
     "nu"
-    "php"
     "pkl"
     "ruby"
     "slint"
     "sql"
     "swift"
-    "the-dark-side"
     "toml"
     "typst"
     "vercel-theme"
-    "vue"
     "wgsl"
     "xml"
     "zig"
@@ -195,6 +188,7 @@ in {
       enable = true;
       inherit extensions;
       userSettings = settings;
+      installRemoteServer = true;
       package = pkgs.unstable.zed-editor;
     };
   };
