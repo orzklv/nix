@@ -86,7 +86,9 @@
 
     lsp = {
       nixd = {
-        ignore_system_version = false;
+        binary = {
+          ignore_system_version = false;
+        };
         settings = {
           formatting = {
             command = [
@@ -103,7 +105,9 @@
       };
 
       rust-analyzer = {
-        ignore_system_version = false;
+        binary = {
+          ignore_system_version = false;
+        };
         initialization_options = {
           check = {
             command = "clippy";
@@ -112,11 +116,15 @@
       };
 
       deno = {
-        ignore_system_version = false;
+        binary = {
+          ignore_system_version = false;
+        };
       };
 
       solargraph = {
-        ignore_system_version = false;
+        binary = {
+          ignore_system_version = false;
+        };
         initialization_options = {
           diagnostics = true;
           formatting = true;
