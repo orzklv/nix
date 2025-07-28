@@ -86,9 +86,7 @@
 
     lsp = {
       nixd = {
-        binary = {
-          path_lookup = true;
-        };
+        ignore_system_version = false;
         settings = {
           formatting = {
             command = [
@@ -105,9 +103,7 @@
       };
 
       rust-analyzer = {
-        binary = {
-          path_lookup = true;
-        };
+        ignore_system_version = false;
         initialization_options = {
           check = {
             command = "clippy";
@@ -116,15 +112,11 @@
       };
 
       deno = {
-        binary = {
-          path_lookup = true;
-        };
+        ignore_system_version = false;
       };
 
       solargraph = {
-        binary = {
-          path_lookup = true;
-        };
+        ignore_system_version = false;
         initialization_options = {
           diagnostics = true;
           formatting = true;
@@ -159,7 +151,7 @@
     confirm_quit = false;
     use_autoclose = false;
 
-    titlebar = {
+    title_bar = {
       show_branch_icon = true;
     };
 
