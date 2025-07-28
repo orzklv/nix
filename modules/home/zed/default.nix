@@ -159,6 +159,11 @@
     confirm_quit = false;
     use_autoclose = false;
 
+    inlay_hints = {
+      enabled = true;
+      # show_background = true;
+    };
+
     title_bar = {
       show_branch_icon = true;
     };
