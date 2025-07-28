@@ -189,6 +189,7 @@ in {
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
+      extraPackages = with pkgs; [nixd];
       package = pkgs.unstable.zed-editor;
     };
   };
