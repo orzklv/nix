@@ -52,6 +52,12 @@ in {
             hostname = "93.188.85.94";
           };
 
+          uzinfocom-laboratory = {
+            port = 22;
+            user = "sakhib";
+            hostname = "10.10.0.2";
+          };
+
           # Local Hub Kolyma
           local-1 = {
             port = 6666;
