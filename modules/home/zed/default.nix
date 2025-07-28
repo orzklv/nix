@@ -36,27 +36,16 @@
   settings = {
     auto_update = false;
 
-    features = {
-      copilot = false;
-    };
-
     telemetry = {
       metrics = false;
+      diagnostics = false;
     };
 
-    show_inline_completions = false;
+    show_edit_predictions = false;
 
     node = {
       path = lib.getExe pkgs.nodejs;
       npm_path = lib.getExe' pkgs.nodejs "npm";
-    };
-
-    assistant = {
-      version = "2";
-      default_model = {
-        provider = "copilot_chat";
-        model = "gpt-4o";
-      };
     };
 
     languages = {
@@ -64,15 +53,6 @@
         format_on_save = "on";
         use_on_type_format = true;
         remove_trailing_whitespace_on_save = true;
-      };
-
-      Ruby = {
-        language_servers = [
-          "solargraph"
-          "!ruby-lsp"
-          "!rubocop"
-          "..."
-        ];
       };
 
       Nix = {
@@ -85,8 +65,8 @@
 
       TypeScript = {
         language_servers = [
+          "typescript-language-server"
           "deno"
-          "!typescript-language-server"
           "!vtsls"
           "!eslint"
         ];
@@ -102,13 +82,6 @@
         ];
         formatter = "language_server";
       };
-    };
-
-    inline_completions = {
-      disabled_globs = [
-        ".env"
-        ".zone"
-      ];
     };
 
     lsp = {
@@ -161,26 +134,46 @@
 
     load_direnv = "shell_hook";
 
-    terminal = {
-      detect_venv = {
-        on = {
-          directories = [".env" "env"];
-          activate_script = "default";
-        };
-      };
+    theme = {
+      mode = "system";
+      light = "Vercel Light";
+      dark = "Vercel Dark";
     };
+    icon_theme = "Material Icon Theme";
 
-    theme = "Vercel Dark";
     tab_size = 2;
+    preferred_line_length = 100;
+
     autosave = "off";
     format_on_save = "language_server";
-    preferred_line_length = 100;
-    soft_wrap = "editor_width";
-    buffer_font_size = 16;
-    ui_font_size = 16;
     enable_language_server = true;
+
+    soft_wrap = "editor_width";
+
+    buffer_font_size = 16;
+    buffer_font_family = "Liga SFMono Nerd Font";
+
+    ui_font_size = 16;
+    ui_font_family = ".SystemUIFont";
+
     confirm_quit = false;
     use_autoclose = false;
+
+    titlebar = {
+      show_branch_icon = true;
+    };
+
+    collaboration_panel = {
+      button = false;
+    };
+
+    chat_panel = {
+      button = "never";
+    };
+
+    agent = {
+      enabled = false;
+    };
   };
 in {
   config = {
