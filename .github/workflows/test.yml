@@ -44,17 +44,17 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
+      - name: Free Disk Space
+        if: ${{ matrix.pattern.system == 'ubuntu-latest' }}
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+
       - name: Install Nix
         if: ${{ matrix.pattern.system != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Remove unnecessary files
-        if: ${{ matrix.pattern.system == 'ubuntu-latest' }}
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-
-      - name: Build Aarch64 NixOS configuration
+      - name: Build NixOS configuration
         run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace
 
   build-darwin:
