@@ -163,10 +163,9 @@ in {
           xterm
           firefox
           epiphany
+          gnome-terminal
         ])
         ++ (with pkgs; [
-          cheese # webcam app
-          geary # email client
           tali # poker game
           iagno # go game
           hitori # sudoku game
@@ -216,6 +215,7 @@ in {
         devhelp
         sysprof
         flatpak-builder
+        blackbox-terminal
 
         # Gnome Modding
         dconf-editor
