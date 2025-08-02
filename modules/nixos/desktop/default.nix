@@ -231,6 +231,9 @@ in {
 
         # Normal fucking browser
         inputs.zen-browser.packages."${pkgs.system}".twilight
+
+        # Some office stuff
+        libreoffice-fresh
       ];
     };
   };
