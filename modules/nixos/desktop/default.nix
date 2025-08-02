@@ -163,7 +163,7 @@ in {
           xterm
           firefox
           epiphany
-          gnome-terminal
+          gnome.gnome-terminal
         ])
         ++ (with pkgs; [
           tali # poker game
