@@ -36,6 +36,8 @@
   settings = {
     auto_update = false;
 
+    disable_ai = true;
+
     telemetry = {
       metrics = false;
       diagnostics = false;
