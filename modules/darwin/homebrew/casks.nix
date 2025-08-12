@@ -5,6 +5,7 @@
 }: let
   apps = lib.mkIf config.homebrew.enable [
     "anki"
+    "anydesk"
     "balenaetcher"
     "chatgpt"
     "cleanmymac"
@@ -24,13 +25,15 @@
     "openscad"
     "openvpn-connect"
     "parallels"
+    "periphery"
     "prismlauncher"
     "raspberry-pi-imager"
     "rectangle-pro"
     "sf-symbols"
     "sketch"
     "xcodes"
-    "periphery"
+    "zen"
+    "zoom"
   ];
 in {
   # Homebrew Casks installations
