@@ -24,7 +24,7 @@
       # Mastodon client
       tuba
       # Telegram desktop
-      paper-plane
+      unstable.telegram-desktop
       # GitHub Desktop
       github-desktop
     ])
