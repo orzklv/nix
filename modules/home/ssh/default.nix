@@ -12,11 +12,12 @@
       '')}
   '';
 
-  kolymas = {
+  repetition = {
     amount,
     prefix ? "kolyma-",
     user ? "sakhib",
     port ? 22,
+    domain ? "kolyma.uz",
   }:
     builtins.listToAttrs (
       builtins.genList (
@@ -26,7 +27,7 @@
           name = "${prefix}${toString n}";
           value = {
             inherit user port;
-            hostname = "ns${toString n}.kolyma.uz";
+            hostname = "ns${toString n}.${domain}";
           };
         }
       )
@@ -46,10 +47,16 @@ in {
       matchBlocks =
         {
           # Uzinfocom
-          uzinfocom-efael = {
+          efael-1 = {
             port = 48596;
             user = "sakhib";
             hostname = "93.188.85.94";
+          };
+
+          efael-2 = {
+            port = 22;
+            user = "sakhib";
+            hostname = "ns2.efael.uz";
           };
 
           uzinfocom-laboratory = {
@@ -66,7 +73,7 @@ in {
           };
         }
         # Global Kolymas
-        // (kolymas {amount = 3;});
+        // (repetition {amount = 2;});
     };
   };
 }
