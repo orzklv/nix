@@ -27,6 +27,8 @@
       unstable.telegram-desktop
       # GitHub Desktop
       github-desktop
+      # RDP Management
+      remmina
     ])
     ++ x86_64-only;
 
