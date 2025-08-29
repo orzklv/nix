@@ -59,7 +59,13 @@ in {
             hostname = "ns2.efael.uz";
           };
 
-          uzinfocom-laboratory = {
+          efael-3 = {
+            port = 22;
+            user = "sakhib";
+            hostname = "ns3.efael.uz";
+          };
+
+          laboratory-1 = {
             port = 22;
             user = "sakhib";
             hostname = "10.10.0.2";
