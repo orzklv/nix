@@ -207,6 +207,7 @@ in {
         gnome-secrets
         gnome-obfuscate
         gnome-resources
+        gnome-terminal
 
         # Developer
         gnome-boxes
