@@ -19,6 +19,7 @@
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
+    outputs.nixosModules.data.media
     outputs.nixosModules.data.server
     outputs.nixosModules.users.sakhib
 
