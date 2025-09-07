@@ -12,9 +12,9 @@
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
       # Latest discord
-      # pkgs.discord
+      pkgs.discord
       # To patch discord's krisp
-      # pkgs.krisper
+      pkgs.krisper
     ]);
 
   packages =
