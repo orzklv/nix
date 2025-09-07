@@ -13,6 +13,7 @@
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
     outputs.nixosModules.vpn
+    outputs.nixosModules.game
     outputs.nixosModules.fonts
     outputs.nixosModules.sound
     outputs.nixosModules.secret
