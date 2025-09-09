@@ -36,7 +36,7 @@
 in {
   config = {
     programs.ssh = {
-      enable = 0;
+      enable = true;
       inherit extraConfig;
       addKeysToAgent = "yes";
 
