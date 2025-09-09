@@ -20,6 +20,7 @@
     "kekaexternalhelper"
     "little-snitch"
     "logitech-options"
+    "macs-fan-control"
     "minecraft"
     "obs"
     "openscad"
