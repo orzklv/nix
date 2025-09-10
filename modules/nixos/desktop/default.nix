@@ -163,7 +163,6 @@ in {
           xterm
           firefox
           epiphany
-          gnome-console
         ])
         ++ (with pkgs; [
           tali # poker game
@@ -215,7 +214,7 @@ in {
         devhelp
         sysprof
         flatpak-builder
-        blackbox-terminal
+        # blackbox-terminal # very laggy & buggy
 
         # Gnome Modding
         dconf-editor
