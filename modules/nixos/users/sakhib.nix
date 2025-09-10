@@ -15,6 +15,8 @@
       pkgs.discord
       # To patch discord's krisp
       pkgs.krisper
+      # Zoom conference
+      zoom-us
     ]);
 
   packages =
