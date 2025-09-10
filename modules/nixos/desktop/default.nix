@@ -121,9 +121,6 @@ in {
           ];
         };
       };
-
-      # For gnome development
-      flatpak.enable = true;
     };
 
     # Make sure opengl is enabled
@@ -213,7 +210,6 @@ in {
         d-spy
         devhelp
         sysprof
-        flatpak-builder
         # blackbox-terminal # very laggy & buggy
 
         # Gnome Modding
