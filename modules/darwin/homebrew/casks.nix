@@ -5,9 +5,7 @@
 }: let
   apps = lib.mkIf config.homebrew.enable [
     "anki"
-    "anydesk"
     "balenaetcher"
-    "chatgpt"
     "cleanmymac"
     "discord"
     "element"
@@ -15,7 +13,6 @@
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
     "github"
-    "iterm2"
     "keka"
     "kekaexternalhelper"
     "little-snitch"
@@ -26,13 +23,11 @@
     "openscad"
     "openvpn-connect"
     "parallels"
-    "periphery"
     "prismlauncher"
     "raspberry-pi-imager"
     "rectangle-pro"
     "sf-symbols"
     "sketch"
-    "xcodes"
     "zen"
     "zoom"
   ];

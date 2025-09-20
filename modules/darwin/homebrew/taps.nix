@@ -4,7 +4,6 @@
   ...
 }: let
   apps = lib.mkIf config.homebrew.enable [
-    "peripheryapp/periphery"
     "shaunsingh/SFMono-Nerd-Font-Ligaturized"
   ];
 in {

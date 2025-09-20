@@ -23,7 +23,6 @@
     "Pages" = 409201541;
     "Telegram" = 747648890;
     "Developer" = 640199958;
-    "AdGuard for Safari" = 1440147259;
     "Wappalyzer - Technology profiler" = 1520333300;
     "PiPer" = 1421915518;
     "Refined GitHub" = 1519867270;
@@ -31,7 +30,6 @@
     "Numbers" = 409203825;
     "ColorSlurp" = 1287239339;
     "Keynote" = 409183694;
-    "Hotspot Shield" = 771076721;
     "Shazam" = 897118787;
   };
 in {
