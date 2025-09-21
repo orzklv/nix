@@ -144,11 +144,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757680722,
+        "lastModified": 1758474849,
         "narHash": "sha256-P+iVH3RvX6OdtYEjhjZPoQdteKrGsa3zRcpAC9psAOw=",
         "owner": "xinux-org",
         "repo": "nix-darwin",
-        "rev": "7d63bcd77d851dbd75d82b67304ddb446f0c15e2",
+        "rev": "b2f619f28ee5565123798f4bd0c047025d3b9396",
         "type": "github"
       },
       "original": {
