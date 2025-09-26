@@ -18,7 +18,16 @@
   ];
 
   boot = {
-    kernelModules = ["kvm-intel"];
+    kernelParams = [
+      "nvidia-drm.modeset=1"
+    ];
+    kernelModules = [
+      "kvm-intel"
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
     extraModulePackages = [];
     initrd = {
       kernelModules = ["nvme"];

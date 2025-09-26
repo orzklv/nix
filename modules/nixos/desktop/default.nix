@@ -152,6 +152,7 @@ in {
         # Disable compositing mode in WebKitGTK
         # https://github.com/NixOS/nixpkgs/issues/32580
         WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       };
 
       # Exclude some packages from the Gnome desktop environment.
