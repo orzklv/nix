@@ -11,7 +11,7 @@
     # Prepare for the worst
     programs.nix-ld = {
       enable = true;
-      libraries = pkgs.steam-run.fhsenv.args.multiPkgs pkgs;
+      libraries = pkgs.steam-run.args.multiPkgs pkgs;
     };
 
     # Gayming at its finest
