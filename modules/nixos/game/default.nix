@@ -11,9 +11,16 @@
     # Prepare for the worst
     programs.nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        glibc
-      ];
+      libraries =
+        (with pkgs; [
+          alsa-lib
+          at-spi2-atk
+          at-spi2-core
+          atk
+          cairo
+          glibc
+        ])
+        ++ (pkgs.steam-run.fhsenv.args.multiPkgs pkgs);
     };
 
     # Gayming at its finest
