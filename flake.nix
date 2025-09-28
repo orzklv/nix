@@ -34,6 +34,9 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    # Determinate nix darwin modules
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+
     # Flake utils for eachSystem
     flake-utils.url = "github:numtide/flake-utils";
 

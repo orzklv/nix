@@ -4,7 +4,9 @@
   inputs,
   ...
 }: {
-  config = {
+  imports = [inputs.determinate.darwinModules.default];
+
+  config = rec {
     nixpkgs = {
       # You can add overlays here
       overlays = [
@@ -77,5 +79,12 @@
         ];
       };
     };
+
+    # Custom settings written to /etc/nix/nix.custom.conf
+    determinate-nix.customSettings =
+      {
+        flake-registry = "/etc/nix/flake-registry.json";
+      }
+      // nix.settings;
   };
 }
