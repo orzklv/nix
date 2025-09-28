@@ -53,7 +53,7 @@
       # Additional settings
       settings = {
         # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes pipe-operators repl-flake";
+        experimental-features = "nix-command flakes pipe-operators";
 
         # Determinate Nix related configurations
         extra-experimental-features = "parallel-eval external-builders";
