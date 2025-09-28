@@ -37,6 +37,7 @@
     };
 
     nix = {
+      # Don't touch Determinate Nix
       enable = false;
 
       # This will add each flake input as a registry
@@ -47,19 +48,29 @@
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
-      # Customized nix packages for rollback purposes
-      # package = pkgs.nix;
-
-      # Linux builder for Linux projects
-      linux-builder = {
-        enable = false; 
-        ephemeral = false;
-      };
-
       # Additional settings
       settings = {
         # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes pipe-operators";
+        experimental-features = "nix-command flakes pipe-operators repl-flake";
+
+        # Determinate Nix related configurations
+        extra-experimental-features = "parallel-eval external-builders";
+
+        # Cores to use to evaluate expressions
+        eval-cores = 0;
+
+        # Enable lazy tree feature
+        lazy-trees = true;
+
+        # Define external builders
+        external-builders = [
+          {
+            systems = ["aarch64-linux" "x86_64-linux"];
+            program = "/usr/local/bin/determinate-nixd";
+            args = ["builder"];
+          }
+        ];
+
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"

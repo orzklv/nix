@@ -12,6 +12,7 @@
     "elmedia-player"
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
+    "iterm2"
     "github"
     "keka"
     "kekaexternalhelper"
