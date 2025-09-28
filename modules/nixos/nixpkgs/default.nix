@@ -47,7 +47,7 @@
 
       settings = {
         # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes pipe-operators repl-flake";
+        experimental-features = "nix-command flakes pipe-operators";
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"
