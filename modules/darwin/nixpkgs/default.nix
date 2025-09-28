@@ -52,8 +52,8 @@
 
       # Linux builder for Linux projects
       linux-builder = {
-        enable = true;
-        ephemeral = true;
+        enable = false; 
+        ephemeral = false;
       };
 
       # Additional settings
