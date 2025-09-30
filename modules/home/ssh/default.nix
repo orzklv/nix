@@ -5,7 +5,7 @@
   ...
 }: let
   extraConfig = ''
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
     ${(lib.optionalString pkgs.stdenv.isDarwin
       ''
         UseKeychain yes
@@ -70,16 +70,9 @@ in {
             user = "sakhib";
             hostname = "10.10.0.2";
           };
-
-          # Local Hub Kolyma
-          local-1 = {
-            port = 6666;
-            user = "sakhib";
-            hostname = "uz1.kolyma.uz";
-          };
         }
         # Global Kolymas
-        // (repetition {amount = 2;});
+        // (repetition {amount = 4;});
     };
   };
 }
