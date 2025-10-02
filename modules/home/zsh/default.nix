@@ -110,6 +110,12 @@
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
+    function fixnix {
+      sudo rm -rf /etc/zshrc.before-nix-darwin /etc/zprofile.before-nix-darwin
+      sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
+      sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
+    }
+
     ${mac-extra}
     ${linux-extra}
   '';
