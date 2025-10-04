@@ -29,7 +29,6 @@
       unstable.telegram-desktop
       # Git Management Tool
       github-desktop
-      unstable.gitbutler
       # RDP Management
       remmina
     ])
