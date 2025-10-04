@@ -27,8 +27,9 @@
       tuba
       # Telegram desktop
       unstable.telegram-desktop
-      # GitHub Desktop
+      # Git Management Tool
       github-desktop
+      unstable.gitbutler
       # RDP Management
       remmina
     ])
