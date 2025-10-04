@@ -22,5 +22,10 @@ pkgs.stdenv.mkDerivation {
     alejandra
   ];
 
+  shellHook = ''
+    # Fetch whatever update
+    git pull
+  '';
+
   NIX_CONFIG = "extra-experimental-features = nix-command flakes pipe-operators";
 }
