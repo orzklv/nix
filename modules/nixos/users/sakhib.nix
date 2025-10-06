@@ -60,14 +60,9 @@ in {
           "libvirtd"
         ];
 
-        openssh.authorizedKeys.keys = lib.strings.splitString "\n" (
-          builtins.readFile (
-            builtins.fetchurl {
-              url = "https://github.com/orzklv.keys";
-              sha256 = "05rvkkk382jh84prwp4hafnr3bnawxpkb3w6pgqda2igia2a4865";
-            }
-          )
-        );
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfHY4rNOm6DHH8XcmtU6CegX0/d99agN/x7MuPD5WJR sakhib@orzklv.uz"
+        ];
       };
     };
 
