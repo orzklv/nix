@@ -62,11 +62,6 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      - name: Free Disk Space
-        uses: jlumbroso/free-disk-space@main
-        with:
-          tool-cache: true
-
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
