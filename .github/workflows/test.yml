@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [self-hosted, macos-latest, ubuntu-latest]
+        os: [ubuntu-24.04-arm, macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,7 +18,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nix
-        if: ${{ matrix.os != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
       - name: Check up flake configuration
@@ -31,7 +30,7 @@ jobs:
       fail-fast: false
       matrix:
         pattern:
-          - system: self-hosted
+          - system: ubuntu-24.04-arm
             target: Parallels
           - system: ubuntu-latest
             target: Laboratory
@@ -45,13 +44,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Free Disk Space
-        if: ${{ matrix.pattern.system == 'ubuntu-latest' }}
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: true
 
       - name: Install Nix
-        if: ${{ matrix.pattern.system != 'self-hosted' }}
         uses: DeterminateSystems/nix-installer-action@main
 
       - name: Build NixOS configuration
@@ -64,6 +61,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main

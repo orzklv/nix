@@ -64,10 +64,6 @@
         # Enable lazy tree feature
         lazy-trees = true;
 
-        # Define external builders
-        # WARNING: Manually defining this breaks linux builders
-        # external-builders = "[{\"systems\":[\"aarch64-linux\",\"x86_64-linux\"],\"program\":\"/usr/local/bin/determinate-nixd\",\"args\":[\"builder\"]}]";
-
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"

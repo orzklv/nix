@@ -19,12 +19,14 @@ jobs:
           NIXPKGS_ALLOW_UNFREE: "1"
           NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
 
-
   aarch64-linux:
-    runs-on: self-hosted
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
 
       - name: Build NixOS configuration
         run: nix eval --impure --show-trace --json -f ./repl.nix packages
