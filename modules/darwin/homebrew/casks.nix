@@ -13,7 +13,7 @@
     "folx"
     "font-sf-mono-nerd-font-ligaturized"
     "iterm2"
-    "github"
+    "gitfox"
     "keka"
     "kekaexternalhelper"
     "little-snitch"
@@ -22,7 +22,6 @@
     "minecraft"
     "obs"
     "openscad"
-    "openvpn-connect"
     "parallels"
     "prismlauncher"
     "raspberry-pi-imager"
@@ -30,7 +29,6 @@
     "sf-symbols"
     "sketch"
     "zen"
-    "zoom"
   ];
 in {
   # Homebrew Casks installations
