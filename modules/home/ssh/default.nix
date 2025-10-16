@@ -72,7 +72,7 @@ in {
           };
         }
         # Global Kolymas
-        // (repetition {amount = 4;});
+        // (repetition {amount = 5;});
     };
   };
 }
