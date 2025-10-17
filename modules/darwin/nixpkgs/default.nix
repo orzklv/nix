@@ -53,9 +53,6 @@
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes pipe-operators";
 
-        # Determinate Nix related configurations
-        extra-experimental-features = "parallel-eval external-builders";
-
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"
