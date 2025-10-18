@@ -128,7 +128,7 @@
     # Development shells
     devShells = forAllSystems (system: {
       default = import ./shell.nix {
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
       };
     });
 

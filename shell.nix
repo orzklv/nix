@@ -1,6 +1,6 @@
 {
   pkgs ? let
-    lock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked;
+    lock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs-unstable.locked;
     nixpkgs = fetchTarball {
       url = "https://github.com/nixos/nixpkgs/archive/${lock.rev}.tar.gz";
       sha256 = lock.narHash;
@@ -13,16 +13,18 @@ pkgs.stdenv.mkDerivation {
   name = "nix";
 
   nativeBuildInputs = with pkgs; let
-    linter = statix.overrideAttrs {
-      version = "dev";
+    linter = statix.overrideAttrs (old: rec {
       src = fetchFromGitHub {
         owner = "oppiliappan";
         repo = "statix";
-        rev = "e9df54ce918457f151d2e71993edeca1a7af0132";
+        rev = "8eefaec2e74ff54f6eb541aaeb80aa352ecae884";
         sha256 = "sha256-duH6Il124g+CdYX+HCqOGnpJxyxOCgWYcrcK0CBnA2M=";
       };
-      cargoHash = "sha256-IeVGsrTXqmXbKRbJlBDv02fJ+rPRjwuF354/jZKRK/M=";
-    };
+      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        inherit src;
+        hash = "sha256-IeVGsrTXqmXbKRbJlBDv02fJ+rPRjwuF354/jZKRK/M=";
+      };
+    });
   in [
     git
     just
