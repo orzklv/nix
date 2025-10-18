@@ -7,12 +7,7 @@
   lib,
   modulesPath,
   ...
-}: let
-  disks = [
-    "/dev/nvme0n1"
-    "/dev/sda"
-  ];
-in {
+}: {
   imports = [
     # Disko generated partitions
     inputs.disko.nixosModules.disko

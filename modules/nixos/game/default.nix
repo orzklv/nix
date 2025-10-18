@@ -8,23 +8,28 @@
   ];
 
   config = {
-    # Prepare for the worst
-    programs.nix-ld = {
-      enable = true;
-      libraries = pkgs.steam-run.args.multiPkgs pkgs;
-    };
+    programs = {
+      # Prepare for the worst
+      nix-ld = {
+        enable = true;
+        libraries = pkgs.steam-run.args.multiPkgs pkgs;
+      };
 
-    # Gayming at its finest
-    programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
+      # Gayming at its finest
+      steam = {
+        enable = true;
+        # Open ports in the firewall for Steam Remote Play
+        remotePlay.openFirewall = true;
+        # Open ports in the firewall for Source Dedicated Server
+        dedicatedServer.openFirewall = true;
+        # Open ports in the firewall for Steam Local Network Game Transfers
+        localNetworkGameTransfers.openFirewall = true;
+      };
 
-    # Xuyovo Labs games launchers!
-    programs.anime-game-launcher.enable = true;
-    programs.anime-games-launcher.enable = true;
+      # Xuyovo Labs games launchers!
+      anime-game-launcher.enable = true;
+      anime-games-launcher.enable = true;
+    };
 
     # Other launchers with configurations.
     environment.systemPackages = with pkgs; [

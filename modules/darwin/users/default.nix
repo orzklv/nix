@@ -1,5 +1,5 @@
 # Keep all specific user configs here as a module
-{lib, ...}: let
+{...}: let
   modules =
     builtins.readDir ./.
     |> builtins.attrNames

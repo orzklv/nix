@@ -1,6 +1,4 @@
 {lib}: let
-  # WARNING!
-  # Becomes impure when opath provided
   attrSystem = {
     list,
     inputs,
@@ -28,8 +26,6 @@
   in
     lib.listToAttrs map;
 
-  # WARNING!
-  # Becomes impure when opath provided
   mapSystem = {
     list,
     inputs,
