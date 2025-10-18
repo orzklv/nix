@@ -8,7 +8,7 @@
 
   # Packages that are not aarch64 compatible
   x86_64-only =
-    lib.condition.mkArrIf
+    lib.optionals
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
       # Latest discord

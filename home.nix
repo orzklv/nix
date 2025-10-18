@@ -21,14 +21,13 @@
     inputs.zen-browser.homeModules.twilight
   ];
   inherit (pkgs) stdenv;
-  osx = stdenv.hostPlatform.isDarwin;
 
   home =
-    if osx
+    if stdenv.hostPlatform.isDarwin
     then "Users"
     else "home";
 
-  macos = lib.mkIf osx {
+  macos = lib.mkIf stdenv.hostPlatform.isDarwin {
     # Leave here configs that should be applied only at macos machines
 
     # This is to ensure programs are using ~/.config rather than
@@ -36,7 +35,7 @@
     xdg.enable = true;
   };
 
-  linux = lib.mkIf (!osx) {
+  linux = lib.mkIf (!stdenv.hostPlatform.isDarwin) {
     programs.zen-browser = {
       enable = true;
       nativeMessagingHosts = [pkgs.firefoxpwa];

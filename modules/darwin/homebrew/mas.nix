@@ -2,8 +2,9 @@
   lib,
   config,
   ...
-}: let
-  apps = lib.mkIf config.homebrew.enable {
+}: {
+  # AppStore installations
+  homebrew.masApps = lib.optionals config.homebrew.enable {
     "Affinity Publisher 2" = 1606941598;
     "GarageBand" = 682658836;
     "JSONPeep" = 1458969831;
@@ -32,7 +33,4 @@
     "Keynote" = 409183694;
     "Shazam" = 897118787;
   };
-in {
-  # AppStore installations
-  homebrew.masApps = apps;
 }

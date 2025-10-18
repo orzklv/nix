@@ -12,13 +12,12 @@
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
     outputs.nixosModules.vpn
-    outputs.nixosModules.fonts
     outputs.nixosModules.sound
+    outputs.nixosModules.users
     outputs.nixosModules.secret
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
-    outputs.nixosModules.users.sakhib
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd

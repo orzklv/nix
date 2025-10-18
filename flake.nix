@@ -1,10 +1,21 @@
 {
-  #     _   ___         ______            ____
-  #    / | / (_)  __   / ____/___  ____  / __/____
-  #   /  |/ / / |/_/  / /   / __ \/ __ \/ /_/ ___/
-  #  / /|  / />  <   / /___/ /_/ / / / / __(__  )
-  # /_/ |_/_/_/|_|   \____/\____/_/ /_/_/ /____/
-  description = "Sokhibjon's dotfiles";
+  # =================================================================
+  #    .oooooo.                       oooo        oooo
+  #   d8P'  `Y8b                      `888        `888
+  #  888      888 oooo d8b   oooooooo  888  oooo   888  oooo    ooo
+  #  888      888 `888""8P  d'""7d8P   888 .8P'    888   `88.  .8'
+  #  888      888  888        .d8P'    888888.     888    `88..8'
+  #  `88b    d88'  888      .d8P'  .P  888 `88b.   888     `888'
+  #   `Y8bood8P'  d888b    d8888888P  o888o o888o o888o     `8'
+  # =================================================================
+  description = "Sokhibjon's dotfiles managed via Nix configuration";
+  # =================================================================
+
+  # Extra nix configurations to inject to flake scheme
+  # => use if something doesn't work out of box or when despaired...
+  # nixConfig = {
+  #   experimental-features = ["nix-command" "flakes" "pipe-operators"];
+  # };
 
   # inputs are other flakes you use within your own flake, dependencies
   # for your flake, etc.
@@ -34,12 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    # Determinate nix darwin modules
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-
-    # Flake utils for eachSystem
-    flake-utils.url = "github:numtide/flake-utils";
-
     # Secrets management
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -52,20 +57,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Personal repository of lib, overlays and packages
-    orzklv-pkgs = {
-      url = "github:orzklv/pkgs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-unstable.follows = "nixpkgs-unstable";
-      };
-    };
-
     # An anime game(s) launcher (Genshin Impact)
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     # Or, if you follow Nixkgs release 25.05:
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
-    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Goofy ahh browser from brainrot generation
     zen-browser = {
@@ -73,6 +71,12 @@
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Good old Apple's Ligaturized SF Mono font
+    sf-mono-liga = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
     };
 
     # TODO: Add any other flake you might need
@@ -89,73 +93,77 @@
     self,
     nixpkgs,
     home-manager,
-    flake-utils,
-    orzklv-pkgs,
     ...
   } @ inputs: let
     # Self instance pointer
-    outputs = self;
-  in
-    # Attributes for each system
-    flake-utils.lib.eachDefaultSystem (
-      system: let
+    inherit (self) outputs;
+
+    # Personal library instance
+    inherit (outputs) lib;
+
+    # Supported systems for your flake packages, shell, etc.
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+    ];
+
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    # Nixpkgs, Home-Manager and personal helpful functions
+    lib =
+      nixpkgs.lib
+      // home-manager.lib
+      // import ./lib {inherit (nixpkgs) lib;};
+
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+
+    # Development shells
+    devShells = forAllSystems (system: {
+      default = import ./shell.nix {
         pkgs = nixpkgs.legacyPackages.${system};
-      in
-        # Nixpkgs packages for the current system
-        {
-          # Development shells
-          devShells.default = import ./shell.nix {inherit pkgs;};
-        }
-    )
-    # and ...
-    //
-    # Attribute from static evaluation
-    {
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      inherit (orzklv-pkgs) formatter;
-
-      # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // orzklv-pkgs.lib;
-
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-
-      # Reusable darwin modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      darwinModules = import ./modules/darwin;
-
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeModules = import ./modules/home;
-
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = orzklv-pkgs.lib.config.mapSystem {
-        inherit inputs outputs;
-        opath = ./.;
-        list = [
-          "Parallels"
-          "Laboratory"
-          "Station"
-        ];
       };
+    });
 
-      # Darwin configuration entrypoint
-      # Available through 'darwin-rebuild build --flake .#your-hostname'
-      # Stored at/as root/darwin/<alias name for machine>/*.nix
-      darwinConfigurations = orzklv-pkgs.lib.config.attrSystem {
-        inherit inputs outputs;
-        opath = ./.;
-        type = "darwin";
-        list = [
-          {
-            name = "Sokhibjons-MacBook-Pro";
-            alias = "macbook-pro";
-          }
-        ];
-      };
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = lib.omodules.mod-parse ./modules/nixos;
+
+    # Reusable darwin modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    darwinModules = lib.omodules.mod-parse ./modules/darwin;
+
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeModules = lib.omodules.mod-parse ./modules/home;
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    # Stored at/as root/nixos/<hostname lower case>/*.nix
+    nixosConfigurations = lib.config.mapSystem {
+      inherit inputs outputs;
+      list =
+        builtins.readDir ./nixos
+        |> builtins.attrNames
+        |> map (h: self.lib.ostrings.capitalize h);
     };
+
+    # Darwin configuration entrypoint
+    # Available through 'darwin-rebuild build --flake .#your-hostname'
+    # Stored at/as root/darwin/<alias name for machine>/*.nix
+    darwinConfigurations = lib.config.mapSystem {
+      inherit inputs outputs;
+      type = "darwin";
+      list =
+        builtins.readDir ./darwin
+        |> builtins.attrNames;
+    };
+  };
 }

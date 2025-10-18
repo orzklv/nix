@@ -1,5 +1,10 @@
 # Keep all specific user configs here as a module
-{
-  # List your users here
-  sakhib = import ./sakhib.nix;
+{lib, ...}: let
+  modules =
+    builtins.readDir ./.
+    |> builtins.attrNames
+    |> builtins.filter (i: i != "default.nix")
+    |> map (m: ./. + "/${m}");
+in {
+  imports = modules;
 }

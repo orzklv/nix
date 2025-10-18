@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -46,19 +45,20 @@ in {
 
       matchBlocks =
         {
-          # Uzinfocom
           efael-1 = {
             port = 48596;
             user = "sakhib";
             hostname = "93.188.85.94";
           };
 
+          # Did they turn it off?
           efael-2 = {
             port = 22;
             user = "sakhib";
             hostname = "ns2.efael.uz";
           };
 
+          # Did they turn it off?
           efael-3 = {
             port = 22;
             user = "sakhib";

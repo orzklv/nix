@@ -123,6 +123,18 @@ in {
       };
     };
 
+    # Add all necessary fonts
+    fonts.packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      nerd-fonts.jetbrains-mono
+      sf-mono-liga
+    ];
+
     # Make sure opengl is enabled
     hardware.graphics = all-graphics // x86_64-graphics;
 

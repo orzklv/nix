@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{...}: {
   config = {
     # Installing zsh for system
     programs.zsh = {

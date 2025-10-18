@@ -1,14 +1,13 @@
-{...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   imports = [
     # Note:
     # Uncomment for the first time,
     # it keeps installing over and over.
-    # ./mas.nix
-
-    # Rest is fine
-    ./taps.nix
-    ./casks.nix
-    ./formulae.nix
+    ./mas.nix
   ];
 
   homebrew = {
@@ -19,5 +18,38 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+
+    brews = lib.optionals config.homebrew.enable [
+      "pkl"
+      "mas"
+      "git-lfs"
+    ];
+
+    casks = lib.optionals config.homebrew.enable [
+      "anki"
+      "balenaetcher"
+      "cleanmymac"
+      "discord"
+      "element"
+      "elmedia-player"
+      "folx"
+      "iterm2"
+      "gitfox"
+      "keka"
+      "kekaexternalhelper"
+      "little-snitch"
+      "logitech-options"
+      "macs-fan-control"
+      "minecraft"
+      "obs"
+      "openscad"
+      "parallels"
+      "prismlauncher"
+      "raspberry-pi-imager"
+      "rectangle-pro"
+      "sf-symbols"
+      "sketch"
+      "zen"
+    ];
   };
 }
