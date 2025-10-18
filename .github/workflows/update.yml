@@ -15,6 +15,9 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes pipe-operators
 
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main

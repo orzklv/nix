@@ -13,24 +13,25 @@ pkgs.stdenv.mkDerivation {
   name = "nix";
 
   nativeBuildInputs = with pkgs; let
-    linter = statix.overrideAttrs (old: rec {
-      src = fetchFromGitHub {
-        owner = "oppiliappan";
-        repo = "statix";
-        rev = "8eefaec2e74ff54f6eb541aaeb80aa352ecae884";
-        sha256 = "sha256-duH6Il124g+CdYX+HCqOGnpJxyxOCgWYcrcK0CBnA2M=";
-      };
-      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-        inherit src;
-        hash = "sha256-IeVGsrTXqmXbKRbJlBDv02fJ+rPRjwuF354/jZKRK/M=";
-      };
-    });
   in [
     git
     just
     nixd
     sops
-    linter
+    statix.overrideAttrs
+    (_o: rec {
+      src = fetchFromGitHub {
+        owner = "oppiliappan";
+        repo = "statix";
+        rev = "43681f0da4bf1cc6ecd487ef0a5c6ad72e3397c7";
+        hash = "sha256-LXvbkO/H+xscQsyHIo/QbNPw2EKqheuNjphdLfIZUv4=";
+      };
+
+      cargoDeps = pkgs.rustPlatform.importCargoLock {
+        lockFile = src + "/Cargo.lock";
+        allowBuiltinFetchGit = true;
+      };
+    })
 
     deadnix
     alejandra
