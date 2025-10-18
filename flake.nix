@@ -150,7 +150,7 @@
     nixosConfigurations = lib.config.mapSystem {
       inherit inputs outputs;
       list =
-        builtins.readDir ./nixos
+        builtins.readDir ./hosts/nixos
         |> builtins.attrNames
         |> map (h: self.lib.ostrings.capitalize h);
     };
@@ -162,7 +162,7 @@
       inherit inputs outputs;
       type = "darwin";
       list =
-        builtins.readDir ./darwin
+        builtins.readDir ./hosts/darwin
         |> builtins.attrNames;
     };
   };
