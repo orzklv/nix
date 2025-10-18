@@ -49,6 +49,7 @@
       "rectangle-pro"
       "sf-symbols"
       "sketch"
+      "zed"
       "zen"
     ];
   };
