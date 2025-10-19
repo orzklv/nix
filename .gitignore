@@ -26,3 +26,6 @@ nohup.out
 # secrets retarded files
 secrets/*.retard
 secrets/*.ovpn
+
+# pre-commit hook
+.pre-commit-config*

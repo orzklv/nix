@@ -7,40 +7,52 @@
     };
   in
     import nixpkgs {overlays = [];},
+  pre-commit-check ? import (builtins.fetchTarball "https://github.com/cachix/git-hooks.nix/tarball/master"),
   ...
 }:
 pkgs.stdenv.mkDerivation {
   name = "nix";
 
-  nativeBuildInputs = with pkgs; let
-  in [
+  nativeBuildInputs = with pkgs; [
     git
     just
-    nixd
     sops
-    statix.overrideAttrs
-    (_o: rec {
-      src = fetchFromGitHub {
-        owner = "oppiliappan";
-        repo = "statix";
-        rev = "43681f0da4bf1cc6ecd487ef0a5c6ad72e3397c7";
-        hash = "sha256-LXvbkO/H+xscQsyHIo/QbNPw2EKqheuNjphdLfIZUv4=";
-      };
 
-      cargoDeps = pkgs.rustPlatform.importCargoLock {
-        lockFile = src + "/Cargo.lock";
-        allowBuiltinFetchGit = true;
-      };
-    })
+    # Latest statix
+    (
+      statix.overrideAttrs
+      (_o: rec {
+        src = fetchFromGitHub {
+          owner = "oppiliappan";
+          repo = "statix";
+          rev = "e9df54ce918457f151d2e71993edeca1a7af0132";
+          hash = "sha256-LXvbkO/H+xscQsyHIo/QbNPw2EKqheuNjphdLfIZUv4=";
+        };
 
+        cargoDeps = pkgs.rustPlatform.importCargoLock {
+          lockFile = src + "/Cargo.lock";
+          allowBuiltinFetchGit = true;
+        };
+      })
+    )
+
+    nixd
     deadnix
     alejandra
   ];
 
+  # Runtime dependencies
+  buildInputs = pre-commit-check.enabledPackages;
+
+  # Bootstrapping commands
   shellHook = ''
-    # Fetch whatever update
+    # Initiate git hooks
+    ${pre-commit-check.shellHook}
+
+    # Fetch latest changes
     git pull
   '';
 
+  # Nix related configurations
   NIX_CONFIG = "extra-experimental-features = nix-command flakes pipe-operators";
 }

@@ -57,6 +57,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Pre commit hooks for git
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # An anime game(s) launcher (Genshin Impact)
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     # Or, if you follow Nixkgs release 25.05:
@@ -93,6 +99,7 @@
     self,
     nixpkgs,
     home-manager,
+    pre-commit-hooks,
     ...
   } @ inputs: let
     # Self instance pointer
@@ -114,7 +121,25 @@
   in {
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+      pkgs.treefmt.withConfig {
+        runtimeInputs = with pkgs; [
+          pkgs.alejandra
+        ];
+
+        settings = {
+          # Log level for files treefmt won't format
+          on-unmatched = "info";
+
+          # Configure nixfmt for .nix files
+          formatter.nix = {
+            command = "alejandra";
+            includes = ["*.nix"];
+          };
+        };
+      });
 
     # Nixpkgs, Home-Manager and personal helpful functions
     lib =
@@ -128,7 +153,39 @@
     # Development shells
     devShells = forAllSystems (system: {
       default = import ./shell.nix {
+        inherit (self.checks.${system}) pre-commit-check;
         pkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+      };
+    });
+
+    # Checks for hooks
+    checks = forAllSystems (system: {
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          statix = let
+            pkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+          in {
+            enable = true;
+            package =
+              pkgs.statix.overrideAttrs
+              (_o: rec {
+                src = pkgs.fetchFromGitHub {
+                  owner = "oppiliappan";
+                  repo = "statix";
+                  rev = "e9df54ce918457f151d2e71993edeca1a7af0132";
+                  hash = "sha256-LXvbkO/H+xscQsyHIo/QbNPw2EKqheuNjphdLfIZUv4=";
+                };
+
+                cargoDeps = pkgs.rustPlatform.importCargoLock {
+                  lockFile = src + "/Cargo.lock";
+                  allowBuiltinFetchGit = true;
+                };
+              });
+          };
+          alejandra.enable = true;
+          flake-checker.enable = true;
+        };
       };
     });
 

@@ -8,7 +8,8 @@ in
       orzklv = mkOrzklvLib {lib = self;};
 
       # For forward compatibility.
-      literalExpression = super.literalExpression or super.literalExample;
-      literalDocBook = super.literalDocBook or super.literalExample;
+      # literalExpression = super.literalExpression or super.literalExample;
+      # literalDocBook = super.literalDocBook or super.literalExample;
+      inherit (super) literalExpression literalDocBook;
     }
   )
