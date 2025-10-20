@@ -22,8 +22,8 @@
 
       settings = {
         # User credentials
-        userEmail = "sakhib@orzklv.uz";
-        userName = "Sokhibjon Orzikulov";
+        user.email = "sakhib@orzklv.uz";
+        user.name = "Sokhibjon Orzikulov";
 
         # Aliases
         aliases = {
