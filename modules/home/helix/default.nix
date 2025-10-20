@@ -79,9 +79,6 @@
           cargo # rust package manager
           rustfmt
 
-          #-- zig
-          zls
-
           #-- nix
           nixd
           statix # Lints and suggestions for the nix programming language
@@ -111,9 +108,9 @@
           fzf
         ]
         ++ (
-          if pkgs.stdenv.hostPlatform.isDarwin
-          then []
-          else [
+          lib.optionals
+          (!pkgs.stdenv.hostPlatform.isDarwin)
+          [
             #-- verilog / systemverilog
             verible
             gdb
