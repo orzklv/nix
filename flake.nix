@@ -21,27 +21,20 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Nixpkgs for darwin
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
-
-    # Unstable Nixpkgs
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Also see the 'unstable-packages' overlay at 'overlays/home.nix'.
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "github:xinux-org/nix-darwin/nix-darwin-25.05";
+      url = "github:xinux-org/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
@@ -67,7 +60,7 @@
     # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     # Or, if you follow Nixkgs release 25.05:
     aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
+      url = "github:ezKEa/aagl-gtk-on-nix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -154,7 +147,7 @@
     devShells = forAllSystems (system: {
       default = import ./shell.nix {
         inherit (self.checks.${system}) pre-commit-check;
-        pkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
       };
     });
 
@@ -164,7 +157,7 @@
         src = ./.;
         hooks = {
           statix = let
-            pkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+            pkgs = inputs.nixpkgs.legacyPackages.${system};
           in {
             enable = true;
             package =

@@ -80,9 +80,6 @@
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
 
-  # Docker for development purposes
-  virtualisation.docker.enable = true;
-
   # KVM Virtualization (for GNOME Boxes)
   virtualisation.libvirtd = {
     enable = true;
@@ -90,16 +87,6 @@
       package = pkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-          .fd
-        ];
-      };
     };
   };
 

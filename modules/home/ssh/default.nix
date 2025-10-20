@@ -26,6 +26,9 @@
           name = "${prefix}${toString n}";
           value = {
             inherit user port;
+            addKeysToAgent = "yes";
+            serverAliveInterval = 30;
+            serverAliveCountMax = 3;
             hostname = "ns${toString n}.${domain}";
           };
         }
@@ -37,11 +40,6 @@ in {
     programs.ssh = {
       enable = true;
       inherit extraConfig;
-      addKeysToAgent = "yes";
-
-      # Server keep alive
-      serverAliveInterval = 30;
-      serverAliveCountMax = 3;
 
       matchBlocks =
         {

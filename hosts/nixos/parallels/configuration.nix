@@ -60,13 +60,18 @@
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8"
+      "uz_UZ.UTF-8/UTF-8"
+    ];
+  };
 
   # Don't ask for password
   security.sudo.wheelNeedsPassword = false;
-
-  # Docker for development purposes
-  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -75,9 +80,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # Temporarily enable e-imzo
-  services.e-imzo.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05"; # Did you read the comment?

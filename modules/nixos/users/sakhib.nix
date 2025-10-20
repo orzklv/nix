@@ -26,7 +26,7 @@
       # Mastodon client
       tuba
       # Telegram desktop
-      unstable.telegram-desktop
+      telegram-desktop
       # Git Management Tool
       github-desktop
       # RDP Management

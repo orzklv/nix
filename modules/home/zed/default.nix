@@ -190,7 +190,7 @@ in {
       userSettings = settings;
       installRemoteServer = true;
       extraPackages = with pkgs; [nixd];
-      package = pkgs.unstable.zed-editor;
+      package = pkgs.zed-editor;
     };
   };
 }
