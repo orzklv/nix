@@ -20,24 +20,27 @@
       enable = true;
       lfs.enable = true;
 
-      # User credentials
-      userName = "Sokhibjon Orzikulov";
-      userEmail = "sakhib@orzklv.uz";
+      settings = {
+        # User credentials
+        userEmail = "sakhib@orzklv.uz";
+        userName = "Sokhibjon Orzikulov";
 
-      extraConfig = {
-        http.sslVerify = false;
-        pull.rebase = true;
+        # Aliases
+        aliases = {
+          ch = "checkout";
+        };
+
+        # Spicy configs
+        extraConfig = {
+          http.sslVerify = false;
+          pull.rebase = true;
+        };
       };
 
       # GPG Signing
       signing = {
         signByDefault = true;
         key = "00D27BC687070683FBB9137C3C35D3AF0DA1D6A8";
-      };
-
-      # Aliases
-      aliases = {
-        ch = "checkout";
       };
 
       # Git ignores
