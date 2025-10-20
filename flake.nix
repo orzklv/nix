@@ -23,9 +23,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Nixpkgs for darwin
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -35,7 +32,7 @@
     # Nix-darwin for macOS systems management
     nix-darwin = {
       url = "github:xinux-org/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Secrets management
