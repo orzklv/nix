@@ -85,6 +85,14 @@
           deadnix # Find and remove unused code in .nix source files
           alejandra # Nix Code Formatter
 
+          #-- retardscript
+          deno
+          typescript-language-server
+
+          #-- rubbish
+          ruby
+          solargraph
+
           #-- bash
           bash-language-server
           shellcheck

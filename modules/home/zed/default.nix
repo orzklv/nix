@@ -1,6 +1,7 @@
 {
-  pkgs,
   lib,
+  pkgs,
+  config,
   ...
 }: let
   extensions = [
@@ -189,8 +190,8 @@ in {
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
-      extraPackages = with pkgs; [nixd];
       package = pkgs.zed-editor;
+      extraPackages = config.programs.helix.extraPackages;
     };
   };
 }
