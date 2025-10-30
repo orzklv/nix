@@ -47,6 +47,12 @@
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes pipe-operators";
+        # Extra cached servers
+        substituters = ["https://cache.xinux.uz/"];
+        # Signing keys used in cache servers
+        trusted-public-keys = [
+          "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+        ];
         # Trusted users for secret-key
         trusted-users = [
           "${config.users.users.sakhib.name}"
