@@ -41,6 +41,7 @@
       "logitech-options"
       "macs-fan-control"
       "minecraft"
+      "nextcloud"
       "obs"
       "openscad"
       "parallels"
