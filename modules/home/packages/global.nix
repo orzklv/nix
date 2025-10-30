@@ -6,7 +6,6 @@
   pkgs.gh
   pkgs.jq
   pkgs.wget
-  pkgs.gitui
   pkgs.netcat
   pkgs.direnv
   pkgs.git-lfs
