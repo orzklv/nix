@@ -57,6 +57,8 @@
         trusted-users = [
           "${config.users.users.sakhib.name}"
         ];
+        # Deduplicate and optimize nix store
+        auto-optimise-store = true;
       };
     };
   };
