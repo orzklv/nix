@@ -18,7 +18,6 @@
   repetition = {
     amount,
     prefix ? "kolyma-",
-    user ? "sakhib",
     port ? 22,
     domain ? "kolyma.uz",
   }:
@@ -28,7 +27,7 @@
           n = i + 1;
         in {
           name = "${prefix}${toString n}";
-          value = makeHost 22 "ns${toString n}.${domain}";
+          value = makeHost port "ns${toString n}.${domain}";
         }
       )
       amount
