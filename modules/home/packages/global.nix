@@ -1,6 +1,6 @@
 {pkgs, ...}: [
   # Downloader
-  pkgs.aria
+  pkgs.aria2
 
   # Developer Mode
   pkgs.gh
