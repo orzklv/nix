@@ -3,13 +3,17 @@
   lib,
   ...
 }: let
-  extraConfig = ''
-    IdentityFile ~/.ssh/id_ed25519
-    ${(lib.optionalString pkgs.stdenv.isDarwin
-      ''
-        UseKeychain yes
-      '')}
-  '';
+  makeHost = port: hostname: {
+    user = "sakhib";
+    inherit port hostname;
+    addKeysToAgent = "yes";
+    serverAliveCountMax = 3;
+    serverAliveInterval = 30;
+    identityFile = "~/.ssh/id_ed25519";
+    extraOptions = lib.mkIf pkgs.stdenv.isDarwin {
+      UseKeychain = "yes";
+    };
+  };
 
   repetition = {
     amount,
@@ -24,13 +28,7 @@
           n = i + 1;
         in {
           name = "${prefix}${toString n}";
-          value = {
-            inherit user port;
-            addKeysToAgent = "yes";
-            serverAliveInterval = 30;
-            serverAliveCountMax = 3;
-            hostname = "ns${toString n}.${domain}";
-          };
+          value = makeHost 22 "ns${toString n}.${domain}";
         }
       )
       amount
@@ -39,38 +37,21 @@ in {
   config = {
     programs.ssh = {
       enable = true;
-      inherit extraConfig;
+      enableDefaultConfig = false;
 
       matchBlocks =
         {
-          efael-1 = {
-            port = 48596;
-            user = "sakhib";
-            hostname = "93.188.85.94";
-          };
+          # Did they turn it off?
+          efael-1 = makeHost 48596 "93.188.85.94";
 
           # Did they turn it off?
-          efael-2 = {
-            port = 22;
-            user = "sakhib";
-            hostname = "ns2.efael.uz";
-          };
+          efael-2 = makeHost 22 "ns2.efael.uz";
 
           # Did they turn it off?
-          efael-3 = {
-            port = 22;
-            user = "sakhib";
-            hostname = "ns3.efael.uz";
-          };
-
-          laboratory-1 = {
-            port = 22;
-            user = "sakhib";
-            hostname = "10.10.0.2";
-          };
+          efael-3 = makeHost 22 "ns3.efael.uz";
         }
         # Global Kolymas
-        // (repetition {amount = 5;});
+        // (repetition {amount = 4;});
     };
   };
 }
