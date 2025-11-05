@@ -27,8 +27,6 @@
       tuba
       # Telegram desktop
       telegram-desktop
-      # Git Management Tool
-      github-desktop
       # RDP Management
       remmina
     ])
