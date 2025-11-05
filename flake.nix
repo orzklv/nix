@@ -13,9 +13,9 @@
 
   # Extra nix configurations to inject to flake scheme
   # => use if something doesn't work out of box or when despaired...
-  # nixConfig = {
-  #   experimental-features = ["nix-command" "flakes" "pipe-operators"];
-  # };
+  nixConfig = {
+    experimental-features = ["nix-command" "flakes" "pipe-operators"];
+  };
 
   # inputs are other flakes you use within your own flake, dependencies
   # for your flake, etc.
