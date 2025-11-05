@@ -29,7 +29,7 @@
       "anki"
       "balenaetcher"
       "cleanmymac"
-      "discord"
+      # "discord"
       "element"
       "elmedia-player"
       "folx"
