@@ -182,7 +182,6 @@
         commit
         mousai
         polari
-        ghostty
         amberol
         blanket
         curtail
