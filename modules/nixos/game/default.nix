@@ -27,14 +27,6 @@
     environment.systemPackages = with pkgs; [
       cartridges
       prismlauncher
-      (lutris.override {
-        extraPkgs = _pkgs: [
-          # List package dependencies here
-        ];
-        extraLibraries = _pkgs: [
-          # List library dependencies here
-        ];
-      })
     ];
   };
 }
