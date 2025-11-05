@@ -25,10 +25,6 @@
         # Open ports in the firewall for Steam Local Network Game Transfers
         localNetworkGameTransfers.openFirewall = true;
       };
-
-      # Xuyovo Labs games launchers!
-      anime-game-launcher.enable = true;
-      anime-games-launcher.enable = true;
     };
 
     # Other launchers with configurations.

@@ -53,14 +53,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # An anime game(s) launcher (Genshin Impact)
-    # aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    # Or, if you follow Nixkgs release 25.05:
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Goofy ahh browser from brainrot generation
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
