@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.aagl.nixosModules.default
-  ];
-
   config = {
     programs = {
       # Prepare for the worst
