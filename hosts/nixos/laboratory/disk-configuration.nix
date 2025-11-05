@@ -1,23 +1,14 @@
 {
-  disks ? [
-    # 1TB NVME
-    "/dev/nvme0n1"
-
-    # 2TB SATA
-    "/dev/sda"
-  ],
-  ...
-}: {
   disko.devices = {
     disk = {
       main = {
-        device = builtins.elemAt disks 0;
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             BOOT = {
-              size = "1G";
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -47,25 +38,17 @@
       };
 
       storage = {
-        device = builtins.elemAt disks 1;
+        device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             MEDIA = {
-              size = "900G";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/media";
-              };
-            };
-            SERVER = {
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/srv";
+                mountpoint = "/media";
               };
             };
           };
