@@ -33,12 +33,9 @@
     ++ x86_64-only;
 
   hashedPassword = lib.strings.concatStrings [
-    "$y$j9T$dsXOFHW"
-    "CyplfRPiwsKu0l"
-    "0$7YXPRLohyW8Q"
-    "XfyITPP6Sag/l7"
-    "XH3i7TO4uGByPK"
-    "Bb2"
+    "$y$j9T$dsXOFHWCyplfRPiwsKu0l"
+    "0$7YXPRLohyW8QXfyITPP6Sag/l7"
+    "XH3i7TO4uGByPKBb2"
   ];
 in {
   config = {

@@ -20,7 +20,6 @@
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
     outputs.nixosModules.data.media
-    outputs.nixosModules.data.server
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
