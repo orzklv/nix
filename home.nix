@@ -35,7 +35,7 @@
     xdg.enable = true;
   };
 
-  linux = lib.mkIf (!stdenv.hostPlatform.isDarwin) {
+  linux = lib.mkIf stdenv.hostPlatform.isLinux {
     programs.zen-browser = {
       enable = true;
       nativeMessagingHosts = [pkgs.firefoxpwa];
@@ -63,17 +63,10 @@
   cfg = {
     # This is required information for home-manager to do its job
     home = {
-      stateVersion = "24.11";
+      stateVersion = "25.05";
       username = "sakhib";
       homeDirectory = "/${home}/sakhib";
       enableNixpkgsReleaseCheck = false;
-
-      # Tell it to map everything in the `config` directory in this
-      # repository to the `.config` in my home-manager directory
-      file.".local/share/fastfetch" = {
-        source = ./configs/fastfetch;
-        recursive = true;
-      };
     };
 
     # Let's enable home-manager
