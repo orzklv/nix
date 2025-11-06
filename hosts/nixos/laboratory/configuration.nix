@@ -13,13 +13,13 @@
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
     outputs.nixosModules.game
+    outputs.nixosModules.data
     outputs.nixosModules.sound
     outputs.nixosModules.users
     outputs.nixosModules.secret
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
     outputs.nixosModules.boot.grub
-    outputs.nixosModules.data.media
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd

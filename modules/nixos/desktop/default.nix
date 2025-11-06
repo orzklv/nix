@@ -230,7 +230,7 @@
         papirus-icon-theme
 
         # Normal fucking browser
-        inputs.zen-browser.packages."${pkgs.system}".twilight
+        inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
 
         # Some office stuff
         libreoffice-fresh
