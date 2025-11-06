@@ -11,13 +11,13 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
+    outputs.nixosModules.boot
     outputs.nixosModules.sound
     outputs.nixosModules.users
     outputs.nixosModules.secret
     outputs.nixosModules.oxidize
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
-    outputs.nixosModules.boot.grub
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
