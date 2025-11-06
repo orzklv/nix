@@ -10,21 +10,11 @@
   pkgs.direnv
   pkgs.git-lfs
   pkgs.cargo-update
-  # pkgs.nixvim
 
   # Environment
-  pkgs.fd
-  pkgs.bat
-  pkgs.btop
-  pkgs.eza
   pkgs.figlet
-  pkgs.gping
-  pkgs.hyperfine
   pkgs.onefetch
-  pkgs.procs
-  pkgs.ripgrep
   pkgs.tealdeer
-  pkgs.topgrade
 
   # For Prismlauncher
   pkgs.jdk17
