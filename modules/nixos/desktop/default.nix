@@ -44,9 +44,12 @@
           [org.gnome.desktop.interface]
           color-scheme='prefer-dark'
 
+          [org.gnome.desktop.interface]
+          accent-color='slate'
+
           # Favorite apps in gnome-shell
           [org.gnome.shell]
-          favorite-apps=['org.gnome.Nautilus.desktop', 'zen-twilight.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Console.desktop', 'org.gnome.gitg.desktop', 'org.gnome.Builder.desktop', 'org.gnome.Polari.desktop']
+          favorite-apps=['org.gnome.Nautilus.desktop', 'zen-twilight.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Console.desktop', 'org.gnome.gitg.desktop', 'dev.zed.Zed.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Fractal.desktop', 'dev.gropjr.Tuba.desktop']
 
           # Enable user extensions
           [org.gnome.shell]

@@ -1,144 +1,8 @@
-{pkgs, ...}: let
-  is-mac = pkgs.stdenv.hostPlatform.isDarwin;
-
-  extra = ''
-    # Global settings
-    setopt AUTO_CD
-    setopt BEEP
-    setopt HIST_BEEP
-    setopt HIST_EXPIRE_DUPS_FIRST
-    setopt HIST_FIND_NO_DUPS
-    setopt HIST_IGNORE_ALL_DUPS
-    setopt HIST_IGNORE_DUPS
-    setopt HIST_REDUCE_BLANKS
-    setopt HIST_SAVE_NO_DUPS
-    setopt HIST_VERIFY
-    setopt INC_APPEND_HISTORY
-    setopt INTERACTIVE_COMMENTS
-    setopt MAGIC_EQUAL_SUBST
-    setopt NO_NO_MATCH
-    setopt NOTIFY
-    setopt NUMERIC_GLOB_SORT
-    setopt PROMPT_SUBST
-    setopt SHARE_HISTORY
-
-    # Key bindings
-    bindkey -e
-    bindkey '^U' backward-kill-line
-    bindkey '^[[2~' overwrite-mode
-    bindkey '^[[3~' delete-char
-    bindkey '^[[H' beginning-of-line
-    bindkey '^[[1~' beginning-of-line
-    bindkey '^[[F' end-of-line
-    bindkey '^[[4~' end-of-line
-    bindkey '^[[1;5C' forward-word
-    bindkey '^[[1;5D' backward-word
-    bindkey '^[[3;5~' kill-word
-    bindkey '^[[5~' beginning-of-buffer-or-history
-    bindkey '^[[6~' end-of-buffer-or-history
-    bindkey '^[[Z' undo
-    bindkey ' ' magic-space
-
-    # History files
-    HISTFILE=~/.zsh_history
-    HIST_STAMPS=mm/dd/yyyy
-    HISTSIZE=5000
-    SAVEHIST=5000
-    ZLE_RPROMPT_INDENT=0
-    WORDCHARS=''${WORDCHARS//\/}
-    PROMPT_EOL_MARK=
-    TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
-
-    # Zsh Autosuggestions Configs
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=gray"
-
-    # Zsh Completions Configs
-    zstyle ':completion:*:*:*:*:*' menu select
-    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-    zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-    zstyle ':completion:*' auto-description 'specify: %d'
-    zstyle ':completion:*' completer _expand _complete
-    zstyle ':completion:*' format 'Completing %d'
-    zstyle ':completion:*' group-name ' '
-    zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-    zstyle ':completion:*' rehash true
-    zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-    zstyle ':completion:*' use-compctl false
-    zstyle ':completion:*' verbose true
-    zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-    typeset -gA ZSH_HIGHLIGHT_STYLES
-    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-    ZSH_HIGHLIGHT_STYLES[default]=none
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=gray,underline
-    ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
-    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-    ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[path]=bold
-    ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
-    ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-    ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-    ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-    ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
-    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
-    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-    ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
-    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[assign]=none
-    ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
-    ZSH_HIGHLIGHT_STYLES[named-fd]=none
-    ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-    ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
-    ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
-    ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-
-    function fixnix {
-      sudo rm -rf /etc/zshrc.before-nix-darwin /etc/zprofile.before-nix-darwin
-      sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
-      sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
-    }
-
-    ${mac-extra}
-    ${linux-extra}
-  '';
-
-  mac-extra =
-    if is-mac
-    then ''
-      # Golang's Trash
-      export GOPATH="$HOME/.go"
-
-      # Rustup for globals
-      export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-    ''
-    else '''';
-
-  linux-extra =
-    if (!is-mac)
-    then ''
-      # Golang's Trash
-      export GOPATH="$HOME/.go"
-    ''
-    else '''';
-in {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./alias.nix
     ./prompt.nix
@@ -150,17 +14,102 @@ in {
     # Install zsh
     enable = true;
 
-    # ZSH Autosuggestions
-    # The option `programs.zsh.enableAutosuggestions' defined in config
-    # has been renamed to `programs.zsh.autosuggestion.enable'.
-    autosuggestion.enable = true;
-
     # ZSH Completions
     enableCompletion = true;
 
-    # ZSH Syntax Highlighting
-    syntaxHighlighting.enable = true;
+    # History file
+    history = {
+      size = 5000;
+      save = 5000;
+    };
 
+    # Extra Features
+    setOptions = [
+      "AUTO_CD"
+      "BEEP"
+      "HIST_BEEP"
+      "HIST_EXPIRE_DUPS_FIRST"
+      "HIST_FIND_NO_DUPS"
+      "HIST_IGNORE_ALL_DUPS"
+      "HIST_IGNORE_DUPS"
+      "HIST_REDUCE_BLANKS"
+      "HIST_SAVE_NO_DUPS"
+      "HIST_VERIFY"
+      "INC_APPEND_HISTORY"
+      "INTERACTIVE_COMMENTS"
+      "MAGIC_EQUAL_SUBST"
+      "NO_NO_MATCH"
+      "NOTIFY"
+      "NUMERIC_GLOB_SORT"
+      "PROMPT_SUBST"
+      "SHARE_HISTORY"
+    ];
+
+    # ZSH Autosuggestions
+    # The option `programs.zsh.enableAutosuggestions' defined in config
+    # has been renamed to `programs.zsh.autosuggestion.enable'.
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=gray";
+    };
+
+    # ZSH Syntax Highlighting
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = [
+        "main"
+        "brackets"
+        "pattern"
+      ];
+      patterns = {
+        "rm -rf *" = "fg=white,bold,bg=red";
+      };
+      styles = {
+        default = "none";
+        unknown-token = "fg=gray,underline";
+        reserved-word = "fg=cyan,bold";
+        suffix-alias = "fg=green,underline";
+        global-alias = "fg=green,bold";
+        precommand = "fg=green,underline";
+        commandseparator = "fg=blue,bold";
+        autodirectory = "fg=green,underline";
+        path = "bold";
+        path_pathseparator = "";
+        path_prefix_pathseparator = "";
+        globbing = "fg=blue,bold";
+        history-expansion = "fg=blue,bold";
+        command-substitution = "none";
+        command-substitution-delimiter = "fg=magenta,bold";
+        process-substitution = "none";
+        process-substitution-delimiter = "fg=magenta,bold";
+        single-hyphen-option = "fg=green";
+        double-hyphen-option = "fg=green";
+        back-quoted-argument = "none";
+        back-quoted-argument-delimiter = "fg=blue,bold";
+        single-quoted-argument = "fg=yellow";
+        double-quoted-argument = "fg=yellow";
+        dollar-quoted-argument = "fg=yellow";
+        rc-quote = "fg=magenta";
+        dollar-double-quoted-argument = "fg=magenta,bold";
+        back-double-quoted-argument = "fg=magenta,bold";
+        back-dollar-quoted-argument = "fg=magenta,bold";
+        assign = "none";
+        redirection = "fg=blue,bold";
+        comment = "fg=black,bold";
+        named-fd = "none";
+        numeric-fd = "none";
+        arg0 = "fg=cyan";
+        bracket-error = "fg=red,bold";
+        bracket-level-1 = "fg=blue,bold";
+        bracket-level-2 = "fg=green,bold";
+        bracket-level-3 = "fg=magenta,bold";
+        bracket-level-4 = "fg=yellow,bold";
+        bracket-level-5 = "fg=cyan,bold";
+        cursor-matchingbracket = "standout";
+      };
+    };
+
+    # External plugins
     plugins = [
       {
         name = "zsh-nix-shell";
@@ -175,6 +124,68 @@ in {
     ];
 
     # Extra manually typed configs
-    initContent = extra;
+    initContent = ''
+      # Key bindings
+      bindkey -e
+      bindkey '^U' backward-kill-line
+      bindkey '^[[2~' overwrite-mode
+
+
+      bindkey '^[[3~' delete-char
+      bindkey '^[[H' beginning-of-line
+      bindkey '^[[1~' beginning-of-line
+      bindkey '^[[F' end-of-line
+      bindkey '^[[4~' end-of-line
+      bindkey '^[[1;5C' forward-word
+      bindkey '^[[1;5D' backward-word
+      bindkey '^[[3;5~' kill-word
+      bindkey '^[[5~' beginning-of-buffer-or-history
+      bindkey '^[[6~' end-of-buffer-or-history
+      bindkey '^[[Z' undo
+      bindkey ' ' magic-space
+
+      # History files
+      HIST_STAMPS=mm/dd/yyyy
+      ZLE_RPROMPT_INDENT=0
+      WORDCHARS=''${WORDCHARS//\/}
+      PROMPT_EOL_MARK=
+      TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
+
+      # Zsh Completions Configs
+      zstyle ':completion:*:*:*:*:*' menu select
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      zstyle ':completion:*' auto-description 'specify: %d'
+      zstyle ':completion:*' completer _expand _complete
+      zstyle ':completion:*' format 'Completing %d'
+      zstyle ':completion:*' group-name ' '
+      zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+      zstyle ':completion:*' rehash true
+      zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+      zstyle ':completion:*' use-compctl false
+      zstyle ':completion:*' verbose true
+      zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+      function fixnix {
+        sudo rm -rf /etc/zshrc.before-nix-darwin /etc/zprofile.before-nix-darwin
+        sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
+        sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
+      }
+
+      # Golang's Trash
+      export GOPATH="$HOME/.go"
+
+      ${lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
+        # Golang's Trash
+        export GOPATH="$HOME/.go"
+
+        # Rustup for globals
+        export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+      ''}
+
+      ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
+
+      ''}
+    '';
   };
 }

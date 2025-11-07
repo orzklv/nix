@@ -11,10 +11,6 @@
     lib.optionals
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
-      # Latest discord
-      # pkgs.discord
-      # To patch discord's krisp
-      # pkgs.krisper
       # Zoom conference
       zoom-us
     ]);
@@ -27,8 +23,6 @@
       tuba
       # Telegram desktop
       telegram-desktop
-      # RDP Management
-      remmina
     ])
     ++ x86_64-only;
 

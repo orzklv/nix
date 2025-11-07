@@ -7,7 +7,7 @@
     commands."Darwin Nix" = "sudo darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
   };
 
-  cfg = {
+  general = {
     misc = {
       disable = [
         "bun"
@@ -42,7 +42,7 @@ in {
     programs.topgrade = {
       enable = true;
       settings = lib.mkMerge [
-        cfg
+        general
         darwin
       ];
     };
