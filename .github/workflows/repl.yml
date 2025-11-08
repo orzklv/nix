@@ -12,6 +12,11 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes pipe-operators
+            extra-substituters = https://cache.xinux.uz/
+            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
 
       - name: Evaluate Nix expression
         run: nix eval --impure --show-trace --json -f ./repl.nix packages
@@ -27,6 +32,11 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes pipe-operators
+            extra-substituters = https://cache.xinux.uz/
+            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
 
       - name: Build NixOS configuration
         run: nix eval --impure --show-trace --json -f ./repl.nix packages
@@ -42,6 +52,11 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes pipe-operators
+            extra-substituters = https://cache.xinux.uz/
+            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
 
       - name: Evaluate Nix expression
         run: nix eval --impure --show-trace --json -f ./repl.nix packages
