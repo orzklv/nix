@@ -1,28 +1,29 @@
-{pkgs, ...}: [
+{pkgs, ...}:
+with pkgs; [
   # Downloader
-  pkgs.aria2
+  aria2
 
   # Developer Mode
-  pkgs.gh
-  pkgs.jq
-  pkgs.wget
-  pkgs.netcat
-  pkgs.direnv
-  pkgs.git-lfs
-  pkgs.cargo-update
+  gh
+  jq
+  wget
+  netcat
+  direnv
+  git-lfs
+  cargo-update
 
   # Environment
-  pkgs.figlet
-  pkgs.onefetch
-  pkgs.tealdeer
+  figlet
+  onefetch
+  tealdeer
 
   # For Prismlauncher
-  pkgs.jdk17
+  jdk17
 
   # Media encode & decode
-  pkgs.ffmpeg
-  pkgs.libheif
+  ffmpeg
+  libheif
 
   # GPG Signing
-  pkgs.gnupg
+  gnupg
 ]

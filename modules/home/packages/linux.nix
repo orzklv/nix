@@ -1,4 +1,10 @@
-{pkgs, ...}: [
+{pkgs, ...}:
+with pkgs; [
   # Add new packages here
-  pkgs.pinentry-gnome3
+
+  # OpenGPG interface
+  pinentry-gnome3
+
+  # Discord tuning
+  krispy
 ]

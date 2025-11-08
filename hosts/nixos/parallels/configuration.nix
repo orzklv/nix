@@ -15,7 +15,7 @@
     outputs.nixosModules.sound
     outputs.nixosModules.users
     outputs.nixosModules.secret
-    outputs.nixosModules.oxidize
+    # outputs.nixosModules.oxidize
     outputs.nixosModules.desktop
     outputs.nixosModules.nixpkgs
 

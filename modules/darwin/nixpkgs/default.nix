@@ -56,6 +56,9 @@
         trusted-users = [
           "${config.users.users.sakhib.name}"
         ];
+
+        # Enable IDF for the love of god
+        allow-import-from-derivation = true;
       };
     };
   };

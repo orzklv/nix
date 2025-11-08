@@ -12,7 +12,6 @@
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
       # Discord
-      krisper
       discord
       # Zoom conference
       zoom-us

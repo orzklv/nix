@@ -1,5 +1,10 @@
-{pkgs, ...}: [
+{pkgs, ...}:
+with pkgs; [
   # Add new packages here
-  pkgs.mas
-  pkgs.pinentry_mac
+
+  # MacOS apps tore via cli
+  mas
+
+  # OpenGPG interface
+  pinentry_mac
 ]
