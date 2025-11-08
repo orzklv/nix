@@ -6,5 +6,5 @@ with pkgs; [
   pinentry-gnome3
 
   # Discord tuning
-  krispy
+  krisper
 ]
