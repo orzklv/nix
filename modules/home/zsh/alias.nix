@@ -62,7 +62,7 @@
     hack = "${lib.getExe pkgs.nix} develop -c $SHELL";
 
     # Others (Developer)
-    ports = "${lib.getExe pkgs.sudo-rs} ${lib.getExe pkgs.lsof} -PiTCP -sTCP:LISTEN";
+    ports = "sudo ${lib.getExe pkgs.lsof} -PiTCP -sTCP:LISTEN";
     youtube-video = ''${lib.getExe pkgs.yt-dlp} -f bestvideo+bestaudio/best -S vcodec:h264,res,acodec:m4a --add-metadata -o "%(title)s.%(ext)s" --embed-chapters'';
     youtube-music = ''${lib.getExe pkgs.yt-dlp} -f ba[ext=m4a] --add-metadata -o "%(title)s.%(ext)s"'';
     dotenv = "eval export $(cat .env)";
