@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [macos-latest, self-hosted]
 
     runs-on: ${{ matrix.os }}
 
@@ -19,6 +19,7 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        if: ${{ matrix.os != 'self-hosted' }}
         with:
           extra-conf: |
             experimental-features = nix-command flakes pipe-operators
@@ -33,7 +34,7 @@ jobs:
       fail-fast: false
       matrix:
         pattern:
-          - system: ubuntu-latest
+          - system: self-hosted
             target: Laboratory
 
     runs-on: ${{ matrix.pattern.system }}
@@ -44,11 +45,13 @@ jobs:
 
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
+        if: ${{ matrix.pattern.system == 'ubuntu-latest' }}
         with:
           tool-cache: true
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+        if: ${{ matrix.pattern.system != 'self-hosted' }}
         with:
           extra-conf: |
             experimental-features = nix-command flakes pipe-operators
