@@ -15,6 +15,8 @@
   # => use if something doesn't work out of box or when despaired...
   nixConfig = {
     experimental-features = ["nix-command" "flakes" "pipe-operators"];
+    extra-substituters = ["https://cache.xinux.uz/"];
+    extra-trusted-public-keys = ["cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="];
   };
 
   # inputs are other flakes you use within your own flake, dependencies
