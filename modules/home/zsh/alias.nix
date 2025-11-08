@@ -29,7 +29,7 @@
     # Do you speak it?!
     list = ls;
     edit = vim;
-    please = "${lib.getExe pkgs.sudo-rs}";
+    please = "sudo";
     fetch = "${lib.getExe pkgs.fastfetch}";
     move = "${lib.getExe' pkgs.uutils-coreutils-noprefix "mv"}";
     copy = "${lib.getExe' pkgs.uutils-coreutils-noprefix "cp"}";
