@@ -29,7 +29,6 @@
     "Refined GitHub" = 1519867270;
     "iMovie" = 408981434;
     "Numbers" = 409203825;
-    "ColorSlurp" = 1287239339;
     "Keynote" = 409183694;
     "Shazam" = 897118787;
   };
