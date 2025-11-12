@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.determinate.nixosModules.default
+    inputs.determinate.darwinModules.default
   ];
 
   config = rec {
@@ -42,7 +42,7 @@
 
     nix = {
       # Don't touch Determinate Nix
-      enable = true;
+      enable = false;
 
       # This will add each flake input as a registry
       # To make nix3 commands consistent with your flake
@@ -73,6 +73,11 @@
         # Enable IDF for the love of god
         allow-import-from-derivation = true;
       };
+    };
+
+    # Custom settings written to /etc/nix/nix.custom.conf
+    determinate-nix.customSettings = {
+      flake-registry = "/etc/nix/flake-registry.json";
     };
   };
 }
