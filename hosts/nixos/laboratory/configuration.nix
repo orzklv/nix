@@ -12,6 +12,7 @@
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.ssh
     outputs.nixosModules.zsh
+    outputs.nixosModules.vpn
     outputs.nixosModules.game
     outputs.nixosModules.data
     outputs.nixosModules.boot
