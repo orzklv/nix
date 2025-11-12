@@ -2,8 +2,13 @@
   lib,
   config,
   outputs,
+  inputs,
   ...
 }: {
+  imports = [
+    inputs.determinate.nixosModules.default
+  ];
+
   config = rec {
     nixpkgs = {
       # You can add overlays here

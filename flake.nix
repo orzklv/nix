@@ -37,6 +37,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Determinate Nix
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     # Secrets management
     sops-nix = {
       url = "github:Mic92/sops-nix";
