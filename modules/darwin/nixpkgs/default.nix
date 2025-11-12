@@ -50,29 +50,29 @@
 
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!
-      nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+      # nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
       # Additional settings
-      settings = {
-        # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes pipe-operators";
+      # settings = {
+      #   # Enable flakes and new 'nix' command
+      #   experimental-features = "nix-command flakes pipe-operators";
 
-        # Extra cached servers
-        substituters = ["https://cache.xinux.uz/"];
+      #   # Extra cached servers
+      #   substituters = ["https://cache.xinux.uz/"];
 
-        # Signing keys used in cache servers
-        trusted-public-keys = [
-          "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
-        ];
+      #   # Signing keys used in cache servers
+      #   trusted-public-keys = [
+      #     "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+      #   ];
 
-        # Trusted users for secret-key
-        trusted-users = [
-          "${config.users.users.sakhib.name}"
-        ];
+      #   # Trusted users for secret-key
+      #   trusted-users = [
+      #     "${config.users.users.sakhib.name}"
+      #   ];
 
-        # Enable IDF for the love of god
-        allow-import-from-derivation = true;
-      };
+      #   # Enable IDF for the love of god
+      #   allow-import-from-derivation = true;
+      # };
     };
 
     # Custom settings written to /etc/nix/nix.custom.conf
