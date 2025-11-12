@@ -27,7 +27,7 @@ jobs:
             extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
 
       - name: Check up flake configuration
-        run: nix flake check --show-trace
+        run: nix flake check --show-trace --accept-flake-config
 
   build-nixos:
     name: "Build Configurations for NixOS instances"
@@ -65,7 +65,7 @@ jobs:
         if: ${{ matrix.pattern.system != 'self-hosted' }}
 
       - name: Build NixOS configuration
-        run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace
+        run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace --accept-flake-config
 
   build-darwin:
     name: "Build Configurations for Darwin instances"
@@ -87,7 +87,7 @@ jobs:
         uses: DeterminateSystems/flakehub-cache-action@main
 
       - name: Build Aarch64 Darwin configuration
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace
+        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace --accept-flake-config
 
   update-merge:
     name: "Merge Update PRs"
