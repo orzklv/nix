@@ -32,6 +32,8 @@
         allowUnfreePredicate = _: true;
         # Let the system use fucked up programs
         allowBroken = true;
+        # Allow NVIDIA's prop. software
+        nvidia.acceptLicense = true;
       };
     };
 
