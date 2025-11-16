@@ -22,7 +22,7 @@
       # Matrix client
       fractal
       # Mastodon client
-      tuba
+      # tuba
       # Telegram desktop
       telegram-desktop
     ])
