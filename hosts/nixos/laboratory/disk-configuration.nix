@@ -26,29 +26,11 @@
               };
             };
             ROOT = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
-            };
-          };
-        };
-      };
-
-      storage = {
-        device = "/dev/sda";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            MEDIA = {
               size = "430G";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/media";
+                mountpoint = "/";
               };
             };
           };
