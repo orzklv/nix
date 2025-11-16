@@ -44,7 +44,7 @@
           type = "gpt";
           partitions = {
             MEDIA = {
-              size = "100%";
+              size = "430G";
               content = {
                 type = "filesystem";
                 format = "ext4";
