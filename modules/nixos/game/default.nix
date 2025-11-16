@@ -7,6 +7,12 @@
         libraries = pkgs.steam-run.args.multiPkgs pkgs;
       };
 
+      obs-studio = {
+        enable = true;
+        enableVirtualCamera = true;
+        plugins = [pkgs.obs-studio-plugins.wlrobs];
+      };
+
       # Gayming at its finest
       steam = {
         enable = true;
