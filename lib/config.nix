@@ -4,23 +4,17 @@
     inputs,
     outputs,
     opath ? ../.,
-    type ? "nixos",
   }: let
     # Generate absolute path to the configuration
-    path = name: let
-      named =
-        if type == "nixos"
-        then (lib.toLower name)
-        else name;
-    in
-      opath + "/hosts/${type}/${named}/configuration.nix";
+    path = name:
+      opath + "/hosts/${lib.toLower name}/configuration.nix";
 
     #   Name  =                Value
     # "Lorem" = orzklv.lib.config.makeSystem "station";
     system = name: {
       inherit name;
       value = makeSystem {
-        inherit inputs outputs type;
+        inherit inputs outputs;
         path = path name;
       };
     };
@@ -37,7 +31,6 @@
     path,
     inputs,
     outputs,
-    type ? "nixos",
   }: let
     attr = {
       modules = [
@@ -46,13 +39,8 @@
       ];
       specialArgs = {inherit inputs outputs;};
     };
-
-    fn =
-      if type == "darwin"
-      then inputs.nix-darwin.lib.darwinSystem
-      else lib.nixosSystem;
   in
-    fn attr;
+    lib.nixosSystem attr;
 in {
   inherit mapSystem makeSystem;
 }
