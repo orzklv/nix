@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, self-hosted]
+        os: [self-hosted]
 
     runs-on: ${{ matrix.os }}
 
@@ -29,7 +29,7 @@ jobs:
       - name: Check up flake configuration
         run: nix flake check --show-trace --accept-flake-config
 
-  build-nixos:
+  build:
     name: "Build Configurations for NixOS instances"
 
     strategy:
@@ -67,31 +67,9 @@ jobs:
       - name: Build NixOS configuration
         run: nix build .#nixosConfigurations.${{ matrix.pattern.target }}.config.system.build.toplevel --show-trace --accept-flake-config
 
-  build-darwin:
-    name: "Build Configurations for Darwin instances"
-    runs-on: macos-latest
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
-
-      - name: Cache Nix store
-        uses: DeterminateSystems/flakehub-cache-action@main
-
-      - name: Build Aarch64 Darwin configuration
-        run: nix build .#darwinConfigurations.Sokhibjons-MacBook-Pro.config.system.build.toplevel --show-trace --accept-flake-config
-
   update-merge:
     name: "Merge Update PRs"
-    needs: [test-flake, build-nixos, build-darwin]
+    needs: [test-flake, build]
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.user.login == 'orzklv' && github.event_name == 'pull_request' }}
 
