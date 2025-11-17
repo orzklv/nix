@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  resolution = "3440x1440";
+  theme-package = pkgs.callPackage ./theme.nix {};
+in {
   config = {
     # Bootloader.
     boot = {
@@ -18,7 +21,10 @@
           devices = ["nodev"];
           efiSupport = true;
           useOSProber = true;
-          theme = pkgs.callPackage ./theme.nix {};
+          gfxmodeEfi = "${resolution},auto";
+          gfxmodeBios = "${resolution},auto";
+          theme = theme-package;
+          splashImage = "${theme-package}/background.png";
         };
       };
       plymouth = {

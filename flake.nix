@@ -31,15 +31,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix-darwin for macOS systems management
-    nix-darwin = {
-      url = "github:xinux-org/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Determinate Nix
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-
     # Secrets management
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -180,10 +171,6 @@
     # These are usually stuff you would upstream into nixpkgs
     nixosModules = lib.omodules.mod-parse ./modules/nixos;
 
-    # Reusable darwin modules you might want to export
-    # These are usually stuff you would upstream into nixpkgs
-    darwinModules = lib.omodules.mod-parse ./modules/darwin;
-
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeModules = lib.omodules.mod-parse ./modules/home;
@@ -194,20 +181,9 @@
     nixosConfigurations = lib.config.mapSystem {
       inherit inputs outputs;
       list =
-        builtins.readDir ./hosts/nixos
+        builtins.readDir ./hosts
         |> builtins.attrNames
         |> map (h: self.lib.ostrings.capitalize h);
-    };
-
-    # Darwin configuration entrypoint
-    # Available through 'darwin-rebuild build --flake .#your-hostname'
-    # Stored at/as root/darwin/<alias name for machine>/*.nix
-    darwinConfigurations = lib.config.mapSystem {
-      inherit inputs outputs;
-      type = "darwin";
-      list =
-        builtins.readDir ./hosts/darwin
-        |> builtins.attrNames;
     };
   };
 }
