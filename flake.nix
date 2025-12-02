@@ -15,8 +15,14 @@
   # => use if something doesn't work out of box or when despaired...
   nixConfig = {
     experimental-features = ["nix-command" "flakes" "pipe-operators"];
-    extra-substituters = ["https://cache.xinux.uz/"];
-    extra-trusted-public-keys = ["cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="];
+    extra-substituters = [
+      "https://cache.xinux.uz/"
+      "https://nixos-raspberrypi.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
   };
 
   # inputs are other flakes you use within your own flake, dependencies
@@ -30,6 +36,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # NixOS for Raspberry Pi
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     # Secrets management
     sops-nix = {
@@ -54,6 +63,14 @@
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -90,7 +107,6 @@
     systems = [
       "aarch64-linux"
       "x86_64-linux"
-      "aarch64-darwin"
     ];
 
     # This is a function that generates an attribute by calling a function you
@@ -178,12 +194,6 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     # Stored at/as root/nixos/<hostname lower case>/*.nix
-    nixosConfigurations = lib.config.mapSystem {
-      inherit inputs outputs;
-      list =
-        builtins.readDir ./hosts
-        |> builtins.attrNames
-        |> map (h: self.lib.ostrings.capitalize h);
-    };
+    nixosConfigurations = lib.config.mapSystem {inherit inputs outputs;};
   };
 }

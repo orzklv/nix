@@ -11,8 +11,6 @@
     lib.optionals
     pkgs.stdenv.hostPlatform.isx86_64
     (with pkgs; [
-      # Discord
-      discord
       # Zoom conference
       zoom-us
     ]);
@@ -22,7 +20,7 @@
       # Matrix client
       fractal
       # Mastodon client
-      # tuba
+      tuba
       # Telegram desktop
       telegram-desktop
     ])

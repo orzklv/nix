@@ -51,11 +51,15 @@
         experimental-features = "nix-command flakes pipe-operators";
 
         # Extra cached servers
-        substituters = ["https://cache.xinux.uz/"];
+        substituters = [
+          "https://cache.xinux.uz/"
+          "https://nixos-raspberrypi.cachix.org"
+        ];
 
         # Signing keys used in cache servers
         trusted-public-keys = [
           "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+          "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
         ];
 
         # Trusted users for secret-key
