@@ -11,6 +11,11 @@
     ./disk-configuration.nix
   ];
 
+  boot = {
+    tmp.useTmpfs = true;
+    loader.raspberryPi.bootloader = "kernel";
+  };
+
   hardware.raspberry-pi.config = {
     all = {
       # [all] conditional filter, https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters
