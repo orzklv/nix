@@ -43,34 +43,29 @@
     inputs,
     outputs,
   }: let
-    fn = rmatch.match {inherit arch;} [
+    out = rmatch.match {inherit arch;} [
       [
         {arch = "x86_64";}
-        inputs.nixpkgs.lib.nixosSystem
+        {
+          specialArgs = {inherit inputs outputs;};
+          fn = inputs.nixpkgs.lib.nixosSystem;
+        }
       ]
       [
         {arch = "arm64";}
-        inputs.nixos-raspberrypi.lib.nixosSystemFull
-      ]
-    ];
-
-    specialArgs = rmatch.match {inherit arch;} [
-      [
-        {arch = "x86_64";}
-        {inherit inputs outputs;}
-      ]
-      [
-        {arch = "arm64";}
-        inputs
+        {
+          specialArgs = inputs;
+          fn = inputs.nixos-raspberrypi.lib.nixosSystemFull;
+        }
       ]
     ];
 
     attr = {
       modules = [path];
-      inherit specialArgs;
+      inherit (out) specialArgs;
     };
   in
-    fn attr;
+    out.fn attr;
 in {
   inherit listHosts mapSystem makeSystem;
 }
