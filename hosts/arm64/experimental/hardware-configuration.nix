@@ -4,7 +4,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  kernelBundle = pkgs.linuxAndFirmware.v6_6_31;
+in {
   imports = [
     # Disko generated partitions
     disko.nixosModules.disko
@@ -12,8 +14,9 @@
   ];
 
   boot = {
-    tmp.useTmpfs = true;
+    loader.raspberryPi.firmwarePackage = kernelBundle.raspberrypifw;
     loader.raspberryPi.bootloader = "kernel";
+    kernelPackages = kernelBundle.linuxPackages_rpi5;
   };
 
   hardware.raspberry-pi.config = {
