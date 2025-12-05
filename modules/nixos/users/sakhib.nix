@@ -19,8 +19,6 @@
     (with pkgs; [
       # Matrix client
       fractal
-      # Mastodon client
-      tuba
       # Telegram desktop
       telegram-desktop
     ])
