@@ -21,6 +21,8 @@
       fractal
       # Telegram desktop
       telegram-desktop
+      # GitHub client
+      github-desktop
     ])
     ++ x86_64-only;
 
