@@ -117,16 +117,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1765823531,
-        "narHash": "sha256-tyNJjd48hfgsyEfsq1Ueufg4oJv6b8xBA6NYRJrLPyg=",
+        "lastModified": 1765605144,
+        "narHash": "sha256-RM2xs+1HdHxesjOelxoA3eSvXShC8pmBvtyTke4Ango=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8315c1544f383b791a3115c9959d1f27920e8320",
+        "rev": "90b62096f099b73043a747348c11dbfcfbdea949",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "master",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -195,7 +195,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1765779637,
         "narHash": "sha256-KJ2wa/BLSrTqDjbfyNx70ov/HdgNBCBBSQP3BIzKnv4=",
@@ -207,6 +207,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1765762245,
+        "narHash": "sha256-3iXM/zTqEskWtmZs3gqNiVtRTsEjYAedIaLL0mSBsrk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c8cfcd6ccd422e41cc631a0b73ed4d5a925c393d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -240,6 +256,7 @@
         "home-manager": "home-manager",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks",
         "sf-mono-liga": "sf-mono-liga",
         "sops-nix": "sops-nix",

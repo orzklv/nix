@@ -29,11 +29,14 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    # Nixpkgs Unstable for latest packages
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -178,7 +181,7 @@
               });
           };
           alejandra.enable = true;
-          flake-checker.enable = true;
+          # flake-checker.enable = true;
         };
       };
     });
