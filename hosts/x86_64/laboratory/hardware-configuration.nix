@@ -27,7 +27,6 @@
       "nvidia"
       "nvidiafb"
       "nvidia_modeset"
-      "nvidia_uvm"
       "nvidia_drm"
     ];
     extraModulePackages = [];
