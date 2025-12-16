@@ -30,6 +30,7 @@
       "nvidia_uvm"
       "nvidia_drm"
     ];
+    kernelPackages = pkgs.linuxPackages_zen;
     extraModulePackages = [];
     initrd = {
       kernelModules = ["nvme"];
