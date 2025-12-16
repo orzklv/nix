@@ -190,7 +190,7 @@ in {
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
-      package = pkgs.zed-editor;
+      package = pkgs.unstable.zed-editor;
       extraPackages = config.programs.helix.extraPackages;
     };
   };
