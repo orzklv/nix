@@ -230,10 +230,10 @@
         gnomeExtensions.gsconnect
 
         # Gnome Shell Packs
-        papirus-icon-theme
+        unstable.papirus-icon-theme
 
         # Normal fucking browser
-        inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
+        inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
 
         # Some office stuff
         libreoffice-fresh
