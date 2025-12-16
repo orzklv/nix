@@ -10,13 +10,13 @@
   x86_64-only =
     lib.optionals
     pkgs.stdenv.hostPlatform.isx86_64
-    (with pkgs; [
+    (with pkgs.unstable; [
       # Zoom conference
       zoom-us
     ]);
 
   packages =
-    (with pkgs; [
+    (with pkgs.unstable; [
       # Matrix client
       fractal
       # Telegram desktop
