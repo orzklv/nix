@@ -77,9 +77,6 @@
     ];
   };
 
-  # NVIDIA driver support
-  services.xserver.videoDrivers = ["nvidia"];
-
   # KVM Virtualization (for GNOME Boxes)
   virtualisation.libvirtd = {
     enable = true;

@@ -19,15 +19,8 @@
   ];
 
   boot = {
-    kernelParams = [
-      "nvidia-drm.modeset=1"
-    ];
     kernelModules = [
       "kvm-intel"
-      "nvidia"
-      "nvidiafb"
-      "nvidia_modeset"
-      "nvidia_drm"
     ];
     extraModulePackages = [];
     initrd = {
@@ -54,8 +47,6 @@
         before = [
           "systemd-suspend.service"
           "systemd-hibernate.service"
-          "nvidia-suspend.service"
-          "nvidia-hibernate.service"
         ];
         wantedBy = [
           "systemd-suspend.service"
@@ -71,7 +62,6 @@
         after = [
           "systemd-suspend.service"
           "systemd-hibernate.service"
-          "nvidia-resume.service"
         ];
         wantedBy = [
           "systemd-suspend.service"
