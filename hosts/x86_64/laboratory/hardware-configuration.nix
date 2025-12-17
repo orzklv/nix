@@ -88,14 +88,11 @@
     # CPU (Intel)
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-    # GPU (Nvidia)
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = false;
-      open = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # GPU (Intel)
+    graphics = {
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+      ];
     };
   };
 
