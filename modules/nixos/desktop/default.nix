@@ -233,7 +233,7 @@
         unstable.papirus-icon-theme
 
         # Normal fucking browser
-        inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+        inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
 
         # Some office stuff
         libreoffice-fresh
