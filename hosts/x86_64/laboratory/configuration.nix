@@ -52,6 +52,11 @@
     # firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether.
     firewall.enable = false;
+
+    # Additional hosts for work
+    hosts = {
+      "192.168.7.150" = ["ipa.uzinfocom.uz"];
+    };
   };
 
   # Enable bluetooth
