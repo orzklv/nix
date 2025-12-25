@@ -18,7 +18,7 @@
               };
             };
             SWAP = {
-              size = "69G";
+              size = "34G";
               content = {
                 type = "swap";
                 discardPolicy = "both";
@@ -26,7 +26,7 @@
               };
             };
             ROOT = {
-              size = "430G";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";

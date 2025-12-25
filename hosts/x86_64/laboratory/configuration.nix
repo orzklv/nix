@@ -25,6 +25,7 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+    inputs.hardware.nixosModules.lenovo-thinkpad-t14-intel-gen6
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -82,19 +83,20 @@
     ];
   };
 
-  # KVM Virtualization (for GNOME Boxes)
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-    };
+  # Don't ask for password
+  security = {
+    rtkit.enable = true;
+    sudo.wheelNeedsPassword = false;
+    sudo-rs.wheelNeedsPassword = false;
   };
 
-  # Don't ask for password
-  security.sudo.wheelNeedsPassword = false;
-  security.sudo-rs.wheelNeedsPassword = false;
+  services = {
+    # Sensors
+    libinput.enable = true;
+    # Use iGPU for graphics
+    xserver.videoDrivers = [ "intel" ];
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -105,5 +107,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

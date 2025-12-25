@@ -26,11 +26,9 @@
     initrd = {
       kernelModules = ["nvme"];
       availableKernelModules = [
-        "vmd"
         "xhci_pci"
-        "ahci"
+        "thunderbolt"
         "nvme"
-        "usbhid"
         "usb_storage"
         "sd_mod"
       ];
@@ -85,14 +83,23 @@
 
   # List packages system hardware configuration
   hardware = {
+    # Enable any other just in case
+    enableAllFirmware = true;
+
     # CPU (Intel)
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     # GPU (Intel)
     graphics = {
+      enable = true;
       extraPackages = with pkgs; [
         vpl-gpu-rt
       ];
+    };
+
+    # Intel GPU type
+     intelgpu = {
+      driver = "xe";
     };
   };
 
