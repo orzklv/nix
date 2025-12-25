@@ -98,7 +98,7 @@
     };
 
     # Intel GPU type
-     intelgpu = {
+    intelgpu = {
       driver = "xe";
     };
   };
