@@ -23,6 +23,8 @@
       telegram-desktop
       # GitHub client
       github-desktop
+      # RDP client
+      remmina
     ])
     ++ x86_64-only;
 
