@@ -7,7 +7,7 @@
     # Note:
     # Uncomment for the first time,
     # it keeps installing over and over.
-    ./mas.nix
+    # ./mas.nix
   ];
 
   homebrew = {
