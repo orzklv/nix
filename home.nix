@@ -67,7 +67,7 @@
   cfg = {
     # This is required information for home-manager to do its job
     home = {
-      stateVersion = "25.05";
+      stateVersion = "25.11";
       username = "sakhib";
       homeDirectory = "/${home}/sakhib";
       enableNixpkgsReleaseCheck = false;
