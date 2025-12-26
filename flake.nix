@@ -40,6 +40,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix-darwin for macOS systems management
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Determinate Nix
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     # NixOS for Raspberry Pi
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
@@ -104,6 +113,7 @@
 
     # Supported systems for your flake packages, shell, etc.
     systems = [
+      "aarch64-darwin"
       "aarch64-linux"
       "x86_64-linux"
     ];
@@ -190,9 +200,18 @@
     # These are usually stuff you would upstream into home-manager
     homeModules = lib.omodules.mod-parse ./modules/home;
 
+    # Reusable darwin modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    darwinModules = lib.omodules.mod-parse ./modules/darwin;
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     # Stored at/as root/nixos/<hostname lower case>/*.nix
     nixosConfigurations = lib.config.mapSystem {inherit inputs outputs;};
+
+    # Darwin configuration entrypoint
+    # Available through 'darwin-rebuild build --flake .#your-hostname'
+    # Stored at/as root/darwin/<alias name for machine>/*.nix
+    darwinConfigurations = lib.config.mapSystem {inherit inputs outputs;};
   };
 }

@@ -45,17 +45,24 @@
   }: let
     out = rmatch.match {inherit arch;} [
       [
-        {arch = "x86_64";}
+        {arch = "x86_64-linux";}
         {
           specialArgs = {inherit inputs outputs;};
           fn = inputs.nixpkgs.lib.nixosSystem;
         }
       ]
       [
-        {arch = "arm64";}
+        {arch = "arm64-rpi";}
         {
           specialArgs = inputs;
           fn = inputs.nixos-raspberrypi.lib.nixosSystemFull;
+        }
+      ]
+      [
+        {arch = "arm64-darwin";}
+        {
+          specialArgs = {inherit inputs outputs;};
+          fn = inputs.nix-darwin.lib.darwinSystem;
         }
       ]
     ];
