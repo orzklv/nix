@@ -1,6 +1,7 @@
 {
   outputs,
   inputs,
+  config,
   ...
 }: {
   imports = [
@@ -63,11 +64,6 @@
       #     "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
       #   ];
 
-      #   # Trusted users for secret-key
-      #   trusted-users = [
-      #     "${config.users.users.sakhib.name}"
-      #   ];
-
       #   # Enable IDF for the love of god
       #   allow-import-from-derivation = true;
       # };
@@ -75,7 +71,13 @@
 
     # Custom settings written to /etc/nix/nix.custom.conf
     determinate-nix.customSettings = {
+      # Hand generated flake registry
       flake-registry = "/etc/nix/flake-registry.json";
+
+      # Trusted users for secret-key
+      trusted-users = [
+        "${config.users.users.sakhib.name}"
+      ];
     };
   };
 }
