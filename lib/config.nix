@@ -52,6 +52,13 @@
         }
       ]
       [
+        {arch = "arm64-linux";}
+        {
+          specialArgs = {inherit inputs outputs;};
+          fn = inputs.nixpkgs.lib.nixosSystem;
+        }
+      ]
+      [
         {arch = "arm64-rpi";}
         {
           specialArgs = inputs;

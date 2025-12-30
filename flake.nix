@@ -29,44 +29,44 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
 
     # Nixpkgs Unstable for latest packages
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "https://flakehub.com/f/nix-community/home-manager/0.2511.5846";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      url = "https://flakehub.com/f/nix-darwin/nix-darwin/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Determinate Nix
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
 
     # NixOS for Raspberry Pi
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     # Secrets management
     sops-nix = {
-      url = "github:Mic92/sops-nix";
+      url = "https://flakehub.com/f/Mic92/sops-nix/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Disko for easier partition management
     disko = {
-      url = "github:nix-community/disko";
+      url = "https://flakehub.com/f/nix-community/disko/1.12.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Pre commit hooks for git
     pre-commit-hooks = {
-      url = "github:cachix/git-hooks.nix";
+      url = "https://flakehub.com/f/cachix/git-hooks.nix/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
