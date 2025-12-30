@@ -4,15 +4,7 @@
   ...
 }: let
   makeHost = port: hostname: {
-    user = "sakhib";
     inherit port hostname;
-    addKeysToAgent = "yes";
-    serverAliveCountMax = 3;
-    serverAliveInterval = 30;
-    identityFile = "~/.ssh/id_ed25519";
-    extraOptions = lib.mkIf pkgs.stdenv.isDarwin {
-      UseKeychain = "yes";
-    };
   };
 
   repetition = {
@@ -40,6 +32,18 @@ in {
 
       matchBlocks =
         {
+          # Anything (a.k.a defaults)
+          "*" = {
+            user = "sakhib";
+            addKeysToAgent = "yes";
+            serverAliveCountMax = 3;
+            serverAliveInterval = 30;
+            identityFile = "~/.ssh/id_ed25519";
+            extraOptions = lib.mkIf pkgs.stdenv.isDarwin {
+              UseKeychain = "yes";
+            };
+          };
+
           # Did they turn it off?
           efael-1 = makeHost 48596 "93.188.85.94";
 
