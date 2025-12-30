@@ -36,6 +36,7 @@
       "gitfox"
       "keka"
       "kekaexternalhelper"
+      "keymapp"
       "little-snitch"
       "logitech-options"
       "macs-fan-control"
