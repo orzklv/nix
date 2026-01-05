@@ -71,7 +71,7 @@ jobs:
     name: "Merge Update PRs"
     needs: [test-flake, build]
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.user.login == 'orzklv' && github.event_name == 'pull_request' }}
+    if: ${{ github.event.pull_request.user.login == 'kolyma-labor' && github.event_name == 'pull_request' }}
 
     steps:
       - name: Enable auto-merge for Update PRs
