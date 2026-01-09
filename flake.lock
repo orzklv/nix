@@ -100,11 +100,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1767758611,
-        "narHash": "sha256-ibG5QHWvuvclo5yh18+0fw3Ha/pbxhZ19quziyfvQ+w=",
+        "lastModified": 1767911574,
+        "narHash": "sha256-JsYIPaTgbJHEb1rgzwS9H+c0hCy/Sr1WaxNgtvu6xro=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "fbd89131423a48ba82da06c6beef13a5ddde2818",
+        "rev": "0d02843bec4ca8a16f7f08c25fe4e40cd829de0f",
         "type": "gitlab"
       },
       "original": {
@@ -251,12 +251,12 @@
         ]
       },
       "locked": {
-        "lastModified": 1767780135,
-        "narHash": "sha256-5SbmsLMgxzPd9YMbFR4IHfOXv6bjWs+dfl6IbSq3r7s=",
-        "rev": "c08430923ed417abc653884328a39e98496cfd0f",
-        "revCount": 5850,
+        "lastModified": 1767910483,
+        "narHash": "sha256-MOU5YdVu4DVwuT5ztXgQpPuRRBjSjUGIdUzOQr9iQOY=",
+        "rev": "82fb7dedaad83e5e279127a38ef410bcfac6d77c",
+        "revCount": 5852,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/nix-community/home-manager/0.2511.5850%2Brev-c08430923ed417abc653884328a39e98496cfd0f/019b97e9-5856-71d3-8da2-b99f7b182b41/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/nix-community/home-manager/0.2511.5852%2Brev-82fb7dedaad83e5e279127a38ef410bcfac6d77c/019b9fae-ad85-7869-b308-50882ba396bb/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -443,12 +443,12 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1767634882,
-        "narHash": "sha256-2GffSfQxe3sedHzK+sTKlYo/NTIAGzbFCIsNMUPAAnk=",
-        "rev": "3c9db02515ef1d9b6b709fc60ba9a540957f661c",
-        "revCount": 905092,
+        "lastModified": 1767799921,
+        "narHash": "sha256-r4GVX+FToWVE2My8VVZH4V0pTIpnu2ZE8/Z4uxGEMBE=",
+        "rev": "d351d0653aeb7877273920cd3e823994e7579b0b",
+        "revCount": 905184,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.2511.905092%2Brev-3c9db02515ef1d9b6b709fc60ba9a540957f661c/019b96fa-f719-7b79-9733-f941217db408/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.2511.905184%2Brev-d351d0653aeb7877273920cd3e823994e7579b0b/019b9c21-5522-7cee-8ffb-cc9f1f6fda69/source.tar.gz"
       },
       "original": {
         "type": "tarball",
