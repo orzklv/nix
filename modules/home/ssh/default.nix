@@ -43,18 +43,23 @@ in {
               UseKeychain = "yes";
             };
           };
-
-          # Did they turn it off?
-          efael-1 = makeHost 48596 "93.188.85.94";
-
-          # Did they turn it off?
-          efael-2 = makeHost 22 "ns2.efael.uz";
-
-          # Did they turn it off?
-          efael-3 = makeHost 22 "ns3.efael.uz";
         }
         # Global Kolymas
-        // (repetition {amount = 4;});
+        // (repetition {
+          amount = 4;
+          prefix = "kolyma-";
+          domain = "kolyma.uz";
+        })
+        // (repetition {
+          amount = 1;
+          prefix = "uchar-";
+          domain = "uchar.uz";
+        })
+        // (repetition {
+          amount = 3;
+          prefix = "berk-";
+          domain = "uzberk.uz";
+        });
     };
   };
 }
