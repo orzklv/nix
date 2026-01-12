@@ -186,6 +186,7 @@
       ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
         # Rustup for globals
         export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+        export PATH="/Users/sakhib/.cargo/bin/cargo-clippy:$PATH"
       ''}
     '';
   };
