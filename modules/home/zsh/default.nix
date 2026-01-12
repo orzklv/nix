@@ -184,7 +184,8 @@
       ''}
 
       ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
-
+        # Rustup for globals
+        export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
       ''}
     '';
   };
