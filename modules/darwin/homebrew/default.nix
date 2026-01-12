@@ -50,6 +50,7 @@
       "sf-symbols"
       "sketch"
       "zen"
+      "zulip"
     ];
   };
 }
