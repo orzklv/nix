@@ -23,7 +23,6 @@
       "pkl"
       "mas"
       "git-lfs"
-      "rustup"
     ];
 
     casks = lib.optionals config.homebrew.enable [
