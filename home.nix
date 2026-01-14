@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   modules = [
     outputs.homeModules.zsh
     outputs.homeModules.git
@@ -22,10 +23,7 @@
   ];
   inherit (pkgs) stdenv;
 
-  home =
-    if stdenv.hostPlatform.isDarwin
-    then "Users"
-    else "home";
+  home = if stdenv.hostPlatform.isDarwin then "Users" else "home";
 
   macos = lib.mkIf stdenv.hostPlatform.isDarwin {
     # Leave here configs that should be applied only at macos machines
@@ -76,14 +74,13 @@
     # Let's enable home-manager
     programs.home-manager.enable = true;
   };
-in {
+in
+{
   imports = modules;
 
-  config =
-    lib.mkMerge
-    [
-      cfg
-      macos
-      linux
-    ];
+  config = lib.mkMerge [
+    cfg
+    macos
+    linux
+  ];
 }

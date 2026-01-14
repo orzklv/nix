@@ -1,7 +1,8 @@
 # This one contains whatever you want to overlay
 # You can change versions, add patches, set compilation flags, anything really.
 # https://wiki.nixos.org/wiki/Overlays
-{inputs, ...}: _final: prev: {
+{ inputs, ... }:
+_final: prev: {
   # example = prev.example.overrideAttrs (oldAttrs: rec {
   # ...
   # });

@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./alias.nix
     ./prompt.nix

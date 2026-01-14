@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
     programs.helix = {
       enable = true;
@@ -29,9 +30,14 @@
           };
 
           statusline = {
-            left = ["mode" "spinner" "read-only-indicator" "file-modification-indicator"];
+            left = [
+              "mode"
+              "spinner"
+              "read-only-indicator"
+              "file-modification-indicator"
+            ];
 
-            center = ["file-name"];
+            center = [ "file-name" ];
 
             right = [
               "diagnostics"
@@ -63,7 +69,8 @@
         };
       };
 
-      extraPackages = with pkgs;
+      extraPackages =
+        with pkgs;
         [
           #-- c/c++
           cmake
@@ -83,7 +90,7 @@
           nixd
           statix # Lints and suggestions for the nix programming language
           deadnix # Find and remove unused code in .nix source files
-          alejandra # Nix Code Formatter
+          nixfmt # Nix Code Formatter
 
           #-- retardscript
           deno
@@ -115,15 +122,11 @@
           glow # markdown previewer
           fzf
         ]
-        ++ (
-          lib.optionals
-          (!pkgs.stdenv.hostPlatform.isDarwin)
-          [
-            #-- verilog / systemverilog
-            verible
-            gdb
-          ]
-        );
+        ++ (lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
+          #-- verilog / systemverilog
+          verible
+          gdb
+        ]);
     };
   };
 }

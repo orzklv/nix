@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 # coreutils-full-name =
 #   "coreuutils-full"
 #   + builtins.concatStringsSep ""

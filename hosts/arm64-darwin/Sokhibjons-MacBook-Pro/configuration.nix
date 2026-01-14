@@ -3,7 +3,8 @@
   outputs,
   lib,
   ...
-}: {
+}:
+{
   # You can import other Darwin modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):

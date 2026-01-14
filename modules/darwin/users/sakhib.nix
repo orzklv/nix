@@ -2,9 +2,11 @@
   inputs,
   outputs,
   ...
-}: let
+}:
+let
   username = "sakhib";
-in {
+in
+{
   config = {
     system.primaryUser = username;
 

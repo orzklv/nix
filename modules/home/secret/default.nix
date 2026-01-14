@@ -2,9 +2,11 @@
   inputs,
   config,
   ...
-}: let
+}:
+let
   key = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-in {
+in
+{
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];

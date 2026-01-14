@@ -3,17 +3,18 @@
   inputs,
   outputs,
   ...
-}: let
+}:
+let
   inherit (inputs.self) lib;
 
   # Packages that are not aarch64 compatible
-  x86_64-only =
-    lib.optionals
-    pkgs.stdenv.hostPlatform.isx86_64
-    (with pkgs.unstable; [
+  x86_64-only = lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
+    with pkgs.unstable;
+    [
       # Zoom conference
       zoom-us
-    ]);
+    ]
+  );
 
   packages =
     (with pkgs.unstable; [
@@ -33,7 +34,8 @@
     "0$7YXPRLohyW8QXfyITPP6Sag/l7"
     "XH3i7TO4uGByPKBb2"
   ];
-in {
+in
+{
   config = {
     users.users = {
       sakhib = {

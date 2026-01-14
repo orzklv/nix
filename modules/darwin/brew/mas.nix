@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   # AppStore installations
   homebrew.masApps = lib.optionals config.homebrew.enable {
     "Affinity Publisher 2" = 1606941598;

@@ -7,7 +7,8 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     # Disko generated partitions
     inputs.disko.nixosModules.disko
@@ -80,7 +81,7 @@
     parallels.enable = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["prl-tools"];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }

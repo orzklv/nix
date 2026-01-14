@@ -1,7 +1,9 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   resolution = "3440x1440";
-  theme-package = pkgs.callPackage ./theme.nix {};
-in {
+  theme-package = pkgs.callPackage ./theme.nix { };
+in
+{
   config = {
     # Bootloader.
     boot = {
@@ -18,7 +20,7 @@ in {
         efi.canTouchEfiVariables = true;
         grub = {
           enable = true;
-          devices = ["nodev"];
+          devices = [ "nodev" ];
           efiSupport = true;
           useOSProber = true;
           gfxmodeEfi = "${resolution},auto";

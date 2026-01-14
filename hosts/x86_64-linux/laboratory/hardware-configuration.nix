@@ -8,7 +8,8 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     # Disko generated partitions
     inputs.disko.nixosModules.disko
@@ -22,9 +23,9 @@
     kernelModules = [
       "kvm-intel"
     ];
-    extraModulePackages = [];
+    extraModulePackages = [ ];
     initrd = {
-      kernelModules = ["nvme"];
+      kernelModules = [ "nvme" ];
       availableKernelModules = [
         "xhci_pci"
         "thunderbolt"

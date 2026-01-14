@@ -6,7 +6,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   config = {
     # Enable the X11 windowing system.
     services = {
@@ -18,7 +19,7 @@
         };
 
         # Exclude some defautl packages
-        excludePackages = [pkgs.xterm];
+        excludePackages = [ pkgs.xterm ];
       };
 
       # Enable the GDM display manager.
@@ -136,7 +137,7 @@
     # Setting daemons
     services = {
       # Udev daemon management
-      udev.packages = with pkgs; [gnome-settings-daemon];
+      udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
 
     programs = {

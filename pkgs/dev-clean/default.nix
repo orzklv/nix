@@ -4,7 +4,7 @@
 }:
 (writeShellApplication {
   name = "dev-clean";
-  runtimeInputs = [];
+  runtimeInputs = [ ];
   text = builtins.readFile ./dev-clean.sh;
 })
 // {

@@ -3,7 +3,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     inputs.determinate.darwinModules.default
   ];

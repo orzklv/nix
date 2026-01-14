@@ -2,9 +2,11 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   darwin = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
-    commands."Darwin Nix" = "sudo darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
+    commands."Darwin Nix" =
+      "sudo darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
   };
 
   general = {
@@ -37,7 +39,8 @@
       autoremove = true;
     };
   };
-in {
+in
+{
   config = {
     programs.topgrade = {
       enable = true;

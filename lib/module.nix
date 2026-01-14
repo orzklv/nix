@@ -1,5 +1,7 @@
-{lib}: let
-  mod-parse = path:
+{ lib }:
+let
+  mod-parse =
+    path:
     builtins.readDir path
     |> builtins.attrNames
     |> map (x: {
@@ -7,6 +9,7 @@
       value = import (path + "/${x}");
     })
     |> builtins.listToAttrs;
-in {
+in
+{
   inherit mod-parse;
 }

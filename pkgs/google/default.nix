@@ -5,7 +5,7 @@
 }:
 (writeShellApplication {
   name = "google";
-  runtimeInputs = [xdg-utils];
+  runtimeInputs = [ xdg-utils ];
   text = builtins.readFile ./google.sh;
 })
 // {

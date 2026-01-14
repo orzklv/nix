@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   determinate-systems = "${lib.getExe pkgs.curl} --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix";
 
   mac = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
@@ -75,7 +76,8 @@
     determinate = "${determinate-systems} | sh -s -- ";
     repair = "${determinate-systems} | sh -s -- repair";
   };
-in {
+in
+{
   config = {
     programs.zsh.shellAliases = lib.mkMerge [
       mac

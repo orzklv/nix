@@ -3,8 +3,7 @@
   writers,
   python3Packages,
 }:
-writers.writePython3Bin "kripach"
-{
+writers.writePython3Bin "kripach" {
   libraries = with python3Packages; [
     capstone
     pyelftools
@@ -14,10 +13,7 @@ writers.writePython3Bin "kripach"
     "F403" # 'from module import *' used; unable to detect undefined names
     "F405" # name may be undefined, or defined from star imports: module
   ];
-}
-(
-  builtins.readFile ./kripach.py
-)
+} (builtins.readFile ./kripach.py)
 // {
   meta = with lib; {
     licenses = licenses.mit;

@@ -1,5 +1,6 @@
-{pkgs, ...}:
-with pkgs; [
+{ pkgs, ... }:
+with pkgs;
+[
   # Add new packages here
 
   # MacOS apps tore via cli

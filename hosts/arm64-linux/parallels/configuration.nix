@@ -5,7 +5,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -54,7 +55,7 @@
 
     # Additional hosts for work
     hosts = {
-      "192.168.7.150" = ["ipa.uzinfocom.uz"];
+      "192.168.7.150" = [ "ipa.uzinfocom.uz" ];
     };
   };
 
@@ -92,7 +93,7 @@
     # Sensors
     libinput.enable = true;
     # Use iGPU for graphics
-    xserver.videoDrivers = ["intel"];
+    xserver.videoDrivers = [ "intel" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

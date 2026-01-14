@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   config = {
     programs = {
       # Installing zsh for system

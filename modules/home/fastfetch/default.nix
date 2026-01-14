@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   config = {
     programs.fastfetch = {
       enable = true;
@@ -11,7 +12,9 @@
           };
         };
         display = {
-          size = {binaryPrefix = "si";};
+          size = {
+            binaryPrefix = "si";
+          };
           # color = "black";
         };
         modules = [
