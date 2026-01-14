@@ -38,6 +38,8 @@ jobs:
         pattern:
           - system: self-hosted
             target: Laboratory
+          - system: ubuntu-latest-arm
+            target: Parallels
           - system: macos-latest
             target: Sokhibjons-MacBook-Pro
 
