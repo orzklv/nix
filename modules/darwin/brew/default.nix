@@ -30,6 +30,7 @@
       "anki"
       "balenaetcher"
       "cleanmymac"
+      "datagrip"
       "element"
       "elmedia-player"
       "folx"
