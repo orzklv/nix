@@ -17,7 +17,7 @@
     outputs.darwinModules.security
 
     # Home Manager Darwin Module
-    inputs.home-manager.darwinModules.home-manager
+    inputs.home-manager-darwin.darwinModules.home-manager
   ];
 
   # Networking DNS & Interfaces
