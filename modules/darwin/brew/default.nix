@@ -21,8 +21,8 @@
     };
 
     brews = lib.optionals config.homebrew.enable [
-      "pkl"
-      "mas"
+      # "pkl"
+      # "mas"
       "git-lfs"
     ];
 
@@ -41,12 +41,12 @@
       "little-snitch"
       # "logitech-options"
       "macs-fan-control"
-      "minecraft"
-      "nextcloud"
-      "obs"
-      "openscad"
+      # "minecraft"
+      # "nextcloud"
+      # "obs"
+      # "openscad"
       "parallels"
-      "prismlauncher"
+      # "prismlauncher"
       # "raspberry-pi-imager"
       "rectangle-pro"
       "sf-symbols"
