@@ -33,44 +33,53 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+
+    # Nixpkgs for darwin
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
 
     # Nixpkgs Unstable for latest packages
-    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager = {
-      url = "https://flakehub.com/f/nix-community/home-manager/0.2511.5846";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Home Manager for Darwin targets
+    home-manager-darwin = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     # Nix-darwin for macOS systems management
     nix-darwin = {
-      url = "https://flakehub.com/f/nix-darwin/nix-darwin/0";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:xinux-org/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     # Determinate Nix
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
 
     # NixOS for Raspberry Pi
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     # Secrets management
     sops-nix = {
-      url = "https://flakehub.com/f/Mic92/sops-nix/0";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Disko for easier partition management
     disko = {
-      url = "https://flakehub.com/f/nix-community/disko/1.12.0";
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Pre commit hooks for git
     pre-commit-hooks = {
-      url = "https://flakehub.com/f/cachix/git-hooks.nix/0";
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

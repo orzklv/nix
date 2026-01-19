@@ -5,10 +5,6 @@
   ...
 }:
 {
-  imports = [
-    inputs.determinate.darwinModules.default
-  ];
-
   config = rec {
     nixpkgs = {
       # You can add overlays here
@@ -41,36 +37,29 @@
     };
 
     nix = {
-      # Don't touch Determinate Nix
-      enable = false;
+      enable = true;
 
       # This will add each flake input as a registry
       # To make nix3 commands consistent with your flake
-      # registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+      registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!
-      # nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+      nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
       # Additional settings
-      # settings = {
-      #   # Enable flakes and new 'nix' command
-      #   experimental-features = "nix-command flakes pipe-operators";
+      settings = {
+        # Trusted users for secret-key
+        trusted-users = [
+          "${config.users.users.sakhib.name}"
+        ];
 
-      #   # Enable IDF for the love of god
-      #   allow-import-from-derivation = true;
-      # };
-    };
+        # Enable flakes and new 'nix' command
+        experimental-features = "nix-command flakes pipe-operators";
 
-    # Custom settings written to /etc/nix/nix.custom.conf
-    determinate-nix.customSettings = {
-      # Trusted users for secret-key
-      trusted-users = [
-        "${config.users.users.sakhib.name}"
-      ];
-
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes pipe-operators";
+        # Enable IDF for the love of god
+        # allow-import-from-derivation = true;
+      };
     };
   };
 }
