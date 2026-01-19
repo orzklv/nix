@@ -2,6 +2,7 @@
   outputs,
   inputs,
   config,
+  lib,
   ...
 }:
 {
