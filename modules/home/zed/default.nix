@@ -188,11 +188,11 @@ in
 {
   config = {
     programs.zed-editor = {
-      enable = false;
+      enable = true;
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
-      package = pkgs.zed-editor;
+      package = pkgs.unstable.zed-editor;
       extraPackages = config.programs.helix.extraPackages;
     };
   };

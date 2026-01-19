@@ -58,7 +58,7 @@
           pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
         ''
       else
-        '''';
+        "";
 
     home.file.".gnupg/gpg.conf".text =
       if config.git.isMacOS then
@@ -67,6 +67,6 @@
           use-agent
         ''
       else
-        '''';
+        "";
   };
 }
