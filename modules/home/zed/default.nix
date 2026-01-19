@@ -40,6 +40,10 @@ let
 
     disable_ai = true;
 
+    session = {
+      trust_all_worktrees = true;
+    };
+
     telemetry = {
       metrics = false;
       diagnostics = false;
