@@ -188,7 +188,7 @@ in
 {
   config = {
     programs.zed-editor = {
-      enable = true;
+      enable = false;
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
