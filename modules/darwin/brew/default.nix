@@ -27,11 +27,11 @@
     ];
 
     casks = lib.optionals config.homebrew.enable [
-      "anki"
-      "balenaetcher"
+      # "anki"
+      # "balenaetcher"
       "cleanmymac"
       "datagrip"
-      "element"
+      # "element"
       "elmedia-player"
       "folx"
       "iterm2"
@@ -39,7 +39,7 @@
       "keka"
       "kekaexternalhelper"
       "little-snitch"
-      "logitech-options"
+      # "logitech-options"
       "macs-fan-control"
       "minecraft"
       "nextcloud"
@@ -47,12 +47,12 @@
       "openscad"
       "parallels"
       "prismlauncher"
-      "raspberry-pi-imager"
+      # "raspberry-pi-imager"
       "rectangle-pro"
       "sf-symbols"
       "sketch"
       "zen"
-      "zulip"
+      # "zulip"
     ];
   };
 }

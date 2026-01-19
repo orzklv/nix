@@ -22,8 +22,8 @@
 
   # Networking DNS & Interfaces
   networking = {
-    computerName = "Sokhibjon’s MacBook Pro"; # Define your computer name.
-    localHostName = "Sokhibjons-MacBook-Pro"; # Define your local host name.
+    computerName = "Sokhibjon’s Mac Studio"; # Define your computer name.
+    localHostName = "Sokhibjons-Mac-Studio"; # Define your local host name.
   };
 
   # Select host type for the system
