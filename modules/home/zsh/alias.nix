@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 let
@@ -58,8 +59,8 @@ let
     # Development
     vim = vi;
     vi = "${lib.getExe pkgs.helix}";
-    # zed = "${lib.getExe pkgs.zed-editor}";
-    # heck = "${lib.getExe pkgs.zed-editor} .";
+    zed = "${lib.getExe config.programs.zed-editor.package}";
+    heck = "${lib.getExe config.programs.zed-editor.package} .";
     hack = "${lib.getExe pkgs.nix} develop -c $SHELL";
 
     # Others (Developer)
