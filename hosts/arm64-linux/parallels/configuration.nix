@@ -92,8 +92,6 @@
   services = {
     # Sensors
     libinput.enable = true;
-    # Use iGPU for graphics
-    xserver.videoDrivers = [ "intel" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
