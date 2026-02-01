@@ -1,11 +1,11 @@
 {
   lib,
-  writeShellApplication,
-  git,
+  pkgs,
+  ...
 }:
-(writeShellApplication {
+(pkgs.writeShellApplication {
   name = "force-push";
-  runtimeInputs = [ git ];
+  runtimeInputs = with pkgs; [ git ];
   text = builtins.readFile ./force-push.sh;
 })
 // {

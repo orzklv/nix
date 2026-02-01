@@ -1,8 +1,9 @@
 {
   lib,
-  writeShellApplication,
+  pkgs,
+  ...
 }:
-(writeShellApplication {
+(pkgs.writeShellApplication {
   name = "dev-clean";
   runtimeInputs = [ ];
   text = builtins.readFile ./dev-clean.sh;

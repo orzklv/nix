@@ -1,11 +1,11 @@
 {
   lib,
-  writeShellApplication,
-  xdg-utils,
+  pkgs,
+  ...
 }:
-(writeShellApplication {
+(pkgs.writeShellApplication {
   name = "google";
-  runtimeInputs = [ xdg-utils ];
+  runtimeInputs = with pkgs; [ xdg-utils ];
   text = builtins.readFile ./google.sh;
 })
 // {

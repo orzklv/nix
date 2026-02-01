@@ -1,11 +1,11 @@
 {
   lib,
-  writeShellApplication,
-  curl,
+  pkgs,
+  ...
 }:
-(writeShellApplication {
+(pkgs.writeShellApplication {
   name = "org-location";
-  runtimeInputs = [ curl ];
+  runtimeInputs = with pkgs; [ curl ];
   text = builtins.readFile ./org-location.sh;
 })
 // {

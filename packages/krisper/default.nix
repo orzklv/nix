@@ -1,19 +1,17 @@
 {
   lib,
-  xdg-utils,
-  findutils,
-  callPackage,
-  writeShellApplication,
+  pkgs,
+  ...
 }:
 let
-  kripach = callPackage ../kripach { };
+  kripach = pkgs.callPackage ../kripach { };
 in
-(writeShellApplication {
+(pkgs.writeShellApplication {
   name = "krisper";
   runtimeInputs = [
-    xdg-utils
     kripach
-    findutils
+    pkgs.xdg-utils
+    pkgs.findutils
   ];
   text = builtins.readFile ./krisper.sh;
 })

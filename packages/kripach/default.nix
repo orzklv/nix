@@ -1,10 +1,10 @@
 {
   lib,
-  writers,
-  python3Packages,
+  pkgs,
+  ...
 }:
-writers.writePython3Bin "kripach" {
-  libraries = with python3Packages; [
+pkgs.writers.writePython3Bin "kripach" {
+  libraries = with pkgs.python3Packages; [
     capstone
     pyelftools
   ];
