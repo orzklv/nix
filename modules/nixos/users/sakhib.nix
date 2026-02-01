@@ -1,11 +1,10 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
 }:
 let
-  inherit (inputs.self) lib;
-
   # Packages that are not aarch64 compatible
   x86_64-only = lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (
     with pkgs.unstable;

@@ -89,10 +89,13 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+
+    # Ready to go hardware related configurations
+    hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs =
-    { self, ... }@inputs:
+    inputs:
     inputs.xinux-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -100,6 +103,49 @@
       outputs-builder = channels: {
         formatter = channels.nixpkgs.nixfmt-tree;
       };
+
+      systems.modules.nixos = with inputs; [
+        self.nixosModules.ssh
+        self.nixosModules.zsh
+        self.nixosModules.vpn
+        self.nixosModules.data
+        self.nixosModules.boot
+        self.nixosModules.sound
+        self.nixosModules.users
+        self.nixosModules.secret
+        self.nixosModules.oxidize
+        self.nixosModules.desktop
+        self.nixosModules.nixpkgs
+        disko.nixosModules.disko
+      ];
+
+      systems.modules.darwin = with inputs; [
+        self.darwinModules.zsh
+        self.darwinModules.brew
+        self.darwinModules.users
+        self.darwinModules.fonts
+        self.darwinModules.secret
+        self.darwinModules.nixpkgs
+        self.darwinModules.security
+      ];
+
+      homes.modules = with inputs; [
+        self.homeModules.zsh
+        self.homeModules.git
+        self.homeModules.ssh
+        self.homeModules.zed
+        self.homeModules.zen
+        self.homeModules.xdg
+        self.homeModules.helix
+        self.homeModules.secret
+        self.homeModules.nixpkgs
+        self.homeModules.topgrade
+        self.homeModules.packages
+        self.homeModules.fastfetch
+
+        # Third party modules
+        zen-browser.homeModules.twilight
+      ];
 
       xinux = {
         namespace = "orzklv";
@@ -109,126 +155,4 @@
         };
       };
     };
-
-  # In this context, outputs are mostly about getting home-manager what it
-  # needs since it will be the one using the flake
-  # outputs =
-  #   {
-  #     self,
-  #     nixpkgs,
-  #     home-manager,
-  #     pre-commit-hooks,
-  #     ...
-  #   }@inputs:
-  #   let
-  #     # Self instance pointer
-  #     inherit (self) outputs;
-
-  #     # Personal library instance
-  #     inherit (outputs) lib;
-
-  #     # Supported systems for your flake packages, shell, etc.
-  #     systems = [
-  #       "aarch64-darwin"
-  #       "aarch64-linux"
-  #       "x86_64-linux"
-  #     ];
-
-  #     # This is a function that generates an attribute by calling a function you
-  #     # pass to it, with each system as an argument
-  #     forAllSystems = nixpkgs.lib.genAttrs systems;
-  #   in
-  #   {
-  #     # Formatter for your nix files, available through 'nix fmt'
-  #     # Other options beside 'nixfmt' include 'nixpkgs-fmt'
-  #     formatter = forAllSystems (
-  #       system:
-  #       let
-  #         pkgs = nixpkgs.legacyPackages.${system};
-  #       in
-  #       pkgs.treefmt.withConfig {
-  #         runtimeInputs = with pkgs; [
-  #           pkgs.nixfmt
-  #         ];
-
-  #         settings = {
-  #           # Log level for files treefmt won't format
-  #           on-unmatched = "info";
-
-  #           # Configure nixfmt for .nix files
-  #           formatter.nix = {
-  #             command = "nixfmt";
-  #             includes = [ "*.nix" ];
-  #           };
-  #         };
-  #       }
-  #     );
-
-  #     # Nixpkgs, Home-Manager and personal helpful functions
-  #     lib = nixpkgs.lib // home-manager.lib // import ./lib { inherit (nixpkgs) lib; };
-
-  #     # Your custom packages and modifications, exported as overlays
-  #     overlays = import ./overlays { inherit inputs; };
-
-  #     # Development shells
-  #     devShells = forAllSystems (system: {
-  #       default = import ./shell.nix {
-  #         inherit (self.checks.${system}) pre-commit-check;
-  #         pkgs = inputs.nixpkgs.legacyPackages.${system};
-  #       };
-  #     });
-
-  #     # Checks for hooks
-  #     checks = forAllSystems (system: {
-  #       pre-commit-check = pre-commit-hooks.lib.${system}.run {
-  #         src = ./.;
-  #         hooks = {
-  #           statix =
-  #             let
-  #               pkgs = inputs.nixpkgs.legacyPackages.${system};
-  #             in
-  #             {
-  #               enable = true;
-  #               package = pkgs.statix.overrideAttrs (_o: rec {
-  #                 src = pkgs.fetchFromGitHub {
-  #                   owner = "oppiliappan";
-  #                   repo = "statix";
-  #                   rev = "e9df54ce918457f151d2e71993edeca1a7af0132";
-  #                   hash = "sha256-duH6Il124g+CdYX+HCqOGnpJxyxOCgWYcrcK0CBnA2M=";
-  #                 };
-
-  #                 cargoDeps = pkgs.rustPlatform.importCargoLock {
-  #                   lockFile = src + "/Cargo.lock";
-  #                   allowBuiltinFetchGit = true;
-  #                 };
-  #               });
-  #             };
-  #           nixfmt.enable = true;
-  #           flake-checker.enable = true;
-  #         };
-  #       };
-  #     });
-
-  #     # Reusable nixos modules you might want to export
-  #     # These are usually stuff you would upstream into nixpkgs
-  #     nixosModules = lib.omodules.mod-parse ./modules/nixos;
-
-  #     # Reusable home-manager modules you might want to export
-  #     # These are usually stuff you would upstream into home-manager
-  #     homeModules = lib.omodules.mod-parse ./modules/home;
-
-  #     # Reusable darwin modules you might want to export
-  #     # These are usually stuff you would upstream into nixpkgs
-  #     darwinModules = lib.omodules.mod-parse ./modules/darwin;
-
-  #     # NixOS configuration entrypoint
-  #     # Available through 'nixos-rebuild --flake .#your-hostname'
-  #     # Stored at/as root/nixos/<hostname lower case>/*.nix
-  #     nixosConfigurations = lib.config.mapSystem { inherit inputs outputs; };
-
-  #     # Darwin configuration entrypoint
-  #     # Available through 'darwin-rebuild build --flake .#your-hostname'
-  #     # Stored at/as root/darwin/<alias name for machine>/*.nix
-  #     darwinConfigurations = lib.config.mapSystem { inherit inputs outputs; };
-  #   };
 }

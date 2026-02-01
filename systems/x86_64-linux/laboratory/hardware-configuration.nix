@@ -2,7 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  inputs,
+  config,
   lib,
   pkgs,
   modulesPath,
@@ -11,7 +11,6 @@
 {
   imports = [
     # Disko generated partitions
-    inputs.disko.nixosModules.disko
     ./disk-configuration.nix
 
     # Not detected hardware modules
@@ -19,12 +18,18 @@
   ];
 
   boot = {
+    kernelModules = [
+      "kvm-intel"
+    ];
+    extraModulePackages = [ ];
     initrd = {
+      kernelModules = [ "nvme" ];
       availableKernelModules = [
-        "ehci_pci"
         "xhci_pci"
-        "usbhid"
-        "sr_mod"
+        "thunderbolt"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
       ];
     };
   };
@@ -77,11 +82,25 @@
 
   # List packages system hardware configuration
   hardware = {
-    # Parallels Mode
-    parallels.enable = true;
+    # Enable any other just in case
+    enableAllFirmware = true;
+
+    # CPU (Intel)
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    # GPU (Intel)
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+      ];
+    };
+
+    # Intel GPU type
+    intelgpu = {
+      driver = "xe";
+    };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

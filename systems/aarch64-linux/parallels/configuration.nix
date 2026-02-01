@@ -2,38 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  inputs,
-  outputs,
   ...
 }:
 {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.ssh
-    outputs.nixosModules.zsh
-    outputs.nixosModules.vpn
-    outputs.nixosModules.data
-    outputs.nixosModules.boot
-    outputs.nixosModules.sound
-    outputs.nixosModules.users
-    outputs.nixosModules.secret
-    outputs.nixosModules.oxidize
-    outputs.nixosModules.desktop
-    outputs.nixosModules.nixpkgs
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    # Home Manager NixOS Module
-    inputs.home-manager.nixosModules.home-manager
   ];
 
   networking = {

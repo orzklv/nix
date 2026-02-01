@@ -3,26 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   inputs,
-  outputs,
-  pkgs,
   ...
 }:
 {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.ssh
-    outputs.nixosModules.zsh
-    outputs.nixosModules.vpn
-    outputs.nixosModules.data
-    outputs.nixosModules.boot
-    outputs.nixosModules.sound
-    outputs.nixosModules.users
-    outputs.nixosModules.secret
-    outputs.nixosModules.oxidize
-    outputs.nixosModules.desktop
-    outputs.nixosModules.nixpkgs
-
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -39,7 +24,7 @@
   ];
 
   networking = {
-    hostName = "Laboratory"; # Define your hostname.
+    # hostName = "Laboratory"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
