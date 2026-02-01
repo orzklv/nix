@@ -138,12 +138,9 @@
         self.homeModules.xdg
         self.homeModules.helix
         self.homeModules.secret
-        self.homeModules.nixpkgs
         self.homeModules.topgrade
         self.homeModules.packages
         self.homeModules.fastfetch
-
-        # Third party modules
         zen-browser.homeModules.twilight
       ];
 

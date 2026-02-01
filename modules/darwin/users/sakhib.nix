@@ -19,16 +19,5 @@ in
         ];
       };
     };
-
-    # Home manager configuration for users
-    home-manager = {
-      extraSpecialArgs = {
-        inherit inputs;
-      };
-      users = {
-        # Import your home-manager configuration
-        ${username} = import ../../../home.nix;
-      };
-    };
   };
 }

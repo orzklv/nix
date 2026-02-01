@@ -35,6 +35,10 @@ let
 in
 {
   config = {
+    xinux-org.users.sakhib = {
+      home.config = { };
+    };
+
     users.users = {
       sakhib = {
         inherit packages hashedPassword;
@@ -54,17 +58,6 @@ in
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfHY4rNOm6DHH8XcmtU6CegX0/d99agN/x7MuPD5WJR sakhib@orzklv.uz"
         ];
-      };
-    };
-
-    home-manager = {
-      backupFileExtension = "hbak";
-      extraSpecialArgs = {
-        inherit inputs;
-      };
-      users = {
-        # Import your home-manager configuration
-        sakhib = import ../../../home.nix;
       };
     };
   };
