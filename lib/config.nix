@@ -1,9 +1,5 @@
-{ lib }:
-let
-  # Relative import functions
-  rmatch = import ./rmatch.nix { inherit lib; };
-  strings = import ./strings.nix { inherit lib; };
-
+{ lib, ... }:
+{
   listHosts =
     path: arch:
     let
@@ -13,7 +9,7 @@ let
     |> builtins.attrNames
     |> map (host: {
       inherit arch;
-      name = strings.capitalize host;
+      name = lib.orzklv.capitalize host;
       path = path + "/${arch}/${host}/configuration.nix";
     });
 
@@ -27,12 +23,12 @@ let
       hosts =
         builtins.readDir opath
         |> builtins.attrNames
-        |> builtins.map (arch: (listHosts opath arch))
+        |> builtins.map (arch: (lib.orzklv.listHosts opath arch))
         |> lib.flatten;
 
       system = host: {
         inherit (host) name;
-        value = makeSystem {
+        value = lib.orzklv.makeSystem {
           inherit inputs outputs;
           inherit (host) path arch;
         };
@@ -50,7 +46,7 @@ let
       outputs,
     }:
     let
-      out = rmatch.match { inherit arch; } [
+      out = lib.orzklv.match { inherit arch; } [
         [
           { arch = "x86_64-linux"; }
           {
@@ -87,7 +83,4 @@ let
       };
     in
     out.fn attr;
-in
-{
-  inherit listHosts mapSystem makeSystem;
 }

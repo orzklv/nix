@@ -196,7 +196,7 @@ in
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
-      package = pkgs.unstable.zed-editor;
+      # package = lib.mkForce pkgs.unstable.zed-editor;
       extraPackages = config.programs.helix.extraPackages;
     };
   };

@@ -19,14 +19,8 @@
       "flakes"
       "pipe-operators"
     ];
-    extra-substituters = [
-      "https://cache.xinux.uz/"
-      "https://nixos-raspberrypi.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
-      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-    ];
+    extra-substituters = [ "https://cache.xinux.uz/" ];
+    extra-trusted-public-keys = [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
   };
 
   # inputs are other flakes you use within your own flake, dependencies
@@ -34,9 +28,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
-    # Nixpkgs for darwin
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
 
     # Nixpkgs Unstable for latest packages
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -47,23 +38,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Home Manager for Darwin targets
-    home-manager-darwin = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
-
     # Nix-darwin for macOS systems management
-    nix-darwin = {
-      url = "github:xinux-org/nix-darwin/nix-darwin-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Determinate Nix
-    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-
-    # NixOS for Raspberry Pi
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    # Xinux library
+    xinux-lib = {
+      url = "github:xinux-org/lib/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets management
     sops-nix = {
@@ -109,125 +94,75 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  # In this context, outputs are mostly about getting home-manager what it
-  # needs since it will be the one using the flake
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      pre-commit-hooks,
-      ...
-    }@inputs:
-    let
-      # Self instance pointer
-      inherit (self) outputs;
+    inputs:
+    inputs.xinux-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
 
-      # Personal library instance
-      inherit (outputs) lib;
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.nixfmt-tree;
+      };
 
-      # Supported systems for your flake packages, shell, etc.
-      systems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-linux"
+      channels-config = {
+        # Disable if you don't want unfree packages
+        allowUnfree = true;
+        # Disable if you don't want linux thingies on mac
+        allowUnsupportedSystem = true;
+        # Workaround for https://github.com/nix-community/home-manager/issues/2942
+        allowUnfreePredicate = _: true;
+        # Let the system use fucked up programs
+        allowBroken = true;
+        # Allow NVIDIA's prop. software
+        nvidia.acceptLicense = true;
+      };
+
+      systems.modules.nixos = with inputs; [
+        self.nixosModules.ssh
+        self.nixosModules.zsh
+        self.nixosModules.vpn
+        self.nixosModules.data
+        self.nixosModules.boot
+        self.nixosModules.sound
+        self.nixosModules.users
+        self.nixosModules.secret
+        self.nixosModules.oxidize
+        self.nixosModules.desktop
+        self.nixosModules.nixpkgs
+        disko.nixosModules.disko
       ];
 
-      # This is a function that generates an attribute by calling a function you
-      # pass to it, with each system as an argument
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'nixfmt' include 'nixpkgs-fmt'
-      formatter = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        pkgs.treefmt.withConfig {
-          runtimeInputs = with pkgs; [
-            pkgs.nixfmt
-          ];
+      systems.modules.darwin = with inputs; [
+        self.darwinModules.zsh
+        self.darwinModules.brew
+        self.darwinModules.users
+        self.darwinModules.fonts
+        self.darwinModules.secret
+        self.darwinModules.nixpkgs
+        self.darwinModules.security
+      ];
 
-          settings = {
-            # Log level for files treefmt won't format
-            on-unmatched = "info";
+      homes.modules = with inputs; [
+        self.homeModules.zsh
+        self.homeModules.git
+        self.homeModules.ssh
+        self.homeModules.zed
+        self.homeModules.zen
+        self.homeModules.xdg
+        self.homeModules.helix
+        self.homeModules.secret
+        self.homeModules.topgrade
+        self.homeModules.packages
+        self.homeModules.fastfetch
+        zen-browser.homeModules.twilight
+      ];
 
-            # Configure nixfmt for .nix files
-            formatter.nix = {
-              command = "nixfmt";
-              includes = [ "*.nix" ];
-            };
-          };
-        }
-      );
-
-      # Nixpkgs, Home-Manager and personal helpful functions
-      lib = nixpkgs.lib // home-manager.lib // import ./lib { inherit (nixpkgs) lib; };
-
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
-
-      # Development shells
-      devShells = forAllSystems (system: {
-        default = import ./shell.nix {
-          inherit (self.checks.${system}) pre-commit-check;
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
+      xinux = {
+        namespace = "orzklv";
+        meta = {
+          name = "orzklv-nix";
+          title = "Orzklv's Personal Flake Configuration";
         };
-      });
-
-      # Checks for hooks
-      checks = forAllSystems (system: {
-        pre-commit-check = pre-commit-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            statix =
-              let
-                pkgs = inputs.nixpkgs.legacyPackages.${system};
-              in
-              {
-                enable = true;
-                package = pkgs.statix.overrideAttrs (_o: rec {
-                  src = pkgs.fetchFromGitHub {
-                    owner = "oppiliappan";
-                    repo = "statix";
-                    rev = "e9df54ce918457f151d2e71993edeca1a7af0132";
-                    hash = "sha256-duH6Il124g+CdYX+HCqOGnpJxyxOCgWYcrcK0CBnA2M=";
-                  };
-
-                  cargoDeps = pkgs.rustPlatform.importCargoLock {
-                    lockFile = src + "/Cargo.lock";
-                    allowBuiltinFetchGit = true;
-                  };
-                });
-              };
-            nixfmt.enable = true;
-            flake-checker.enable = true;
-          };
-        };
-      });
-
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = lib.omodules.mod-parse ./modules/nixos;
-
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeModules = lib.omodules.mod-parse ./modules/home;
-
-      # Reusable darwin modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      darwinModules = lib.omodules.mod-parse ./modules/darwin;
-
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      # Stored at/as root/nixos/<hostname lower case>/*.nix
-      nixosConfigurations = lib.config.mapSystem { inherit inputs outputs; };
-
-      # Darwin configuration entrypoint
-      # Available through 'darwin-rebuild build --flake .#your-hostname'
-      # Stored at/as root/darwin/<alias name for machine>/*.nix
-      darwinConfigurations = lib.config.mapSystem { inherit inputs outputs; };
+      };
     };
 }

@@ -5,16 +5,6 @@
   ...
 }:
 {
-  options = {
-    git = {
-      isMacOS = lib.mkOption {
-        type = lib.types.bool;
-        default = pkgs.stdenv.hostPlatform.isDarwin;
-        description = "Install MacOS specific agent.";
-      };
-    };
-  };
-
   config = {
     # Git Configurations
     programs.git = {
@@ -53,7 +43,7 @@
     };
 
     home.file.".gnupg/gpg-agent.conf".text =
-      if config.git.isMacOS then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         ''
           pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
         ''
@@ -61,7 +51,7 @@
         "";
 
     home.file.".gnupg/gpg.conf".text =
-      if config.git.isMacOS then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         ''
           no-tty
           use-agent
