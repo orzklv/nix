@@ -104,6 +104,19 @@
         formatter = channels.nixpkgs.nixfmt-tree;
       };
 
+      channels-config = {
+        # Disable if you don't want unfree packages
+        allowUnfree = true;
+        # Disable if you don't want linux thingies on mac
+        allowUnsupportedSystem = true;
+        # Workaround for https://github.com/nix-community/home-manager/issues/2942
+        allowUnfreePredicate = _: true;
+        # Let the system use fucked up programs
+        allowBroken = true;
+        # Allow NVIDIA's prop. software
+        nvidia.acceptLicense = true;
+      };
+
       systems.modules.nixos = with inputs; [
         self.nixosModules.ssh
         self.nixosModules.zsh
