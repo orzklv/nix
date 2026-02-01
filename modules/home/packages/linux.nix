@@ -7,5 +7,5 @@ with pkgs;
   pinentry-gnome3
 
   # Discord tuning
-  krisper
+  orzklv.krisper
 ]
