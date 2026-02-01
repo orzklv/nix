@@ -1,18 +1,11 @@
 {
-  pkgs ?
-    let
-      lock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked;
-      nixpkgs = fetchTarball {
-        url = "https://github.com/nixos/nixpkgs/archive/${lock.rev}.tar.gz";
-        sha256 = lock.narHash;
-      };
-    in
-    import nixpkgs { overlays = [ ]; },
-  pre-commit-check ? import (
-    builtins.fetchTarball "https://github.com/cachix/git-hooks.nix/tarball/master"
-  ),
+  pkgs,
+  inputs,
   ...
 }:
+let
+  pre-commit-check = import ../../checks/pre-commit-check { inherit inputs pkgs; };
+in
 pkgs.stdenv.mkDerivation {
   name = "nix";
 

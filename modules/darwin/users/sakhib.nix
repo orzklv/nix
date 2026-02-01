@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   ...
 }:
 let
@@ -24,7 +23,7 @@ in
     # Home manager configuration for users
     home-manager = {
       extraSpecialArgs = {
-        inherit inputs outputs;
+        inherit inputs;
       };
       users = {
         # Import your home-manager configuration

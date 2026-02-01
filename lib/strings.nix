@@ -1,5 +1,5 @@
-{ lib }:
-let
+{ lib, ... }:
+{
   capitalize =
     str:
     let
@@ -10,7 +10,4 @@ let
       first
       rest
     ];
-in
-{
-  inherit capitalize;
 }

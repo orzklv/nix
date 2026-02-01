@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  outputs,
   ...
 }:
 let
@@ -62,7 +61,7 @@ in
     home-manager = {
       backupFileExtension = "hbak";
       extraSpecialArgs = {
-        inherit inputs outputs;
+        inherit inputs;
       };
       users = {
         # Import your home-manager configuration

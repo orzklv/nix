@@ -19,14 +19,8 @@
       "flakes"
       "pipe-operators"
     ];
-    extra-substituters = [
-      "https://cache.xinux.uz/"
-      "https://nixos-raspberrypi.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
-      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-    ];
+    extra-substituters = [ "https://cache.xinux.uz/" ];
+    extra-trusted-public-keys = [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
   };
 
   # inputs are other flakes you use within your own flake, dependencies
@@ -45,7 +39,7 @@
     };
 
     # Nix-darwin for macOS systems management
-    nix-darwin = {
+    darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -55,9 +49,6 @@
       url = "github:xinux-org/lib/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # NixOS for Raspberry Pi
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     # Secrets management
     sops-nix = {
@@ -98,21 +89,25 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
-
-    # Ready to go hardware related configurations
-    hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs =
-    inputs:
+    { self, ... }@inputs:
     inputs.xinux-lib.mkFlake {
-      # You must provide our flake inputs to Snowfall Lib.
       inherit inputs;
-
-      # The `src` must be the root of the flake. See configuration
-      # in the next section for information on how you can move your
-      # Nix files to a separate directory.
       src = ./.;
+
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.nixfmt-tree;
+      };
+
+      xinux = {
+        namespace = "orzklv";
+        meta = {
+          name = "orzklv-nix";
+          title = "Orzklv's Personal Flake Configuration";
+        };
+      };
     };
 
   # In this context, outputs are mostly about getting home-manager what it
