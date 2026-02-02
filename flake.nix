@@ -96,14 +96,21 @@
 
   outputs =
     inputs:
+    # Let the xinux-lib/mkFlake handle literally EVERYTHING
     inputs.xinux-lib.mkFlake {
+      # Pass the vibe check
       inherit inputs;
+
+      # Indicate root of the project
+      # for library functions (nix issue)
       src = ./.;
 
+      # Extra nix flags to set
       outputs-builder = channels: {
         formatter = channels.nixpkgs.nixfmt-tree;
       };
 
+      # Globally applied nixpkgs settings
       channels-config = {
         # Disable if you don't want unfree packages
         allowUnfree = true;
@@ -117,6 +124,7 @@
         nvidia.acceptLicense = true;
       };
 
+      # Default imported modules for all nixos targets
       systems.modules.nixos = with inputs; [
         self.nixosModules.ssh
         self.nixosModules.zsh
@@ -132,6 +140,7 @@
         disko.nixosModules.disko
       ];
 
+      # Default imported modules for all darwin targets
       systems.modules.darwin = with inputs; [
         self.darwinModules.zsh
         self.darwinModules.brew
@@ -142,6 +151,7 @@
         self.darwinModules.security
       ];
 
+      # Default imported modules for all home-managers
       homes.modules = with inputs; [
         self.homeModules.zsh
         self.homeModules.git
@@ -157,8 +167,12 @@
         zen-browser.homeModules.twilight
       ];
 
+      # Extra project metadata
       xinux = {
+        # Namespace for overlay, lib, packages
         namespace = "orzklv";
+
+        # For data extraction
         meta = {
           name = "orzklv-nix";
           title = "Orzklv's Personal Flake Configuration";
