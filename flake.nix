@@ -79,6 +79,7 @@
       };
     };
 
+    # Declarative Firefox plugins (a.k.a addons)
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -151,7 +152,7 @@
         self.darwinModules.security
       ];
 
-      # Default imported modules for all home-managers
+      # Default imported modules for all home-manager targets
       homes.modules = with inputs; [
         self.homeModules.zsh
         self.homeModules.git
@@ -171,6 +172,7 @@
       xinux = {
         # Namespace for overlay, lib, packages
         namespace = "orzklv";
+        # Example: lib.orzklv.match ...
 
         # For data extraction
         meta = {
