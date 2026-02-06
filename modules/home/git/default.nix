@@ -21,6 +21,9 @@
           ch = "checkout";
         };
 
+        # Pulling rules
+        pull.rebased = true;
+
         # Spicy configs
         extraConfig = {
           http.sslVerify = false;
