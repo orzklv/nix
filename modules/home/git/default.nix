@@ -13,21 +13,22 @@
 
       settings = {
         # User credentials
-        user.email = "sakhib@orzklv.uz";
-        user.name = "Sokhibjon Orzikulov";
+        user = {
+          email = "sakhib@orzklv.uz";
+          name = "Sokhibjon Orzikulov";
+        };
 
         # Aliases
         aliases = {
           ch = "checkout";
         };
 
-        # Pulling rules
-        pull.rebased = true;
+        # Alwayws pull rebase
+        pull.rebase = true;
 
         # Spicy configs
         extraConfig = {
           http.sslVerify = false;
-          pull.rebase = true;
         };
       };
 
