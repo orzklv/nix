@@ -127,44 +127,11 @@
 
       # Default imported modules for all nixos targets
       systems.modules.nixos = with inputs; [
-        self.nixosModules.ssh
-        self.nixosModules.zsh
-        self.nixosModules.vpn
-        self.nixosModules.data
-        self.nixosModules.boot
-        self.nixosModules.sound
-        self.nixosModules.users
-        self.nixosModules.secret
-        self.nixosModules.oxidize
-        self.nixosModules.desktop
-        self.nixosModules.nixpkgs
         disko.nixosModules.disko
-      ];
-
-      # Default imported modules for all darwin targets
-      systems.modules.darwin = with inputs; [
-        self.darwinModules.zsh
-        self.darwinModules.brew
-        self.darwinModules.users
-        self.darwinModules.fonts
-        self.darwinModules.secret
-        self.darwinModules.nixpkgs
-        self.darwinModules.security
       ];
 
       # Default imported modules for all home-manager targets
       homes.modules = with inputs; [
-        self.homeModules.zsh
-        self.homeModules.git
-        self.homeModules.ssh
-        self.homeModules.zed
-        self.homeModules.zen
-        self.homeModules.xdg
-        self.homeModules.helix
-        self.homeModules.secret
-        self.homeModules.topgrade
-        self.homeModules.packages
-        self.homeModules.fastfetch
         zen-browser.homeModules.twilight
       ];
 
