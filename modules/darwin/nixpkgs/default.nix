@@ -6,6 +6,11 @@
 }:
 {
   config = rec {
+    sops.secrets.builder-key = {
+      format = "binary";
+      sopsFile = ../../../secrets/builder.hell;
+    };
+
     nix = {
       enable = true;
 
@@ -16,6 +21,28 @@
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+      # Enable building on remote builders
+      distributedBuilds = true;
+
+      # Distributed builds for cross-platform builds
+      buildMachines = [
+        {
+          hostName = "ns3.kolyma.uz";
+          sshUser = "builder";
+          sshKey = config.sops.secrets.builder-key.path;
+          system = "x86_64-linux";
+          protocol = "ssh-ng";
+          maxJobs = 3;
+          speedFactor = 2;
+          supportedFeatures = [
+            "nixos-test"
+            "benchmark"
+            "big-parallel"
+            "kvm"
+          ];
+        }
+      ];
 
       # Additional settings
       settings = {
