@@ -9,6 +9,7 @@
     sops.secrets.builder-key = {
       format = "binary";
       owner = "sakhib";
+      group = "everyone";
       sopsFile = ../../../secrets/builder.hell;
     };
 
