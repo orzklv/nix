@@ -32,7 +32,7 @@
           sshUser = "builder";
           sshKey = config.sops.secrets.builder-key.path;
           system = "x86_64-linux";
-          protocol = "ssh-ng";
+          protocol = "ssh";
           maxJobs = 3;
           speedFactor = 2;
           supportedFeatures = [
