@@ -8,6 +8,7 @@
   config = rec {
     sops.secrets.builder-key = {
       format = "binary";
+      owner = "sakhib";
       sopsFile = ../../../secrets/builder.hell;
     };
 
