@@ -27,10 +27,10 @@
   # for your flake, etc.
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:xinux-org/nixpkgs/nixos-25.11";
 
     # Nixpkgs Unstable for latest packages
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:xinux-org/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager = {

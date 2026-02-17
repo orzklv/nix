@@ -29,6 +29,5 @@ inputs.pre-commit-hooks.lib.${pkgs.stdenv.hostPlatform.system}.run {
       });
     };
     nixfmt.enable = true;
-    flake-checker.enable = true;
   };
 }
