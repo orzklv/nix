@@ -17,15 +17,6 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v6
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        if: ${{ matrix.os != 'native' }}
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
-
       - name: Check up flake configuration
         run: nix flake check --show-trace --accept-flake-config
 
@@ -48,15 +39,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v6
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        if: ${{ matrix.pattern.system != 'native' }}
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
 
       - name: Build NixOS configuration
         if: ${{ matrix.pattern.system != 'macos' }}
