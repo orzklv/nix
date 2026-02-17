@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "Kolyma's Labor"
           git config --global user.email "support@kolyma.uz"
           git remote rm origin
-          git remote add origin "https://kolyma-labor:$TOKEN@git.floss.uz/kolyma/infra.git"
-          git push --set-upstream origin main
+          git remote add origin "https://kolyma-labor:$TOKEN@git.floss.uz/orzklv/nix.git"
+          git push --set-upstream origin master
         env:
           TOKEN: ${{ secrets.PAT }}
