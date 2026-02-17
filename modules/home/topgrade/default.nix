@@ -6,7 +6,7 @@
 let
   darwin = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     commands."Darwin Nix" =
-      "sudo darwin-rebuild switch --flake github:orzklv/nix --option tarball-ttl 0";
+      "sudo darwin-rebuild switch --flake https://git.floss.uz/orzklv/nix/archive/master.tar.gz --option tarball-ttl 0";
   };
 
   general = {
@@ -32,7 +32,7 @@ let
     };
 
     linux = {
-      nix_arguments = "--flake github:orzklv/nix --option tarball-ttl 0";
+      nix_arguments = "--flake https://git.floss.uz/orzklv/nix/archive/master.tar.gz --option tarball-ttl 0";
     };
 
     brew = {
