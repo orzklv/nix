@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/assets/header.png" alt="Orzklv's {Nix}">
+    <img src=".forgejo/assets/header.png" alt="Orzklv's {Nix}">
 </p>
 
 <p align="center">
@@ -106,5 +106,5 @@ darwin-rebuild switch --flake github:orzklv/nix#Sokhibjons-Mac-Studio
 This project is licensed under the MIT License - see the [LICENSE](license) file for details.
 
 <p align="center">
-    <img src=".github/assets/footer.png" alt="Orzklv's {Nix}">
+    <img src=".forgejo/assets/footer.png" alt="Orzklv's {Nix}">
 </p>
