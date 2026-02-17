@@ -1,4 +1,4 @@
-name: Update CI
+name: Update Request CI
 
 on:
   workflow_dispatch:
@@ -7,21 +7,24 @@ on:
 
 jobs:
   update-request:
-    runs-on: ubuntu-latest
+    runs-on: native
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
+        uses: actions/checkout@v6
 
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
-        with:
-          token: ${{ secrets.PAT }}
+        run: |
+          git config --global user.name "Kolyma's Labor"
+          git config --global user.email "support@kolyma.uz"
+          nix flake update --commit-lock-file --accept-flake-config
+
+      - name: Push changes
+        run: |
+          git config --global user.name "Kolyma's Labor"
+          git config --global user.email "support@kolyma.uz"
+          git remote rm origin
+          git remote add origin "https://kolyma-labor:$TOKEN@git.floss.uz/kolyma/infra.git"
+          git push --set-upstream origin main
+        env:
+          TOKEN: ${{ secrets.PAT }}

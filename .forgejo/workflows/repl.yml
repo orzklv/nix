@@ -4,19 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  x86_64-linux:
-    runs-on: ubuntu-latest
+  native:
+    runs-on: native
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
+        uses: actions/checkout@v6
 
       - name: Evaluate Nix expression
         run: nix eval --impure --show-trace --json -f ./repl.nix packages
@@ -24,42 +16,26 @@ jobs:
           NIXPKGS_ALLOW_UNFREE: "1"
           NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
 
-  aarch64-linux:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
+  # aarch64-linux:
+  #   runs-on: ubuntu-24.04-arm
+  #   steps:
+  #     - name: Check out the repository
+  #       uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
+  #     - name: Build NixOS configuration
+  #       run: nix eval --impure --show-trace --json -f ./repl.nix packages
+  #       env:
+  #         NIXPKGS_ALLOW_UNFREE: "1"
+  #         NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
 
-      - name: Build NixOS configuration
-        run: nix eval --impure --show-trace --json -f ./repl.nix packages
-        env:
-          NIXPKGS_ALLOW_UNFREE: "1"
-          NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
+  # aarch64-darwin:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
 
-  aarch64-darwin:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-        with:
-          extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
-            extra-substituters = https://cache.xinux.uz/
-            extra-trusted-public-keys = cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=
-
-      - name: Evaluate Nix expression
-        run: nix eval --impure --show-trace --json -f ./repl.nix packages
-        env:
-          NIXPKGS_ALLOW_UNFREE: "1"
-          NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
+  #     - name: Evaluate Nix expression
+  #       run: nix eval --impure --show-trace --json -f ./repl.nix packages
+  #       env:
+  #         NIXPKGS_ALLOW_UNFREE: "1"
+  #         NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: "1"
