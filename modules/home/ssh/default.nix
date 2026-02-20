@@ -54,9 +54,14 @@ in
         domain = "kolyma.uz";
       })
       // (repetition {
-        amount = 1;
+        amount = 2;
         prefix = "uchar-";
         domain = "uchar.uz";
+      })
+      // (repetition {
+        amount = 1;
+        prefix = "xinux-";
+        domain = "xinux.uz";
       })
       // (repetition {
         amount = 3;
