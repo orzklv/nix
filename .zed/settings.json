@@ -1,0 +1,22 @@
+{
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "nixpkgs": {
+          "expr": "(import ./.nixd-expr.nix).nixpkgs",
+        },
+        "options": {
+          "nixos": {
+            "expr": "(import ./.nixd-expr.nix).options.nixos or null",
+          },
+          "home-manager": {
+            "expr": "(import ./.nixd-expr.nix).options.home-manager or null",
+          },
+          "nix-darwin": {
+            "expr": "(import ./.nixd-expr.nix).options.nix-darwin or null",
+          },
+        },
+      },
+    },
+  },
+}
